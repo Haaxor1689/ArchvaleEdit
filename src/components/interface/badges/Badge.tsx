@@ -66,7 +66,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 			>
 				<Box
 					component="img"
-					src={`/assets/badges/${index + 1}.png`}
+					src={`assets/badges/${index + 1}.png`}
 					alt={`Badge ${index + 1}`}
 				/>
 			</IconButton>
