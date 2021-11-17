@@ -16,7 +16,7 @@ import { useField } from 'react-final-form';
 import * as Yup from 'yup';
 import { isEqual, mapValues } from 'lodash-es';
 
-import makeValidate from 'utils';
+import { makeValidate } from 'utils';
 
 const SelectLoadingIcon = () => (
 	<Box sx={{ display: 'flex', alignItems: 'center', pr: 1 }}>

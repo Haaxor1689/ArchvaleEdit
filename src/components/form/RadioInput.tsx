@@ -10,7 +10,7 @@ import {
 import { useField } from 'react-final-form';
 import * as Yup from 'yup';
 
-import makeValidate from 'utils';
+import { makeValidate } from 'utils';
 
 type OptionProps<T extends unknown> = {
 	id: string;
