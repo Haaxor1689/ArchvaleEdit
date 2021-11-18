@@ -2,7 +2,6 @@
 	"name": "archvale-edit",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://haaxor1689.github.io/ArchvaleEdit",
 	"dependencies": {
 		"@emotion/react": "^11.4.1",
 		"@emotion/styled": "^11.3.0",
@@ -21,12 +20,9 @@
 		"@types/react": "^17.0.0",
 		"@types/react-dom": "^17.0.0",
 		"eslint-config-haaxor1689s-config": "^1.3.0",
-		"gh-pages": "^3.2.3",
 		"typescript": "^4.1.2"
 	},
 	"scripts": {
-		"predeploy": "yarn build",
-		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
