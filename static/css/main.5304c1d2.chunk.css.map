@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/assets/font/stylesheet.css"],"names":[],"mappings":"AAAA,WACC,iBAAkB,CAClB,6EAA4C,CAC5C,eAAmB,CACnB,iBAAkB,CAClB,iBACD","file":"main.5304c1d2.chunk.css","sourcesContent":["@font-face {\n\tfont-family: Nokia;\n\tsrc: url('nokiafc22.ttf') format('truetype');\n\tfont-weight: normal;\n\tfont-style: normal;\n\tfont-display: swap;\n}\n"]}
