@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.d7153bb9.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.d7153bb9.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.12f6ad62.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.12f6ad62.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
-    "static/js/2.34642390.chunk.js": "/ArchvaleEdit/static/js/2.34642390.chunk.js",
-    "static/js/2.34642390.chunk.js.map": "/ArchvaleEdit/static/js/2.34642390.chunk.js.map",
+    "static/js/2.942fc0b8.chunk.js": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js",
+    "static/js/2.942fc0b8.chunk.js.map": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js.map",
     "index.html": "/ArchvaleEdit/index.html",
     "static/css/main.5304c1d2.chunk.css.map": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css.map",
-    "static/js/2.34642390.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.34642390.chunk.js.LICENSE.txt",
+    "static/js/2.942fc0b8.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js.LICENSE.txt",
     "static/media/background.9a6f1d9f.png": "/ArchvaleEdit/static/media/background.9a6f1d9f.png",
     "static/media/badges.14a17255.yaml": "/ArchvaleEdit/static/media/badges.14a17255.yaml",
     "static/media/badgesTab.06150098.png": "/ArchvaleEdit/static/media/badgesTab.06150098.png",
@@ -50,8 +50,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5dbb1da3.js",
-    "static/js/2.34642390.chunk.js",
+    "static/js/2.942fc0b8.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.d7153bb9.chunk.js"
+    "static/js/main.12f6ad62.chunk.js"
   ]
 }
