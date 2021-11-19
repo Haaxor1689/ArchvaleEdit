@@ -10,12 +10,14 @@ declare module '@mui/material/styles' {
 		badge?: string;
 		highlight?: string;
 		uncommon?: string;
+		legendary?: string;
 	}
 	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface PaletteOptions {
 		badge?: string;
 		highlight?: string;
 		uncommon?: string;
+		legendary?: string;
 	}
 }
 
@@ -27,13 +29,14 @@ const theme = createTheme({
 		badge: '#2ce8f5',
 		highlight: '#fee761',
 		uncommon: '#55c157',
+		legendary: '#ff3d3d',
 		mode: 'dark',
 		primary: { main: '#ffc825' },
 		background: { default: '#262b44' }
 	},
 	typography: {
 		fontSize: 20,
-		fontFamily: '"Press Start 2P", Arial',
+		fontFamily: 'Nokia, Arial',
 		h1: {
 			fontSize: '4rem'
 		},
@@ -51,6 +54,9 @@ const theme = createTheme({
 	components: {
 		MuiCssBaseline: {
 			styleOverrides: {
+				'*': {
+					imageRendering: 'pixelated'
+				},
 				'body': {
 					position: 'relative'
 				},
@@ -67,7 +73,6 @@ const theme = createTheme({
 					backgroundPosition: 'bottom',
 					backgroundSize: 'cover',
 					backgroundRepeat: 'no-repeat',
-					imageRendering: 'pixelated',
 					filter: 'saturate(1) blur(10px)'
 				}
 			}

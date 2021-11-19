@@ -7,6 +7,7 @@ import panel from 'assets/badges/panel.png';
 import minus from 'assets/minus.png';
 import plus from 'assets/plus.png';
 import { parseHexArray } from 'utils';
+import Sprite from 'components/Sprite';
 
 import BadgeSlots, { MaxBadgeSlots } from './BadgeSlots';
 import Badge from './Badge';
@@ -88,15 +89,15 @@ const BadgeTab = () => {
 				alignItems: 'center'
 			}}
 		>
-			<Box
+			<Sprite
+				img={panel}
 				sx={{
 					display: 'grid',
 					gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-					background: `url(${panel})`,
 					gap: 1,
-					px: 5,
-					pt: 4,
-					pb: 6
+					px: 6,
+					pt: 5,
+					pb: 7
 				}}
 			>
 				{[...badges].map((unlocked, index) => (
@@ -111,13 +112,13 @@ const BadgeTab = () => {
 						setHover={setBadgeHover}
 					/>
 				))}
-			</Box>
+			</Sprite>
 			<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 				<IconButton
 					onClick={() => changeSlotsAmount(slots - 1)}
 					sx={{ width: 60, height: 60 }}
 				>
-					<img src={minus} alt="Minus" />
+					<Sprite img={minus} width="100%" height="100%" />
 				</IconButton>
 				<BadgeSlots
 					unlocked={Number(slots)}
@@ -128,7 +129,7 @@ const BadgeTab = () => {
 					onClick={() => changeSlotsAmount(slots + 1)}
 					sx={{ width: 60, height: 60 }}
 				>
-					<img src={plus} alt="Plus" />
+					<Sprite img={plus} width="100%" height="100%" />
 				</IconButton>
 			</Box>
 			<Typography variant="caption" mt={2}>

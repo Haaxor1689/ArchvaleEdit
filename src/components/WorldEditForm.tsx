@@ -4,20 +4,33 @@ import { Box } from '@mui/system';
 import { FormSpy } from 'react-final-form';
 
 import badgesTab from 'assets/badgesTab.png';
+import inventoryTab from 'assets/inventoryTab.png';
+import storageTab from 'assets/storageTab.png';
+import characterTab from 'assets/characterTab.png';
 import { downloadBlob } from 'utils';
 import { World } from 'utils/types';
-import inventoryTab from 'assets/inventoryTab.png';
 
 import Form from './form/Form';
 import BadgeTab from './interface/badges/BadgeTab';
 import InventoryTab from './interface/inventory/InventoryTab';
+import CharacterTab from './interface/character/CharacterTab';
 import Tab from './interface/Tab';
 
 const tabs = [
 	{
+		name: 'character',
+		icon: characterTab,
+		component: <CharacterTab />
+	},
+	{
 		name: 'inventory',
 		icon: inventoryTab,
-		component: <InventoryTab />
+		component: <InventoryTab variant="inventory" />
+	},
+	{
+		name: 'storage',
+		icon: storageTab,
+		component: <InventoryTab variant="storage" />
 	},
 	{
 		name: 'badges',
@@ -35,6 +48,7 @@ type Props = {
 
 const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 	const [activeTab, setActiveTab] = useState<TabName>('inventory');
+	const tab = tabs.find(t => t.name === activeTab);
 	return (
 		<Form
 			initialValues={world}
@@ -82,7 +96,7 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 					/>
 				))}
 			</Box>
-			{tabs.find(t => t.name === activeTab)?.component}
+			{tab?.component}
 
 			<Typography variant="h2">Raw world data:</Typography>
 			<Paper

@@ -1,4 +1,10 @@
+import { strictEqual } from 'assert';
+
 import * as Yup from 'yup';
+import { number } from 'yup/lib/locale';
+
+import { Item, Items } from './data';
+import { InventoryItem } from './types';
 
 export const makeBase64File = (file: File) =>
 	new Promise<string>((resolve, reject) => {
@@ -30,6 +36,11 @@ export const makeValidate =
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			.catch((err: any) => err.errors);
 
+export const parseToHex = (val: number, digits: number) =>
+	([...Array(digits).keys()].map(() => '0').join('') + val.toString(16))
+		.slice(-digits)
+		.toUpperCase();
+
 export const parseHexValue = (val: string) => parseInt(`0x${val}`);
 
 export const parseHexArray = <T extends unknown>(
@@ -49,3 +60,30 @@ export const StrokeTextShadow = `
 		 1px  1px 0 #000,
 		 1px  3px 0 #000,
 		 3px  2px 0 #000`;
+
+const isSame = (item: Item, other?: Pick<Item, 'id'>) =>
+	!other || item.id === other.id;
+
+export const isStackable = (item: Item, other?: Pick<Item, 'id'>) =>
+	item.type === 'Material' && isSame(item, other);
+
+export const stackItem = (
+	item: InventoryItem,
+	delta: number,
+	other?: Pick<Item, 'id'>
+) =>
+	isStackable(Items[item.id], other)
+		? { ...item, count: Math.max(1, Math.min(255, item.count + delta)) }
+		: item;
+
+export const isUpgradeable = (item: Item, other?: Pick<Item, 'id'>) =>
+	!!item.type.match(/.* Weapon/) && isSame(item, other);
+
+export const upgradeItem = (
+	item: InventoryItem,
+	delta: number,
+	other?: Pick<Item, 'id'>
+) =>
+	isUpgradeable(Items[item.id], other)
+		? { ...item, quality: Math.max(0, Math.min(5, item.quality + delta)) }
+		: item;

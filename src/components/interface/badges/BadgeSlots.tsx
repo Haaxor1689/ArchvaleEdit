@@ -8,6 +8,7 @@ import slotEmpty from 'assets/badges/slotEmpty.png';
 import slotOverflow from 'assets/badges/slotOverflow.png';
 import slotLocked from 'assets/badges/slotLocked.png';
 import slotsPanel from 'assets/badges/slotsPanel.png';
+import Sprite from 'components/Sprite';
 
 export const MaxBadgeSlots = 9;
 
@@ -43,11 +44,12 @@ const BadgeSlots = ({ unlocked, used, hover }: Props) => {
 	);
 
 	return (
-		<Box
+		<Sprite
+			img={slotsPanel}
 			sx={{
 				display: 'flex',
 				alignItems: 'center',
-				background: `url(${slotsPanel})`,
+				backgroundPositionX: 'left',
 				gap: 1,
 				p: 3,
 				pb: 7,
@@ -55,62 +57,36 @@ const BadgeSlots = ({ unlocked, used, hover }: Props) => {
 			}}
 		>
 			{[...Array(filled).keys()].map(k => (
-				<Box
-					key={k}
-					component="img"
-					src={slotFilled}
-					sx={{ width: '54px', height: '54px' }}
-				/>
+				<Sprite key={k} img={slotFilled} width={54} height={54} />
 			))}
 			{[...Array(negativeHover).keys()].map(k => (
-				<Box
+				<Sprite
 					key={k}
-					component="img"
-					src={slotFilled}
-					sx={{
-						animation: `${fade} 2s ease 0s infinite normal forwards`,
-						width: '54px',
-						height: '54px'
-					}}
+					img={slotFilled}
+					width={54}
+					height={54}
+					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
 				/>
 			))}
 			{[...Array(positiveHover).keys()].map(k => (
-				<Box
+				<Sprite
 					key={k}
-					component="img"
-					src={overflow ? slotUnavailable : slotAvailable}
-					sx={{
-						animation: `${fade} 2s ease 0s infinite normal forwards`,
-						width: '54px',
-						height: '54px'
-					}}
+					img={overflow ? slotUnavailable : slotAvailable}
+					width={54}
+					height={54}
+					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
 				/>
 			))}
 			{[...Array(empty).keys()].map(k => (
-				<Box
-					key={k}
-					component="img"
-					src={slotEmpty}
-					sx={{ width: '54px', height: '54px' }}
-				/>
+				<Sprite key={k} img={slotEmpty} width={54} height={54} />
 			))}
 			{[...Array(overflow).keys()].map(k => (
-				<Box
-					key={k}
-					component="img"
-					src={slotOverflow}
-					sx={{ width: '54px', height: '54px' }}
-				/>
+				<Sprite key={k} img={slotOverflow} width={54} height={54} />
 			))}
 			{[...Array(locked).keys()].map(k => (
-				<Box
-					key={k}
-					component="img"
-					src={slotLocked}
-					sx={{ width: '54px', height: '54px' }}
-				/>
+				<Sprite key={k} img={slotLocked} width={54} height={54} />
 			))}
-		</Box>
+		</Sprite>
 	);
 };
 

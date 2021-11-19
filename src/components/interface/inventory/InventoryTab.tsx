@@ -1,59 +1,186 @@
+import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
-import panel from 'assets/inventory/panel.png';
-import { parseHexArray, parseHexValue } from 'utils';
+import inventoryPanel from 'assets/inventory/inventoryPanel.png';
+import storagePanel from 'assets/inventory/storagePanel.png';
+import {
+	isStackable,
+	isUpgradeable,
+	parseHexArray,
+	parseHexValue,
+	parseToHex,
+	stackItem,
+	upgradeItem
+} from 'utils';
+import { InventoryItem } from 'utils/types';
+import { Items } from 'utils/data';
+import Sprite from 'components/Sprite';
 
+import ItemCheatMenu from './ItemCheatMenu';
+import GrabbedItem from './GrabbedItem';
 import ItemSlot from './ItemSlot';
-import EmptySlot from './EmptySlot';
+import Equipment from './Equipment';
 
-const InventoryTab = () => {
+type Props = {
+	variant: 'inventory' | 'storage';
+};
+
+const InventoryTab = ({ variant }: Props) => {
 	const {
-		input: { value: inventory }
-	} = useField<string>('inventory', { subscription: { value: true } });
+		input: { value: inventory, onChange: onInventoryChange }
+	} = useField<string>(variant, { subscription: { value: true } });
 
-	const inventoryItems = parseHexArray(inventory, 7, v =>
-		v === 'FFFF000'
-			? undefined
-			: {
-					id: parseHexValue(v.slice(0, 4)),
-					count: parseHexValue(v.slice(4, 6)),
-					quality: parseHexValue(v[6])
-			  }
+	const [heldItem, setHeldItem] = useState<InventoryItem>();
+	const [trashedItem, setTrashedItem] = useState<InventoryItem>();
+
+	const inventoryItems = parseHexArray<InventoryItem | undefined>(
+		inventory,
+		7,
+		v =>
+			v === 'FFFF000'
+				? undefined
+				: {
+						id: parseHexValue(v.slice(0, 4)),
+						count: parseHexValue(v.slice(4, 6)),
+						quality: parseHexValue(v[6])
+				  }
 	);
 
+	const setItem = (index: number, item: InventoryItem | undefined) => {
+		onInventoryChange({
+			target: {
+				value:
+					inventory.substring(0, index * 7) +
+					(!item
+						? 'FFFF000'
+						: parseToHex(item.id, 4) +
+						  parseToHex(item.count, 2) +
+						  parseToHex(item.quality, 1)) +
+					inventory.substring((index + 1) * 7)
+			}
+		});
+	};
+
 	return (
-		<Box
-			sx={{
-				display: 'flex',
-				flexDirection: 'column',
-				alignSelf: 'stretch',
-				alignItems: 'center'
-			}}
-		>
+		<GrabbedItem item={heldItem}>
 			<Box
 				sx={{
-					'display': 'grid',
-					'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-					'background': `url(${panel})`,
-					'backgroundRepeat': 'no-repeat',
-					'gap': 1,
-					'px': 5,
-					'pt': 5,
-					'pb': 27,
-					'> *:first-child': {
-						mb: 4
-					}
+					display: 'flex',
+					flexDirection: 'column',
+					alignSelf: 'stretch',
+					alignItems: 'center',
+					gap: 2
 				}}
 			>
-				{inventoryItems.map((item, index) =>
-					item ? <ItemSlot index={index} {...item} /> : <EmptySlot />
-				)}
+				<Box sx={{ display: 'flex', alignItems: 'center' }}>
+					<Sprite
+						img={variant === 'storage' ? storagePanel : inventoryPanel}
+						sx={{
+							'position': 'relative',
+							'display': 'grid',
+							'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+							'gap': 1,
+							'px': 5,
+							'pt': 6,
+							'pb': variant === 'storage' ? 7 : 27,
+							'> *:first-child': {
+								mb: variant === 'inventory' ? 4 : undefined
+							}
+						}}
+					>
+						{inventoryItems.map((item, index) => (
+							<ItemSlot
+								key={index}
+								item={item}
+								hideTooltip={!!heldItem}
+								onClick={e => {
+									if (item && e.shiftKey && !heldItem) {
+										const delta = e.button === 2 ? -1 : 1;
+										setItem(index, stackItem(upgradeItem(item, delta), delta));
+										return;
+									}
+
+									if (
+										item &&
+										heldItem &&
+										isStackable(Items[item.id], heldItem)
+									) {
+										const sum = item.count + heldItem.count;
+										if (sum <= 255) {
+											setHeldItem(undefined);
+											setItem(index, { ...item, count: sum });
+										} else {
+											setHeldItem({ ...item, count: sum - 255 });
+											setItem(index, { ...item, count: 255 });
+										}
+										return;
+									}
+
+									setHeldItem(item);
+									setItem(index, heldItem);
+								}}
+							/>
+						))}
+						<Box sx={{ position: 'absolute', right: 30, bottom: 40 }}>
+							<ItemSlot
+								item={trashedItem}
+								variant="trash"
+								hideTooltip={!!heldItem}
+								onClick={() => {
+									setHeldItem(!heldItem ? trashedItem : undefined);
+									setTrashedItem(heldItem);
+								}}
+							/>
+						</Box>
+					</Sprite>
+					{variant === 'inventory' && (
+						<Equipment
+							onSlotClick={(index, equipped) => {
+								if (!heldItem) {
+									setHeldItem(equipped);
+									return undefined;
+								}
+
+								const itemMeta = Items[heldItem.id];
+								const canEquip =
+									index === 0
+										? itemMeta.type === 'Head Armour'
+										: index === 1
+										? itemMeta.type === 'Body Armour'
+										: itemMeta.type === 'Ring';
+
+								if (!canEquip) {
+									return equipped;
+								}
+
+								setHeldItem(equipped);
+								return heldItem;
+							}}
+						/>
+					)}
+				</Box>
+				<Typography variant="caption" textAlign="center">
+					Pick new items from item database below, pick full stack (255) or
+					highest quality (+5) with shift. Use left and right click together
+					with shift to modify count/quality of items in the {variant}.
+				</Typography>
+				<ItemCheatMenu
+					hideTooltip={!!heldItem}
+					onClick={(item, e) => {
+						setHeldItem(
+							heldItem
+								? undefined
+								: {
+										id: item.id,
+										count: e.shiftKey && isStackable(item) ? 255 : 1,
+										quality: e.shiftKey && isUpgradeable(item) ? 5 : 0
+								  }
+						);
+					}}
+				/>
 			</Box>
-			<Typography variant="caption" mt={2}>
-				TODO: Inventory manipulation, item database.
-			</Typography>
-		</Box>
+		</GrabbedItem>
 	);
 };
 

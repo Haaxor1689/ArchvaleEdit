@@ -1,63 +1,42 @@
+import yaml from 'js-yaml';
+
+import badges from './data/badges.yaml';
+import items from './data/items.yaml';
+
+const loadYamlData = <T extends { id: number }>(data: string) => {
+	const arr: T[] = [];
+	fetch(data)
+		.then(r => r.text())
+		.then(t => {
+			(yaml.load(t) as (T & { i: number })[]).forEach(item => {
+				arr[item.id] = item;
+			});
+		});
+	return arr;
+};
+
 type Badge = {
+	id: number;
 	name: string;
 	description: string;
 	slots: number;
 };
 
-export const Badges: (Badge | undefined)[] = [
-	{ name: 'Ruby Brooch', description: 'Increased melee damage', slots: 2 },
-	{ name: 'Emerald Brooch', description: 'Increased ranged damage', slots: 2 },
-	{ name: 'Sapphire Brooch', description: 'Increased magic damage', slots: 2 },
-	undefined,
-	undefined,
-	{
-		name: 'Blue Ribbon',
-		description: 'Gain an additional protection heart',
-		slots: 1
-	},
-	undefined,
-	{
-		name: 'Heart Clover',
-		description:
-			'Increased chance for enemies to drop hearts when low on health',
-		slots: 1
-	},
-	{
-		name: 'Star Magnet',
-		description: 'Massively increased pickup range for magic shards',
-		slots: 1
-	},
-	undefined,
-	undefined,
-	undefined,
-	{
-		name: 'Arrow Bender ',
-		description: 'Ranged projectiles bend towards enemies',
-		slots: 2
-	},
-	undefined,
-	undefined,
-	undefined,
-	{
-		name: "Paladin's Light",
-		description: 'Melee weapons deal fire damage while at full HP',
-		slots: 2
-	},
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	undefined,
-	{
-		name: 'Greedy Coin',
-		description: 'Slain enemies have a chance to drop extra gold',
-		slots: 1
-	}
-];
+export const Badges = loadYamlData<Badge>(badges);
+
+export type Item = {
+	id: number;
+	name: string;
+	rarity?: 'uncommon' | 'legendary';
+	effect?: string;
+	stats?: Record<string, string | number>;
+	inflicts?: Record<string, string | number>;
+} & (
+	| { type: 'Material' }
+	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon` }
+	| { type: `${'Head' | 'Body'} Armour` }
+	| { type: 'Ring' }
+	| { type: 'Treasure' }
+);
+
+export const Items = loadYamlData<Item>(items);

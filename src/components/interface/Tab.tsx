@@ -1,6 +1,7 @@
-import { IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 
 import tab from 'assets/tab.png';
+import Sprite from 'components/Sprite';
 
 type Props = {
 	name: string;
@@ -10,13 +11,14 @@ type Props = {
 };
 
 const Tab = ({ name, icon, active, onClick }: Props) => (
-	<IconButton
+	<Sprite
+		component={IconButton}
 		key={name}
+		img={tab}
 		onClick={onClick}
 		sx={{
 			'display': 'flex',
 			'alignItems': 'end',
-			'background': `url(${tab})`,
 			'px': 5.5,
 			'pt': 4,
 			'pb': 0,
@@ -29,8 +31,8 @@ const Tab = ({ name, icon, active, onClick }: Props) => (
 			}
 		}}
 	>
-		<img src={icon} alt={name} />
-	</IconButton>
+		<Sprite img={icon} width={78} height={78} />
+	</Sprite>
 );
 
 export default Tab;

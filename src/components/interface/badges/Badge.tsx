@@ -5,6 +5,7 @@ import { Badges } from 'utils/data';
 import hover from 'assets/badges/hover.png';
 import tile from 'assets/badges/tile.png';
 import slot from 'assets/badges/slot.png';
+import Sprite from 'components/Sprite';
 
 import ItemTooltip from '../ItemTooltip';
 
@@ -34,7 +35,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					<Typography color="highlight">{data?.description}</Typography>
 					<Box sx={{ display: 'flex', gap: 1 }}>
 						{[...Array(data?.slots ?? 0).keys()].map(i => (
-							<Box key={i} component="img" src={slot} />
+							<Sprite key={i} img={slot} width={54} height={54} />
 						))}
 					</Box>
 				</>
@@ -51,10 +52,11 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				sx={{
 					'height': 116,
 					'width': 108,
-					'background': `url(${tile})`,
 					'borderRadius': 0,
+					'background': `url(${tile})`,
+					'backgroundSize': 'contain',
 					':hover': {
-						'background': `url(${hover})`,
+						'backgroundImage': `url(${hover})`,
 						'& > img': {
 							filter: `${isUnlocked(unlocked)}${isActive(active)}`
 						}
@@ -66,7 +68,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 			>
 				<Box
 					component="img"
-					src={`assets/badges/${index + 1}.png`}
+					src={`${process.env.PUBLIC_URL}/assets/badges/${index + 1}.png`}
 					alt={`Badge ${index + 1}`}
 				/>
 			</IconButton>
