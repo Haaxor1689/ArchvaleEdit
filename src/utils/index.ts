@@ -1,7 +1,4 @@
-import { strictEqual } from 'assert';
-
 import * as Yup from 'yup';
-import { number } from 'yup/lib/locale';
 
 import { Item, Items } from './data';
 import { InventoryItem } from './types';

@@ -1,5 +1,4 @@
 import { keyframes } from '@emotion/react';
-import { Box } from '@mui/material';
 
 import slotAvailable from 'assets/badges/slotAvailable.png';
 import slotUnavailable from 'assets/badges/slotUnavailable.png';

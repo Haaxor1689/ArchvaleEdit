@@ -1,5 +1,4 @@
 import { useField } from 'react-final-form';
-import { Box } from '@mui/material';
 
 import equipPanel from 'assets/inventory/equipPanel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';

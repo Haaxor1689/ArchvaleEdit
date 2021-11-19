@@ -15,7 +15,6 @@ import hoverRing from 'assets/inventory/hoverRing.png';
 import { isStackable, isUpgradeable, StrokeTextShadow } from 'utils';
 import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
-import Sprite from 'components/Sprite';
 
 import ItemTooltip from '../ItemTooltip';
 

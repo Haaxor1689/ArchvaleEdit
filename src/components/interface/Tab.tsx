@@ -1,4 +1,4 @@
-import { Box, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 import tab from 'assets/tab.png';
 import Sprite from 'components/Sprite';
