@@ -99,7 +99,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					}
 				}}
 			>
-				{item && isStackable(itemMeta) && item.count > 0 && (
+				{item && itemMeta && isStackable(itemMeta) && item.count > 0 && (
 					<Typography
 						variant="body2"
 						sx={{
@@ -113,7 +113,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					</Typography>
 				)}
 
-				{item && isUpgradeable(itemMeta) && item.quality > 0 && (
+				{item && itemMeta && isUpgradeable(itemMeta) && item.quality > 0 && (
 					<Typography
 						variant="body2"
 						sx={{

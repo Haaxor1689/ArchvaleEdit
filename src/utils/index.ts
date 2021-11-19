@@ -84,3 +84,12 @@ export const upgradeItem = (
 	isUpgradeable(Items[item.id], other)
 		? { ...item, quality: Math.max(0, Math.min(5, item.quality + delta)) }
 		: item;
+
+export const secondsToPlaytime = (value: number) => {
+	const seconds = value % 60;
+	const minutes = ((value - seconds) / 60) % 60;
+	const hours = (((value - seconds) / 60 - minutes) / 60) % 60;
+	return `${hours ? `${hours}h ` : ''}${
+		minutes ? `${minutes}m ` : ''
+	}${seconds.toFixed(1)}s`;
+};

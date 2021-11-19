@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { Button, Paper, Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import { FormSpy } from 'react-final-form';
+import { Button, Typography, Box } from '@mui/material';
 
 import badgesTab from 'assets/badgesTab.png';
 import inventoryTab from 'assets/inventoryTab.png';
@@ -53,9 +51,8 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 		<Form
 			initialValues={world}
 			onSubmit={async values => {
-				const base = `data:application/octet-stream;base64,${btoa(
-					btoa(JSON.stringify(values))
-				)}`;
+				const json = JSON.stringify(values);
+				const base = `data:application/octet-stream;base64,${btoa(btoa(json))}`;
 				const blob = await fetch(base).then(r => r.blob());
 				downloadBlob(blob, name);
 			}}
@@ -97,24 +94,6 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 				))}
 			</Box>
 			{tab?.component}
-
-			<Typography variant="h2">Raw world data:</Typography>
-			<Paper
-				sx={{
-					whiteSpace: 'pre-wrap',
-					wordBreak: 'break-word',
-					maxHeight: 300,
-					overflowY: 'auto',
-					fontFamily: 'monospace',
-					fontSize: `1rem`,
-					textShadow: 'none',
-					p: 3
-				}}
-			>
-				<FormSpy subscription={{ values: true }}>
-					{({ values }) => JSON.stringify(values, null, 2)}
-				</FormSpy>
-			</Paper>
 		</Form>
 	);
 };

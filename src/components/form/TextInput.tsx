@@ -5,12 +5,12 @@ import * as Yup from 'yup';
 
 import { makeValidate } from 'utils';
 
-type Props = {
+export type TextInputProps = {
 	validate?: Yup.BaseSchema;
 } & Required<Pick<TextFieldProps, 'id'>> &
 	Omit<TextFieldProps, 'error' | 'size'>;
 
-const TextInput: FC<Props> = ({
+const TextInput: FC<TextInputProps> = ({
 	id,
 	helperText,
 	disabled,
@@ -20,11 +20,12 @@ const TextInput: FC<Props> = ({
 }) => {
 	const isDate = props.type === 'date' || props.type === 'datetime-local';
 
-	const { input, meta } = useField<string>(id, {
+	const { input, meta } = useField(id, {
 		validate: makeValidate(validate),
 		subscription: { value: true, error: true, touched: true },
 		type: props.type,
-		parse: v => v
+		parse: v =>
+			props.type === 'number' && v !== '' && !isNaN(Number(v)) ? Number(v) : v
 	});
 
 	return (

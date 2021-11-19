@@ -1,8 +1,6 @@
 import { Tooltip, tooltipClasses, TooltipProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-type Props = Pick<TooltipProps, 'children' | 'title'>;
-
 const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
 	<Tooltip {...props} classes={{ popper: className }} />
 ))({
@@ -15,8 +13,19 @@ const CustomTooltip = styled(({ className, ...props }: TooltipProps) => (
 	}
 });
 
-const ItemTooltip = ({ title, children }: Props) => (
-	<CustomTooltip title={title} followCursor placement="bottom-start">
+const ItemTooltip = ({
+	title,
+	children,
+	followCursor = true,
+	placement = 'bottom-start',
+	...props
+}: TooltipProps) => (
+	<CustomTooltip
+		title={title}
+		followCursor={followCursor}
+		placement={placement}
+		{...props}
+	>
 		{children}
 	</CustomTooltip>
 );

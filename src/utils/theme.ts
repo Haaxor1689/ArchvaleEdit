@@ -63,17 +63,18 @@ const theme = createTheme({
 				'body:before': {
 					content: '" "',
 					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: '100%',
-					height: '100%',
+					bottom: 0,
+					right: 0,
+					minHeight: '100%',
 					zIndex: -1,
 					opacity: 0.2,
 					backgroundImage: `url(${background})`,
-					backgroundPosition: 'bottom',
-					backgroundSize: 'cover',
+					backgroundPosition: 'bottom right',
+					backgroundSize: 'contain',
 					backgroundRepeat: 'no-repeat',
-					filter: 'saturate(1) blur(10px)'
+					backgroundRepeatY: 'repeat',
+					aspectRatio: '336/284',
+					filter: 'blur(10px)'
 				}
 			}
 		}
