@@ -1,4 +1,6 @@
 import { keyframes } from '@emotion/react';
+import { MouseEventHandler } from 'react';
+import { IconButton, Typography } from '@mui/material';
 
 import slotAvailable from 'assets/badges/slotAvailable.png';
 import slotUnavailable from 'assets/badges/slotUnavailable.png';
@@ -8,6 +10,7 @@ import slotOverflow from 'assets/badges/slotOverflow.png';
 import slotLocked from 'assets/badges/slotLocked.png';
 import slotsPanel from 'assets/badges/slotsPanel.png';
 import Sprite from 'components/Sprite';
+import { StrokeTextShadow } from 'utils';
 
 export const MaxBadgeSlots = 9;
 
@@ -25,9 +28,10 @@ type Props = {
 	unlocked: number;
 	used: number;
 	hover: number;
+	onClick: MouseEventHandler;
 };
 
-const BadgeSlots = ({ unlocked, used, hover }: Props) => {
+const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 	const filled = Math.min(hover < 0 ? used + hover : used, unlocked);
 	const negativeHover = hover < 0 ? -hover : 0;
 	const positiveHover =
@@ -44,18 +48,22 @@ const BadgeSlots = ({ unlocked, used, hover }: Props) => {
 
 	return (
 		<Sprite
+			component={IconButton}
+			onClick={onClick}
+			onContextMenu={onClick}
 			img={slotsPanel}
 			sx={{
+				position: 'relative',
 				display: 'flex',
 				alignItems: 'center',
-				backgroundPositionX: 'left',
+				borderRadius: 0,
 				gap: 1,
 				p: 3,
 				pb: 7,
-				mt: -5.5
+				mt: -6.5
 			}}
 		>
-			{[...Array(filled).keys()].map(k => (
+			{[...Array(Math.min(9, filled)).keys()].map(k => (
 				<Sprite key={k} img={slotFilled} width={54} height={54} />
 			))}
 			{[...Array(negativeHover).keys()].map(k => (
@@ -76,7 +84,9 @@ const BadgeSlots = ({ unlocked, used, hover }: Props) => {
 					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
 				/>
 			))}
-			{[...Array(empty).keys()].map(k => (
+			{[
+				...Array(Math.min(Math.max(0, 9 - used - positiveHover), empty)).keys()
+			].map(k => (
 				<Sprite key={k} img={slotEmpty} width={54} height={54} />
 			))}
 			{[...Array(overflow).keys()].map(k => (
@@ -85,6 +95,17 @@ const BadgeSlots = ({ unlocked, used, hover }: Props) => {
 			{[...Array(locked).keys()].map(k => (
 				<Sprite key={k} img={slotLocked} width={54} height={54} />
 			))}
+			<Typography
+				variant="h5"
+				sx={{
+					position: 'absolute',
+					bottom: 12,
+					textShadow: StrokeTextShadow
+				}}
+			>
+				{used}/{unlocked}
+				{unlocked > 9 ? '*' : ''}
+			</Typography>
 		</Sprite>
 	);
 };

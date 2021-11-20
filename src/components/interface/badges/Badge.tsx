@@ -32,7 +32,9 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				<>
 					<Typography color="badge">{data?.name ?? '???'}</Typography>
 					<Typography color="text.secondary">Badge</Typography>
-					<Typography color="highlight">{data?.description}</Typography>
+					<Typography color="highlight">
+						{data?.description ?? '???'}
+					</Typography>
 					<Box sx={{ display: 'flex', gap: 1 }}>
 						{[...Array(data?.slots ?? 0).keys()].map(i => (
 							<Sprite key={i} img={slot} width={54} height={54} />
@@ -57,19 +59,22 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					'backgroundSize': 'contain',
 					':hover': {
 						'backgroundImage': `url(${hover})`,
-						'& > img': {
+						'& > div': {
 							filter: `${isUnlocked(unlocked)}${isActive(active)}`
 						}
 					},
-					'& > img': {
+					'& > div': {
 						filter: `${isUnlocked(unlocked, false)}${isActive(active)}`
 					}
 				}}
 			>
-				<Box
-					component="img"
-					src={`${process.env.PUBLIC_URL}/assets/badges/${index + 1}.png`}
-					alt={`Badge ${index + 1}`}
+				<Sprite
+					img={`${process.env.PUBLIC_URL}/assets/badges/s_badge_${data?.name
+						.toLowerCase()
+						.replaceAll(' ', '_')
+						.replaceAll("'", '')}_0.png`}
+					width="100%"
+					height="100%"
 				/>
 			</IconButton>
 		</ItemTooltip>

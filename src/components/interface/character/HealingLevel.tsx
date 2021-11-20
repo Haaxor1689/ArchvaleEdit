@@ -1,5 +1,6 @@
 import { useField } from 'react-final-form';
 import { useEffect } from 'react';
+import { Typography } from '@mui/material';
 
 import potionLevel from 'assets/character/potionLevel.png';
 import Sprite from 'components/Sprite';
@@ -27,6 +28,12 @@ const HealingLevel = () => {
 			icon={<Sprite img={potionLevel} width={42} height={42} />}
 			type="number"
 			hint={`Potions will heal you for ${(2 + value * 0.5).toFixed(1)} hearts.`}
+			InputProps={{
+				endAdornment:
+					value < 6 ? undefined : (
+						<Typography color="text.secondary">MAX</Typography>
+					)
+			}}
 			inputProps={{
 				max: 6,
 				min: 0,

@@ -26,10 +26,10 @@ const HealingPotions = () => {
 		<Box
 			sx={{
 				'position': 'relative',
-				'pt': 2,
 				'display': 'flex',
 				'alignItems': 'center',
 				'gap': 2,
+				'pt': 2,
 				':focus-within .MuiTypography-body2': {
 					color: 'primary.main'
 				}
@@ -42,10 +42,9 @@ const HealingPotions = () => {
 				sx={{
 					display: 'flex',
 					justifyContent: 'flex-start',
-					height: 55,
-					width: 343,
 					borderRadius: 0,
-					gap: 0.5
+					gap: 0.5,
+					p: 1
 				}}
 			>
 				{[...Array(Math.max(PotionsMax)).keys()].map(i => (
@@ -63,9 +62,9 @@ const HealingPotions = () => {
 				))}
 			</Box>
 
-			<Typography ml={2} sx={{ textShadow: StrokeTextShadow }}>
+			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > 10 ? '+' : ''}
+				{value > 10 ? '*' : ''}
 			</Typography>
 			<Typography
 				variant="body2"

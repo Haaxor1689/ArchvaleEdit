@@ -26,7 +26,8 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => (
 				pointerEvents: 'none',
 				background: `url(${itemCheatPanel})`,
 				backgroundRepeat: 'no-repeat',
-				backgroundSize: 'contain'
+				backgroundSize: 'contain',
+				zIndex: 2
 			}
 		}}
 	>

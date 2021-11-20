@@ -10,10 +10,19 @@
   name: Sapphire Brooch
   description: Increased magic damage
   slots: 2
+- id: 3
+  name: Pink Ribbon
+  slots: 2
+- id: 4
+  name: Green Ribbon
+  slots: 2
 - id: 5
   name: Blue Ribbon
   description: Gain an additional protection heart
   slots: 1
+- id: 6
+  name: Black Ribbon
+  slots: 2
 - id: 7
   name: Heart Clover
   description: Increased chance for enemies to drop hearts when low on health
@@ -22,15 +31,100 @@
   name: Star Magnet
   description: Massively increased pickup range for magic shards
   slots: 1
+- id: 9
+  name: Crystal Specs
+  description: Magic weapons deal bonus damage to enemies with full health
+  slots: 1
+- id: 10
+  name: Blue Lotus
+  slots: 1
+- id: 11
+  name: Ultra Shards
+  slots: 1
 - id: 12
   name: Arrow Bender
   description: Ranged projectiles bend towards enemies
   slots: 2
+- id: 13
+  name: Echoed Blasts
+  slots: 1
+- id: 14
+  name: Burning Quiver
+  slots: 1
+- id: 15
+  name: Sharp Shot
+  slots: 1
 - id: 16
   name: Paladin's Light
   description: Melee weapons deal fire damage while at full HP
+  slots: 2
+- id: 17
+  name: Razor Flurry
+  slots: 1
+- id: 18
+  name: Super Reach
+  slots: 1
+- id: 19
+  name: Tornado Chain
+  slots: 1
+- id: 20
+  name: Dagger Mastery
+  slots: 2
+- id: 21
+  name: Tempest Strike
+  slots: 1
+- id: 22
+  name: Explosive Retreat
+  slots: 1
+- id: 23
+  name: Disarming Dash
+  slots: 1
+- id: 24
+  name: Bottled Wrath
+  slots: 2
+- id: 25
+  name: Blood Lust
+  slots: 1
+- id: 26
+  name: Adrenaline Rush
+  slots: 1
+- id: 27
+  name: Fairy Fighter
+  slots: 1
+- id: 28
+  name: Colossal Strength
   slots: 2
 - id: 29
   name: Greedy Coin
   description: Slain enemies have a chance to drop extra gold
   slots: 1
+- id: 30
+  name: Elemental Enchanter
+  slots: 1
+- id: 31
+  name: Mega Bomber
+  slots: 1
+- id: 32
+  name: Blood Exchange
+  slots: 2
+- id: 33
+  name: Fortified Soul
+  slots: 1
+- id: 34
+  name: Soul Shatter
+  slots: 1
+- id: 35
+  name: Crucial Immunity
+  slots: 1
+- id: 36
+  name: Potion Funnel
+  slots: 2
+- id: 37
+  name: Dark Heart
+  slots: 2
+- id: 38
+  name: Golden Heart
+  slots: 2
+- id: 39
+  name: Spirit Guard
+  slots: 2

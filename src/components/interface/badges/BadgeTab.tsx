@@ -1,15 +1,13 @@
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useField } from 'react-final-form';
 
 import { Badges } from 'utils/data';
 import panel from 'assets/badges/panel.png';
-import minus from 'assets/minus.png';
-import plus from 'assets/plus.png';
-import { parseHexArray } from 'utils';
+import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import Sprite from 'components/Sprite';
 
-import BadgeSlots, { MaxBadgeSlots } from './BadgeSlots';
+import BadgeSlots from './BadgeSlots';
 import Badge from './Badge';
 
 const BadgeTab = () => {
@@ -33,7 +31,7 @@ const BadgeTab = () => {
 		subscription: { value: true }
 	});
 
-	const equippedBadges = parseHexArray(equipped, 2, v => Number(v));
+	const equippedBadges = parseHexArray(equipped, 2, parseHexValue);
 
 	const badgesCost = equippedBadges.reduce(
 		(sum, i) => sum + (Badges[i]?.slots ?? 0),
@@ -70,14 +68,14 @@ const BadgeTab = () => {
 
 		onEquippedChange({
 			target: {
-				value: newEquipped.map(e => (e < 10 ? `0${e}` : `${e}`)).join('')
+				value: newEquipped.map(e => parseToHex(e, 2)).join('')
 			}
 		});
 	};
 
 	const changeSlotsAmount = (count: number) =>
 		onSlotsChange({
-			target: { value: Math.min(MaxBadgeSlots, Math.max(badgesCost, count)) }
+			target: { value: Math.max(badgesCost, count) }
 		});
 
 	return (
@@ -113,28 +111,18 @@ const BadgeTab = () => {
 					/>
 				))}
 			</Sprite>
-			<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-				<IconButton
-					onClick={() => changeSlotsAmount(slots - 1)}
-					sx={{ width: 60, height: 60 }}
-				>
-					<Sprite img={minus} width="100%" height="100%" />
-				</IconButton>
-				<BadgeSlots
-					unlocked={Number(slots)}
-					used={badgesCost}
-					hover={hoverCost}
-				/>
-				<IconButton
-					onClick={() => changeSlotsAmount(slots + 1)}
-					sx={{ width: 60, height: 60 }}
-				>
-					<Sprite img={plus} width="100%" height="100%" />
-				</IconButton>
-			</Box>
+			<BadgeSlots
+				unlocked={Number(slots)}
+				used={badgesCost}
+				hover={hoverCost}
+				onClick={e => {
+					e.button === 2 && e.preventDefault();
+					changeSlotsAmount(slots + (e.button === 2 ? -1 : 1));
+				}}
+			/>
 			<Typography variant="caption" mt={2}>
-				Right click to learn badge. Left click to equip badge. Use plus/minus to
-				unlock badge slots.
+				Right click to learn badge. Left click to equip badge. Use left/right
+				click on badge slot panel to change maximum slots.
 			</Typography>
 		</Box>
 	);

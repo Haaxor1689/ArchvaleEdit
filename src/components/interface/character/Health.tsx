@@ -47,7 +47,9 @@ const Health = () => {
 					position: 'relative',
 					display: 'grid',
 					gridTemplateColumns: '42px 42px 42px 42px 42px 42px 42px 42px',
-					borderRadius: 0
+					borderRadius: 0,
+					p: 1,
+					pr: 2
 				}}
 			>
 				{[...Array(Math.min(3, lines) * 8).keys()].map(i => (
@@ -76,7 +78,7 @@ const Health = () => {
 			</Box>
 			<Typography sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > 240 ? '+' : ''}
+				{value > 240 ? '*' : ''}
 			</Typography>
 			<Typography
 				variant="body2"

@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import { MouseEventHandler } from 'react';
 
 import emptySlot from 'assets/inventory/emptySlot.png';
@@ -15,6 +15,7 @@ import hoverRing from 'assets/inventory/hoverRing.png';
 import { isStackable, isUpgradeable, StrokeTextShadow } from 'utils';
 import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
+import Sprite from 'components/Sprite';
 
 import ItemTooltip from '../ItemTooltip';
 
@@ -106,7 +107,8 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							position: 'absolute',
 							bottom: 22,
 							right: 16,
-							textShadow: StrokeTextShadow
+							textShadow: StrokeTextShadow,
+							zIndex: 2
 						}}
 					>
 						{item.count}
@@ -120,18 +122,21 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							position: 'absolute',
 							top: 22,
 							right: 16,
-							textShadow: StrokeTextShadow
+							textShadow: StrokeTextShadow,
+							zIndex: 2
 						}}
 					>
 						+{item.quality}
 					</Typography>
 				)}
 
-				{item && (
-					<Box
-						component="img"
-						src={`${process.env.PUBLIC_URL}/assets/inventory/${item.id}.png`}
-						alt={`${item.id}`}
+				{item && itemMeta.sprite && (
+					<Sprite
+						img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}.png`}
+						width={itemMeta.sprite[1] * 6}
+						height={itemMeta.sprite[2] * 6}
+						flexShrink={0}
+						zIndex={1}
 					/>
 				)}
 			</IconButton>

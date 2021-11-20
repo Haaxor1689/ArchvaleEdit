@@ -1,4 +1,5 @@
 import { useField } from 'react-final-form';
+import { Typography } from '@mui/material';
 
 import bankLevel from 'assets/character/bankLevel.png';
 import Sprite from 'components/Sprite';
@@ -15,6 +16,12 @@ const BankLevel = () => {
 			icon={<Sprite img={bankLevel} width={42} height={33} />}
 			type="number"
 			hint={`Bank can store ${(value + 1) * 2000} coins.`}
+			InputProps={{
+				endAdornment:
+					value < 7 ? undefined : (
+						<Typography color="text.secondary">MAX</Typography>
+					)
+			}}
 			inputProps={{
 				max: 7,
 				min: 0,

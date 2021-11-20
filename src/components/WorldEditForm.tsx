@@ -45,7 +45,7 @@ type Props = {
 };
 
 const WorldEditForm = ({ save: [name, world], reset }: Props) => {
-	const [activeTab, setActiveTab] = useState<TabName>('inventory');
+	const [activeTab, setActiveTab] = useState<TabName>('character');
 	const tab = tabs.find(t => t.name === activeTab);
 	return (
 		<Form
