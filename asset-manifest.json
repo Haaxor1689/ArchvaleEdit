@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.12f6ad62.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.12f6ad62.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.c8ef1983.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.c8ef1983.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
-    "static/js/2.942fc0b8.chunk.js": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js",
-    "static/js/2.942fc0b8.chunk.js.map": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js.map",
+    "static/js/2.05707e19.chunk.js": "/ArchvaleEdit/static/js/2.05707e19.chunk.js",
+    "static/js/2.05707e19.chunk.js.map": "/ArchvaleEdit/static/js/2.05707e19.chunk.js.map",
     "index.html": "/ArchvaleEdit/index.html",
     "static/css/main.5304c1d2.chunk.css.map": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css.map",
-    "static/js/2.942fc0b8.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.942fc0b8.chunk.js.LICENSE.txt",
+    "static/js/2.05707e19.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.05707e19.chunk.js.LICENSE.txt",
     "static/media/background.9a6f1d9f.png": "/ArchvaleEdit/static/media/background.9a6f1d9f.png",
-    "static/media/badges.14a17255.yaml": "/ArchvaleEdit/static/media/badges.14a17255.yaml",
+    "static/media/badges.696bdd42.yaml": "/ArchvaleEdit/static/media/badges.696bdd42.yaml",
     "static/media/badgesTab.06150098.png": "/ArchvaleEdit/static/media/badgesTab.06150098.png",
     "static/media/emptySlot.2e71b0d6.png": "/ArchvaleEdit/static/media/emptySlot.2e71b0d6.png",
     "static/media/equipPanel.1a1ddbf5.png": "/ArchvaleEdit/static/media/equipPanel.1a1ddbf5.png",
@@ -29,12 +29,11 @@
     "static/media/itemRing.ff8b9c86.png": "/ArchvaleEdit/static/media/itemRing.ff8b9c86.png",
     "static/media/itemSlot.bfe3c87f.png": "/ArchvaleEdit/static/media/itemSlot.bfe3c87f.png",
     "static/media/itemTrash.e4ab7dbf.png": "/ArchvaleEdit/static/media/itemTrash.e4ab7dbf.png",
-    "static/media/items.98401fef.yaml": "/ArchvaleEdit/static/media/items.98401fef.yaml",
-    "static/media/minus.4905f9f3.png": "/ArchvaleEdit/static/media/minus.4905f9f3.png",
+    "static/media/items.1627278c.yaml": "/ArchvaleEdit/static/media/items.1627278c.yaml",
+    "static/media/logo.e8e77211.png": "/ArchvaleEdit/static/media/logo.e8e77211.png",
     "static/media/stylesheet.css": "/ArchvaleEdit/static/media/nokiafc22.04dc8b64.ttf",
-    "static/media/panel.f421ed72.png": "/ArchvaleEdit/static/media/panel.f421ed72.png",
+    "static/media/panel.cf957a3b.png": "/ArchvaleEdit/static/media/panel.cf957a3b.png",
     "static/media/panel.f6ce5c66.png": "/ArchvaleEdit/static/media/panel.f6ce5c66.png",
-    "static/media/plus.6cbd42cf.png": "/ArchvaleEdit/static/media/plus.6cbd42cf.png",
     "static/media/slot.1a6295c0.png": "/ArchvaleEdit/static/media/slot.1a6295c0.png",
     "static/media/slotAvailable.308b2f4e.png": "/ArchvaleEdit/static/media/slotAvailable.308b2f4e.png",
     "static/media/slotEmpty.458a2ac4.png": "/ArchvaleEdit/static/media/slotEmpty.458a2ac4.png",
@@ -43,6 +42,7 @@
     "static/media/slotOverflow.d6b849e3.png": "/ArchvaleEdit/static/media/slotOverflow.d6b849e3.png",
     "static/media/slotUnavailable.214c8ced.png": "/ArchvaleEdit/static/media/slotUnavailable.214c8ced.png",
     "static/media/slotsPanel.33b3395c.png": "/ArchvaleEdit/static/media/slotsPanel.33b3395c.png",
+    "static/media/spd.ec74f58c.png": "/ArchvaleEdit/static/media/spd.ec74f58c.png",
     "static/media/storagePanel.d1d77165.png": "/ArchvaleEdit/static/media/storagePanel.d1d77165.png",
     "static/media/storageTab.95b2dca3.png": "/ArchvaleEdit/static/media/storageTab.95b2dca3.png",
     "static/media/tab.4814d547.png": "/ArchvaleEdit/static/media/tab.4814d547.png",
@@ -50,8 +50,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5dbb1da3.js",
-    "static/js/2.942fc0b8.chunk.js",
+    "static/js/2.05707e19.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.12f6ad62.chunk.js"
+    "static/js/main.c8ef1983.chunk.js"
   ]
 }
