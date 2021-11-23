@@ -64,14 +64,14 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 			}}
 		>
 			{[...Array(Math.min(9, filled)).keys()].map(k => (
-				<Sprite key={k} img={slotFilled} width={54} height={54} />
+				<Sprite key={k} img={slotFilled} width={9} height={9} />
 			))}
 			{[...Array(negativeHover).keys()].map(k => (
 				<Sprite
 					key={k}
 					img={slotFilled}
-					width={54}
-					height={54}
+					width={9}
+					height={9}
 					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
 				/>
 			))}
@@ -79,27 +79,27 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 				<Sprite
 					key={k}
 					img={overflow ? slotUnavailable : slotAvailable}
-					width={54}
-					height={54}
+					width={9}
+					height={9}
 					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
 				/>
 			))}
 			{[
 				...Array(Math.min(Math.max(0, 9 - used - positiveHover), empty)).keys()
 			].map(k => (
-				<Sprite key={k} img={slotEmpty} width={54} height={54} />
+				<Sprite key={k} img={slotEmpty} width={9} height={9} />
 			))}
 			{[...Array(overflow).keys()].map(k => (
-				<Sprite key={k} img={slotOverflow} width={54} height={54} />
+				<Sprite key={k} img={slotOverflow} width={9} height={9} />
 			))}
 			{[...Array(locked).keys()].map(k => (
-				<Sprite key={k} img={slotLocked} width={54} height={54} />
+				<Sprite key={k} img={slotLocked} width={9} height={9} />
 			))}
 			<Typography
 				variant="h5"
 				sx={{
 					position: 'absolute',
-					bottom: 12,
+					bottom: t => t.spacing(2),
 					textShadow: StrokeTextShadow
 				}}
 			>

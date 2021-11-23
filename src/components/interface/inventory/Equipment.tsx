@@ -51,14 +51,17 @@ const Equipment = ({ onSlotClick }: Props) => {
 		<Sprite
 			img={equipPanel}
 			sx={{
+				position: 'absolute',
+				right: 0,
+				transform: 'translateX(100%)',
+				top: t => t.spacing(7),
 				display: 'flex',
 				flexDirection: 'column',
 				gap: 1,
 				pt: 4,
 				pb: 6,
 				pl: 1,
-				pr: 5,
-				mb: 26
+				pr: 5
 			}}
 		>
 			<ItemSlot

@@ -21,64 +21,73 @@ declare module '@mui/material/styles' {
 	}
 }
 
-const theme = createTheme({
-	palette: {
-		text: { secondary: '#5a6988' },
-		error: { main: '#e43b44' },
-		success: { main: '#63c74d' },
-		badge: '#2ce8f5',
-		highlight: '#fee761',
-		uncommon: '#55c157',
-		legendary: '#ff3d3d',
-		mode: 'dark',
-		primary: { main: '#ffc825' },
-		background: { default: '#262b44' }
-	},
-	typography: {
-		fontSize: 20,
-		fontFamily: 'Nokia, Arial',
-		h1: {
-			fontSize: '4rem'
+const theme = (spacing: number) =>
+	createTheme({
+		palette: {
+			text: { secondary: '#5a6988' },
+			error: { main: '#e43b44' },
+			success: { main: '#63c74d' },
+			badge: '#2ce8f5',
+			highlight: '#fee761',
+			uncommon: '#55c157',
+			legendary: '#ff3d3d',
+			mode: 'dark',
+			primary: { main: '#ffc825' },
+			background: { default: '#262b44' }
 		},
-		h2: {
-			fontSize: '3rem'
+		typography: {
+			fontSize: spacing * 3,
+			fontFamily: 'Nokia, Arial',
+			h1: { fontSize: spacing * 3 * 4 },
+			h2: { fontSize: spacing * 3 * 3 },
+			h3: { fontSize: spacing * 3 * 1.5 },
+			caption: { fontSize: spacing * 3 * 0.75 },
+			body2: { fontSize: spacing * 3 * 0.95 }
 		},
-		caption: {
-			fontSize: '0.666rem'
-		},
-		body2: {
-			fontSize: '0.95rem'
-		}
-	},
-	spacing: 6,
-	components: {
-		MuiCssBaseline: {
-			styleOverrides: {
-				'*': {
-					imageRendering: 'pixelated'
-				},
-				'body': {
-					position: 'relative'
-				},
-				'body:before': {
-					content: '" "',
-					position: 'absolute',
-					bottom: 0,
-					right: 0,
-					minHeight: '100%',
-					zIndex: -1,
-					opacity: 0.2,
-					backgroundImage: `url(${background})`,
-					backgroundPosition: 'bottom right',
-					backgroundSize: 'contain',
-					backgroundRepeat: 'no-repeat',
-					backgroundRepeatY: 'repeat',
-					aspectRatio: '336/284',
-					filter: 'blur(10px)'
+		spacing,
+		components: {
+			MuiCssBaseline: {
+				styleOverrides: {
+					'*': {
+						imageRendering: 'pixelated'
+					},
+					'body': {
+						position: 'relative'
+					},
+					'body:before': {
+						content: '" "',
+						position: 'absolute',
+						bottom: 0,
+						right: 0,
+						minHeight: '100%',
+						zIndex: -1,
+						opacity: 0.2,
+						backgroundImage: `url(${background})`,
+						backgroundPosition: 'bottom right',
+						backgroundSize: 'contain',
+						backgroundRepeat: 'no-repeat',
+						backgroundRepeatY: 'repeat',
+						aspectRatio: '336/284',
+						filter: 'blur(10px)'
+					}
+				}
+			},
+			MuiInputLabel: {
+				styleOverrides: {
+					root: {
+						fontSize: spacing * 3 * 0.95
+					}
+				}
+			},
+			MuiInput: {
+				styleOverrides: {
+					root: {
+						fontSize: spacing * 3,
+						marginTop: `${spacing * 3}px !important`
+					}
 				}
 			}
 		}
-	}
-});
+	});
 
 export default theme;

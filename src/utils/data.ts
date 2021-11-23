@@ -16,9 +16,37 @@ import rangeDmgIcon from 'assets/stats/range_dmg.png';
 import magicDmgIcon from 'assets/stats/magic_dmg.png';
 import atkSpdIcon from 'assets/stats/atk_spd.png';
 import costIcon from 'assets/stats/cost.png';
+import forestTile from 'assets/world/tiles/forest.png';
+import mushroomTile from 'assets/world/tiles/mushroom.png';
+import dungeonTile from 'assets/world/tiles/dungeon.png';
+import townTile from 'assets/world/tiles/town.png';
+import dungeonIcon from 'assets/world/icons/dungeon.png';
+import fountainIcon from 'assets/world/icons/fountain.png';
+import minibossIcon from 'assets/world/icons/miniboss.png';
+import questIcon from 'assets/world/icons/quest.png';
+import shrineIcon from 'assets/world/icons/shrine.png';
+import townIcon from 'assets/world/icons/town.png';
+import treasureIcon from 'assets/world/icons/treasure.png';
+import dir0 from 'assets/world/directions/dir0.png';
+import dir1 from 'assets/world/directions/dir1.png';
+import dir2 from 'assets/world/directions/dir2.png';
+import dir3 from 'assets/world/directions/dir3.png';
+import dir4 from 'assets/world/directions/dir4.png';
+import dir5 from 'assets/world/directions/dir5.png';
+import dir6 from 'assets/world/directions/dir6.png';
+import dir7 from 'assets/world/directions/dir7.png';
+import dir8 from 'assets/world/directions/dir8.png';
+import dir9 from 'assets/world/directions/dir9.png';
+import dir10 from 'assets/world/directions/dir10.png';
+import dir11 from 'assets/world/directions/dir11.png';
+import dir12 from 'assets/world/directions/dir12.png';
+import dir13 from 'assets/world/directions/dir13.png';
+import dir14 from 'assets/world/directions/dir14.png';
 
 import items from './data/items.yaml';
 import badges from './data/badges.yaml';
+import dungeons from './data/dungeons.yaml';
+import { Room } from './types';
 
 const loadYamlData = <T extends { id: number }>(data: string) => {
 	const arr: T[] = [];
@@ -40,6 +68,22 @@ type Badge = {
 };
 
 export const Badges = loadYamlData<Badge>(badges);
+
+type DungeonMeta = {
+	id: number;
+	name: string;
+	rooms: Room[];
+};
+
+export const Dungeons = loadYamlData<DungeonMeta>(dungeons);
+
+// type BiomeMeta = {
+// 	id: number;
+// 	name: string;
+// 	sprite: string;
+// };
+
+// export const Biomes = loadYamlData<BiomeMeta>(biomes);
 
 export type Item = {
 	id: number;
@@ -86,3 +130,54 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	ar_break: { icon: arBreakIcon, title: 'Armour Break' },
 	slow: { icon: slowIcon, getValue: getPercent }
 };
+
+type BiomeMeta = {
+	sprite: string;
+	name?: string;
+};
+
+export const Biomes: Record<number | 'undefined', BiomeMeta> = {
+	undefined: { sprite: dungeonTile },
+	1: { sprite: forestTile, name: 'Forest' },
+	3: { sprite: forestTile },
+	4: { sprite: mushroomTile },
+	44: { sprite: townTile, name: 'Timberwell' },
+	45: { sprite: townTile, name: 'Fairreach' }
+};
+
+type RoomType = {
+	sprite: [string, number, number];
+	name: string;
+};
+
+export const RoomTypes: Record<number, RoomType> = {
+	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
+	2: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
+	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	20: { sprite: [questIcon, 8, 8], name: 'Mega Plum' },
+	21: { sprite: [townIcon, 8, 8], name: 'Timberwell town' },
+	22: { sprite: [townIcon, 8, 8], name: 'Fairreach town' },
+	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
+	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
+	47: { sprite: [dungeonIcon, 8, 7], name: 'Lichen Keep entrance' },
+	69: { sprite: [questIcon, 8, 8], name: 'Tutorial exit' }
+};
+
+export const RoomDirections = [
+	dir0,
+	dir1,
+	dir2,
+	dir3,
+	dir4,
+	dir5,
+	dir6,
+	dir7,
+	dir8,
+	dir9,
+	dir10,
+	dir11,
+	dir12,
+	dir13,
+	dir14
+];

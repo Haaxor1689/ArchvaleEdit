@@ -52,8 +52,8 @@ const Dashes = () => {
 					<Sprite
 						key={i}
 						img={dash}
-						width={33}
-						height={33}
+						width={5.5}
+						height={5.5}
 						mr={-1}
 						sx={{
 							position: 'relative',
@@ -75,8 +75,7 @@ const Dashes = () => {
 					position: 'absolute',
 					left: 6,
 					top: 0,
-					transition:
-						'color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms'
+					transition: t => t.transitions.create('color')
 				}}
 			>
 				Dashes

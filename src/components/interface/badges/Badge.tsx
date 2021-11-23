@@ -37,7 +37,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					</Typography>
 					<Box sx={{ display: 'flex', gap: 1 }}>
 						{[...Array(data?.slots ?? 0).keys()].map(i => (
-							<Sprite key={i} img={slot} width={54} height={54} />
+							<Sprite key={i} img={slot} width={9} height={9} />
 						))}
 					</Box>
 				</>
@@ -52,8 +52,8 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				onMouseEnter={() => setHover(index)}
 				onMouseLeave={() => setHover(undefined)}
 				sx={{
-					'height': 116,
-					'width': 108,
+					'height': t => t.spacing(19),
+					'width': t => t.spacing(18),
 					'borderRadius': 0,
 					'background': `url(${tile})`,
 					'backgroundSize': 'contain',

@@ -11,8 +11,15 @@ const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 		return null;
 	}
 	return (
-		<Box sx={{ display: 'flex', alignItems: 'center', gap: 1, minWidth: 300 }}>
-			<Sprite img={meta.icon} width={32} height={32} />
+		<Box
+			sx={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: 1,
+				minWidth: 300
+			}}
+		>
+			<Sprite img={meta.icon} width={4.5} height={4.5} />
 			<Typography flexGrow={1}>{meta.title ?? capitalize(attr)}</Typography>
 			<Typography color="success.main">
 				{meta.getValue?.(Number(value)) ?? value}

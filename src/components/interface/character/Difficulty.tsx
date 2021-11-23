@@ -21,15 +21,19 @@ const Difficulty = () => {
 	return (
 		<Box
 			sx={{
+				position: 'absolute',
+				top: t => t.spacing(6),
+				right: 0,
+				transform: 'translateX(100%)',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'flex-start',
-				mt: 4,
+				width: t => t.spacing(30),
 				gap: 1,
 				p: 2
 			}}
 		>
-			<Typography variant="h6" sx={{ textShadow: StrokeTextShadow }}>
+			<Typography variant="h3" sx={{ textShadow: StrokeTextShadow }}>
 				Difficulty:
 			</Typography>
 			{[0, 1, 2].map(d => (
@@ -46,13 +50,13 @@ const Difficulty = () => {
 					{DifficultyLabels[d]}
 				</Button>
 			))}
-			<Typography variant="h6" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Playtime:
 			</Typography>
 			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
 				{secondsToPlaytime(playtime)}
 			</Typography>
-			<Typography variant="h6" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Version:
 			</Typography>
 			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>

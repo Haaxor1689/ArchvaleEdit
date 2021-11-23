@@ -31,7 +31,7 @@ const Tab = ({ name, icon, active, onClick }: Props) => (
 			}
 		}}
 	>
-		<Sprite img={icon} width={78} height={78} />
+		<Sprite img={icon} width={13} height={13} />
 	</Sprite>
 );
 

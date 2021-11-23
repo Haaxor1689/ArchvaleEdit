@@ -33,10 +33,11 @@ export const makeValidate =
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			.catch((err: any) => err.errors);
 
+export const pad = (val: string, digits: number) =>
+	([...Array(digits).keys()].map(() => '0').join('') + val).slice(-digits);
+
 export const parseToHex = (val: number, digits: number) =>
-	([...Array(digits).keys()].map(() => '0').join('') + val.toString(16))
-		.slice(-digits)
-		.toUpperCase();
+	pad(val.toString(16), digits).toUpperCase();
 
 export const parseHexValue = (val: string) => parseInt(`0x${val}`);
 
@@ -90,6 +91,6 @@ export const secondsToPlaytime = (value: number) => {
 	const minutes = ((value - seconds) / 60) % 60;
 	const hours = (((value - seconds) / 60 - minutes) / 60) % 60;
 	return `${hours ? `${hours}h ` : ''}${
-		minutes ? `${minutes}m ` : ''
+		hours || minutes ? `${minutes}m ` : ''
 	}${seconds.toFixed(1)}s`;
 };

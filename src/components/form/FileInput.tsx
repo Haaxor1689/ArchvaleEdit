@@ -56,7 +56,10 @@ const FileInput: FC<Props> = ({
 				</Typography>
 			</Box>
 			{((meta.error && meta.touched) || helperText) && (
-				<FormHelperText error={meta.error && meta.touched}>
+				<FormHelperText
+					error={meta.error && meta.touched}
+					sx={{ mt: 1, textAlign: 'center' }}
+				>
 					{meta.error && meta.touched ? meta.error : helperText}
 				</FormHelperText>
 			)}

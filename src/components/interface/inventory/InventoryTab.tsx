@@ -73,67 +73,67 @@ const InventoryTab = ({ variant }: Props) => {
 					gap: 2
 				}}
 			>
-				<Box sx={{ display: 'flex', alignItems: 'center' }}>
-					<Sprite
-						img={variant === 'storage' ? storagePanel : inventoryPanel}
+				<Sprite
+					img={variant === 'storage' ? storagePanel : inventoryPanel}
+					sx={{
+						'position': 'relative',
+						'display': 'grid',
+						'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+						'gap': 1,
+						'px': 5,
+						'pt': 5,
+						'pb': variant === 'storage' ? 7 : 27,
+						'> *:first-child': {
+							mb: variant === 'inventory' ? 5 : undefined
+						}
+					}}
+				>
+					{inventoryItems.map((item, index) => (
+						<ItemSlot
+							key={index}
+							item={item}
+							hideTooltip={!!heldItem}
+							onClick={e => {
+								if (item && e.shiftKey && !heldItem) {
+									const delta = e.button === 2 ? -1 : 1;
+									setItem(index, stackItem(upgradeItem(item, delta), delta));
+									return;
+								}
+
+								if (item && heldItem && isStackable(Items[item.id], heldItem)) {
+									const sum = item.count + heldItem.count;
+									if (sum <= 255) {
+										setHeldItem(undefined);
+										setItem(index, { ...item, count: sum });
+									} else {
+										setHeldItem({ ...item, count: sum - 255 });
+										setItem(index, { ...item, count: 255 });
+									}
+									return;
+								}
+
+								setHeldItem(item);
+								setItem(index, heldItem);
+							}}
+						/>
+					))}
+					<Box
 						sx={{
-							'position': 'relative',
-							'display': 'grid',
-							'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-							'gap': 1,
-							'px': 5,
-							'pt': 6,
-							'pb': variant === 'storage' ? 7 : 27,
-							'> *:first-child': {
-								mb: variant === 'inventory' ? 4 : undefined
-							}
+							position: 'absolute',
+							right: t => t.spacing(5),
+							bottom: t => t.spacing(7)
 						}}
 					>
-						{inventoryItems.map((item, index) => (
-							<ItemSlot
-								key={index}
-								item={item}
-								hideTooltip={!!heldItem}
-								onClick={e => {
-									if (item && e.shiftKey && !heldItem) {
-										const delta = e.button === 2 ? -1 : 1;
-										setItem(index, stackItem(upgradeItem(item, delta), delta));
-										return;
-									}
-
-									if (
-										item &&
-										heldItem &&
-										isStackable(Items[item.id], heldItem)
-									) {
-										const sum = item.count + heldItem.count;
-										if (sum <= 255) {
-											setHeldItem(undefined);
-											setItem(index, { ...item, count: sum });
-										} else {
-											setHeldItem({ ...item, count: sum - 255 });
-											setItem(index, { ...item, count: 255 });
-										}
-										return;
-									}
-
-									setHeldItem(item);
-									setItem(index, heldItem);
-								}}
-							/>
-						))}
-						<Box sx={{ position: 'absolute', right: 30, bottom: 40 }}>
-							<ItemSlot
-								item={trashedItem}
-								variant="trash"
-								hideTooltip={!!heldItem}
-								onClick={() => {
-									setHeldItem(!heldItem ? trashedItem : undefined);
-									setTrashedItem(heldItem);
-								}}
-							/>
-						</Box>
-					</Sprite>
+						<ItemSlot
+							item={trashedItem}
+							variant="trash"
+							hideTooltip={!!heldItem}
+							onClick={() => {
+								setHeldItem(!heldItem ? trashedItem : undefined);
+								setTrashedItem(heldItem);
+							}}
+						/>
+					</Box>
 					{variant === 'inventory' && (
 						<Equipment
 							onSlotClick={(index, equipped) => {
@@ -159,7 +159,7 @@ const InventoryTab = ({ variant }: Props) => {
 							}}
 						/>
 					)}
-				</Box>
+				</Sprite>
 				<Typography variant="caption" textAlign="center">
 					Pick new items from item database below, pick full stack (255) or
 					highest quality (+5) with shift. Use left and right click together

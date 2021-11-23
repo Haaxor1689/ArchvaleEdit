@@ -49,6 +49,7 @@ const Stats = () => {
 				};
 				return !attr || !meta ? null : (
 					<IconButton
+						key={attr}
 						onClick={onClick}
 						onContextMenu={onClick}
 						title={meta.title ?? capitalize(attr)}
@@ -71,7 +72,7 @@ const Stats = () => {
 						>
 							{meta.getValue?.(Number(value)) ?? value}
 						</Typography>
-						<Sprite img={meta.icon} width={32} height={32} />
+						<Sprite img={meta.icon} width={4.5} height={4.5} />
 					</IconButton>
 				);
 			})}

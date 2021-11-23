@@ -37,7 +37,7 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => (
 				gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
 				gap: 1,
 				p: 7,
-				maxHeight: 342,
+				maxHeight: t => t.spacing(57),
 				overflowY: 'auto',
 				backgroundColor: '#262b44'
 			}}

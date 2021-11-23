@@ -1,0 +1,13 @@
+- id: 1
+  name: Forest
+  sprite: s_map_texture_forest_0
+- id: 4
+  sprite: s_map_texture_mushroom_0
+- id: 3
+  sprite: s_map_texture_forest_0
+- id: 44
+  name: Timberwell
+  sprite: s_map_new_2x2_0
+- id: 45
+  name: Fairreach
+  sprite: s_map_new_2x2_0

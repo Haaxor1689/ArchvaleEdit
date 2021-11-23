@@ -1,7 +1,8 @@
-export type WorldState = {
+type WorldState = {
 	n12: number; // Chef - 1: talked, 2: done
 	n50001: number; // ???
 	n90002: number; // ???
+	n90004: number; // Fountain
 
 	// Maxilla
 	n30007: number; // Fight - flag
@@ -12,15 +13,47 @@ export type WorldState = {
 	[key: string]: number;
 };
 
+export type Room = {
+	biome_type: number;
+	difficulty: number;
+	flags: string;
+	is_double?: 1;
+	master_room_x?: number;
+	master_room_y?: number;
+	objective_complete: number;
+	/**
+	 * 000210130008010 - locked fountain
+	 * 000210130008011 - unlocked fountain
+	 * 00040013000C61 - def pickup
+	 */
+	objects: string[];
+	room_id: number;
+	seed: number;
+	type: number;
+	x: number;
+	y: number;
+};
+
+export type Dungeon = {
+	dungeon_id: number;
+	exploration_data: string;
+	key_data: number;
+	keys: number;
+	keys_silver: number;
+	last_x: number;
+	last_y: number;
+	lock_data: number;
+};
+
 export type World = {
 	difficulty: number;
 	version: string;
 	playtime: number;
 
 	// Map
-	active_dungeon: number;
-	dungeon_data: [];
-	world: { rooms: [] };
+	active_dungeon: number; // -1 Cradlewood, 0 Lichen Keep, 29 Tutorial
+	dungeon_data: Dungeon[];
+	world: { rooms: Room[] };
 	player_respawn: [number, number, number];
 	npst: WorldState;
 

@@ -18,18 +18,18 @@ const IconInput = ({ icon, hint, ...props }: Props) => (
 		<TextInput
 			variant="standard"
 			{...props}
-			sx={{ minWidth: 349, ...props.sx }}
+			sx={{ width: t => t.spacing(50), ...props.sx }}
 		/>
 		{hint && (
 			<Box
 				sx={{
 					display: 'flex',
 					alignItems: 'center',
-					maxWidth: 200,
+					maxWidth: t => t.spacing(40),
 					gap: 2
 				}}
 			>
-				<Sprite img={questionMark} width={16} height={20} flexShrink={0} />
+				<Sprite img={questionMark} width={4} height={5} flexShrink={0} />
 				<Typography variant="caption" sx={{ textShadow: StrokeTextShadow }}>
 					{hint}
 				</Typography>

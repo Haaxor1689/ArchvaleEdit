@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Button, Typography, Box } from '@mui/material';
+import { Button, Typography, Box, Paper } from '@mui/material';
 
 import badgesTab from 'assets/badgesTab.png';
 import inventoryTab from 'assets/inventoryTab.png';
 import storageTab from 'assets/storageTab.png';
 import characterTab from 'assets/characterTab.png';
+import worldTab from 'assets/worldTab.png';
 import { downloadBlob } from 'utils';
 import { World } from 'utils/types';
 
@@ -13,6 +14,7 @@ import BadgeTab from './interface/badges/BadgeTab';
 import InventoryTab from './interface/inventory/InventoryTab';
 import CharacterTab from './interface/character/CharacterTab';
 import Tab from './interface/Tab';
+import WorldTab from './interface/world/WorldTab';
 
 const tabs = [
 	{
@@ -34,6 +36,11 @@ const tabs = [
 		name: 'badges',
 		icon: badgesTab,
 		component: <BadgeTab />
+	},
+	{
+		name: 'world',
+		icon: worldTab,
+		component: <WorldTab />
 	}
 ] as const;
 
@@ -56,25 +63,30 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 				const blob = await fetch(base).then(r => r.blob());
 				downloadBlob(blob, name);
 			}}
-			sx={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}
+			sx={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: 6
+			}}
 		>
-			<Box
+			<Paper
 				sx={{
-					alignSelf: 'stretch',
+					position: 'sticky',
+					top: 0,
 					display: 'flex',
 					alignItems: 'center',
-					gap: 2
+					alignSelf: 'stretch',
+					zIndex: 3,
+					gap: 3,
+					p: 3
 				}}
 			>
-				<Typography variant="h1" sx={{ flexGrow: 1 }}>
-					Save Editor
-				</Typography>
+				<Typography flexGrow={1}>{name}</Typography>
 				<Button onClick={reset}>Discard</Button>
 				<Button type="submit" variant="contained" size="large">
 					Save
 				</Button>
-			</Box>
-
+			</Paper>
 			<Box
 				sx={{
 					display: 'flex',

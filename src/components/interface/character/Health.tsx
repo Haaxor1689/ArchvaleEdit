@@ -46,7 +46,7 @@ const Health = () => {
 				sx={{
 					position: 'relative',
 					display: 'grid',
-					gridTemplateColumns: '42px 42px 42px 42px 42px 42px 42px 42px',
+					gridTemplateColumns: t => Array(8).fill(t.spacing(7)).join(' '),
 					borderRadius: 0,
 					p: 1,
 					pr: 2
@@ -56,8 +56,8 @@ const Health = () => {
 					<Box key={i} mr={-1} position="relative">
 						<Sprite
 							img={heart}
-							width={45}
-							height={42}
+							width={7.5}
+							height={7}
 							sx={
 								i > hearts - 1
 									? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -69,8 +69,8 @@ const Health = () => {
 								position="absolute"
 								top={0}
 								img={halfHeart}
-								width={30}
-								height={42}
+								width={5}
+								height={7}
 							/>
 						)}
 					</Box>
@@ -87,8 +87,7 @@ const Health = () => {
 					position: 'absolute',
 					left: 6,
 					top: 0,
-					transition:
-						'color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms'
+					transition: t => t.transitions.create('color')
 				}}
 			>
 				Health

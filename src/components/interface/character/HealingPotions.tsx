@@ -51,8 +51,8 @@ const HealingPotions = () => {
 					<Sprite
 						key={i}
 						img={portion}
-						height={39}
-						width={30}
+						height={6.5}
+						width={5}
 						sx={
 							i + 1 > value
 								? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -73,8 +73,7 @@ const HealingPotions = () => {
 					position: 'absolute',
 					left: 6,
 					top: 0,
-					transition:
-						'color 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms,max-width 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms'
+					transition: t => t.transitions.create('color')
 				}}
 			>
 				Potions

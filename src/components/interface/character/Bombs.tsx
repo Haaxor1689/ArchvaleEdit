@@ -1,9 +1,10 @@
 import { useField } from 'react-final-form';
-import { IconButton, Typography } from '@mui/material';
+import { IconButton } from '@mui/material';
 
 import IconInput from 'components/form/IconInput';
 import Sprite from 'components/Sprite';
 import bombLevel from 'assets/character/bombLevel.png';
+import MaxAdornment from 'components/MaxAdornment';
 
 const BombDamage = [150, 200, 260, 340, 445, 575, 750, 850];
 const MaxLevel = BombDamage.length - 1;
@@ -28,19 +29,19 @@ const Bombs = () => {
 				<Sprite
 					component={IconButton}
 					img={bombLevel}
-					width={42}
-					height={42}
+					width={7}
+					height={7}
 					onClick={toggleBombs}
 					title={!hasBombs ? 'Enable' : 'Disable'}
+					sx={{
+						filter: !hasBombs ? 'saturate(0)' : undefined
+					}}
 				/>
 			}
 			type="number"
 			disabled={!hasBombs}
 			InputProps={{
-				endAdornment:
-					level < MaxLevel ? undefined : (
-						<Typography color="text.secondary">MAX</Typography>
-					)
+				endAdornment: level < MaxLevel ? undefined : <MaxAdornment />
 			}}
 			inputProps={{
 				max: MaxLevel,

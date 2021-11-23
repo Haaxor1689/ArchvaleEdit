@@ -86,8 +86,8 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 				}}
 				sx={{
 					'position': 'relative',
-					'height': 114,
-					'width': 108,
+					'height': t => t.spacing(19),
+					'width': t => t.spacing(18),
 					'borderRadius': 0,
 					'background': `url(${
 						!item && variant === 'item' ? emptySlot : getItemIcon(variant)
@@ -105,8 +105,8 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 						variant="body2"
 						sx={{
 							position: 'absolute',
-							bottom: 22,
-							right: 16,
+							bottom: t => t.spacing(3.666),
+							right: t => t.spacing(2.666),
 							textShadow: StrokeTextShadow,
 							zIndex: 2
 						}}
@@ -120,8 +120,8 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 						variant="body2"
 						sx={{
 							position: 'absolute',
-							top: 22,
-							right: 16,
+							top: t => t.spacing(3.666),
+							right: t => t.spacing(2.666),
 							textShadow: StrokeTextShadow,
 							zIndex: 2
 						}}
@@ -133,8 +133,8 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 				{item && itemMeta.sprite && (
 					<Sprite
 						img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}.png`}
-						width={itemMeta.sprite[1] * 6}
-						height={itemMeta.sprite[2] * 6}
+						width={itemMeta.sprite[1]}
+						height={itemMeta.sprite[2]}
 						flexShrink={0}
 						zIndex={1}
 					/>

@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import Form from 'components/form/Form';
 import { World } from 'utils/types';
@@ -7,6 +7,7 @@ import logo from 'assets/logo.png';
 
 import FileInput from './form/FileInput';
 import Sprite from './Sprite';
+import AutoSubmit from './AutoSubmit';
 
 type Props = {
 	setWorldData: (save: [string, World]) => void;
@@ -16,11 +17,22 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 	<Form
 		initialValues={{ file: undefined as File | undefined }}
 		onSubmit={async ({ file }) => {
-			setWorldData([
-				file.name,
-				JSON.parse(atob(atob(await makeBase64File(file)))) as World
-			]);
+			try {
+				setWorldData([
+					file.name,
+					JSON.parse(atob(atob(await makeBase64File(file)))) as World
+				]);
+			} catch (e) {
+				return { file: 'Failed to parse file' };
+			}
 		}}
+		validate={({ file }) =>
+			!file
+				? { file: 'Required' }
+				: !file.name.endsWith('.avsv')
+				? { file: 'Wrong file type' }
+				: undefined
+		}
 		sx={{
 			display: 'flex',
 			flexDirection: 'column',
@@ -30,8 +42,8 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			gap: 10
 		}}
 	>
-		<Sprite img={logo} width="100%" sx={{ aspectRatio: '5/1' }} />
-		<Typography variant="h1" mt={-8} mb={6}>
+		<Sprite img={logo} height={48} sx={{ aspectRatio: '2/1' }} />
+		<Typography variant="h1" mt={-8} mb={6} textAlign="center">
 			Save Editor
 		</Typography>
 		<Typography textAlign="center" variant="body2" mb={-4}>
@@ -45,10 +57,8 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			</Box>{' '}
 			folder.
 		</Typography>
-		<FileInput id="file" label="File" required acceptFileTypes={['.avsv']} />
-		<Button type="submit" size="large" variant="contained">
-			Open save file
-		</Button>
+		<FileInput id="file" label="File" acceptFileTypes={['.avsv']} />
+		<AutoSubmit />
 	</Form>
 );
 

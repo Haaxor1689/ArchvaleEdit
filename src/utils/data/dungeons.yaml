@@ -1,0 +1,108 @@
+- id: 0
+  name: Lichen Keep
+  rooms:
+    - room_id: 0
+      x: 0
+      y: 0
+    - room_id: 1
+      x: 0
+      y: 1
+    - room_id: 2
+      x: 1
+      y: 4
+    - room_id: 3
+      x: 2
+      y: 2
+    - room_id: 4
+      x: 2
+      y: 3
+    - room_id: 5
+      x: 2
+      y: 4
+    - room_id: 6
+      x: 3
+      y: 2
+    - room_id: 7
+      x: 3
+      y: 3
+    - room_id: 8
+      x: 3
+      y: 4
+    - room_id: 9
+      x: 4
+      y: 2
+    - room_id: 10
+      x: 4
+      y: 3
+    - room_id: 11
+      x: 4
+      y: 4
+    - room_id: 12
+      x: 4
+      y: 5
+    - room_id: 13
+      x: 5
+      y: 3
+    - room_id: 14
+      x: 5
+      y: 4
+    - room_id: 15
+      x: 5
+      y: 5
+    - room_id: 16
+      x: 5
+      y: 6
+    - room_id: 17
+      x: 6
+      y: 1
+    - room_id: 18
+      x: 6
+      y: 2
+    - room_id: 19
+      x: 6
+      y: 3
+    - room_id: 20
+      x: 6
+      y: 5
+- id: 8
+  name: Challenge room 1
+  rooms:
+    - room_id: 0
+      x: 1
+      y: 1
+- id: 9
+  name: Challenge room 2
+  rooms:
+    - room_id: 0
+      x: 1
+      y: 1
+- id: 29
+  name: Tutorial
+  rooms:
+    - room_id: 0
+      x: 1
+      y: 1
+    - room_id: 1
+      x: 1
+      y: 2
+    - room_id: 2
+      x: 1
+      y: 3
+    - room_id: 3
+      x: 2
+      y: 2
+    - room_id: 4
+      x: 3
+      y: 0
+    - room_id: 5
+      x: 3
+      y: 1
+    - room_id: 6
+      x: 3
+      y: 2
+    - room_id: 7
+      x: 4
+      y: 0
+    - room_id: 8
+      x: 5
+      y: 0
