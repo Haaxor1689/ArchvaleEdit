@@ -74,6 +74,7 @@ const MapRoom = (room: Room) => {
 					width={5}
 					height={5}
 					sx={{
+						zIndex: 2,
 						position: 'absolute',
 						top: t => t.spacing(-1.5),
 						left: t => t.spacing(-1.5)

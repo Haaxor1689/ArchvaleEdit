@@ -32,6 +32,10 @@ export type Room = {
 	type: number;
 	x: number;
 	y: number;
+
+	// Unused?
+	border: number;
+	border_direction: number;
 };
 
 export type Dungeon = {
@@ -80,7 +84,7 @@ export type World = {
 	badges_equipped: string;
 	badge_slots: number;
 
-	// ???
+	// Unused?
 	time: number;
 	player_runes: number;
 	mp: number;
