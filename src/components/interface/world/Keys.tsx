@@ -3,15 +3,25 @@ import { MouseEventHandler } from 'react';
 import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
-import portion from 'assets/character/potion.png';
 import { StrokeTextShadow } from 'utils';
 
-const PotionsMax = 10;
+import { useMapContext } from './MapProvider';
 
-const HealingPotions = () => {
+type Props = {
+	id: string;
+	label: string;
+	sprite: [string, number, number];
+	max: number;
+};
+
+const Keys = ({ id, label, sprite, max }: Props) => {
+	const { dungeonIndex } = useMapContext();
+
 	const {
 		input: { value, onChange }
-	} = useField<number>('healcap', { subscription: { value: true } });
+	} = useField<number>(`dungeon_data[${dungeonIndex}].${id}`, {
+		subscription: { value: true }
+	});
 
 	const onClick: MouseEventHandler = e => {
 		e.button === 2 && e.preventDefault();
@@ -47,12 +57,12 @@ const HealingPotions = () => {
 					p: 1
 				}}
 			>
-				{[...Array(Math.max(PotionsMax)).keys()].map(i => (
+				{[...Array(Math.max(max)).keys()].map(i => (
 					<Sprite
 						key={i}
-						img={portion}
-						height={6.5}
-						width={5}
+						img={sprite[0]}
+						width={sprite[1]}
+						height={sprite[2]}
 						sx={
 							i + 1 > value
 								? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -64,7 +74,7 @@ const HealingPotions = () => {
 
 			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > PotionsMax ? '*' : ''}
+				{value > max ? '*' : ''}
 			</Typography>
 			<Typography
 				variant="body2"
@@ -76,10 +86,10 @@ const HealingPotions = () => {
 					transition: t => t.transitions.create('color')
 				}}
 			>
-				Potions
+				{label}
 			</Typography>
 		</Box>
 	);
 };
 
-export default HealingPotions;
+export default Keys;

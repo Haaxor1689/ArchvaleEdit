@@ -3,21 +3,24 @@ import { IconButton } from '@mui/material';
 import selectedIcon from 'assets/world/tiles/selected.png';
 import playerIcon from 'assets/world/icons/player.png';
 import Sprite from 'components/Sprite';
-import { Biomes, RoomDirections, RoomTypes } from 'utils/data';
+import {
+	Biomes,
+	DungeonDirections,
+	Dungeons,
+	RoomDirections,
+	RoomTypes
+} from 'utils/data';
 import { Room } from 'utils/types';
 
-import { useIsRoomRespawn, useMapContext } from './MapProvider';
+import {
+	parseRoomDirection,
+	useIsRoomRespawn,
+	useMapContext
+} from './MapProvider';
 
 const MapRoom = (room: Room) => {
-	const {
-		selected,
-		setSelected,
-		minX,
-		minY,
-		respawn,
-		getRoomStatus,
-		getRoomDirection
-	} = useMapContext();
+	const { map, selected, setSelected, minX, minY, respawn, getRoomStatus } =
+		useMapContext();
 
 	const biome = Biomes[room.biome_type];
 
@@ -34,10 +37,21 @@ const MapRoom = (room: Room) => {
 
 	const isRespawn = useIsRoomRespawn(room);
 
+	const direction = parseRoomDirection(room.flags);
+	console.log(direction, Dungeons);
+
+	const isDungeon = map !== -1;
+
 	return (
 		<Sprite
 			component={IconButton}
-			img={!isDoubleSub ? biome?.sprite : undefined}
+			img={
+				isDungeon
+					? DungeonDirections[direction]
+					: !isDoubleSub
+					? biome?.sprite
+					: undefined
+			}
 			onClick={() => {
 				setSelected?.(selected === room.room_id ? undefined : room.room_id);
 			}}
@@ -58,16 +72,18 @@ const MapRoom = (room: Room) => {
 					room.x === respawn[0] && room.y === respawn[1] ? 'badge' : undefined
 			}}
 		>
-			<Sprite
-				img={RoomDirections[getRoomDirection?.(room.room_id) ?? 0]}
-				sx={{
-					position: 'absolute',
-					top: 0,
-					left: 0,
-					width: isDoubleMaster ? '50%' : '100%',
-					height: isDoubleMaster ? '50%' : '100%'
-				}}
-			/>
+			{!isDungeon && (
+				<Sprite
+					img={RoomDirections[direction]}
+					sx={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						width: isDoubleMaster ? '50%' : '100%',
+						height: isDoubleMaster ? '50%' : '100%'
+					}}
+				/>
+			)}
 			{isRespawn && !isDoubleSub && (
 				<Sprite
 					img={playerIcon}

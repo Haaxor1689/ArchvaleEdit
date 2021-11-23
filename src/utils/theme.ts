@@ -24,6 +24,8 @@ declare module '@mui/material/styles' {
 const theme = (spacing: number) =>
 	createTheme({
 		palette: {
+			primary: { main: '#ffc825' },
+			background: { default: '#262b44' },
 			text: { secondary: '#5a6988' },
 			error: { main: '#e43b44' },
 			success: { main: '#63c74d' },
@@ -31,9 +33,7 @@ const theme = (spacing: number) =>
 			highlight: '#fee761',
 			uncommon: '#55c157',
 			legendary: '#ff3d3d',
-			mode: 'dark',
-			primary: { main: '#ffc825' },
-			background: { default: '#262b44' }
+			mode: 'dark'
 		},
 		typography: {
 			fontSize: spacing * 3,

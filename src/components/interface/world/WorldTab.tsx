@@ -7,6 +7,8 @@ import MapProvider from './MapProvider';
 import MapPreview from './MapPreview';
 import MapSelect from './MapSelect';
 import RoomInfo from './RoomInfo';
+import MapInfo from './MapInfo';
+import FlagsManager from './FlagsManager';
 
 const WorldTab = () => (
 	<Box
@@ -22,11 +24,7 @@ const WorldTab = () => (
 			img={panel}
 			width={161}
 			height={131}
-			sx={{
-				display: 'flex',
-				gap: 2,
-				p: 6
-			}}
+			sx={{ position: 'relative', display: 'flex', gap: 2, p: 6 }}
 		>
 			<MapProvider>
 				<MapPreview />
@@ -39,8 +37,10 @@ const WorldTab = () => (
 					}}
 				>
 					<MapSelect />
+					<MapInfo />
 					<RoomInfo />
 				</Box>
+				<FlagsManager />
 			</MapProvider>
 		</Sprite>
 		<Typography variant="caption" textAlign="center">

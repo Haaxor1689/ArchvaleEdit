@@ -18,7 +18,6 @@ import atkSpdIcon from 'assets/stats/atk_spd.png';
 import costIcon from 'assets/stats/cost.png';
 import forestTile from 'assets/world/tiles/forest.png';
 import mushroomTile from 'assets/world/tiles/mushroom.png';
-import dungeonTile from 'assets/world/tiles/dungeon.png';
 import townTile from 'assets/world/tiles/town.png';
 import dungeonIcon from 'assets/world/icons/dungeon.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
@@ -42,18 +41,37 @@ import dir11 from 'assets/world/directions/dir11.png';
 import dir12 from 'assets/world/directions/dir12.png';
 import dir13 from 'assets/world/directions/dir13.png';
 import dir14 from 'assets/world/directions/dir14.png';
+import dung0 from 'assets/world/directions/dung0.png';
+import dung1 from 'assets/world/directions/dung1.png';
+import dung2 from 'assets/world/directions/dung2.png';
+import dung3 from 'assets/world/directions/dung3.png';
+import dung4 from 'assets/world/directions/dung4.png';
+import dung5 from 'assets/world/directions/dung5.png';
+import dung6 from 'assets/world/directions/dung6.png';
+import dung7 from 'assets/world/directions/dung7.png';
+import dung8 from 'assets/world/directions/dung8.png';
+import dung9 from 'assets/world/directions/dung9.png';
+import dung10 from 'assets/world/directions/dung10.png';
+import dung11 from 'assets/world/directions/dung11.png';
+import dung12 from 'assets/world/directions/dung12.png';
+import dung13 from 'assets/world/directions/dung13.png';
+import dung14 from 'assets/world/directions/dung14.png';
+import dung15 from 'assets/world/directions/dung15.png';
 
 import items from './data/items.yaml';
 import badges from './data/badges.yaml';
 import dungeons from './data/dungeons.yaml';
 import { Room } from './types';
 
-const loadYamlData = <T extends { id: number }>(data: string) => {
+const loadYamlData = <T extends { id: number }>(
+	data: string,
+	map: (i: T, id: number, arr: T[]) => T = t => t
+) => {
 	const arr: T[] = [];
 	fetch(data)
 		.then(r => r.text())
 		.then(t => {
-			(yaml.load(t) as (T & { i: number })[]).forEach(item => {
+			(yaml.load(t) as T[]).map(map).forEach(item => {
 				arr[item.id] = item;
 			});
 		});
@@ -69,21 +87,31 @@ type Badge = {
 
 export const Badges = loadYamlData<Badge>(badges);
 
+type DungeonRoom = {
+	boss_key?: number;
+	silver_key?: number;
+	locks?: [type: 'boss' | 'silver' | 'button', direction: number][];
+} & Room;
+
 type DungeonMeta = {
 	id: number;
 	name: string;
-	rooms: Room[];
+	rooms: DungeonRoom[];
 };
 
-export const Dungeons = loadYamlData<DungeonMeta>(dungeons);
+const calculateRoomDirection = (room: Room, rooms: Room[]) =>
+	(rooms.find(r => r.x === room.x && r.y === room.y + 1) ? 8 : 0) +
+	(rooms.find(r => r.x === room.x - 1 && r.y === room.y) ? 4 : 0) +
+	(rooms.find(r => r.x === room.x && r.y === room.y - 1) ? 2 : 0) +
+	(rooms.find(r => r.x === room.x + 1 && r.y === room.y) ? 1 : 0);
 
-// type BiomeMeta = {
-// 	id: number;
-// 	name: string;
-// 	sprite: string;
-// };
-
-// export const Biomes = loadYamlData<BiomeMeta>(biomes);
+export const Dungeons = loadYamlData<DungeonMeta>(dungeons, d => ({
+	...d,
+	rooms: d.rooms.map(r => ({
+		...r,
+		flags: `0${calculateRoomDirection(r, d.rooms).toString(16)}000`
+	}))
+}));
 
 export type Item = {
 	id: number;
@@ -136,11 +164,10 @@ type BiomeMeta = {
 	name?: string;
 };
 
-export const Biomes: Record<number | 'undefined', BiomeMeta> = {
-	undefined: { sprite: dungeonTile },
+export const Biomes: Record<number, BiomeMeta> = {
 	1: { sprite: forestTile, name: 'Forest' },
-	3: { sprite: forestTile },
-	4: { sprite: mushroomTile },
+	3: { sprite: forestTile, name: 'Beginner forest' },
+	4: { sprite: mushroomTile, name: 'Mushroom' },
 	44: { sprite: townTile, name: 'Timberwell' },
 	45: { sprite: townTile, name: 'Fairreach' }
 };
@@ -151,6 +178,7 @@ type RoomType = {
 };
 
 export const RoomTypes: Record<number, RoomType> = {
+	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
 	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
 	2: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
@@ -180,4 +208,23 @@ export const RoomDirections = [
 	dir12,
 	dir13,
 	dir14
+];
+
+export const DungeonDirections = [
+	dung0,
+	dung1,
+	dung2,
+	dung3,
+	dung4,
+	dung5,
+	dung6,
+	dung7,
+	dung8,
+	dung9,
+	dung10,
+	dung11,
+	dung12,
+	dung13,
+	dung14,
+	dung15
 ];

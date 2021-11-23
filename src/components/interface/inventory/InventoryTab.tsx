@@ -83,7 +83,7 @@ const InventoryTab = ({ variant }: Props) => {
 						'px': 5,
 						'pt': 5,
 						'pb': variant === 'storage' ? 7 : 27,
-						'> *:first-child': {
+						'> *:first-of-type': {
 							mb: variant === 'inventory' ? 5 : undefined
 						}
 					}}

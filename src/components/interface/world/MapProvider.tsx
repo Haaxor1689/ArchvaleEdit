@@ -36,15 +36,16 @@ const parseExploration = (value: string) => {
  * - 14 - seen
  * - 15 - hidden
  */
-const parseFlags = (flags: string) => {
+const parseRoomExploration = (flags: string) => {
 	const val = pad(parseHexValue(flags).toString(2), 16);
-
-	return {
-		exploration:
-			val[11] === '1' ? 'Visited' : val[14] === '1' ? 'Seen' : 'Hidden',
-		direction: parseInt(val.slice(0, 4), 2)
-	} as const;
+	return val[11] === '1'
+		? 'Visited'
+		: val[14] === '1'
+		? 'Seen'
+		: ('Hidden' as const);
 };
+
+export const parseRoomDirection = (flags: string) => parseHexValue(flags[1]);
 
 export type RoomStatus = 'Visited' | 'Seen' | 'Hidden' | 'Cleared';
 
@@ -53,7 +54,8 @@ type MapContext = {
 	setRespawn: (r: Partial<Room>) => void;
 	toggleExplored?: (id: number) => void;
 	getRoomStatus: (id: number) => RoomStatus;
-	getRoomDirection?: (id: number) => number;
+	dungeonIndex?: number;
+	dungeon?: Dungeon;
 };
 
 type Context = {
@@ -132,20 +134,17 @@ const useWorldMap = (): MapContext => {
 		},
 		toggleExplored: id => {
 			const newRooms = [...rooms];
-			const { direction, exploration } = parseFlags(rooms[id].flags);
+			const exploration = parseRoomExploration(rooms[id].flags);
 			newRooms[id] = {
 				...rooms[id],
-				flags: parseInt(
-					`${pad(direction.toString(2), 4)}0000000${toggleWorldExploration(
-						exploration
-					)}`,
+				flags: `0${rooms[id].flags[1]}${parseInt(
+					`0000000${toggleWorldExploration(exploration)}`,
 					2
-				).toString(16)
+				).toString(16)}`
 			};
 			onRoomsChange({ target: { value: newRooms } });
 		},
-		getRoomStatus: id => parseFlags(rooms[id].flags).exploration,
-		getRoomDirection: id => parseFlags(rooms[id].flags).direction
+		getRoomStatus: id => parseRoomExploration(rooms[id].flags)
 	};
 };
 
@@ -196,7 +195,9 @@ const useDungeonMap = (id: number): MapContext => {
 				target: { value: newDungeons }
 			});
 		},
-		getRoomStatus: id => parseExploration(dungeon?.exploration_data[id])
+		getRoomStatus: id => parseExploration(dungeon?.exploration_data[id]),
+		dungeonIndex: index,
+		dungeon
 	};
 };
 
@@ -214,7 +215,11 @@ const MapContext = createContext<Context>(undefined as never);
 export const useMapContext = () => useContext(MapContext);
 
 const MapProvider: FC = ({ children }) => {
-	const [map, setMap] = useState(-1);
+	const {
+		input: { value: activeDungeon }
+	} = useField<number>(`active_dungeon`, { subscription: { value: true } });
+
+	const [map, setMap] = useState(activeDungeon);
 	const [selected, setSelected] = useState<number>();
 
 	const worldProps = useWorldMap();

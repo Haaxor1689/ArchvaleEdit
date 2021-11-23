@@ -1,14 +1,18 @@
 type WorldState = {
 	n12: number; // Chef - 1: talked, 2: done
-	n50001: number; // ???
-	n90002: number; // ???
+	n90002: number; // ??? Lichen Keep progression
 	n90004: number; // Fountain
+
+	n50001: number; // ???
 
 	// Maxilla
 	n30007: number; // Fight - flag
 	n31007: number; // Health upgrade - flag
 	n32001: number; // Potion - flag
 	n50106: number; // Bomb - flag
+
+	n10005: number; // 1st archstone overworld
+	n40001: number; // 1st archstone
 
 	[key: string]: number;
 };

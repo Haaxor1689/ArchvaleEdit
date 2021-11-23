@@ -1,6 +1,6 @@
 import { Box, IconButton, Typography } from '@mui/material';
 
-import { RoomTypes } from 'utils/data';
+import { Biomes, RoomTypes } from 'utils/data';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 
@@ -39,6 +39,15 @@ const RoomInfo = () => {
 					[{room.x},{room.y}]
 				</Typography>
 			</Typography>
+
+			{room.biome_type && (
+				<Typography variant="caption" color="text.secondary">
+					Biome
+					<Typography color="text.primary">
+						{Biomes[room.biome_type].name ?? '???'}
+					</Typography>
+				</Typography>
+			)}
 
 			<Typography variant="caption" color="text.secondary">
 				Exploration
