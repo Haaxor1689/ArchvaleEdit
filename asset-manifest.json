@@ -1,18 +1,19 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.c8ef1983.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.c8ef1983.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.9f14e7a4.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.9f14e7a4.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
-    "static/js/2.05707e19.chunk.js": "/ArchvaleEdit/static/js/2.05707e19.chunk.js",
-    "static/js/2.05707e19.chunk.js.map": "/ArchvaleEdit/static/js/2.05707e19.chunk.js.map",
+    "static/js/2.52dad5bb.chunk.js": "/ArchvaleEdit/static/js/2.52dad5bb.chunk.js",
+    "static/js/2.52dad5bb.chunk.js.map": "/ArchvaleEdit/static/js/2.52dad5bb.chunk.js.map",
     "index.html": "/ArchvaleEdit/index.html",
     "static/css/main.5304c1d2.chunk.css.map": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css.map",
-    "static/js/2.05707e19.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.05707e19.chunk.js.LICENSE.txt",
+    "static/js/2.52dad5bb.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.52dad5bb.chunk.js.LICENSE.txt",
     "static/media/background.9a6f1d9f.png": "/ArchvaleEdit/static/media/background.9a6f1d9f.png",
     "static/media/badges.696bdd42.yaml": "/ArchvaleEdit/static/media/badges.696bdd42.yaml",
     "static/media/badgesTab.06150098.png": "/ArchvaleEdit/static/media/badgesTab.06150098.png",
+    "static/media/dungeons.be818409.yaml": "/ArchvaleEdit/static/media/dungeons.be818409.yaml",
     "static/media/emptySlot.2e71b0d6.png": "/ArchvaleEdit/static/media/emptySlot.2e71b0d6.png",
     "static/media/equipPanel.1a1ddbf5.png": "/ArchvaleEdit/static/media/equipPanel.1a1ddbf5.png",
     "static/media/hover.2531f834.png": "/ArchvaleEdit/static/media/hover.2531f834.png",
@@ -32,6 +33,7 @@
     "static/media/items.1627278c.yaml": "/ArchvaleEdit/static/media/items.1627278c.yaml",
     "static/media/logo.e8e77211.png": "/ArchvaleEdit/static/media/logo.e8e77211.png",
     "static/media/stylesheet.css": "/ArchvaleEdit/static/media/nokiafc22.04dc8b64.ttf",
+    "static/media/panel.4943e232.png": "/ArchvaleEdit/static/media/panel.4943e232.png",
     "static/media/panel.cf957a3b.png": "/ArchvaleEdit/static/media/panel.cf957a3b.png",
     "static/media/panel.f6ce5c66.png": "/ArchvaleEdit/static/media/panel.f6ce5c66.png",
     "static/media/slot.1a6295c0.png": "/ArchvaleEdit/static/media/slot.1a6295c0.png",
@@ -43,15 +45,15 @@
     "static/media/slotUnavailable.214c8ced.png": "/ArchvaleEdit/static/media/slotUnavailable.214c8ced.png",
     "static/media/slotsPanel.33b3395c.png": "/ArchvaleEdit/static/media/slotsPanel.33b3395c.png",
     "static/media/spd.ec74f58c.png": "/ArchvaleEdit/static/media/spd.ec74f58c.png",
-    "static/media/storagePanel.d1d77165.png": "/ArchvaleEdit/static/media/storagePanel.d1d77165.png",
+    "static/media/storagePanel.6d11f478.png": "/ArchvaleEdit/static/media/storagePanel.6d11f478.png",
     "static/media/storageTab.95b2dca3.png": "/ArchvaleEdit/static/media/storageTab.95b2dca3.png",
     "static/media/tab.4814d547.png": "/ArchvaleEdit/static/media/tab.4814d547.png",
     "static/media/tile.b51cf0d0.png": "/ArchvaleEdit/static/media/tile.b51cf0d0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5dbb1da3.js",
-    "static/js/2.05707e19.chunk.js",
+    "static/js/2.52dad5bb.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.c8ef1983.chunk.js"
+    "static/js/main.9f14e7a4.chunk.js"
   ]
 }
