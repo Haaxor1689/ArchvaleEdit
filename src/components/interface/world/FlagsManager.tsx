@@ -24,7 +24,7 @@ const FlagsManager = () => {
 			}}
 		>
 			<Typography>Flags:</Typography>
-			{Object.entries(npst).map(([key, value]) => (
+			{Object.entries(npst).map(([key]) => (
 				<TextInput
 					key={key}
 					id={`npst.${key}`}

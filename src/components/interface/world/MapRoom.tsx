@@ -118,7 +118,8 @@ const MapRoom = (room: Room) => {
 					'left': t => t.spacing(-0.75),
 					'zIndex': 1,
 					'opacity': selected === room.room_id ? 1 : 0,
-					':hover': { opacity: 0.5 }
+					'filter': 'invert(1)',
+					':hover': { opacity: 1, filter: 'invert(0)' }
 				}}
 			/>
 		</Sprite>
