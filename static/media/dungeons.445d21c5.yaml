@@ -16,30 +16,41 @@
     - room_id: 4
       x: 2
       y: 3
+      boss_key: 2
     - room_id: 5
       x: 2
       y: 4
     - room_id: 6
       x: 3
       y: 2
+      silver_key: 4
     - room_id: 7
       x: 3
       y: 3
+      silver_key: 3
+      locks:
+        - [button, 8]
     - room_id: 8
       x: 3
       y: 4
+      locks:
+        - [silver, 8]
     - room_id: 9
       x: 4
       y: 2
     - room_id: 10
       x: 4
       y: 3
+      locks:
+        - [boss, 2]
+        - [silver, 4]
     - room_id: 11
       x: 4
       y: 4
     - room_id: 12
       x: 4
       y: 5
+      boss_key: 1
     - room_id: 13
       x: 5
       y: 3
@@ -49,15 +60,20 @@
     - room_id: 15
       x: 5
       y: 5
+      locks:
+        - [boss, 4]
     - room_id: 16
       x: 5
       y: 6
+      type: 10
     - room_id: 17
       x: 6
       y: 1
+      type: -1
     - room_id: 18
       x: 6
       y: 2
+      type: 10
     - room_id: 19
       x: 6
       y: 3
