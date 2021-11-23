@@ -6,7 +6,6 @@ import Sprite from 'components/Sprite';
 import {
 	Biomes,
 	DungeonDirections,
-	Dungeons,
 	RoomDirections,
 	RoomTypes
 } from 'utils/data';
@@ -15,7 +14,8 @@ import { Room } from 'utils/types';
 import {
 	parseRoomDirection,
 	useIsRoomRespawn,
-	useMapContext
+	useMapContext,
+	useObtainedWorldState
 } from './MapProvider';
 
 const MapRoom = (room: Room) => {
@@ -38,9 +38,10 @@ const MapRoom = (room: Room) => {
 	const isRespawn = useIsRoomRespawn(room);
 
 	const direction = parseRoomDirection(room.flags);
-	console.log(direction, Dungeons);
 
 	const isDungeon = map !== -1;
+
+	const obtained = useObtainedWorldState(room.type)();
 
 	return (
 		<Sprite
@@ -75,12 +76,12 @@ const MapRoom = (room: Room) => {
 			{!isDungeon && (
 				<Sprite
 					img={RoomDirections[direction]}
+					width={7.5}
+					height={7.5}
 					sx={{
 						position: 'absolute',
 						top: 0,
-						left: 0,
-						width: isDoubleMaster ? '50%' : '100%',
-						height: isDoubleMaster ? '50%' : '100%'
+						left: 0
 					}}
 				/>
 			)}
@@ -99,12 +100,12 @@ const MapRoom = (room: Room) => {
 			)}
 			{type && !isDoubleSub && (
 				<Sprite
-					img={type.sprite[0]}
-					width={type.sprite[1] / 2}
-					height={type.sprite[2] / 2}
+					img={type.sprite?.[0]}
+					width={(type.sprite?.[1] ?? 0) / 2}
+					height={(type.sprite?.[2] ?? 0) / 2}
 					sx={{
 						zIndex: 1,
-						opacity: room.objective_complete ? 0.25 : undefined
+						opacity: !obtained || room.objective_complete ? 0.25 : undefined
 					}}
 				/>
 			)}

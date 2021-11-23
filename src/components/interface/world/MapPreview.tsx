@@ -9,11 +9,10 @@ const MapPreview = () => {
 		<Box
 			sx={{
 				flexGrow: 1,
-				flexShrink: 0,
 				display: 'grid',
 				gridAutoColumns: t => t.spacing(7),
 				gridAutoRows: t => t.spacing(7),
-				justifyContent: 'center',
+				p: 4,
 				overflow: 'auto'
 			}}
 		>

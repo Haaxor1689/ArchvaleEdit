@@ -19,6 +19,7 @@ import costIcon from 'assets/stats/cost.png';
 import forestTile from 'assets/world/tiles/forest.png';
 import mushroomTile from 'assets/world/tiles/mushroom.png';
 import townTile from 'assets/world/tiles/town.png';
+import archstoneIcon from 'assets/world/icons/archstone.png';
 import dungeonIcon from 'assets/world/icons/dungeon.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
 import minibossIcon from 'assets/world/icons/miniboss.png';
@@ -26,6 +27,8 @@ import questIcon from 'assets/world/icons/quest.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
+import maxillaObj from 'assets/world/objects/maxilla.png';
+import bombObj from 'assets/world/objects/bomb.png';
 import dir0 from 'assets/world/directions/dir0.png';
 import dir1 from 'assets/world/directions/dir1.png';
 import dir2 from 'assets/world/directions/dir2.png';
@@ -99,19 +102,7 @@ type DungeonMeta = {
 	rooms: DungeonRoom[];
 };
 
-const calculateRoomDirection = (room: Room, rooms: Room[]) =>
-	(rooms.find(r => r.x === room.x && r.y === room.y + 1) ? 8 : 0) +
-	(rooms.find(r => r.x === room.x - 1 && r.y === room.y) ? 4 : 0) +
-	(rooms.find(r => r.x === room.x && r.y === room.y - 1) ? 2 : 0) +
-	(rooms.find(r => r.x === room.x + 1 && r.y === room.y) ? 1 : 0);
-
-export const Dungeons = loadYamlData<DungeonMeta>(dungeons, d => ({
-	...d,
-	rooms: d.rooms.map(r => ({
-		...r,
-		flags: `0${calculateRoomDirection(r, d.rooms).toString(16)}000`
-	}))
-}));
+export const Dungeons = loadYamlData<DungeonMeta>(dungeons);
 
 export type Item = {
 	id: number;
@@ -167,17 +158,48 @@ type BiomeMeta = {
 export const Biomes: Record<number, BiomeMeta> = {
 	1: { sprite: forestTile, name: 'Forest' },
 	3: { sprite: forestTile, name: 'Beginner forest' },
-	4: { sprite: mushroomTile, name: 'Mushroom' },
+	4: { sprite: mushroomTile, name: 'Mushroom?' },
 	44: { sprite: townTile, name: 'Timberwell' },
 	45: { sprite: townTile, name: 'Fairreach' }
 };
 
 type RoomType = {
-	sprite: [string, number, number];
+	sprite?: [string, number, number];
 	name: string;
 };
 
+type StateMeta = {
+	name: string;
+	flags: string[];
+	types: number[];
+	sprite: [string, number, number];
+};
+
+export const WorldStateMeta: StateMeta[] = [
+	{
+		name: 'Maxilla killed',
+		flags: ['n30007', 'n31007', 'n32001'],
+		types: [-1],
+		sprite: [maxillaObj, 15, 22]
+	},
+	{
+		name: 'Bomb unlocked',
+		flags: ['n50106'],
+		types: [-2],
+		sprite: [bombObj, 16, 15]
+	},
+	{
+		name: '1st Archstone',
+		flags: ['n10005', 'n40001'],
+		types: [-3, 47],
+		sprite: [archstoneIcon, 12, 11]
+	}
+];
+
 export const RoomTypes: Record<number, RoomType> = {
+	[-4]: { name: 'Platforming' },
+	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
+	[-2]: { sprite: [treasureIcon, 10, 10], name: 'Bomb' },
 	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
 	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
 	2: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },

@@ -39,7 +39,6 @@ const WorldTab = () => (
 					<MapInfo />
 					<RoomInfo />
 				</Box>
-				{/* <FlagsManager /> */}
 			</MapProvider>
 		</Sprite>
 		<Typography variant="caption" textAlign="center">

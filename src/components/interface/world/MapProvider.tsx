@@ -2,7 +2,7 @@ import { createContext, FC, useContext, useState } from 'react';
 import { useField } from 'react-final-form';
 
 import { pad, parseHexValue } from 'utils';
-import { Dungeons } from 'utils/data';
+import { Dungeons, WorldStateMeta } from 'utils/data';
 import { Dungeon, Room, World } from 'utils/types';
 
 const parseExploration = (value: string) => {
@@ -208,6 +208,19 @@ export const useIsRoomRespawn = (room?: Room) => {
 		respawn[1] === (room?.master_room_x ?? room?.x) &&
 		respawn[2] === (room?.master_room_y ?? room?.y)
 	);
+};
+
+export const useObtainedWorldState = (type: number) => {
+	const {
+		input: { value }
+	} = useField('npst', { subscription: { value: true } });
+	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type) >= 0);
+
+	return (flags?: string[]) => {
+		const f = flags ?? stateMeta.flatMap(s => s.flags);
+		if (f.length === 0) return true;
+		return f.some(f => value[f] === 1);
+	};
 };
 
 const MapContext = createContext<Context>(undefined as never);

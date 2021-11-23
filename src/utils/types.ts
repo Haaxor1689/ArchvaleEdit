@@ -9,6 +9,7 @@ type WorldState = {
 	n30007: number; // Fight - flag
 	n31007: number; // Health upgrade - flag
 	n32001: number; // Potion - flag
+
 	n50106: number; // Bomb - flag
 
 	n10005: number; // 1st archstone overworld
