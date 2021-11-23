@@ -8,7 +8,6 @@ import MapPreview from './MapPreview';
 import MapSelect from './MapSelect';
 import RoomInfo from './RoomInfo';
 import MapInfo from './MapInfo';
-import FlagsManager from './FlagsManager';
 
 const WorldTab = () => (
 	<Box
@@ -40,7 +39,7 @@ const WorldTab = () => (
 					<MapInfo />
 					<RoomInfo />
 				</Box>
-				<FlagsManager />
+				{/* <FlagsManager /> */}
 			</MapProvider>
 		</Sprite>
 		<Typography variant="caption" textAlign="center">
