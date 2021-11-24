@@ -1,9 +1,22 @@
 type WorldState = {
-	n12: number; // Chef - 1: talked, 2: done
-	n90002: number; // ??? Lichen Keep progression
-	n90004: number; // Fountain
+	n90002: number; // ??? Overall game progression
 
+	n21001: number; // ???
+	n21002: number; // ???
+	n21010: number; // ???
 	n50001: number; // ???
+	n90004: number; // ??? Fountain
+
+	// Town
+	n12: number; // Chef - 1: talked, 2: done
+	n24: number; // Blacksmith - 1: talked
+	n25: number; // Collector - 1: talked
+	n26: number; // Shopkeep - 1: talked
+	n20001: number; // Banker - 1: unlocked
+
+	// Great Slime
+	n30003: number; // Fight - flag
+	n31003: number; // Health upgrade - flag
 
 	// Maxilla
 	n30007: number; // Fight - flag

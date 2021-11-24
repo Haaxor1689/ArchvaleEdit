@@ -76,9 +76,7 @@ const RoomInfo = () => {
 			</Box>
 
 			{isRespawn ? (
-				<Typography variant="caption" color="text.secondary">
-					Current spawn point
-				</Typography>
+				<Typography>Current spawn point</Typography>
 			) : (
 				<Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
 					<Typography variant="caption" color="text.secondary">

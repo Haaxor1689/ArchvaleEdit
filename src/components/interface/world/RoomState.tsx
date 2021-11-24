@@ -11,6 +11,7 @@ const RoomState = ({ type }: Room) => {
 	const {
 		input: { value, onChange }
 	} = useField('npst', { subscription: { value: true } });
+	console.log(value);
 
 	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type) >= 0);
 
@@ -20,6 +21,7 @@ const RoomState = ({ type }: Room) => {
 			<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1 }}>
 				{stateMeta.map((s, i) => {
 					const obtained = s.flags.some(f => value[f] === 1);
+
 					return (
 						<IconButton
 							key={i}
@@ -52,13 +54,13 @@ const RoomState = ({ type }: Room) => {
 								width={s.sprite[1] / 2}
 								height={s.sprite[2] / 2}
 								sx={{
-									filter: obtained ? 'saturate(0)' : undefined
+									filter: !obtained ? 'saturate(0)' : undefined
 								}}
 							/>
 							<Typography
 								variant="caption"
 								textAlign="center"
-								color={obtained ? 'text.secondary' : undefined}
+								color={!obtained ? 'text.secondary' : undefined}
 								sx={{
 									position: 'absolute',
 									bottom: t => t.spacing(1),

@@ -21,13 +21,22 @@ import mushroomTile from 'assets/world/tiles/mushroom.png';
 import townTile from 'assets/world/tiles/town.png';
 import archstoneIcon from 'assets/world/icons/archstone.png';
 import dungeonIcon from 'assets/world/icons/dungeon.png';
+import dungeonChestIcon from 'assets/world/icons/dungeonChest.png';
+import bombIcon from 'assets/world/icons/bomb.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
 import minibossIcon from 'assets/world/icons/miniboss.png';
+import plumIcon from 'assets/world/icons/plum.png';
 import questIcon from 'assets/world/icons/quest.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
+import bankerObj from 'assets/world/objects/banker.png';
+import blacksmithObj from 'assets/world/objects/blacksmith.png';
+import chefObj from 'assets/world/objects/chef.png';
+import collectorObj from 'assets/world/objects/collector.png';
 import maxillaObj from 'assets/world/objects/maxilla.png';
+import shopkeeperObj from 'assets/world/objects/shopkeeper.png';
+import slimeObj from 'assets/world/objects/slime.png';
 import bombObj from 'assets/world/objects/bomb.png';
 import dir0 from 'assets/world/directions/dir0.png';
 import dir1 from 'assets/world/directions/dir1.png';
@@ -177,6 +186,42 @@ type StateMeta = {
 
 export const WorldStateMeta: StateMeta[] = [
 	{
+		name: 'Unlocked Bank',
+		flags: ['n20001'],
+		types: [22],
+		sprite: [bankerObj, 17, 19]
+	},
+	{
+		name: 'Talked to the Chef',
+		flags: ['n12'],
+		types: [22],
+		sprite: [chefObj, 19, 27]
+	},
+	{
+		name: 'Talked to the Collector',
+		flags: ['n25'],
+		types: [22],
+		sprite: [collectorObj, 21, 21]
+	},
+	{
+		name: 'Talked to the Shopkeeper',
+		flags: ['n26'],
+		types: [22],
+		sprite: [shopkeeperObj, 14, 22]
+	},
+	{
+		name: 'Talked to the Blacksmith',
+		flags: ['n24'],
+		types: [22],
+		sprite: [blacksmithObj, 22, 19]
+	},
+	{
+		name: 'Great Slime killed',
+		flags: ['n30003', 'n31003'],
+		types: [1],
+		sprite: [slimeObj, 46, 44]
+	},
+	{
 		name: 'Maxilla killed',
 		flags: ['n30007', 'n31007', 'n32001'],
 		types: [-1],
@@ -197,15 +242,15 @@ export const WorldStateMeta: StateMeta[] = [
 ];
 
 export const RoomTypes: Record<number, RoomType> = {
-	[-4]: { name: 'Platforming' },
+	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
 	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
-	[-2]: { sprite: [treasureIcon, 10, 10], name: 'Bomb' },
+	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
 	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
 	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
 	2: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
 	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
-	20: { sprite: [questIcon, 8, 8], name: 'Mega Plum' },
+	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
 	21: { sprite: [townIcon, 8, 8], name: 'Timberwell town' },
 	22: { sprite: [townIcon, 8, 8], name: 'Fairreach town' },
 	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },

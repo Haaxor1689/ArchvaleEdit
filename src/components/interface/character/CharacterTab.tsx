@@ -85,7 +85,7 @@ const CharacterTab = () => (
 		</Sprite>
 		<Typography variant="caption" textAlign="center">
 			You can use right click to lower clickable values like health, potions
-			etc.
+			etc. Hold shift to increase the amount.
 		</Typography>
 	</Box>
 );

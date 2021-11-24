@@ -218,7 +218,7 @@ export const useObtainedWorldState = (type: number) => {
 
 	return (flags?: string[]) => {
 		const f = flags ?? stateMeta.flatMap(s => s.flags);
-		if (f.length === 0) return true;
+		if (f.length === 0) return false;
 		return f.some(f => value[f] === 1);
 	};
 };

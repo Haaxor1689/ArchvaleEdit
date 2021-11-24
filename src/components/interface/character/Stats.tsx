@@ -45,7 +45,7 @@ const Stats = () => {
 				const value = stats[i];
 				const onClick: MouseEventHandler = e => {
 					e.button === 2 && e.preventDefault();
-					setStat(i, e.button === 2 ? -1 : 1);
+					setStat(i, (e.button === 2 ? -1 : 1) * (e.shiftKey ? 5 : 1));
 				};
 				return !attr || !meta ? null : (
 					<IconButton

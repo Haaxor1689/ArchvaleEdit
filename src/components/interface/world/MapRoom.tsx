@@ -105,7 +105,7 @@ const MapRoom = (room: Room) => {
 					height={(type.sprite?.[2] ?? 0) / 2}
 					sx={{
 						zIndex: 1,
-						opacity: !obtained || room.objective_complete ? 0.25 : undefined
+						opacity: obtained && room.objective_complete ? 0.25 : undefined
 					}}
 				/>
 			)}
