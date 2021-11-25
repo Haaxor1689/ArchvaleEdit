@@ -2,8 +2,6 @@ import { createTheme } from '@mui/material';
 
 import 'assets/font/stylesheet.css';
 
-import background from 'assets/background.png';
-
 declare module '@mui/material/styles' {
 	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface Palette {
@@ -62,7 +60,7 @@ const theme = (spacing: number) =>
 						minHeight: '100%',
 						zIndex: -1,
 						opacity: 0.2,
-						backgroundImage: `url(${background})`,
+						backgroundImage: `url(${process.env.PUBLIC_URL}/assets/background.png)`,
 						backgroundPosition: 'bottom right',
 						backgroundSize: 'contain',
 						backgroundRepeat: 'no-repeat',
