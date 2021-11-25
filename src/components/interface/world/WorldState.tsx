@@ -3,23 +3,23 @@ import { useField } from 'react-final-form';
 import { omit } from 'lodash-es';
 
 import Sprite from 'components/Sprite';
-import { WorldStateMeta } from 'utils/data';
-import { Room } from 'utils/types';
+import { StateMeta } from 'utils/data';
 import { StrokeTextShadow } from 'utils';
 
-const RoomState = ({ type }: Room) => {
+type Props = {
+	stateMetaItems: StateMeta[];
+};
+
+const WorldState = ({ stateMetaItems }: Props) => {
 	const {
 		input: { value, onChange }
 	} = useField('npst', { subscription: { value: true } });
-	console.log(value);
-
-	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type) >= 0);
 
 	return (
 		<Typography variant="caption" color="text.secondary">
 			Events and collectibles
-			<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1 }}>
-				{stateMeta.map((s, i) => {
+			<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 1 }}>
+				{stateMetaItems.map((s, i) => {
 					const obtained = s.flags.some(f => value[f] === 1);
 
 					return (
@@ -78,4 +78,4 @@ const RoomState = ({ type }: Room) => {
 	);
 };
 
-export default RoomState;
+export default WorldState;

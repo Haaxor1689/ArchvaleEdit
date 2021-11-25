@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import Form from 'components/form/Form';
 import { World } from 'utils/types';
-import { makeBase64File } from 'utils';
+import { makeBase64File, StrokeTextShadow } from 'utils';
 import logo from 'assets/logo.png';
 
 import FileInput from './form/FileInput';
@@ -42,8 +42,19 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			gap: 10
 		}}
 	>
-		<Sprite img={logo} height={48} sx={{ aspectRatio: '2/1' }} />
-		<Typography variant="h1" mt={-8} mb={6} textAlign="center">
+		<Sprite
+			img={logo}
+			height={56}
+			sx={{ aspectRatio: '2/1', imageRendering: 'initial' }}
+		/>
+		<Typography
+			variant="h1"
+			mt={-16}
+			mb={6}
+			textAlign="center"
+			color="primary.main"
+			sx={{ textShadow: StrokeTextShadow }}
+		>
 			Save Editor
 		</Typography>
 		<Typography textAlign="center" variant="body2" mb={-4}>

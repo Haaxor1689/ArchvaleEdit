@@ -5,6 +5,7 @@ import { useField } from 'react-final-form';
 import Sprite from 'components/Sprite';
 import portion from 'assets/character/potion.png';
 import { StrokeTextShadow } from 'utils';
+import OverflowAsterisk from 'components/Overflowsterisk';
 
 const PotionsMax = 10;
 
@@ -64,7 +65,7 @@ const HealingPotions = () => {
 
 			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > PotionsMax ? '*' : ''}
+				<OverflowAsterisk overflow={value > PotionsMax} />
 			</Typography>
 			<Typography
 				variant="body2"

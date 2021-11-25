@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { MouseEvent } from 'react';
+import Scrollbars from 'react-custom-scrollbars';
 
 import { Items } from 'utils/data';
 import itemCheatPanel from 'assets/inventory/itemCheatPanel.png';
@@ -16,6 +17,8 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => (
 		sx={{
 			'position': 'relative',
 			'backgroundColor': '#262b44',
+			'height': t => t.spacing(41),
+			'width': t => t.spacing(161),
 			'::after': {
 				content: '" "',
 				position: 'absolute',
@@ -27,30 +30,30 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => (
 				background: `url(${itemCheatPanel})`,
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'contain',
-				zIndex: 2
+				zIndex: 1
 			}
 		}}
 	>
-		<Box
-			sx={{
-				display: 'grid',
-				gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-				gap: 1,
-				p: 7,
-				maxHeight: t => t.spacing(57),
-				overflowY: 'auto',
-				backgroundColor: '#262b44'
-			}}
-		>
-			{Items.filter(v => v).map(item => (
-				<ItemSlot
-					key={item.id}
-					hideTooltip={hideTooltip}
-					item={{ id: item.id, count: 0, quality: 0 }}
-					onClick={e => onClick(item, e)}
-				/>
-			))}
-		</Box>
+		<Scrollbars style={{ width: '100%', height: '100%' }}>
+			<Box
+				sx={{
+					display: 'grid',
+					gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+					gap: 1,
+					p: 5,
+					backgroundColor: '#262b44'
+				}}
+			>
+				{Items.filter(v => v).map(item => (
+					<ItemSlot
+						key={item.id}
+						hideTooltip={hideTooltip}
+						item={{ id: item.id, count: 0, quality: 0 }}
+						onClick={e => onClick(item, e)}
+					/>
+				))}
+			</Box>
+		</Scrollbars>
 	</Box>
 );
 

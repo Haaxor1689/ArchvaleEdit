@@ -177,7 +177,7 @@ type RoomType = {
 	name: string;
 };
 
-type StateMeta = {
+export type StateMeta = {
 	name: string;
 	flags: string[];
 	types: number[];

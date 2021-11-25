@@ -117,7 +117,7 @@ const BadgeTab = () => {
 				hover={hoverCost}
 				onClick={e => {
 					e.button === 2 && e.preventDefault();
-					changeSlotsAmount(slots + (e.button === 2 ? -1 : 1));
+					changeSlotsAmount(Number(slots) + (e.button === 2 ? -1 : 1));
 				}}
 			/>
 			<Typography variant="caption" mt={2}>

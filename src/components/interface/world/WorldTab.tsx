@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import panel from 'assets/world/panel.png';
 import Sprite from 'components/Sprite';
@@ -21,29 +22,33 @@ const WorldTab = () => (
 	>
 		<Sprite
 			img={panel}
-			width={161}
-			height={131}
+			width={225}
+			height={150}
 			sx={{ position: 'relative', display: 'flex', gap: 2, p: 6 }}
 		>
 			<MapProvider>
 				<MapPreview />
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'column',
-						width: '33%',
-						flexShrink: 0,
-						gap: 6
-					}}
+				<Scrollbars
+					autoHide
+					style={{ width: '33%', height: '100%', flexShrink: 0 }}
 				>
-					<MapSelect />
-					<MapInfo />
-					<RoomInfo />
-				</Box>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							gap: 6
+						}}
+					>
+						<MapSelect />
+						<MapInfo />
+						<RoomInfo />
+					</Box>
+				</Scrollbars>
 			</MapProvider>
 		</Sprite>
 		<Typography variant="caption" textAlign="center">
-			Player icon marks your current spawn point.
+			Player icon marks your current spawn point. Hold shift for horizontal
+			scrolling.
 		</Typography>
 	</Box>
 );

@@ -1,9 +1,9 @@
 import { Box, IconButton, Typography } from '@mui/material';
 
-import { Biomes, RoomTypes } from 'utils/data';
+import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
-import RoomState from './RoomState';
+import WorldState from './WorldState';
 
 const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored } =
@@ -11,15 +11,12 @@ const RoomInfo = () => {
 	const room = rooms.find(r => r.room_id === selected);
 	const isRespawn = useIsRoomRespawn(room);
 
-	if (!room)
-		return (
-			<Typography variant="caption" color="text.secondary">
-				No room selected
-			</Typography>
-		);
+	if (!room) return <WorldState stateMetaItems={WorldStateMeta} />;
 
 	const type = RoomTypes[room.type]?.name ?? 'Combat';
 	const status = getRoomStatus(room.room_id);
+
+	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(room.type) >= 0);
 
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
@@ -97,7 +94,7 @@ const RoomInfo = () => {
 				</Box>
 			)}
 
-			<RoomState {...room} />
+			<WorldState stateMetaItems={stateMeta} />
 		</Box>
 	);
 };

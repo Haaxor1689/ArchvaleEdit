@@ -6,6 +6,7 @@ import Sprite from 'components/Sprite';
 import heart from 'assets/character/heart.png';
 import halfHeart from 'assets/character/halfHeart.png';
 import { StrokeTextShadow } from 'utils';
+import OverflowAsterisk from 'components/Overflowsterisk';
 
 const Health = () => {
 	const {
@@ -78,7 +79,7 @@ const Health = () => {
 			</Box>
 			<Typography sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > 240 ? '*' : ''}
+				<OverflowAsterisk overflow={value > 240} />
 			</Typography>
 			<Typography
 				variant="body2"

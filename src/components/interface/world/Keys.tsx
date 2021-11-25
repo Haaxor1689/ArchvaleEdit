@@ -4,6 +4,7 @@ import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
 import { StrokeTextShadow } from 'utils';
+import OverflowAsterisk from 'components/Overflowsterisk';
 
 import { useMapContext } from './MapProvider';
 
@@ -74,7 +75,7 @@ const Keys = ({ id, label, sprite, max }: Props) => {
 
 			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}
-				{value > max ? '*' : ''}
+				<OverflowAsterisk overflow={value > max} />
 			</Typography>
 			<Typography
 				variant="body2"

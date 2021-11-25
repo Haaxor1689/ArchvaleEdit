@@ -11,6 +11,7 @@ import slotLocked from 'assets/badges/slotLocked.png';
 import slotsPanel from 'assets/badges/slotsPanel.png';
 import Sprite from 'components/Sprite';
 import { StrokeTextShadow } from 'utils';
+import OverflowAsterisk from 'components/Overflowsterisk';
 
 export const MaxBadgeSlots = 9;
 
@@ -104,7 +105,7 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 				}}
 			>
 				{used}/{unlocked}
-				{unlocked > 9 ? '*' : ''}
+				<OverflowAsterisk overflow={unlocked > 9} />
 			</Typography>
 		</Sprite>
 	);

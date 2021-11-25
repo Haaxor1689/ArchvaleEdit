@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import Scrollbars from 'react-custom-scrollbars';
 
 import { useMapContext } from './MapProvider';
 import MapRoom from './MapRoom';
@@ -6,20 +7,24 @@ import MapRoom from './MapRoom';
 const MapPreview = () => {
 	const { rooms } = useMapContext();
 	return (
-		<Box
-			sx={{
-				flexGrow: 1,
-				display: 'grid',
-				gridAutoColumns: t => t.spacing(7),
-				gridAutoRows: t => t.spacing(7),
-				p: 4,
-				overflow: 'auto'
-			}}
+		<Scrollbars
+			style={{ height: '100%', flexGrow: 1 }}
+			renderView={p => <Box {...p} display="flex" />}
 		>
-			{rooms.map(r => (
-				<MapRoom key={r.room_id} {...r} />
-			))}
-		</Box>
+			<Box
+				sx={{
+					display: 'grid',
+					gridAutoColumns: t => t.spacing(7),
+					gridAutoRows: t => t.spacing(7),
+					m: 'auto',
+					p: 4
+				}}
+			>
+				{rooms.map(r => (
+					<MapRoom key={r.room_id} {...r} />
+				))}
+			</Box>
+		</Scrollbars>
 	);
 };
 

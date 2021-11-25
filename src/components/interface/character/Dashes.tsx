@@ -5,6 +5,7 @@ import { useField } from 'react-final-form';
 import Sprite from 'components/Sprite';
 import dash from 'assets/character/dash.png';
 import { StrokeTextShadow } from 'utils';
+import OverflowAsterisk from 'components/Overflowsterisk';
 
 const DashesMax = 11;
 
@@ -66,7 +67,7 @@ const Dashes = () => {
 			</Box>
 			<Typography ml={1.5} sx={{ textShadow: StrokeTextShadow }}>
 				{dashes}
-				{dashes > DashesMax ? '*' : ''}
+				<OverflowAsterisk overflow={dashes > DashesMax} />
 			</Typography>
 			<Typography
 				variant="body2"
