@@ -21,6 +21,7 @@ import ItemCheatMenu from './ItemCheatMenu';
 import GrabbedItem from './GrabbedItem';
 import ItemSlot from './ItemSlot';
 import Equipment from './Equipment';
+import InventoryFill from './InventoryFill';
 
 type Props = {
 	variant: 'inventory' | 'storage';
@@ -121,7 +122,7 @@ const InventoryTab = ({ variant }: Props) => {
 						sx={{
 							position: 'absolute',
 							right: t => t.spacing(5),
-							bottom: t => t.spacing(7)
+							bottom: t => t.spacing(variant === 'inventory' ? 2 : 7)
 						}}
 					>
 						<ItemSlot
@@ -159,6 +160,7 @@ const InventoryTab = ({ variant }: Props) => {
 							}}
 						/>
 					)}
+					{variant === 'storage' && <InventoryFill />}
 				</Sprite>
 				<Typography variant="caption" textAlign="center">
 					Pick new items from item database below, pick full stack (255) or

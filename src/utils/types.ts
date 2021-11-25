@@ -73,7 +73,7 @@ export type World = {
 	playtime: number;
 
 	// Map
-	active_dungeon: number; // -1 Cradlewood, 0 Lichen Keep, 29 Tutorial
+	active_dungeon: number;
 	dungeon_data: Dungeon[];
 	world: { rooms: Room[] };
 	player_respawn: [number, number, number];

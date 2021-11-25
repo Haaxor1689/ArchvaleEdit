@@ -29,6 +29,7 @@ const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 };
 
 const ItemStats = ({
+	id,
 	quality,
 	name,
 	rarity,
@@ -41,6 +42,9 @@ const ItemStats = ({
 		<Typography color={rarity}>
 			{name}
 			{quality > 0 && ` +${quality}`}
+			<Typography variant="caption" color="text.secondary">
+				#{id}
+			</Typography>
 		</Typography>
 		<Typography color="text.secondary">{type}</Typography>
 

@@ -12,6 +12,7 @@ import itemChest from 'assets/inventory/itemChest.png';
 import hoverChest from 'assets/inventory/hoverChest.png';
 import itemRing from 'assets/inventory/itemRing.png';
 import hoverRing from 'assets/inventory/hoverRing.png';
+import questionMark from 'assets/questionMark.png';
 import { isStackable, isUpgradeable, StrokeTextShadow } from 'utils';
 import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
@@ -72,7 +73,12 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 				!item || hideTooltip ? (
 					''
 				) : !itemMeta ? (
-					<Typography color="badge">???</Typography>
+					<Typography color="badge">
+						???
+						<Typography variant="caption" color="text.secondary">
+							#{item.id}
+						</Typography>
+					</Typography>
 				) : (
 					<ItemStats quality={item.quality} {...itemMeta} />
 				)
@@ -130,15 +136,24 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					</Typography>
 				)}
 
-				{item && itemMeta.sprite && (
-					<Sprite
-						img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}.png`}
-						width={itemMeta.sprite[1]}
-						height={itemMeta.sprite[2]}
-						flexShrink={0}
-						zIndex={1}
-					/>
-				)}
+				{item &&
+					(itemMeta?.sprite ? (
+						<Sprite
+							img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}.png`}
+							width={itemMeta.sprite[1]}
+							height={itemMeta.sprite[2]}
+							flexShrink={0}
+							zIndex={1}
+						/>
+					) : (
+						<Sprite
+							img={questionMark}
+							width={8}
+							height={10}
+							flexShrink={0}
+							zIndex={1}
+						/>
+					))}
 			</IconButton>
 		</ItemTooltip>
 	);

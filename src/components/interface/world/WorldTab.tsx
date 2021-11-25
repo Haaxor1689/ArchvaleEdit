@@ -32,6 +32,7 @@ const WorldTab = () => (
 						display: 'flex',
 						flexDirection: 'column',
 						width: '33%',
+						flexShrink: 0,
 						gap: 6
 					}}
 				>
