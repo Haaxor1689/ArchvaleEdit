@@ -2,8 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import Form from 'components/form/Form';
 import { World } from 'utils/types';
-import { makeBase64File, StrokeTextShadow } from 'utils';
-import logo from 'assets/logo.png';
+import { makeBase64File } from 'utils';
 
 import FileInput from './form/FileInput';
 import Sprite from './Sprite';
@@ -39,25 +38,15 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			alignItems: 'center',
 			justifyContent: 'center',
 			flexGrow: 1,
-			gap: 10
+			gap: 6
 		}}
 	>
 		<Sprite
-			img={logo}
-			height={56}
-			sx={{ aspectRatio: '2/1', imageRendering: 'initial' }}
+			img={`${process.env.PUBLIC_URL}/assets/logo-512.png`}
+			height={100}
+			sx={{ aspectRatio: '1', imageRendering: 'initial', mb: -16 }}
 		/>
-		<Typography
-			variant="h1"
-			mt={-16}
-			mb={6}
-			textAlign="center"
-			color="primary.main"
-			sx={{ textShadow: StrokeTextShadow }}
-		>
-			Save Editor
-		</Typography>
-		<Typography textAlign="center" variant="body2" mb={-4}>
+		<Typography textAlign="center" variant="body2">
 			Open a{' '}
 			<Box component="span" fontWeight="bold" sx={{ color: 'badge' }}>
 				&quot;.avsv&quot;

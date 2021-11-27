@@ -27,6 +27,12 @@ const MapRoom = (room: Room) => {
 	const type = RoomTypes[room.type];
 
 	const explore = getRoomStatus(room.room_id);
+	const filter =
+		explore === 'Hidden'
+			? 'saturate(0)'
+			: explore === 'Seen'
+			? 'saturate(0.5)'
+			: undefined;
 
 	const isDoubleMaster = room.is_double;
 	const isDoubleSub =
@@ -44,15 +50,7 @@ const MapRoom = (room: Room) => {
 	const obtained = useObtainedWorldState(room.type)();
 
 	return (
-		<Sprite
-			component={IconButton}
-			img={
-				isDungeon
-					? DungeonDirections[direction]
-					: !isDoubleSub
-					? biome?.sprite
-					: undefined
-			}
+		<IconButton
 			onClick={() => {
 				setSelected?.(selected === room.room_id ? undefined : room.room_id);
 			}}
@@ -62,17 +60,24 @@ const MapRoom = (room: Room) => {
 				mb: -0.5,
 				gridArea: `${finalY} / ${finalX}${
 					isDoubleMaster ? ` / ${finalY + 2} / ${finalX + 2}` : ''
-				}`,
-				filter:
-					explore === 'Hidden'
-						? 'saturate(0)'
-						: explore === 'Seen'
-						? 'saturate(0.5)'
-						: undefined,
-				color:
-					room.x === respawn[0] && room.y === respawn[1] ? 'badge' : undefined
+				}`
 			}}
 		>
+			<Sprite
+				img={
+					isDungeon
+						? DungeonDirections[direction]
+						: !isDoubleSub
+						? biome?.sprite
+						: undefined
+				}
+				sx={{
+					position: 'absolute',
+					width: '100%',
+					height: '100%',
+					filter
+				}}
+			/>
 			{!isDungeon && (
 				<Sprite
 					img={RoomDirections[direction]}
@@ -91,21 +96,22 @@ const MapRoom = (room: Room) => {
 					width={5}
 					height={5}
 					sx={{
-						zIndex: 2,
+						zIndex: 3,
 						position: 'absolute',
 						top: t => t.spacing(-1.5),
 						left: t => t.spacing(-1.5)
 					}}
 				/>
 			)}
-			{type && !isDoubleSub && (
+			{type?.sprite && !isDoubleSub && (
 				<Sprite
-					img={type.sprite?.[0]}
-					width={(type.sprite?.[1] ?? 0) / 2}
-					height={(type.sprite?.[2] ?? 0) / 2}
+					img={type.sprite[0]}
+					width={(type.sprite[1] ?? 0) / 2}
+					height={(type.sprite[2] ?? 0) / 2}
 					sx={{
 						zIndex: 1,
-						opacity: obtained && room.objective_complete ? 0.25 : undefined
+						opacity: obtained && room.objective_complete ? 0.25 : undefined,
+						filter
 					}}
 				/>
 			)}
@@ -117,13 +123,13 @@ const MapRoom = (room: Room) => {
 					'position': 'absolute',
 					'top': t => t.spacing(-0.75),
 					'left': t => t.spacing(-0.75),
-					'zIndex': 1,
+					'zIndex': 2,
 					'opacity': selected === room.room_id ? 1 : 0,
 					'filter': 'invert(1)',
 					':hover': { opacity: 1, filter: 'invert(0)' }
 				}}
 			/>
-		</Sprite>
+		</IconButton>
 	);
 };
 
