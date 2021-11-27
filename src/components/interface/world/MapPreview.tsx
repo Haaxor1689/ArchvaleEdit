@@ -18,7 +18,9 @@ const MapPreview = () => {
 		<Scrollbars
 			ref={ref}
 			style={{ height: '100%', flexGrow: 1 }}
-			renderView={p => <Box {...p} display="flex" />}
+			renderView={p => (
+				<Box {...p} display="flex" backgroundColor="rgba(0,0,0,0.5)" />
+			)}
 		>
 			<Box
 				sx={{

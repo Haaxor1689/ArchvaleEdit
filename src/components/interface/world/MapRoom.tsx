@@ -19,7 +19,7 @@ import {
 } from './MapProvider';
 
 const MapRoom = (room: Room) => {
-	const { map, selected, setSelected, minX, minY, respawn, getRoomStatus } =
+	const { map, selected, setSelected, minX, minY, getRoomStatus } =
 		useMapContext();
 
 	const biome = Biomes[room.biome_type];
@@ -56,8 +56,6 @@ const MapRoom = (room: Room) => {
 			}}
 			sx={{
 				borderRadius: 0,
-				mr: -0.5,
-				mb: -0.5,
 				gridArea: `${finalY} / ${finalX}${
 					isDoubleMaster ? ` / ${finalY + 2} / ${finalX + 2}` : ''
 				}`
@@ -75,31 +73,20 @@ const MapRoom = (room: Room) => {
 					position: 'absolute',
 					width: '100%',
 					height: '100%',
+					zIndex: 0,
 					filter
 				}}
 			/>
 			{!isDungeon && (
 				<Sprite
 					img={RoomDirections[direction]}
-					width={7.5}
-					height={7.5}
+					width={7}
+					height={7}
 					sx={{
 						position: 'absolute',
-						top: 0,
-						left: 0
-					}}
-				/>
-			)}
-			{isRespawn && !isDoubleSub && (
-				<Sprite
-					img={playerIcon}
-					width={5}
-					height={5}
-					sx={{
-						zIndex: 3,
-						position: 'absolute',
-						top: t => t.spacing(-1.5),
-						left: t => t.spacing(-1.5)
+						top: t => t.spacing(-0),
+						left: t => t.spacing(-0),
+						zIndex: 0
 					}}
 				/>
 			)}
@@ -109,8 +96,8 @@ const MapRoom = (room: Room) => {
 					width={(type.sprite[1] ?? 0) / 2}
 					height={(type.sprite[2] ?? 0) / 2}
 					sx={{
-						zIndex: 1,
 						opacity: obtained && room.objective_complete ? 0.25 : undefined,
+						zIndex: 1,
 						filter
 					}}
 				/>
@@ -121,14 +108,27 @@ const MapRoom = (room: Room) => {
 				height={9}
 				sx={{
 					'position': 'absolute',
-					'top': t => t.spacing(-0.75),
-					'left': t => t.spacing(-0.75),
-					'zIndex': 2,
+					'top': t => t.spacing(-1),
+					'left': t => t.spacing(-1),
 					'opacity': selected === room.room_id ? 1 : 0,
+					'zIndex': 1,
 					'filter': 'invert(1)',
 					':hover': { opacity: 1, filter: 'invert(0)' }
 				}}
 			/>
+			{isRespawn && !isDoubleSub && (
+				<Sprite
+					img={playerIcon}
+					width={5}
+					height={5}
+					sx={{
+						position: 'absolute',
+						top: t => t.spacing(-1.5),
+						left: t => t.spacing(-1.5),
+						zIndex: 2
+					}}
+				/>
+			)}
 		</IconButton>
 	);
 };
