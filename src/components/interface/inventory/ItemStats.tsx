@@ -30,14 +30,14 @@ const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 
 const ItemStats = ({
 	id,
-	quality,
+	quality = 0,
 	name,
 	rarity,
 	type,
 	effect,
 	stats,
 	inflicts
-}: typeof Items[number] & Pick<InventoryItem, 'quality'>) => (
+}: typeof Items[number] & Partial<Pick<InventoryItem, 'quality'>>) => (
 	<>
 		<Typography color={rarity}>
 			{name}

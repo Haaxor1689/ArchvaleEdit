@@ -15,6 +15,7 @@ import {
 	parseRoomDirection,
 	useIsRoomRespawn,
 	useMapContext,
+	useObtainedObjectState,
 	useObtainedWorldState
 } from './MapProvider';
 
@@ -47,7 +48,8 @@ const MapRoom = (room: Room) => {
 
 	const isDungeon = map !== -1;
 
-	const obtained = useObtainedWorldState(room.type)();
+	const obtainedWorld = useObtainedWorldState(room.type)();
+	const obtainedObject = useObtainedObjectState(room.type, room.objects);
 
 	return (
 		<IconButton
@@ -96,7 +98,10 @@ const MapRoom = (room: Room) => {
 					width={(type.sprite[1] ?? 0) / 2}
 					height={(type.sprite[2] ?? 0) / 2}
 					sx={{
-						opacity: obtained && room.objective_complete ? 0.25 : undefined,
+						opacity:
+							(obtainedWorld && room.objective_complete) || obtainedObject
+								? 0.25
+								: undefined,
 						zIndex: 1,
 						filter
 					}}

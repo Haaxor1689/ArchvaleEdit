@@ -101,6 +101,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					'backgroundPosition': 'bottom',
 					'backgroundRepeat': 'no-repeat',
 					'backgroundSize': 'contain',
+					'cursor': !onClick ? 'initial' : undefined,
 					':hover': {
 						backgroundImage: `url(${getHoverIcon(variant)})`
 					}

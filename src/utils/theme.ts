@@ -40,7 +40,8 @@ const theme = (spacing: number) =>
 			fontFamily: 'Nokia, Arial',
 			h1: { fontSize: spacing * 3 * 4 },
 			h2: { fontSize: spacing * 3 * 3 },
-			h3: { fontSize: spacing * 3 * 1.5 },
+			h3: { fontSize: spacing * 3 * 1.8 },
+			h4: { fontSize: spacing * 3 * 1.4 },
 			caption: { fontSize: spacing * 3 * 0.75 },
 			body2: { fontSize: spacing * 3 * 0.95 }
 		},

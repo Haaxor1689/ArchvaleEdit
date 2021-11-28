@@ -223,6 +223,16 @@ export const useObtainedWorldState = (type: number) => {
 	};
 };
 
+export const useObtainedObjectState = (type: number, objects: string[]) => {
+	switch (type) {
+		case 4:
+			return objects?.find(o => o.match(/0008/))?.[14] === '1';
+		case 20:
+			return objects?.find(o => o.match(/000F/))?.[14] === '1';
+	}
+	return false;
+};
+
 const MapContext = createContext<Context>(undefined as never);
 
 export const useMapContext = () => useContext(MapContext);
