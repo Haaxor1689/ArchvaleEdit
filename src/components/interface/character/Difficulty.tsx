@@ -18,6 +18,10 @@ const Difficulty = () => {
 		input: { value: version }
 	} = useField<string>('version');
 
+	const {
+		input: { value: mp, onChange: onMpChange }
+	} = useField<number>('mp');
+
 	return (
 		<Box
 			sx={{
@@ -50,12 +54,42 @@ const Difficulty = () => {
 					{DifficultyLabels[d]}
 				</Button>
 			))}
+
+			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+				Multiplayer:
+			</Typography>
+			<Box sx={{ display: 'flex', gap: 2 }}>
+				<Button
+					variant={!mp ? 'outlined' : 'text'}
+					size="small"
+					onClick={() => onMpChange({ target: { value: 0 } })}
+					sx={{
+						textShadow: StrokeTextShadow,
+						color: !mp ? 'primary.main' : 'text.primary'
+					}}
+				>
+					Off
+				</Button>
+				<Button
+					variant={mp ? 'outlined' : 'text'}
+					size="small"
+					onClick={() => onMpChange({ target: { value: 1 } })}
+					sx={{
+						textShadow: StrokeTextShadow,
+						color: mp ? 'primary.main' : 'text.primary'
+					}}
+				>
+					On
+				</Button>
+			</Box>
+
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Playtime:
 			</Typography>
 			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
 				{secondsToPlaytime(playtime)}
 			</Typography>
+
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Version:
 			</Typography>
