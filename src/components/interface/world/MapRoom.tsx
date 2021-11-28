@@ -23,8 +23,6 @@ const MapRoom = (room: Room) => {
 	const { map, selected, setSelected, minX, minY, getRoomStatus } =
 		useMapContext();
 
-	const biome = Biomes[room.biome_type];
-
 	const type = RoomTypes[room.type];
 
 	const explore = getRoomStatus(room.room_id);
@@ -68,7 +66,7 @@ const MapRoom = (room: Room) => {
 					isDungeon
 						? DungeonDirections[direction]
 						: !isDoubleSub
-						? biome?.sprite
+						? Biomes[room.biome_type]?.sprite
 						: undefined
 				}
 				sx={{

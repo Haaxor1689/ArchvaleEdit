@@ -199,6 +199,24 @@ type RoomType = {
 	name: string;
 };
 
+export const RoomTypes: Record<number, RoomType> = {
+	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
+	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
+	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
+	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
+	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
+	2: { sprite: [fountainIcon, 10, 8], name: 'Starting fountain' },
+	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
+	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
+	21: { sprite: [townIcon, 8, 8], name: 'Timberwell town' },
+	22: { sprite: [townIcon, 8, 8], name: 'Fairreach town' },
+	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
+	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
+	47: { sprite: [dungeonIcon, 8, 7], name: 'Lichen Keep entrance' },
+	69: { sprite: [questIcon, 8, 8], name: 'Tutorial exit' }
+};
+
 export type StateMeta = {
 	name: string;
 	flags: string[];
@@ -262,24 +280,6 @@ export const WorldStateMeta: StateMeta[] = [
 		sprite: [archstoneIcon, 12, 11]
 	}
 ];
-
-export const RoomTypes: Record<number, RoomType> = {
-	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
-	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
-	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
-	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
-	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
-	2: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
-	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
-	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
-	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
-	21: { sprite: [townIcon, 8, 8], name: 'Timberwell town' },
-	22: { sprite: [townIcon, 8, 8], name: 'Fairreach town' },
-	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
-	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
-	47: { sprite: [dungeonIcon, 8, 7], name: 'Lichen Keep entrance' },
-	69: { sprite: [questIcon, 8, 8], name: 'Tutorial exit' }
-};
 
 export type ParsedObject = {
 	o: string;

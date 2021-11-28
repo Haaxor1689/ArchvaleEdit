@@ -56,7 +56,7 @@ const RoomInfo = () => {
 					<Typography variant="caption" color="text.secondary">
 						Biome
 						<Typography color="text.primary">
-							{Biomes[room.biome_type].name ?? '???'}
+							{Biomes[room.biome_type]?.name ?? '???'}
 						</Typography>
 					</Typography>
 				)}
