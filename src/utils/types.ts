@@ -32,28 +32,25 @@ type WorldState = {
 };
 
 export type Room = {
-	biome_type: number;
-	difficulty: number;
-	flags: string;
-	is_double?: 1;
-	master_room_x?: number;
-	master_room_y?: number;
-	objective_complete: number;
-	/**
-	 * 000210130008010 - locked fountain
-	 * 000210130008011 - unlocked fountain
-	 * 00040013000C61 - def pickup
-	 */
-	objects: string[];
 	room_id: number;
-	seed: number;
 	type: number;
+	biome_type: number;
 	x: number;
 	y: number;
+	seed: number;
+	flags: string; // Exploration and direction
+	is_double?: 1; // 2x2 rooms
+	master_room_x?: number; // X of main room if 2x2
+	master_room_y?: number; // Y of main room if 2x2
+	objective_complete: number;
+	objects: string[];
 
-	// Unused?
+	// TODO: Biome borders
 	border: number;
 	border_direction: number;
+
+	// ???
+	difficulty: number;
 };
 
 export type Dungeon = {
@@ -104,8 +101,8 @@ export type World = {
 
 	// Unused?
 	time: number;
-	player_runes: number;
-	mp: number;
+	player_runes: number; // TODO: increased by picking up token objects
+	mp: number; // TODO: multiplayer flag
 	player_2_stats: number[];
 };
 

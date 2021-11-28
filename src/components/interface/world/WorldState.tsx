@@ -15,6 +15,8 @@ const WorldState = ({ stateMetaItems }: Props) => {
 		input: { value, onChange }
 	} = useField('npst', { subscription: { value: true } });
 
+	if (stateMetaItems.length <= 0) return null;
+
 	return (
 		<Typography variant="caption" color="text.secondary">
 			Events and collectibles

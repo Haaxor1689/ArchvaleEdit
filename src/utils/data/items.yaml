@@ -2,6 +2,9 @@
   name: Slime
   type: Material
   sprite: [s_item_material_slime_0, 8, 10]
+- id: 10
+  name: '???'
+  type: Material
 - id: 26
   name: Mega Plum
   rarity: legendary
