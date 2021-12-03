@@ -1,0 +1,69 @@
+- id: 1
+  sprite: forest
+  name: Cradlewood
+- id: 3
+  sprite: forest
+  name: Cradlewood (Tutorial)
+- id: 4
+  sprite: mushroom
+  name: Cradlewood (Spawn)
+- id: 5
+  sprite: desert
+  name: Dustcrag
+- id: 6
+  sprite: desert
+  name: Dustcrag (Ruins)
+- id: 7
+  sprite: town
+  name: Buckler's Cove
+- id: 8
+  sprite: crab
+  name: Crabclaw Chasm
+- id: 10
+  sprite: swamp
+  name: Murkmire
+- id: 12
+  sprite: town
+  name: Bogtown
+- id: 13
+  sprite: snow
+  name: Pine Peak
+- id: 16
+  sprite: town
+  name: Morelton
+- id: 23
+  sprite: glade
+  name: Amberpath
+- id: 25
+  sprite: cavern
+  name: Twisted Caverns
+- id: 26
+  sprite: town
+  name: Chamberstone
+- id: 27
+  sprite: cavern
+  name: Twisted Caverns (Crystal)
+- id: 29
+  sprite: jungle
+  name: Tanglegrove
+- id: 44
+  sprite: town
+  name: Timberwell
+- id: 45
+  sprite: town
+  name: Fairreach
+- id: 46
+  sprite: town
+  name: Sprucepoint
+- id: 47
+  sprite: ocean
+  name: Brinkreef
+- id: 48
+  sprite: town
+  name: Pearlloch
+- id: 49
+  sprite: hell
+  name: Molten Rift
+- id: 50
+  sprite: town
+  name: The Pit

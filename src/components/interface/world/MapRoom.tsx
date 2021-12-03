@@ -1,7 +1,7 @@
 import { IconButton } from '@mui/material';
 
-import emptyTile from 'assets/world/tiles/empty.png';
-import selectedIcon from 'assets/world/tiles/selected.png';
+import questIcon from 'assets/world/icons/quest.png';
+import selectedIcon from 'assets/world/icons/selected.png';
 import playerIcon from 'assets/world/icons/player.png';
 import Sprite from 'components/Sprite';
 import {
@@ -37,7 +37,7 @@ const MapRoom = (room: Props) => {
 	const { map, selected, setSelected, minX, minY, getRoomStatus } =
 		useMapContext();
 
-	const type = room?.type ? RoomTypes[room.type] : undefined;
+	const type = room?.type !== undefined ? RoomTypes[room.type] : undefined;
 	const biome = room?.biome_type ? Biomes[room.biome_type] : undefined;
 
 	const explore = room?.room_id ? getRoomStatus(room.room_id) : 'Hidden';
@@ -88,24 +88,14 @@ const MapRoom = (room: Props) => {
 						: undefined
 			}}
 		>
-			{isDoubleSub && (
-				<Sprite
-					img={emptyTile}
-					sx={{
-						position: 'absolute',
-						width: '100%',
-						height: '100%',
-						zIndex: 0,
-						filter
-					}}
-				/>
-			)}
 			<Sprite
 				img={
 					isDungeon
 						? DungeonDirections[direction]
 						: !isDoubleSub
-						? biome?.sprite
+						? `${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
+								biome?.sprite ?? 'empty'
+						  }_0.png`
 						: undefined
 				}
 				sx={{
@@ -137,11 +127,17 @@ const MapRoom = (room: Props) => {
 					sx={{ zIndex: 2 }}
 				/>
 			)) ||
-				(type?.sprite && !isDoubleSub && (
+				(!isDoubleSub && (
 					<Sprite
-						img={type.sprite[0]}
-						width={(type.sprite[1] ?? 0) / 2}
-						height={(type.sprite[2] ?? 0) / 2}
+						{...(!type
+							? { img: questIcon, width: 8 / 2, height: 8 / 2 }
+							: type?.sprite
+							? {
+									img: type.sprite[0],
+									width: type.sprite[1] / 2,
+									height: type.sprite[2] / 2
+							  }
+							: {})}
 						sx={{
 							opacity:
 								(obtainedWorld && room.objective_complete) || obtainedObject

@@ -19,9 +19,6 @@ import rangeDmgIcon from 'assets/stats/range_dmg.png';
 import magicDmgIcon from 'assets/stats/magic_dmg.png';
 import atkSpdIcon from 'assets/stats/atk_spd.png';
 import costIcon from 'assets/stats/cost.png';
-import forestTile from 'assets/world/tiles/forest.png';
-import mushroomTile from 'assets/world/tiles/mushroom.png';
-import townTile from 'assets/world/tiles/town.png';
 import archstoneIcon from 'assets/world/icons/archstone.png';
 import dungeonIcon from 'assets/world/icons/dungeon.png';
 import dungeonChestIcon from 'assets/world/icons/dungeonChest.png';
@@ -29,7 +26,6 @@ import bombIcon from 'assets/world/icons/bomb.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
 import minibossIcon from 'assets/world/icons/miniboss.png';
 import plumIcon from 'assets/world/icons/plum.png';
-import questIcon from 'assets/world/icons/quest.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
@@ -94,6 +90,7 @@ import InlineItem from 'components/InlineItem';
 
 import items from './data/items.yaml';
 import badges from './data/badges.yaml';
+import biomes from './data/biomes.yaml';
 import dungeons from './data/dungeons.yaml';
 import { Room } from './types';
 
@@ -161,6 +158,7 @@ type StatMeta = {
 
 const getPercent = (v: number) => `${v * 5}%`;
 const getPlus = (v: number) => `${v < 0 ? '' : '+'}${v * 5}%`;
+const getAtkSpd = (v: number) => `${v < 0 ? '' : '+'}${v * 2}%`;
 
 export const StatsMetadata: Record<string, StatMeta> = {
 	damage: { icon: damageIcon },
@@ -175,24 +173,19 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	melee_dmg: { icon: meleeDmgIcon, title: 'Melee DMG', getValue: getPlus },
 	range_dmg: { icon: rangeDmgIcon, title: 'Ranged DMG', getValue: getPlus },
 	magic_dmg: { icon: magicDmgIcon, title: 'Magical DMG', getValue: getPlus },
-	atk_spd: { icon: atkSpdIcon, title: 'ATK Speed', getValue: getPlus },
+	atk_spd: { icon: atkSpdIcon, title: 'ATK Speed', getValue: getAtkSpd },
 	cost: { icon: costIcon },
 	ar_break: { icon: arBreakIcon, title: 'Armour Break' },
 	slow: { icon: slowIcon, getValue: getPercent }
 };
 
 type BiomeMeta = {
+	id: number;
 	sprite: string;
 	name?: string;
 };
 
-export const Biomes: Record<number, BiomeMeta> = {
-	1: { sprite: forestTile, name: 'Forest' },
-	3: { sprite: forestTile, name: 'Beginner forest' },
-	4: { sprite: mushroomTile, name: 'Mushroom?' },
-	44: { sprite: townTile, name: 'Timberwell' },
-	45: { sprite: townTile, name: 'Fairreach' }
-};
+export const Biomes = loadYamlData<BiomeMeta>(biomes);
 
 type RoomType = {
 	sprite?: [string, number, number];
@@ -204,17 +197,19 @@ export const RoomTypes: Record<number, RoomType> = {
 	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
 	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
 	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
-	1: { sprite: [minibossIcon, 10, 8], name: 'Great Slime' },
+	0: { name: 'Combat' },
+	1: { sprite: [minibossIcon, 10, 8], name: 'Miniboss' },
 	2: { sprite: [fountainIcon, 10, 8], name: 'Starting fountain' },
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
 	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
 	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
-	21: { sprite: [townIcon, 8, 8], name: 'Timberwell town' },
-	22: { sprite: [townIcon, 8, 8], name: 'Fairreach town' },
+	21: { sprite: [townIcon, 8, 8], name: 'Town' },
+	22: { sprite: [townIcon, 8, 8], name: 'Town' },
+	29: { sprite: [townIcon, 8, 8], name: 'Town' },
 	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
 	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
-	47: { sprite: [dungeonIcon, 8, 7], name: 'Lichen Keep entrance' },
-	69: { sprite: [questIcon, 8, 8], name: 'Tutorial exit' }
+	47: { sprite: [dungeonIcon, 8, 7], name: 'Dungeon' },
+	69: { sprite: [dungeonIcon, 8, 7], name: 'Tutorial exit' }
 };
 
 export type StateMeta = {
@@ -226,10 +221,16 @@ export type StateMeta = {
 
 export const WorldStateMeta: StateMeta[] = [
 	{
-		name: 'Unlocked Bank',
+		name: 'Fairreach Bank',
 		flags: ['n20001'],
 		types: [22],
 		sprite: [bankerObj, 17, 19]
+	},
+	{
+		name: 'Fairreach Shopkeeper',
+		flags: ['n26'],
+		types: [22],
+		sprite: [shopkeeperObj, 14, 22]
 	},
 	{
 		name: 'Talked to the Chef',
@@ -242,12 +243,6 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n25'],
 		types: [22],
 		sprite: [collectorObj, 21, 21]
-	},
-	{
-		name: 'Talked to the Shopkeeper',
-		flags: ['n26'],
-		types: [22],
-		sprite: [shopkeeperObj, 14, 22]
 	},
 	{
 		name: 'Talked to the Blacksmith',

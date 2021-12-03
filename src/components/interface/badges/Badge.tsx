@@ -25,18 +25,18 @@ type Props = {
 };
 
 const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
-	const data = Badges[index];
+	const meta = Badges[index];
 	return (
 		<ItemTooltip
 			title={
 				<>
-					<Typography color="badge">{data?.name ?? '???'}</Typography>
+					<Typography color="badge">{meta?.name ?? '???'}</Typography>
 					<Typography color="text.secondary">Badge</Typography>
 					<Typography color="highlight">
-						{data?.description ?? '???'}
+						{meta?.description ?? '???'}
 					</Typography>
 					<Box sx={{ display: 'flex', gap: 1 }}>
-						{[...Array(data?.slots ?? 0).keys()].map(i => (
+						{[...Array(meta?.slots ?? 0).keys()].map(i => (
 							<Sprite key={i} img={slot} width={9} height={9} />
 						))}
 					</Box>
@@ -69,7 +69,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				}}
 			>
 				<Sprite
-					img={`${process.env.PUBLIC_URL}/assets/badges/s_badge_${data?.name
+					img={`${process.env.PUBLIC_URL}/assets/badges/s_badge_${meta?.name
 						.toLowerCase()
 						.replaceAll(' ', '_')
 						.replaceAll("'", '')}_0.png`}

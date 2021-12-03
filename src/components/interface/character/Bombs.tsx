@@ -6,7 +6,7 @@ import Sprite from 'components/Sprite';
 import bombLevel from 'assets/character/bombLevel.png';
 import MaxAdornment from 'components/MaxAdornment';
 
-const BombDamage = [150, 200, 260, 340, 445, 575, 750, 850];
+const BombDamage = [150, 200, 260, 340, 445, 575, 750, 850, 1020];
 const MaxLevel = BombDamage.length - 1;
 
 const Bombs = () => {

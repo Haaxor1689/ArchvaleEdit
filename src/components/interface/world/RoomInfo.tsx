@@ -17,7 +17,6 @@ const RoomInfo = () => {
 	if (!room) {
 		return <WorldState stateMetaItems={WorldStateMeta} initialExpanded />;
 	}
-	console.log(room.flags);
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
 	const status = getRoomStatus(room.room_id);

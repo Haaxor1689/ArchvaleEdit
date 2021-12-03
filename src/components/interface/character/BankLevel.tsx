@@ -5,6 +5,9 @@ import Sprite from 'components/Sprite';
 import IconInput from 'components/form/IconInput';
 import MaxAdornment from 'components/MaxAdornment';
 
+const BankCapacity = [500, 800, 1200, 2000, 3000, 4000, 5000, 7000, 10000];
+const MaxLevel = BankCapacity.length - 1;
+
 const BankLevel = () => {
 	const {
 		input: { value }
@@ -15,12 +18,12 @@ const BankLevel = () => {
 			label="Bank level"
 			icon={<Sprite img={bankLevel} width={7} height={6} />}
 			type="number"
-			hint={`Bank can store ${(value + 1) * 2000} coins.`}
+			hint={`Bank can store ${BankCapacity[value - 1]} coins.`}
 			InputProps={{
-				endAdornment: value < 7 ? undefined : <MaxAdornment />
+				endAdornment: value < MaxLevel ? undefined : <MaxAdornment />
 			}}
 			inputProps={{
-				max: 7,
+				max: MaxLevel,
 				min: 0,
 				step: 1,
 				required: true
