@@ -159,7 +159,6 @@ const InventoryTab = ({ variant }: Props) => {
 							}}
 						/>
 					)}
-					{variant === 'storage' && <InventoryFill />}
 				</Sprite>
 				<Typography variant="caption" textAlign="center">
 					Pick new items from item database below, pick full stack (255) or
