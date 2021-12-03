@@ -1,8 +1,48 @@
 import { Box, capitalize, Typography } from '@mui/material';
+import { keyframes } from '@emotion/react';
 
 import { Items, StatsMetadata } from 'utils/data';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
+
+const rainbowColor = keyframes`
+  100%,0%{
+			color: rgb(255,0,0);
+		}
+		8%{
+			color: rgb(255,127,0);
+		}
+		16%{
+			color: rgb(255,255,0);
+		}
+		25%{
+			color: rgb(127,255,0);
+		}
+		33%{
+			color: rgb(0,255,0);
+		}
+		41%{
+			color: rgb(0,255,127);
+		}
+		50%{
+			color: rgb(0,255,255);
+		}
+		58%{
+			color: rgb(0,127,255);
+		}
+		66%{
+			color: rgb(0,0,255);
+		}
+		75%{
+			color: rgb(127,0,255);
+		}
+		83%{
+			color: rgb(255,0,255);
+		}
+		91%{
+			color: rgb(255,0,127);
+		}
+`;
 
 const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 	const meta = StatsMetadata[attr];
@@ -39,7 +79,14 @@ const ItemStats = ({
 	inflicts
 }: typeof Items[number] & Partial<Pick<InventoryItem, 'quality'>>) => (
 	<>
-		<Typography color={rarity}>
+		<Typography
+			color={`rarity.${rarity}`}
+			sx={
+				rarity === 'divine'
+					? { animation: `${rainbowColor} 6s linear 0s infinite` }
+					: undefined
+			}
+		>
 			{name}
 			{quality > 0 && ` +${quality}`}
 			<Typography variant="caption" color="text.secondary">

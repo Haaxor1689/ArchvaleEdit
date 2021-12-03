@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import { ReactNode } from 'react';
-import { MenuItem, Select } from '@mui/material';
+import { MenuItem, Palette, Select } from '@mui/material';
 
 import crate from 'assets/world/objects/crate.png';
 import damageIcon from 'assets/stats/damage.png';
@@ -136,7 +136,7 @@ export type Item = {
 	id: number;
 	name: string;
 	sprite: [string, number, number];
-	rarity?: 'uncommon' | 'legendary';
+	rarity?: keyof Palette['rarity'];
 	effect?: string;
 	stats?: Record<string, string | number>;
 	inflicts?: Record<string, string | number>;
@@ -156,7 +156,7 @@ type StatMeta = {
 	getValue?: (v: number) => string;
 };
 
-const getPercent = (v: number) => `${v * 5}%`;
+const getPercent = (v: number) => `${v}%`;
 const getPlus = (v: number) => `${v < 0 ? '' : '+'}${v * 5}%`;
 const getAtkSpd = (v: number) => `${v < 0 ? '' : '+'}${v * 2}%`;
 
@@ -175,7 +175,7 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	magic_dmg: { icon: magicDmgIcon, title: 'Magical DMG', getValue: getPlus },
 	atk_spd: { icon: atkSpdIcon, title: 'ATK Speed', getValue: getAtkSpd },
 	cost: { icon: costIcon },
-	ar_break: { icon: arBreakIcon, title: 'Armour Break' },
+	ar_break: { icon: arBreakIcon, title: 'Armour Break', getValue: getPercent },
 	slow: { icon: slowIcon, getValue: getPercent }
 };
 
@@ -202,6 +202,7 @@ export const RoomTypes: Record<number, RoomType> = {
 	2: { sprite: [fountainIcon, 10, 8], name: 'Starting fountain' },
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
 	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	12: { sprite: [bombIcon, 10, 10], name: 'Bomb Power' },
 	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
 	21: { sprite: [townIcon, 8, 8], name: 'Town' },
 	22: { sprite: [townIcon, 8, 8], name: 'Town' },
@@ -288,6 +289,8 @@ export type ParsedObject = {
 	ore_type: number; // 0 shell, 1 iron
 	// Fountain
 	fountain_unlocked: number;
+	// Bomb
+	upgrade_obtained: number;
 	// Chest
 	chest_opened: number;
 	chest_item: number;
@@ -372,7 +375,21 @@ export const RoomObjects: Record<number, RoomObject> = {
 		attributes: [FountainUnlockedAttr]
 	},
 	4: { name: 'Defense up', icon: defenseUp, attributes: [CanTakeAttr] },
-	5: { name: 'Upgrade pedestal', icon: pedestal },
+	5: {
+		name: 'Upgrade pedestal',
+		icon: pedestal,
+		attributes: [
+			{
+				key: 'upgrade_obtained',
+				name: 'Obtained',
+				getValue: (v, change) => (
+					<TextButton onClick={() => change(v ? '0' : '1', 14, 15)}>
+						{v ? 'Yes' : 'No'}
+					</TextButton>
+				)
+			}
+		]
+	},
 	6: { name: 'Token', icon: token, attributes: [CanTakeAttr] },
 	7: { name: 'Tutorial target', icon: tutTarget, attributes: [CanTakeAttr] },
 	8: {

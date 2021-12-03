@@ -35,6 +35,7 @@ const RoomObjectsInfo = ({ room_id }: Pick<Room, 'room_id'>) => {
 		_bar: parseHexValue(o.slice(12, 14)),
 		ore_type: parseHexValue(o.slice(14, 18)),
 		fountain_unlocked: parseHexValue(o[14]),
+		upgrade_obtained: parseHexValue(o[14]),
 		chest_opened: parseHexValue(o[14]),
 		chest_item: parseHexValue(o.slice(15, 23)),
 		plum_picked: parseHexValue(o[14])

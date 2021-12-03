@@ -47,6 +47,7 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 			<Box sx={{ display: 'flex', gap: 3, mb: -2 }}>
 				<Sprite
 					img={meta?.getIcon?.(o) ?? meta?.icon ?? questionMark}
+					onClick={() => console.log(o)}
 					width={8}
 					height={8}
 				/>

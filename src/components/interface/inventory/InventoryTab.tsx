@@ -21,7 +21,6 @@ import ItemCheatMenu from './ItemCheatMenu';
 import GrabbedItem from './GrabbedItem';
 import ItemSlot from './ItemSlot';
 import Equipment from './Equipment';
-import InventoryFill from './InventoryFill';
 
 type Props = {
 	variant: 'inventory' | 'storage';

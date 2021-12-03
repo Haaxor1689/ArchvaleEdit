@@ -9,15 +9,31 @@ declare module '@mui/material/styles' {
 	interface Palette {
 		badge?: string;
 		highlight?: string;
-		uncommon?: string;
-		legendary?: string;
+		rarity: {
+			uncommon: string;
+			rare: string;
+			epic: string;
+			extraordinary: string;
+			legendary: string;
+			ancient: string;
+			mythical: string;
+			divine: string;
+		};
 	}
 	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 	interface PaletteOptions {
 		badge?: string;
 		highlight?: string;
-		uncommon?: string;
-		legendary?: string;
+		rarity: {
+			uncommon: string;
+			rare: string;
+			epic: string;
+			extraordinary: string;
+			legendary: string;
+			ancient: string;
+			mythical: string;
+			divine: string;
+		};
 	}
 }
 
@@ -31,8 +47,16 @@ const theme = (spacing: number) =>
 			success: { main: '#63c74d' },
 			badge: '#2ce8f5',
 			highlight: '#fee761',
-			uncommon: '#55c157',
-			legendary: '#ff3d3d',
+			rarity: {
+				uncommon: '#55c157',
+				rare: '#59beff',
+				epic: '#cf4bd8',
+				extraordinary: '#ffd800',
+				legendary: '#ff830f',
+				ancient: '#00ffba',
+				mythical: '#ff3d3d',
+				divine: '#2ce8f5'
+			},
 			mode: 'dark'
 		},
 		typography: {
