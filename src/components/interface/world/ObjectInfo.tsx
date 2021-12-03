@@ -57,7 +57,7 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 				>
 					Object
 					<Typography color="text.primary" variant="h4">
-						{meta?.name ?? 'Unknown'}
+						{meta?.name ?? `Unknown #${o.type}`}
 					</Typography>
 				</Typography>
 
@@ -93,7 +93,7 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 						size="small"
 						value={o.type}
 						onChange={e => onAttribChange(e.target.value as string, 0, 4)}
-						renderValue={selected => RoomObjects[selected].name}
+						renderValue={selected => RoomObjects[selected]?.name}
 						sx={{ mt: '0 !important' }}
 						fullWidth
 					>
@@ -102,15 +102,15 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 								<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 									<Sprite
 										img={
-											RoomObjects[type as never].getIcon?.(o) ??
-											RoomObjects[type as never].icon ??
+											RoomObjects[type as never]?.getIcon?.(o) ??
+											RoomObjects[type as never]?.icon ??
 											questionMark
 										}
 										width={6}
 										height={6}
 										mr={2}
 									/>
-									{RoomObjects[type as never].name ?? '???'}
+									{RoomObjects[type as never]?.name ?? `Unknown #${type}`}
 								</Box>
 							</MenuItem>
 						))}

@@ -32,7 +32,7 @@ const MapPreview = () => {
 				}}
 			>
 				{rooms.map(r => (
-					<MapRoom key={r.room_id} {...r} />
+					<MapRoom key={r.room_id} variant="map" {...r} />
 				))}
 			</Box>
 		</Scrollbars>

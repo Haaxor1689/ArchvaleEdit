@@ -68,6 +68,41 @@ type Context = {
 	minY: number;
 } & MapContext;
 
+export const useAddRoom = () => {
+	const { setSelected } = useMapContext();
+	const {
+		input: { value, onChange }
+	} = useField<Room[]>('world.rooms', { subscription: { value: true } });
+	return [
+		(x: number, y: number) => {
+			const room_id = Math.max(...value.map(r => r.room_id)) + 1;
+			onChange({
+				target: {
+					value: [
+						...value,
+						{
+							room_id,
+							type: 0,
+							biome_type: 1,
+							x: Number(x),
+							y: Number(y),
+							seed: Math.floor(Math.random() * 99999999),
+							flags: '00000',
+							objective_complete: 0,
+							objects: [],
+							border: -1,
+							border_direction: 1,
+							difficulty: 0
+						}
+					]
+				}
+			});
+			setSelected(room_id);
+		},
+		(x: number, y: number) => !!value.find(r => r.x === x && r.y === y)
+	] as const;
+};
+
 export const useRespawn = (): World['player_respawn'] => {
 	const {
 		input: { value: overworldRespawn }
@@ -201,7 +236,7 @@ const useDungeonMap = (id: number): MapContext => {
 	};
 };
 
-export const useIsRoomRespawn = (room?: Room) => {
+export const useIsRoomRespawn = (room?: Partial<Room>) => {
 	const { map, respawn } = useMapContext();
 	return (
 		respawn[0] === (map === -1 ? 0 : map) &&
@@ -210,11 +245,11 @@ export const useIsRoomRespawn = (room?: Room) => {
 	);
 };
 
-export const useObtainedWorldState = (type: number) => {
+export const useObtainedWorldState = (type?: number) => {
 	const {
 		input: { value }
 	} = useField('npst', { subscription: { value: true } });
-	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type) >= 0);
+	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type ?? 0) >= 0);
 
 	return (flags?: string[]) => {
 		const f = flags ?? stateMeta.flatMap(s => s.flags);
@@ -223,7 +258,7 @@ export const useObtainedWorldState = (type: number) => {
 	};
 };
 
-export const useObtainedObjectState = (type: number, objects: string[]) => {
+export const useObtainedObjectState = (type?: number, objects?: string[]) => {
 	switch (type) {
 		case 4:
 			return objects?.find(o => o.match(/0008/))?.[14] === '1';

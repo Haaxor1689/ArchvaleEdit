@@ -4,6 +4,7 @@ import TextButton from 'components/TextButton';
 import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
+import RoomEdit from './RoomEdit';
 import RoomObjectsInfo from './RoomObjectsInfo';
 import WorldState from './WorldState';
 
@@ -13,10 +14,12 @@ const RoomInfo = () => {
 	const room = rooms.find(r => r.room_id === selected);
 	const isRespawn = useIsRoomRespawn(room);
 
-	if (!room)
+	if (!room) {
 		return <WorldState stateMetaItems={WorldStateMeta} initialExpanded />;
+	}
+	console.log(room.flags);
 
-	const type = RoomTypes[room.type]?.name ?? 'Combat';
+	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
 	const status = getRoomStatus(room.room_id);
 
 	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(room.type) >= 0);
@@ -56,7 +59,7 @@ const RoomInfo = () => {
 					<Typography variant="caption" color="text.secondary">
 						Biome
 						<Typography color="text.primary">
-							{Biomes[room.biome_type]?.name ?? '???'}
+							{Biomes[room.biome_type]?.name ?? `Unknown #${room.biome_type}`}
 						</Typography>
 					</Typography>
 				)}
@@ -84,6 +87,7 @@ const RoomInfo = () => {
 				</Box>
 			)}
 			<Box>
+				{map === -1 && <RoomEdit x={room.x} y={room.y} />}
 				{map === -1 && <RoomObjectsInfo room_id={room.room_id} />}
 				<WorldState stateMetaItems={stateMeta} />
 			</Box>
