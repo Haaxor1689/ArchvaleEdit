@@ -5,7 +5,7 @@ const rarities = {
 	uncommon: 2,
 	rare: 3,
 	epic: 4,
-	extraordinary: 5,
+	supreme: 5,
 	legendary: 6,
 	ancient: 7,
 	mythical: 8,
@@ -39,14 +39,16 @@ const newData = items
 				meta.type.match(/ Armour/) || meta.type === 'Ring'
 					? meta?.type
 					: undefined,
-			attack_speed_buff: meta.stats?.ar_pen,
+			attack_speed_buff: meta.stats?.atk_spd
+				? `${meta.stats?.atk_spd * 2}%`
+				: undefined,
 			bleed: meta.stats?.bleed,
 			burn: meta.stats?.burn,
 			damage: meta.stats?.damage,
 			defense: meta.stats?.def,
 			item_type: meta.type.match(/ Weapon/)
 				? 'Weapon'
-				: meta.type.match(/ Armour/)
+				: meta.type.match(/ Armour/) || meta.type === 'Ring'
 				? 'Armour'
 				: meta.type,
 			magic_buff: meta.stats?.magic_dmg

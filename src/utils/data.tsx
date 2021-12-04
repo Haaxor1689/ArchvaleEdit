@@ -174,7 +174,7 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	def: { icon: defIcon, title: 'Defense' },
 	prot: { icon: protIcon, title: 'Protection' },
 	spd: { icon: spdIcon, title: 'Speed', getValue: getPlus },
-	all_dmg: { icon: allDmgIcon, title: 'All DMG', getValue: getPlus },
+	all_dmg: { icon: allDmgIcon, title: 'Power', getValue: getPlus },
 	melee_dmg: { icon: meleeDmgIcon, title: 'Melee DMG', getValue: getPlus },
 	range_dmg: { icon: rangeDmgIcon, title: 'Ranged DMG', getValue: getPlus },
 	magic_dmg: { icon: magicDmgIcon, title: 'Magical DMG', getValue: getPlus },

@@ -5,7 +5,7 @@ const rarities = {
 	uncommon: 2,
 	rare: 3,
 	epic: 4,
-	extraordinary: 5,
+	supreme: 5,
 	legendary: 6,
 	ancient: 7,
 	mythical: 8,
@@ -20,7 +20,7 @@ console.log(
 	items
 		.filter(i => i)
 		.every(item => {
-			if (items.filter(i => i.id === item).length > 1) {
+			if (items.filter(i => i.id === item.id).length > 1) {
 				console.log(`Identifier ${item.id} is duplicate.`, item);
 				return false;
 			}
@@ -52,7 +52,7 @@ console.log(
 					'uncommon',
 					'rare',
 					'epic',
-					'extraordinary',
+					'supreme',
 					'legendary',
 					'ancient',
 					'mythical',

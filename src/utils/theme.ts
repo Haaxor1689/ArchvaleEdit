@@ -13,7 +13,7 @@ declare module '@mui/material/styles' {
 			uncommon: string;
 			rare: string;
 			epic: string;
-			extraordinary: string;
+			supreme: string;
 			legendary: string;
 			ancient: string;
 			mythical: string;
@@ -28,7 +28,7 @@ declare module '@mui/material/styles' {
 			uncommon: string;
 			rare: string;
 			epic: string;
-			extraordinary: string;
+			supreme: string;
 			legendary: string;
 			ancient: string;
 			mythical: string;
@@ -51,7 +51,7 @@ const theme = (spacing: number) =>
 				uncommon: '#55c157',
 				rare: '#59beff',
 				epic: '#cf4bd8',
-				extraordinary: '#ffd800',
+				supreme: '#ffd800',
 				legendary: '#ff830f',
 				ancient: '#00ffba',
 				mythical: '#ff3d3d',

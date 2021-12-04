@@ -55,7 +55,7 @@
 - id: 12
   name: Undead Essence
   type: Material
-  rarity: extraordinary
+  rarity: supreme
   sprite: [s_item_material_undead_essence_0, 12, 13]
 - id: 13
   name: Scarlet Shard
@@ -445,7 +445,7 @@
     range: 200
 - id: 134
   name: Snow Angel
-  rarity: extraordinary
+  rarity: supreme
   type: Ranged Weapon
   sprite: [s_item_weapon_snow_angel_0, 8, 17]
   stats:
@@ -469,7 +469,7 @@
     slow: 25
 - id: 136
   name: Doom Rose
-  rarity: extraordinary
+  rarity: supreme
   type: Magical Weapon
   sprite: [s_item_weapon_doom_rose_0, 16, 16]
   stats:
@@ -537,7 +537,7 @@
     range: 60
 - id: 143
   name: Soul Ripper
-  rarity: extraordinary
+  rarity: supreme
   type: Melee Weapon
   sprite: [s_item_weapon_soul_ripper_0, 17, 14]
   stats:
@@ -565,7 +565,7 @@
     range: 100
 - id: 146
   name: Glacial Spear
-  rarity: extraordinary
+  rarity: supreme
   type: Melee Weapon
   sprite: [s_item_weapon_glacial_spear_0, 7, 18]
   stats:
@@ -595,7 +595,7 @@
     range: 60
 - id: 149
   name: Tome of Balance
-  rarity: extraordinary
+  rarity: supreme
   type: Magical Weapon
   sprite: [s_item_weapon_tome_of_balance_0, 12, 12]
   stats:
@@ -613,7 +613,7 @@
     range: 200
 - id: 151
   name: Snowflake Cannon
-  rarity: extraordinary
+  rarity: supreme
   type: Ranged Weapon
   sprite: [s_item_weapon_snowflake_cannon_0, 16, 10]
   stats:
@@ -662,7 +662,7 @@
     ar_break: 100
 - id: 156
   name: Darkwizard Staff
-  rarity: extraordinary
+  rarity: supreme
   type: Magical Weapon
   sprite: [s_item_weapon_nightwizard_staff_0, 14, 13]
   stats:
@@ -1129,7 +1129,7 @@
     range: 150
 - id: 318
   name: Cobalt Crossbow
-  rarity: extraordinary
+  rarity: supreme
   type: Ranged Weapon
   sprite: [s_item_weapon_cobalt_crossbow_0, 14, 12]
   stats:
@@ -1138,7 +1138,7 @@
     range: 130
 - id: 319
   name: Cobalt Dagger
-  rarity: extraordinary
+  rarity: supreme
   type: Melee Weapon
   sprite: [s_item_weapon_cobalt_dagger_0, 6, 12]
   stats:
@@ -1149,7 +1149,7 @@
     ar_pen: 1
 - id: 320
   name: Cobalt Halberd
-  rarity: extraordinary
+  rarity: supreme
   type: Melee Weapon
   sprite: [s_item_weapon_cobalt_halberd_0, 8, 17]
   stats:
@@ -1161,7 +1161,7 @@
     ar_break: 100
 - id: 321
   name: Cobalt Rod
-  rarity: extraordinary
+  rarity: supreme
   type: Magical Weapon
   sprite: [s_item_weapon_cobalt_rod_0, 13, 13]
   stats:
@@ -1170,7 +1170,7 @@
     range: 300
 - id: 322
   name: Cobalt Sword
-  rarity: extraordinary
+  rarity: supreme
   type: Melee Weapon
   sprite: [s_item_weapon_cobalt_sword_0, 6, 17]
   stats:
@@ -1609,7 +1609,7 @@
     range_dmg: 2
 - id: 417
   name: Frozen Crown
-  rarity: extraordinary
+  rarity: supreme
   type: Head Armour
   sprite: [s_item_armour_frozen_crown_0, 12, 8]
   stats:
@@ -1716,7 +1716,7 @@
   stats:
     def: 24
     all_dmg: 2
-- id: 431
+- id: 432
   name: Brimstone Greathelm
   rarity: mythical
   type: Head Armour
@@ -1796,14 +1796,14 @@
     atk_spd: 3
 - id: 510
   name: Cobalt Breastplate
-  rarity: extraordinary
+  rarity: supreme
   type: Body Armour
   sprite: [s_item_armour_cobalt_breastplate_0, 10, 9]
   stats:
     def: 14
 - id: 511
   name: Cobalt Helmet
-  rarity: extraordinary
+  rarity: supreme
   type: Head Armour
   sprite: [s_item_armour_cobalt_helmet_0, 8, 10]
   stats:
@@ -1912,7 +1912,7 @@
   sprite: [s_item_obsidian_0, 8, 11]
 - id: 605
   name: Cobalt Ore
-  rarity: extraordinary
+  rarity: supreme
   type: Material
   sprite: [s_item_cobalt_bar_0, 8, 9]
 - id: 606
@@ -2080,7 +2080,7 @@
   name: Ruby Ring +4
   rarity: legendary
   type: Ring
-  sprite: [s_item_ring_ruby_3_0, 11, 11]
+  sprite: [s_item_ring_ruby_4_0, 11, 11]
   stats:
     melee_dmg: 4
 - id: 822
