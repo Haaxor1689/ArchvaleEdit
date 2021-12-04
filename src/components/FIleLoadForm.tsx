@@ -47,17 +47,50 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			sx={{ aspectRatio: '1', imageRendering: 'initial', mb: -16 }}
 		/>
 		<Typography textAlign="center" variant="body2">
-			Open a{' '}
-			<Box component="span" fontWeight="bold" sx={{ color: 'badge' }}>
-				&quot;.avsv&quot;
-			</Box>{' '}
-			save file from{' '}
-			<Box component="span" fontWeight="bold" sx={{ color: 'badge' }}>
-				&quot;%AppData%\AV_gms2_3&quot;
-			</Box>{' '}
-			folder.
+			Start by opening your save file.{' '}
+			<Typography component="span" color="badge">
+				X
+			</Typography>{' '}
+			corresponds to the order of the save file. Save location is based on the
+			version of game you own.
 		</Typography>
-		<FileInput id="file" label="File" acceptFileTypes={['.avsv']} />
+		<Box
+			sx={{
+				display: 'grid',
+				gridTemplateColumns: '1fr 1fr',
+				gap: 4,
+				textAlign: 'center'
+			}}
+		>
+			<Typography variant="h3" color="primary.main">
+				Steam
+			</Typography>
+			<Typography variant="h3" color="primary.main">
+				XBox GamePass
+			</Typography>
+			<Typography>
+				<Typography component="span" color="badge">
+					worldX.avsv
+				</Typography>{' '}
+				in{' '}
+				<Typography component="span" color="badge">
+					%AppData%\AV_gms2_3
+				</Typography>{' '}
+				folder
+			</Typography>
+			<Typography>
+				Search for{' '}
+				<Typography component="span" color="badge">
+					AV_gms2_3
+				</Typography>{' '}
+				folder and open{' '}
+				<Typography component="span" color="badge">
+					worldX.json
+				</Typography>
+			</Typography>
+			<Typography />
+		</Box>
+		<FileInput id="file" label="File" acceptFileTypes={['.avsv', '.json']} />
 		<AutoSubmit />
 	</Form>
 );

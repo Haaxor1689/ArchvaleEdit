@@ -46,6 +46,7 @@ const newData = items
 			burn: meta.stats?.burn,
 			damage: meta.stats?.damage,
 			defense: meta.stats?.def,
+			expose: meta.inflicts?.expose,
 			item_type: meta.type.match(/ Weapon/)
 				? 'Weapon'
 				: meta.type.match(/ Armour/) || meta.type === 'Ring'
