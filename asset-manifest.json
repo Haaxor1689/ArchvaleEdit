@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.67af0668.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.67af0668.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.e1639966.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.e1639966.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
     "static/js/2.18bda437.chunk.js": "/ArchvaleEdit/static/js/2.18bda437.chunk.js",
@@ -60,7 +60,7 @@
     "static/media/itemRing.ff8b9c86.png": "/ArchvaleEdit/static/media/itemRing.ff8b9c86.png",
     "static/media/itemSlot.bfe3c87f.png": "/ArchvaleEdit/static/media/itemSlot.bfe3c87f.png",
     "static/media/itemTrash.e4ab7dbf.png": "/ArchvaleEdit/static/media/itemTrash.e4ab7dbf.png",
-    "static/media/items.f5e8559b.yaml": "/ArchvaleEdit/static/media/items.f5e8559b.yaml",
+    "static/media/items.e71f9839.yaml": "/ArchvaleEdit/static/media/items.e71f9839.yaml",
     "static/media/stylesheet.css": "/ArchvaleEdit/static/media/nokiafc22.04dc8b64.ttf",
     "static/media/panel.2bc778da.png": "/ArchvaleEdit/static/media/panel.2bc778da.png",
     "static/media/panel.cf957a3b.png": "/ArchvaleEdit/static/media/panel.cf957a3b.png",
@@ -86,6 +86,6 @@
     "static/js/runtime-main.5dbb1da3.js",
     "static/js/2.18bda437.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.67af0668.chunk.js"
+    "static/js/main.e1639966.chunk.js"
   ]
 }

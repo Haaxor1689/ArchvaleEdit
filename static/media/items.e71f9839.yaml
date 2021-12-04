@@ -280,7 +280,7 @@
     slow: 10
 - id: 116
   name: Clawblade
-  rarity: rate
+  rarity: rare
   type: Melee Weapon
   sprite: [s_item_weapon_clawblade_0, 7, 15]
   stats:
@@ -381,7 +381,7 @@
     ar_break: 100
 - id: 128
   name: Fire Flower
-  rarity: rate
+  rarity: rare
   type: Magical Weapon
   sprite: [s_item_fire_flower_0, 14, 14]
   stats:
@@ -411,7 +411,7 @@
     range: 130
 - id: 131
   name: Slime Bubbler
-  rarity: rate
+  rarity: rare
   type: Magical Weapon
   sprite: [s_item_weapon_slime_bubbler_0, 13, 13]
   stats:
@@ -659,7 +659,7 @@
     rate: 2
     range: 80
   inflicts:
-    ar_pen: 100
+    ar_break: 100
 - id: 156
   name: Darkwizard Staff
   rarity: extraordinary
@@ -1264,7 +1264,7 @@
     rate: 2
     range: 80
     ar_pen: 2
-  inflictS:
+  inflicts:
     ar_break: 100
 - id: 342
   name: Phloem Sword
@@ -1619,7 +1619,7 @@
 - id: 419
   name: Sorcerer Hat
   rarity: epic
-  type: Head Amour
+  type: Head Armour
   sprite: [s_item_armour_sorcerer_hat_0, 10, 6]
   stats:
     def: 8
@@ -1640,7 +1640,7 @@
   stats:
     def: 13
     prot: 2
-    maigc_dmg: 2
+    magic_dmg: 2
 - id: 422
   name: Fungal Cap Cap
   rarity: legendary
