@@ -10,6 +10,9 @@ import arPenIcon from 'assets/stats/ar_pen.png';
 import arBreakIcon from 'assets/stats/ar_break.png';
 import burnIcon from 'assets/stats/burn.png';
 import slowIcon from 'assets/stats/slow.png';
+import exposeIcon from 'assets/stats/expose.png';
+import protIcon from 'assets/stats/prot.png';
+import poisonIcon from 'assets/stats/poison.png';
 import bleedIcon from 'assets/stats/bleed.png';
 import defIcon from 'assets/stats/def.png';
 import spdIcon from 'assets/stats/spd.png';
@@ -167,7 +170,9 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	ar_pen: { icon: arPenIcon, title: 'Armour Pen.' },
 	burn: { icon: burnIcon },
 	bleed: { icon: bleedIcon },
+	poison: { icon: poisonIcon },
 	def: { icon: defIcon, title: 'Defense' },
+	prot: { icon: protIcon, title: 'Protection' },
 	spd: { icon: spdIcon, title: 'Speed', getValue: getPlus },
 	all_dmg: { icon: allDmgIcon, title: 'All DMG', getValue: getPlus },
 	melee_dmg: { icon: meleeDmgIcon, title: 'Melee DMG', getValue: getPlus },
@@ -176,7 +181,8 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	atk_spd: { icon: atkSpdIcon, title: 'ATK Speed', getValue: getAtkSpd },
 	cost: { icon: costIcon },
 	ar_break: { icon: arBreakIcon, title: 'Armour Break', getValue: getPercent },
-	slow: { icon: slowIcon, getValue: getPercent }
+	slow: { icon: slowIcon, getValue: getPercent },
+	expose: { icon: exposeIcon }
 };
 
 type BiomeMeta = {
