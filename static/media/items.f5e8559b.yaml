@@ -461,8 +461,8 @@
   sprite: [s_item_weapon_widow_spear_0, 7, 18]
   stats:
     damage: 200
-    range: 1.5
-    rate: 80
+    rate: 1.5
+    range: 80
     ar_pen: 2
   inflicts:
     ar_break: 100
@@ -1701,7 +1701,7 @@
     prot: 1
     atk_spd: 4
 - id: 430
-  head: Shark Cap
+  name: Shark Cap
   rarity: ancient
   type: Head Armour
   sprite: [s_item_armour_shark_cap_0, 10, 13]
