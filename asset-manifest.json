@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.953f7508.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.953f7508.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.a152e997.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.a152e997.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
     "static/js/2.4f2b1f99.chunk.js": "/ArchvaleEdit/static/js/2.4f2b1f99.chunk.js",
@@ -95,6 +95,6 @@
     "static/js/runtime-main.5dbb1da3.js",
     "static/js/2.4f2b1f99.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.953f7508.chunk.js"
+    "static/js/main.a152e997.chunk.js"
   ]
 }
