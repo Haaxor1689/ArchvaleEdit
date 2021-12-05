@@ -1,4 +1,4 @@
-import { IconButton, Typography } from '@mui/material';
+import { IconButton, ThemeProvider, Typography } from '@mui/material';
 import { MouseEventHandler } from 'react';
 
 import emptySlot from 'assets/inventory/emptySlot.png';
@@ -17,6 +17,8 @@ import { isStackable, isUpgradeable, StrokeTextShadow } from 'utils';
 import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
+import theme from 'utils/theme';
+import useThemeSpacing from 'utils/useThemeSpacing';
 
 import ItemTooltip from '../ItemTooltip';
 
@@ -67,20 +69,25 @@ type Props = {
 
 const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 	const itemMeta = Items[item?.id ?? -1];
+	const spacing = useThemeSpacing();
 	return (
 		<ItemTooltip
 			title={
 				!item || hideTooltip ? (
 					''
-				) : !itemMeta ? (
-					<Typography color="badge">
-						???
-						<Typography variant="caption" color="text.secondary">
-							#{item.id}
-						</Typography>
-					</Typography>
 				) : (
-					<ItemStats quality={item.quality} {...itemMeta} />
+					<ThemeProvider theme={theme(spacing)}>
+						{!itemMeta ? (
+							<Typography color="badge">
+								???
+								<Typography variant="caption" color="text.secondary">
+									#{item.id}
+								</Typography>
+							</Typography>
+						) : (
+							<ItemStats quality={item.quality} {...itemMeta} />
+						)}
+					</ThemeProvider>
 				)
 			}
 		>

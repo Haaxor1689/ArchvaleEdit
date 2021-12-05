@@ -55,8 +55,7 @@ const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 			sx={{
 				display: 'flex',
 				alignItems: 'center',
-				gap: 1,
-				minWidth: 300
+				gap: 1
 			}}
 		>
 			<Sprite img={meta.icon} width={4.5} height={4.5} />

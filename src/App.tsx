@@ -1,26 +1,19 @@
-import {
-	Container,
-	CssBaseline,
-	ThemeProvider,
-	useMediaQuery
-} from '@mui/material';
+import { Container, CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 
 import FileLoadForm from 'components/FIleLoadForm';
 import WorldEditForm from 'components/WorldEditForm';
 import { World } from 'utils/types';
+import useThemeSpacing from 'utils/useThemeSpacing';
 
 import theme from './utils/theme';
 
 const App = () => {
 	const [save, setSave] = useState<[string, World]>();
-
-	const sm = useMediaQuery('(max-width:900px)');
-	const lg = useMediaQuery('(max-width:1200px)');
-	const xl = useMediaQuery('(max-width:1536px)');
+	const spacing = useThemeSpacing();
 
 	return (
-		<ThemeProvider theme={theme(sm ? 3 : lg ? 4 : xl ? 5 : 6)}>
+		<ThemeProvider theme={theme(spacing)}>
 			<CssBaseline />
 			<Container
 				maxWidth="lg"

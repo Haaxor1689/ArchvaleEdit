@@ -159,26 +159,26 @@ const InventoryTab = ({ variant }: Props) => {
 							}}
 						/>
 					)}
+					<ItemCheatMenu
+						hideTooltip={!!heldItem}
+						onClick={(item, e) => {
+							setHeldItem(
+								heldItem
+									? undefined
+									: {
+											id: item.id,
+											count: e.shiftKey && isStackable(item) ? 255 : 1,
+											quality: e.shiftKey && isUpgradeable(item) ? 5 : 0
+									  }
+							);
+						}}
+					/>
 				</Sprite>
 				<Typography variant="caption" textAlign="center">
 					Pick new items from item database below, pick full stack (255) or
 					highest quality (+5) with shift. Use left and right click together
 					with shift to modify count/quality of items in the {variant}.
 				</Typography>
-				<ItemCheatMenu
-					hideTooltip={!!heldItem}
-					onClick={(item, e) => {
-						setHeldItem(
-							heldItem
-								? undefined
-								: {
-										id: item.id,
-										count: e.shiftKey && isStackable(item) ? 255 : 1,
-										quality: e.shiftKey && isUpgradeable(item) ? 5 : 0
-								  }
-						);
-					}}
-				/>
 			</Box>
 		</GrabbedItem>
 	);

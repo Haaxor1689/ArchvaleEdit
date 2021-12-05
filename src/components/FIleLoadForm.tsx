@@ -28,7 +28,7 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 		validate={({ file }) =>
 			!file
 				? { file: 'Required' }
-				: !file.name.endsWith('.avsv')
+				: !file.name.endsWith('.avsv') && !file.name.endsWith('.json')
 				? { file: 'Wrong file type' }
 				: undefined
 		}

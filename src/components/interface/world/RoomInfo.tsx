@@ -11,7 +11,7 @@ import WorldState from './WorldState';
 const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
 		useMapContext();
-	const room = rooms.find(r => r.room_id === selected);
+	const room = rooms?.find(r => r.room_id === selected);
 	const isRespawn = useIsRoomRespawn(room);
 
 	if (!room) {

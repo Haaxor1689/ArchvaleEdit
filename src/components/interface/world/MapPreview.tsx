@@ -31,7 +31,7 @@ const MapPreview = () => {
 					p: 4
 				}}
 			>
-				{rooms.map(r => (
+				{rooms?.map(r => (
 					<MapRoom key={r.room_id} variant="map" {...r} />
 				))}
 			</Box>
