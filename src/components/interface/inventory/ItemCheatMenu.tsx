@@ -1,10 +1,4 @@
-import {
-	Box,
-	IconButton,
-	Typography,
-	ThemeProvider,
-	Tooltip
-} from '@mui/material';
+import { Box, IconButton, ThemeProvider, Tooltip } from '@mui/material';
 import { MouseEvent, useState } from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
