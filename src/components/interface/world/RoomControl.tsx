@@ -16,9 +16,10 @@ import arrLeftNo from 'assets/world/icons/arrLeftNo.png';
 import arrRightNo from 'assets/world/icons/arrRightNo.png';
 import addIcon from 'assets/world/icons/add.png';
 import select from 'assets/world/icons/select.png';
+import { parseRoomDirection } from 'utils/roomUtils';
 
 import MapRoom from './MapRoom';
-import { parseRoomDirection, useAddRoom, useMapContext } from './MapProvider';
+import { useAddRoom, useMapContext } from './MapProvider';
 
 type NeighborType = 'Up' | 'Down' | 'Left' | 'Right';
 

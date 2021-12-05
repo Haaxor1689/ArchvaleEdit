@@ -8,13 +8,14 @@ import IconInput from 'components/form/IconInput';
 
 import Health from './Health';
 import HealingPotions from './HealingPotions';
-import Difficulty from './Difficulty';
+import SaveInfo from './SaveInfo';
 import HealingLevel from './HealingLevel';
 import BankLevel from './BankLevel';
 import Plums from './Plums';
 import Stats from './Stats';
 import Dashes from './Dashes';
 import Bombs from './Bombs';
+import Tools from './Tools';
 
 const CharacterTab = () => (
 	<Box
@@ -81,7 +82,8 @@ const CharacterTab = () => (
 				<Bombs />
 			</Box>
 			<Stats />
-			<Difficulty />
+			<Tools />
+			<SaveInfo />
 		</Sprite>
 		<Typography variant="caption" textAlign="center">
 			You can use right click to lower clickable values like health, potions

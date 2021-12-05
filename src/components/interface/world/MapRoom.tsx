@@ -11,9 +11,9 @@ import {
 	RoomTypes
 } from 'utils/data';
 import { Room } from 'utils/types';
+import { parseRoomDirection } from 'utils/roomUtils';
 
 import {
-	parseRoomDirection,
 	useIsRoomRespawn,
 	useMapContext,
 	useObtainedObjectState,

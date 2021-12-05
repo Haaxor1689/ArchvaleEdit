@@ -5,7 +5,7 @@ import { secondsToPlaytime, StrokeTextShadow } from 'utils';
 
 const DifficultyLabels = ['Easy', 'Normal', 'Hard'];
 
-const Difficulty = () => {
+const SaveInfo = () => {
 	const {
 		input: { value, onChange }
 	} = useField<number>('difficulty', { subscription: { value: true } });
@@ -100,4 +100,4 @@ const Difficulty = () => {
 	);
 };
 
-export default Difficulty;
+export default SaveInfo;
