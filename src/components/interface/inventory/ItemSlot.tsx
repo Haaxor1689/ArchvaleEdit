@@ -1,5 +1,5 @@
 import { IconButton, ThemeProvider, Typography } from '@mui/material';
-import { MouseEventHandler } from 'react';
+import { memo, MouseEventHandler } from 'react';
 
 import emptySlot from 'assets/inventory/emptySlot.png';
 import itemSlot from 'assets/inventory/itemSlot.png';
@@ -167,4 +167,4 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 	);
 };
 
-export default ItemSlot;
+export default memo(ItemSlot);
