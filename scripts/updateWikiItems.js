@@ -20,8 +20,8 @@ const data = fs.readFileSync('scripts/items.lua').toString();
 const parsed = JSON.parse(
 	data
 		.replace(/^return /, '')
-		.replaceAll(/ ?= ?/g, ': ')
-		.replaceAll(/(\S*): /g, '"$1": ')
+		.replaceAll(/ = /g, ': ')
+		.replaceAll(/(\S+): /g, '"$1": ')
 		.replaceAll(/ ?--.*/g, '')
 		.replaceAll(/(\d)\.,/g, '$1.0,')
 );
@@ -37,7 +37,7 @@ const newData = items
 				: wiki?.armour_break,
 			armour_type:
 				meta.type.match(/ Armour/) || meta.type === 'Ring'
-					? meta?.type
+					? meta?.type.split(' ').slice(0, 2).join(' ')
 					: undefined,
 			attack_speed_buff: meta.stats?.atk_spd
 				? `${meta.stats?.atk_spd * 2}%`
@@ -76,7 +76,7 @@ const newData = items
 				  wiki.weapon_type?.match(/\((.*)\)/)?.[1] ??
 				  'Not categorized'
 				: undefined,
-			weapon_type: meta.type.match(/^(.*) Weapon$/)?.[1]
+			weapon_type: meta.type.match(/^(.*) Weapon/)?.[1]
 		};
 	})
 	.reduce(

@@ -1,4 +1,5 @@
 import { IconButton } from '@mui/material';
+import { memo } from 'react';
 
 import questIcon from 'assets/world/icons/quest.png';
 import selectedIcon from 'assets/world/icons/selected.png';
@@ -37,7 +38,7 @@ const MapRoom = (room: Props) => {
 	const { map, selected, setSelected, minX, minY, getRoomStatus } =
 		useMapContext();
 
-	const type = room?.type !== undefined ? RoomTypes[room.type] : undefined;
+	const type = room?.type !== undefined ? RoomTypes[room.type] : RoomTypes[0];
 	const biome = room?.biome_type ? Biomes[room.biome_type] : undefined;
 
 	const explore = room?.room_id ? getRoomStatus(room.room_id) : 'Hidden';
@@ -79,6 +80,7 @@ const MapRoom = (room: Props) => {
 					: room.onClick
 			}
 			sx={{
+				p: 0,
 				borderRadius: 0,
 				gridArea:
 					room.variant === 'map'
@@ -109,12 +111,12 @@ const MapRoom = (room: Props) => {
 			{!isDungeon && (
 				<Sprite
 					img={RoomDirections[direction]}
-					width={7}
-					height={7}
+					width={14}
+					height={14}
 					sx={{
 						position: 'absolute',
-						top: t => t.spacing(-0),
-						left: t => t.spacing(-0),
+						top: 0,
+						left: 0,
 						zIndex: 1
 					}}
 				/>
@@ -122,20 +124,20 @@ const MapRoom = (room: Props) => {
 			{(room.variant === 'edit' && room.icon && (
 				<Sprite
 					img={room.icon[0]}
-					width={room.icon[1] / 2}
-					height={room.icon[2] / 2}
+					width={room.icon[1]}
+					height={room.icon[2]}
 					sx={{ zIndex: 2 }}
 				/>
 			)) ||
 				(!isDoubleSub && (
 					<Sprite
 						{...(!type
-							? { img: questIcon, width: 8 / 2, height: 8 / 2 }
+							? { img: questIcon, width: 8, height: 8 }
 							: type?.sprite
 							? {
 									img: type.sprite[0],
-									width: type.sprite[1] / 2,
-									height: type.sprite[2] / 2
+									width: type.sprite[1],
+									height: type.sprite[2]
 							  }
 							: {})}
 						sx={{
@@ -151,12 +153,12 @@ const MapRoom = (room: Props) => {
 			{room.variant === 'map' && (
 				<Sprite
 					img={selectedIcon}
-					width={9}
-					height={9}
+					width={18}
+					height={18}
 					sx={{
 						'position': 'absolute',
-						'top': t => t.spacing(-1),
-						'left': t => t.spacing(-1),
+						'top': t => t.spacing(-2),
+						'left': t => t.spacing(-2),
 						'opacity': selected === room.room_id ? 1 : 0,
 						'zIndex': 2,
 						'filter': 'invert(1)',
@@ -167,12 +169,12 @@ const MapRoom = (room: Props) => {
 			{isRespawn && room.variant === 'map' && !isDoubleSub && (
 				<Sprite
 					img={playerIcon}
-					width={5}
-					height={5}
+					width={10}
+					height={10}
 					sx={{
 						position: 'absolute',
-						top: t => t.spacing(-1.5),
-						left: t => t.spacing(-1.5),
+						top: t => t.spacing(-3),
+						left: t => t.spacing(-3),
 						zIndex: 3
 					}}
 				/>
@@ -181,4 +183,4 @@ const MapRoom = (room: Props) => {
 	);
 };
 
-export default MapRoom;
+export default memo(MapRoom);

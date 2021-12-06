@@ -319,7 +319,7 @@
     rate: 3.4
     range: 130
 - id: 120
-  name: Bubble Sceptre
+  name: Bubble Scepter
   rarity: uncommon
   type: Magical Weapon Material
   sprite: [s_item_bubble_scepter_0, 13, 13]

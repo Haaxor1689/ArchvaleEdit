@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, ThemeProvider } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import { Room } from 'utils/types';
@@ -17,6 +17,8 @@ import arrRightNo from 'assets/world/icons/arrRightNo.png';
 import addIcon from 'assets/world/icons/add.png';
 import select from 'assets/world/icons/select.png';
 import { parseRoomDirection } from 'utils/roomUtils';
+import theme from 'utils/theme';
+import useThemeSpacing from 'utils/useThemeSpacing';
 
 import MapRoom from './MapRoom';
 import { useAddRoom, useMapContext } from './MapProvider';
@@ -167,31 +169,35 @@ const RoomControl = ({ variant, neighbors }: Props) => {
 		}
 	};
 
+	const spacing = useThemeSpacing();
+
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 			<Typography variant="body2" color="text.secondary">
 				{variant}
 			</Typography>
-			<Box
-				sx={{
-					display: 'grid',
-					alignSelf: 'center',
-					gridTemplateColumns: t =>
-						`${t.spacing(7)} ${t.spacing(7)} ${t.spacing(7)}`,
-					gridAutoRows: t => t.spacing(7)
-				}}
-			>
-				{neighbors.map(([x, y, r]) => (
-					<MapRoom
-						key={`${x}-${y}`}
-						variant="edit"
-						isMiddle={x === 0 && y === 0}
-						icon={getRoomNeighborIcon([x, y], !!r)}
-						onClick={() => onRoomClick([x, y], r)}
-						{...(r ?? {})}
-					/>
-				))}
-			</Box>
+			<ThemeProvider theme={theme(spacing - 2)}>
+				<Box
+					sx={{
+						display: 'grid',
+						alignSelf: 'center',
+						gridTemplateColumns: t =>
+							`${t.spacing(14)} ${t.spacing(14)} ${t.spacing(14)}`,
+						gridAutoRows: t => t.spacing(14)
+					}}
+				>
+					{neighbors.map(([x, y, r]) => (
+						<MapRoom
+							key={`${x}-${y}`}
+							variant="edit"
+							isMiddle={x === 0 && y === 0}
+							icon={getRoomNeighborIcon([x, y], !!r)}
+							onClick={() => onRoomClick([x, y], r)}
+							{...(r ?? {})}
+						/>
+					))}
+				</Box>
+			</ThemeProvider>
 		</Box>
 	);
 };
