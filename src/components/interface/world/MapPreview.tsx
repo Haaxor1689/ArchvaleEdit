@@ -1,10 +1,4 @@
-import {
-	Box,
-	Button,
-	ButtonGroup,
-	IconButton,
-	ThemeProvider
-} from '@mui/material';
+import { Box, Button, ButtonGroup, ThemeProvider } from '@mui/material';
 import { ZoomOut, ZoomIn } from '@mui/icons-material';
 import { createRef, useEffect, useState } from 'react';
 import Scrollbars from 'react-custom-scrollbars';
