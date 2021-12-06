@@ -63,7 +63,7 @@ const isSame = (item: Item, other?: Pick<Item, 'id'>) =>
 	!other || item.id === other.id;
 
 export const isStackable = (item: Item, other?: Pick<Item, 'id'>) =>
-	item.type === 'Material' && isSame(item, other);
+	item?.type === 'Material' && isSame(item, other);
 
 export const stackItem = (
 	item: InventoryItem,
@@ -75,7 +75,7 @@ export const stackItem = (
 		: item;
 
 export const isUpgradeable = (item: Item, other?: Pick<Item, 'id'>) =>
-	!!item.type.match(/.* Weapon/) && isSame(item, other);
+	!!item?.type.match('Weapon') && isSame(item, other);
 
 export const upgradeItem = (
 	item: InventoryItem,

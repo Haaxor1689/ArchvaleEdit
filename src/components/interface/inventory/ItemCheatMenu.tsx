@@ -33,6 +33,7 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 				sx={{
 					'position': 'absolute',
 					'left': 0,
+					'top': 0,
 					'transform': 'translateX(-100%)',
 					'backgroundColor': '#262b44',
 					'height': t => t.spacing(170),
@@ -103,7 +104,7 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 						}}
 					>
 						{Items.filter(v => v)
-							.filter(v => !filter || v.type === filter)
+							.filter(v => !filter || v.type.match(filter))
 							.map(item => (
 								<ItemSlot
 									key={item.id}

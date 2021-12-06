@@ -92,7 +92,17 @@ const ItemStats = ({
 				#{id}
 			</Typography>
 		</Typography>
-		<Typography color="text.secondary">{type}</Typography>
+
+		{type.match(' Material') ? (
+			<>
+				<Typography color="text.secondary">
+					{type.split(' ').slice(0, 2).join(' ')}
+				</Typography>
+				<Typography color="text.secondary">Material</Typography>
+			</>
+		) : (
+			<Typography color="text.secondary">{type}</Typography>
+		)}
 
 		{effect && <Typography>{effect}</Typography>}
 

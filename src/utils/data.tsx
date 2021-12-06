@@ -145,8 +145,8 @@ export type Item = {
 	inflicts?: Record<string, string | number>;
 } & (
 	| { type: 'Material' }
-	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon` }
-	| { type: `${'Head' | 'Body'} Armour` }
+	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon${'' | ' Material'}` }
+	| { type: `${'Head' | 'Body'} Armour${'' | ' Material'}` }
 	| { type: 'Ring' }
 	| { type: 'Treasure' }
 );

@@ -184,7 +184,7 @@
     range: 200
 - id: 106
   name: Rusty Flail
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_flail_rusty_0, 12, 13]
   stats:
     damage: 40
@@ -240,7 +240,7 @@
 - id: 112
   name: Swift Sword
   rarity: uncommon
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_swift_sword_0, 7, 17]
   stats:
     damage: 40
@@ -249,7 +249,7 @@
 - id: 113
   name: Bag of Knives
   rarity: uncommon
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_bag_of_knives_0, 12, 15]
   stats:
     damage: 20
@@ -302,7 +302,7 @@
 - id: 118
   name: Bag of Poisoned Knives
   rarity: rare
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_bag_of_poisoned_knives_0, 12, 15]
   stats:
     damage: 25
@@ -312,7 +312,7 @@
 - id: 119
   name: Twinshot Bow
   rarity: uncommon
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_twoshot_bow_0, 6, 15]
   stats:
     damage: 40
@@ -321,7 +321,7 @@
 - id: 120
   name: Bubble Sceptre
   rarity: uncommon
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_bubble_scepter_0, 13, 13]
   stats:
     damage: 75
@@ -330,7 +330,7 @@
 - id: 121
   name: Jousting Lance
   rarity: uncommon
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_jousting_lance_0, 16, 16]
   stats:
     damage: 140
@@ -342,7 +342,7 @@
 - id: 122
   name: Splash Tome
   rarity: uncommon
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_splash_tome_0, 11, 11]
   stats:
     damage: 20
@@ -351,7 +351,7 @@
 - id: 123
   name: Winged Bow
   rarity: rare
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_winged_bow_0, 8, 15]
   stats:
     damage: 35
@@ -370,7 +370,7 @@
 - id: 126
   name: Jackal Spear
   rarity: rare
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_jackal_spear_0, 7, 18]
   stats:
     damage: 160
@@ -382,7 +382,7 @@
 - id: 128
   name: Fire Flower
   rarity: rare
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_fire_flower_0, 14, 14]
   stats:
     damage: 30
@@ -519,7 +519,7 @@
 - id: 141
   name: Old Scythe
   rarity: rare
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_old_scythe_0, 14, 13]
   stats:
     damage: 200
@@ -548,7 +548,7 @@
 - id: 144
   name: Maroon Arc
   rarity: epic
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_maroon_arc_0, 10, 14]
   stats:
     damage: 75
@@ -605,7 +605,7 @@
 - id: 150
   name: Soulthief Dagger
   rarity: epic
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_soulthief_dagger_0, 5, 13]
   stats:
     damage: 120
@@ -642,7 +642,7 @@
 - id: 154
   name: Scarlet Crystal
   rarity: legendary
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_scarlet_crystal_0, 13, 13]
   stats:
     damage: 65
@@ -700,7 +700,7 @@
 - id: 161
   name: Slime Cannon
   rarity: legendary
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_slime_cannon_0, 15, 10]
   stats:
     damage: 210
@@ -709,7 +709,7 @@
 - id: 162
   name: Luminous Prism
   rarity: legendary
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_luminous_prism_0, 14, 14]
   stats:
     damage: 85
@@ -777,7 +777,7 @@
 - id: 172
   name: Bloomerang
   rarity: ancient
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_bloomerang_0, 12, 12]
   stats:
     damage: 190
@@ -788,14 +788,14 @@
   type: Ranged Weapon
   sprite: [s_item_weapon_terracotta_bow_0, 11, 16]
   stats:
-    damage: 750
+    damage: 625
     rate: 0.9
     range: 160
     ar_pen: 2
 - id: 174
   name: Vinestring Shortbow
   rarity: ancient
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_vinestring_longbow_0, 9, 16]
   stats:
     damage: 120
@@ -822,7 +822,7 @@
 - id: 178
   name: Tanglegrove Codex
   rarity: ancient
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_tanglegrove_codex_0, 12, 12]
   stats:
     damage: 70
@@ -850,7 +850,7 @@
 - id: 181
   name: Great White Bow
   rarity: mythical
-  type: Ranged Weapon
+  type: Ranged Weapon Material
   sprite: [s_item_weapon_great_white_bow_0, 11, 14]
   stats:
     damage: 450
@@ -859,7 +859,7 @@
 - id: 182
   name: Maelstrom Flail
   rarity: mythical
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_maelstrom_flail_0, 13, 14]
   stats:
     damage: 250
@@ -868,7 +868,7 @@
 - id: 183
   name: Trench Geyser
   rarity: mythical
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_trench_geyser_0, 13, 13]
   stats:
     damage: 230
@@ -877,7 +877,7 @@
 - id: 184
   name: Merman Trident
   rarity: ancient
-  type: Melee Weapon
+  type: Melee Weapon Material
   sprite: [s_item_weapon_merman_trident_0, 14, 14]
   stats:
     damage: 200
@@ -889,7 +889,7 @@
 - id: 185
   name: Brinkreef Codex
   rarity: mythical
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_brinkreef_codex_0, 12, 12]
   stats:
     damage: 90
@@ -970,7 +970,7 @@
 - id: 195
   name: Rift Codex
   rarity: mythical
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_rift_codex_0, 12, 12]
   stats:
     damage: 110
@@ -979,7 +979,7 @@
     range: 200
 - id: 196
   name: Archvale Lexicon
-  rarity: mythical
+  rarity: divine
   type: Magical Weapon
   sprite: [s_item_weapon_archvale_lexicon_0, 13, 13]
   stats:
@@ -1463,7 +1463,7 @@
 - id: 364
   name: Golden Scepter
   rarity: rare
-  type: Magical Weapon
+  type: Magical Weapon Material
   sprite: [s_item_weapon_golden_scepter_0, 12, 12]
   stats:
     damage: 30
@@ -1644,7 +1644,7 @@
 - id: 422
   name: Fungal Cap Cap
   rarity: legendary
-  type: Head Armour
+  type: Head Armour Material
   sprite: [s_item_armour_mushroom_cap_cap_0, 12, 9]
   stats:
     def: 10
@@ -1657,7 +1657,7 @@
   sprite: [s_item_armour_sporescale_chestplate_0, 10, 9]
   stats:
     def: 18
-    prot: 3
+    prot: 1
 - id: 424
   name: Sporescale Helm
   rarity: ancient
@@ -1665,7 +1665,7 @@
   sprite: [s_item_armour_sporescale_crown_0, 11, 9]
   stats:
     def: 12
-    prot: 2
+    prot: 1
 - id: 425
   name: Temple Chestplate
   rarity: ancient
@@ -1698,7 +1698,6 @@
   sprite: [s_item_armour_mermaid_tail_0, 14, 9]
   stats:
     def: 18
-    prot: 1
     atk_spd: 4
 - id: 430
   name: Shark Cap
@@ -1963,15 +1962,13 @@
   sprite: [s_item_ring_d3_0, 11, 11]
   effect: Evade damage to gain an ice shield
   stats:
-    def: 10
+    def: 5
 - id: 803
   name: Rosethorn Ring
   rarity: mythical
   type: Ring
   sprite: [s_item_ring_d4_0, 11, 11]
   effect: +1 stamina, dashes deal damage
-  stats:
-    all_dmg: 1
 - id: 804
   name: Deathcap Ring
   rarity: mythical
@@ -1979,15 +1976,13 @@
   sprite: [s_item_ring_d5_0, 12, 12]
   effect: Poison all enemies upon taking damage
   stats:
-    def: 6
+    def: 10
 - id: 805
   name: Crimson Berserker Ring
   rarity: mythical
   type: Ring
   sprite: [s_item_ring_d6_0, 11, 11]
   effect: Gain power by killing enemies without taking damage
-  stats:
-    melee_dmg: 3
 - id: 806
   name: Seamantle Ring
   rarity: mythical
@@ -1995,7 +1990,7 @@
   sprite: [s_item_ring_d7_0, 12, 12]
   effect: Higher chance for badge effects to trigger
   stats:
-    magic_dmg: 3
+    prot: 1
 - id: 807
   name: Onyx Ring
   type: Ring

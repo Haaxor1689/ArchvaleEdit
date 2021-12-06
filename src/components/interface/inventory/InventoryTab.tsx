@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
+import Scrollbars from 'react-custom-scrollbars';
 
 import inventoryPanel from 'assets/inventory/inventoryPanel.png';
 import storagePanel from 'assets/inventory/storagePanel.png';
@@ -75,53 +76,70 @@ const InventoryTab = ({ variant }: Props) => {
 			>
 				<Sprite
 					img={variant === 'storage' ? storagePanel : inventoryPanel}
+					width={161}
+					height={variant === 'inventory' ? 116 : 111}
 					sx={{
-						'position': 'relative',
-						'display': 'grid',
-						'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
-						'gap': 1,
-						'px': 5,
-						'pt': 5,
-						'pb': variant === 'storage' ? 7 : 27,
-						'> *:first-of-type': {
-							mb: variant === 'inventory' ? 5 : undefined
-						}
+						position: 'relative',
+						px: 5,
+						pt: 5,
+						pb: 27,
+						mb: variant === 'storage' ? 5 : 0
 					}}
 				>
-					{inventoryItems.map((item, index) => (
-						<ItemSlot
-							key={index}
-							item={item}
-							hideTooltip={!!heldItem}
-							onClick={e => {
-								if (item && e.shiftKey && !heldItem) {
-									const delta = e.button === 2 ? -1 : 1;
-									setItem(index, stackItem(upgradeItem(item, delta), delta));
-									return;
+					<Scrollbars style={{ width: '100%', height: '100%' }}>
+						<Box
+							sx={{
+								'display': 'grid',
+								'gridTemplateColumns': '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
+								'gap': 1,
+								'> *:first-of-type': {
+									mb: variant === 'inventory' ? 5 : undefined
 								}
-
-								if (item && heldItem && isStackable(Items[item.id], heldItem)) {
-									const sum = item.count + heldItem.count;
-									if (sum <= 255) {
-										setHeldItem(undefined);
-										setItem(index, { ...item, count: sum });
-									} else {
-										setHeldItem({ ...item, count: sum - 255 });
-										setItem(index, { ...item, count: 255 });
-									}
-									return;
-								}
-
-								setHeldItem(item);
-								setItem(index, heldItem);
 							}}
-						/>
-					))}
+						>
+							{inventoryItems.map((item, index) => (
+								<ItemSlot
+									key={index}
+									item={item}
+									hideTooltip={!!heldItem}
+									onClick={e => {
+										if (item && e.shiftKey && !heldItem) {
+											const delta = e.button === 2 ? -1 : 1;
+											setItem(
+												index,
+												stackItem(upgradeItem(item, delta), delta)
+											);
+											return;
+										}
+
+										if (
+											item &&
+											heldItem &&
+											isStackable(Items[item.id], heldItem)
+										) {
+											const sum = item.count + heldItem.count;
+											if (sum <= 255) {
+												setHeldItem(undefined);
+												setItem(index, { ...item, count: sum });
+											} else {
+												setHeldItem({ ...item, count: sum - 255 });
+												setItem(index, { ...item, count: 255 });
+											}
+											return;
+										}
+
+										setHeldItem(item);
+										setItem(index, heldItem);
+									}}
+								/>
+							))}
+						</Box>
+					</Scrollbars>
 					<Box
 						sx={{
 							position: 'absolute',
 							right: t => t.spacing(5),
-							bottom: t => t.spacing(variant === 'inventory' ? 2 : 7)
+							bottom: t => t.spacing(7)
 						}}
 					>
 						<ItemSlot
@@ -145,9 +163,9 @@ const InventoryTab = ({ variant }: Props) => {
 								const itemMeta = Items[heldItem.id];
 								const canEquip =
 									index === 0
-										? itemMeta.type === 'Head Armour'
+										? itemMeta.type.match('Head Armour')
 										: index === 1
-										? itemMeta.type === 'Body Armour'
+										? itemMeta.type.match('Body Armour')
 										: itemMeta.type === 'Ring';
 
 								if (!canEquip) {
