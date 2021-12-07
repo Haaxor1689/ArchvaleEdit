@@ -17,6 +17,7 @@
   type: Material
   rarity: rare
   sprite: [s_item_material_bull_hide_0, 10, 13]
+  unobtainable: true
 - id: 5
   name: Enchanted Oak
   type: Material
@@ -42,6 +43,7 @@
   type: Material
   rarity: epic
   sprite: [s_item_material_spider_parts_0, 13, 14]
+  unobtainable: true
 - id: 10
   name: Spiderweave
   type: Material
@@ -52,6 +54,7 @@
   type: Material
   rarity: epic
   sprite: [s_item_material_yeti_pelt_0, 10, 13]
+  unobtainable: true
 - id: 12
   name: Undead Essence
   type: Material
@@ -92,11 +95,13 @@
   type: Material
   rarity: mythical
   sprite: [s_item_material_black_pearl_0, 8, 8]
+  unobtainable: true
 - id: 20
   name: Coral Stone
   type: Material
   rarity: ancient
   sprite: [s_item_material_coralstone_0, 11, 10]
+  unobtainable: true
 - id: 21
   name: Ember Slag
   type: Material
@@ -112,6 +117,7 @@
   type: Material
   rarity: ancient
   sprite: [s_item_material_pale_pearl_0, 8, 8]
+  unobtainable: true
 - id: 24
   name: Glowing Spore
   type: Material
@@ -131,6 +137,7 @@
   name: Arrow
   type: Material
   sprite: [s_item_arrow_0, 10, 10]
+  unobtainable: true
 - id: 100
   name: Wooden Blade
   type: Melee Weapon
@@ -260,6 +267,7 @@
   rarity: uncommon
   type: Ranged Weapon
   sprite: [s_item_weapon_slimeshot_0, 13, 12]
+  unobtainable: true
   stats:
     damage: 30
     rate: 1.5
