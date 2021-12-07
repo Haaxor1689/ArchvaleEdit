@@ -2,6 +2,7 @@ import { Box, Button, FormHelperText, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useField } from 'react-final-form';
 import * as Yup from 'yup';
+import { useDropzone } from 'react-dropzone';
 
 import { makeValidate } from 'utils';
 
@@ -25,7 +26,7 @@ const FileInput: FC<Props> = ({
 	acceptFileTypes
 }) => {
 	const {
-		input: { value, onChange, ...input },
+		input: { value, onChange },
 		meta
 	} = useField<File | null>(id, {
 		validate: makeValidate(validate),
@@ -34,15 +35,32 @@ const FileInput: FC<Props> = ({
 		parse: v => v
 	});
 
+	const { getRootProps, getInputProps, isDragActive } = useDropzone({
+		onDrop: files => onChange(files?.[0]),
+		maxFiles: 1
+	});
+
 	return (
-		<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+		<Box
+			{...getRootProps({ onClick: e => e.stopPropagation() })}
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				border: t => `${t.spacing(1)} dashed ${t.palette.primary.main}99`,
+				p: 4
+			}}
+		>
 			<Box sx={{ display: 'flex', gap: 4, alignItems: 'baseline' }}>
-				<Button variant="contained" component="label" disabled={disabled}>
+				<Button
+					variant="contained"
+					component="label"
+					htmlFor={id}
+					disabled={disabled}
+				>
 					{label}
 					<input
-						hidden
-						{...(input as never)}
-						onChange={({ target }) => onChange(target.files?.[0])}
+						id={id}
+						{...getInputProps()}
 						accept={
 							acceptFileTypes && acceptFileTypes.length > 1
 								? acceptFileTypes.join(', ')
@@ -52,7 +70,11 @@ const FileInput: FC<Props> = ({
 					/>
 				</Button>
 				<Typography sx={{ color: 'text.light', opacity: 0.6 }}>
-					{value ? value.name : 'No file selected'}
+					{isDragActive
+						? 'Drop files here to upload'
+						: value
+						? value.name
+						: 'No file selected'}
 				</Typography>
 			</Box>
 			{((meta.error && meta.touched) || helperText) && (

@@ -58,6 +58,7 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			sx={{
 				display: 'grid',
 				gridTemplateColumns: '1fr 1fr',
+				alignItems: 'center',
 				gap: 4,
 				textAlign: 'center'
 			}}
@@ -78,10 +79,11 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 				</Typography>{' '}
 				folder
 			</Typography>
-			<Typography>
+			<Typography sx={{ wordBreak: 'break-word' }}>
 				Search for{' '}
 				<Typography component="span" color="badge">
-					AV_gms2_3
+					C:\{'{{USER_NAME}}'}\AppData\Local\Packages\HumbleBundle.Archvale_
+					{'{{HASH}}'}\LocalCache\Roaming\AV_gms2_3
 				</Typography>{' '}
 				folder and open{' '}
 				<Typography component="span" color="badge">
@@ -90,7 +92,7 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			</Typography>
 			<Typography />
 		</Box>
-		<FileInput id="file" label="File" acceptFileTypes={['.avsv', '.json']} />
+		<FileInput id="file" label="Select" acceptFileTypes={['.avsv', '.json']} />
 		<AutoSubmit />
 	</Form>
 );

@@ -1,6 +1,9 @@
 - id: 1
   sprite: forest
   name: Cradlewood
+# - id: 2
+#   sprite: forest
+#   name: UNUSED Cradlewood
 - id: 3
   sprite: forest
   name: Cradlewood (Tutorial)
@@ -28,12 +31,21 @@
 - id: 13
   sprite: snow
   name: Pine Peak
+- id: 15
+  sprite: mushroom
+  name: Fungus Grotto
 - id: 16
   sprite: town
   name: Morelton
+# - id: 20
+#   sprite: forest
+#   name: UNUSED Cradlewood
 - id: 23
   sprite: glade
   name: Amberpath
+# - id: 24
+#   sprite: glade
+#   name: UNUSED Amberpath
 - id: 25
   sprite: cavern
   name: Twisted Caverns
@@ -43,6 +55,9 @@
 - id: 27
   sprite: cavern
   name: Twisted Caverns (Crystal)
+- id: 28
+  sprite: cavern
+  name: UNUSED Twisted Caverns (Empty)
 - id: 29
   sprite: jungle
   name: Tanglegrove

@@ -20,14 +20,16 @@ const data = fs.readFileSync('scripts/items.lua').toString();
 const parsed = JSON.parse(
 	data
 		.replace(/^return /, '')
-		.replaceAll(/ = /g, ': ')
-		.replaceAll(/(\S+): /g, '"$1": ')
+		.replaceAll(/\[['"]([^\]]*)['"]\] = /g, '"$1": ')
+		.replaceAll(/(\S+) = /g, '"$1": ')
+		.replaceAll(/, }/g, ' }')
 		.replaceAll(/ ?--.*/g, '')
 		.replaceAll(/(\d)\.,/g, '$1.0,')
 );
 
 const newData = items
 	.map(meta => {
+		if (meta.unobtainable) return undefined;
 		const wiki = Object.values(parsed).find(v => v.name === meta.name) ?? {};
 		return {
 			...wiki,
@@ -79,6 +81,8 @@ const newData = items
 			weapon_type: meta.type.match(/^(.*) Weapon/)?.[1]
 		};
 	})
+	.filter(i => i)
+	.sort((lhs, rhs) => lhs.name.localeCompare(rhs.name))
 	.reduce(
 		(obj, next) => ({
 			...obj,
@@ -93,5 +97,7 @@ const newData = items
 
 fs.writeFileSync(
 	'scripts/items.lua',
-	`return ${JSON.stringify(newData, null, 2).replaceAll(/"(.*)": /g, '$1 = ')}`
+	`return ${JSON.stringify(newData, null, 2)
+		.replaceAll(/"(\S*)": /g, '$1 = ')
+		.replaceAll(/"(.*)": /g, '["$1"] = ')}`
 );
