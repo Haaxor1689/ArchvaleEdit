@@ -17,7 +17,7 @@ const RoomInfo = () => {
 		useMapContext();
 
 	const index = rooms?.findIndex(r => r.room_id === selected);
-	const room = rooms[index];
+	const room = rooms?.[index];
 	const isRespawn = useIsRoomRespawn(room);
 
 	if (!room) {

@@ -15,6 +15,7 @@ export const parseDungeonExploration = (value: string) => {
 	}
 };
 
+// TODO: add cleared flag for overworld rooms toggle
 /**
  * - 0 - down
  * - 1 - right
@@ -33,8 +34,12 @@ export const parseDungeonExploration = (value: string) => {
  * - 14 - seen
  * - 15 - hidden
  */
+export const parseRoomFlags = (flags: string) =>
+	pad(parseHexValue(flags).toString(2), 16);
+
 export const parseRoomExploration = (flags: string) => {
-	const val = pad(parseHexValue(flags).toString(2), 16);
+	const val = parseRoomFlags(flags);
+
 	return val[11] === '1'
 		? 'Visited'
 		: val[14] === '1'
@@ -69,3 +74,13 @@ export const fixIncorrectExits = (rooms: Room[]) =>
 				.toUpperCase()}${r.flags.slice(2)}`
 		};
 	});
+
+export const revealRooms = (rooms: Room[]) =>
+	rooms.map(r => ({
+		...r,
+		flags: `0${r.flags[1]}${parseInt(`000100010011`, 2).toString(16)}`,
+		objects: r.objects.map(o => {
+			const type = parseHexValue(o.slice(0, 4));
+			return type === 2 || type === 3 ? `${o.slice(0, 14)}1${o.slice(15)}` : o;
+		})
+	}));
