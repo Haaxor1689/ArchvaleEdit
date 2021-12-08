@@ -27,7 +27,6 @@ const RoomEdit = ({ x, y }: Pick<Room, 'x' | 'y'>) => {
 	return (
 		<Collapsible
 			title="Edit room"
-			initialExpanded
 			sx={{
 				display: 'flex',
 				flexDirection: 'column',

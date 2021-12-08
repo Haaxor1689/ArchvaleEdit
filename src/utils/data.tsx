@@ -24,9 +24,17 @@ import atkSpdIcon from 'assets/stats/atk_spd.png';
 import costIcon from 'assets/stats/cost.png';
 import archstoneIcon from 'assets/world/icons/archstone.png';
 import dungeonIcon from 'assets/world/icons/dungeon.png';
+import arenaIcon from 'assets/world/icons/arena.png';
+import archIcon from 'assets/world/icons/arch.png';
+import mapIcon from 'assets/world/icons/map.png';
 import dungeonChestIcon from 'assets/world/icons/dungeonChest.png';
 import bombIcon from 'assets/world/icons/bomb.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
+import questIcon from 'assets/world/icons/quest.png';
+import anvilIcon from 'assets/world/icons/anvil.png';
+import arrRight from 'assets/world/icons/arrRight.png';
+import arrUp from 'assets/world/icons/arrUp.png';
+import arrDown from 'assets/world/icons/arrDown.png';
 import minibossIcon from 'assets/world/icons/miniboss.png';
 import plumIcon from 'assets/world/icons/plum.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
@@ -42,6 +50,14 @@ import slimeObj from 'assets/world/objects/slime.png';
 import bombObj from 'assets/world/objects/bomb.png';
 import oreShell from 'assets/world/objects/oreShell.png';
 import oreIron from 'assets/world/objects/oreIron.png';
+import oreGold from 'assets/world/objects/oreGold.png';
+import oreDarksteel from 'assets/world/objects/oreDarksteel.png';
+import oreObsidian from 'assets/world/objects/oreObsidian.png';
+import oreCobalt from 'assets/world/objects/oreCobalt.png';
+import oreMauvite from 'assets/world/objects/oreMauvite.png';
+import orePhloem from 'assets/world/objects/orePhloem.png';
+import oreZephyr from 'assets/world/objects/oreZephyr.png';
+import oreHyperium from 'assets/world/objects/oreHyperium.png';
 import fountainActive from 'assets/world/objects/fountainActive.png';
 import fountainInactive from 'assets/world/objects/fountainInactive.png';
 import defenseUp from 'assets/world/objects/defenseUp.png';
@@ -54,6 +70,8 @@ import plumPlant from 'assets/world/objects/plumPlant.png';
 import plumPicked from 'assets/world/objects/plumPicked.png';
 import tutBush from 'assets/world/objects/tutBush.png';
 import tutPot from 'assets/world/objects/tutPot.png';
+import junglePot from 'assets/world/objects/junglePot.png';
+import banditTent from 'assets/world/objects/banditTent.png';
 import bombableWall from 'assets/world/objects/bombableWall.png';
 import eggsac from 'assets/world/objects/eggsac.png';
 import dir0 from 'assets/world/directions/dir0.png';
@@ -205,18 +223,59 @@ export const RoomTypes: Record<number, RoomType> = {
 	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
 	0: { name: 'Combat' },
 	1: { sprite: [minibossIcon, 10, 8], name: 'Miniboss' },
-	2: { sprite: [fountainIcon, 10, 8], name: 'Starting fountain' },
+	2: { sprite: [fountainIcon, 10, 8], name: 'Starting Fountain' },
+	// 3: instant crash
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
+	// 5: ???
+	// 6: instant crash
+	// 7: cradlewood ladder that crashes game
+	8: { sprite: [townIcon, 8, 8], name: 'UNUSED Home' }, // murkmire
+	9: { sprite: [archIcon, 8, 8], name: 'UNUSED Arch' },
 	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	// 11: broken teleport
 	12: { sprite: [bombIcon, 10, 10], name: 'Bomb Power' },
+	// 13: probably town room, crashes
+	// 14: town save, crashes
+	15: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Forge' },
+	// 16: town shop, crashes
+	// 17: probably town room, crashes
+	18: { sprite: [questIcon, 8, 8], name: 'UNUSED Magic shop' },
+	19: { sprite: [questIcon, 8, 8], name: 'UNUSED Sam' },
 	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
 	21: { sprite: [townIcon, 8, 8], name: 'Town' },
-	22: { sprite: [townIcon, 8, 8], name: 'Town' },
-	29: { sprite: [townIcon, 8, 8], name: 'Town' },
-	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
-	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial' },
+	22: { sprite: [townIcon, 8, 8], name: 'Town (Fairreach)' },
+	// 23: { sprite: [questIcon, 8, 8], name: '23 ???' }, // murkmire
+	// 24: { sprite: [questIcon, 8, 8], name: '24 ???' }, // murkmire
+	25: { sprite: [mapIcon, 8, 8], name: 'UNUSED Map' },
+	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial 1' },
+	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial 2' },
+	// 28: { sprite: [questIcon, 8, 8], name: '28 ???' }, // murkmire
+	29: { sprite: [townIcon, 8, 8], name: 'Town (The Pit)' },
+	// 30: { sprite: [questIcon, 8, 8], name: '30 ???' }, // murkmire
+	// 31: { sprite: [questIcon, 8, 8], name: '31 ???' },
+	41: { sprite: [arenaIcon, 10, 8], name: 'Arena' },
+	// 42: { sprite: [questIcon, 8, 8], name: '42 ???' },
 	47: { sprite: [dungeonIcon, 8, 7], name: 'Dungeon' },
-	69: { sprite: [dungeonIcon, 8, 7], name: 'Tutorial exit' }
+	// 50: { sprite: [questIcon, 8, 8], name: '50 ???' }, // murkmire
+	// 51: { sprite: [questIcon, 8, 8], name: '51 ???' }, // murkmire
+	// 52: { sprite: [questIcon, 8, 8], name: '52 ???' }, // murkmire
+	// 53: instant crash
+	// 54: { sprite: [questIcon, 8, 8], name: '54 ???' }, // murkmire
+	// 55: { sprite: [questIcon, 8, 8], name: '55 ???' }, // murkmire
+	// 56: { sprite: [questIcon, 8, 8], name: '56 ???' }, // murkmire
+	57: { sprite: [treasureIcon, 10, 10], name: 'UNUSED Treasure' },
+	58: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Spell Pillar' },
+	59: { sprite: [arrUp, 8, 9], name: 'Amberpath border' },
+	61: { sprite: [arrRight, 9, 8], name: 'Crabclaw Chasm border' },
+	62: { sprite: [arrRight, 9, 8], name: 'Dustcrag border' },
+	63: { sprite: [arrUp, 8, 9], name: 'Murkmire border' },
+	64: { sprite: [arrUp, 8, 9], name: 'UNUSED Ruins border' },
+	65: { sprite: [arrUp, 8, 9], name: 'Pine Peak border' },
+	66: { sprite: [arrRight, 9, 8], name: 'Twisted Caverns border' },
+	// 67: { sprite: [questIcon, 8, 8], name: '67 ???' }, // murkmire
+	// 68: { sprite: [questIcon, 8, 8], name: '68 ???' }, // murkmire
+	69: { sprite: [arrDown, 8, 9], name: 'Tutorial exit' },
+	70: { sprite: [questIcon, 8, 8], name: 'NPC' }
 };
 
 export type StateMeta = {
@@ -300,6 +359,8 @@ export type ParsedObject = {
 	// Chest
 	chest_opened: number;
 	chest_item: number;
+	// Arena
+	arena_trigger: number;
 	// Plum
 	plum_picked: number;
 };
@@ -343,7 +404,19 @@ const FountainUnlockedAttr: RoomAttrMeta = {
 export const RoomObjects: Record<number, RoomObject> = {
 	0: {
 		name: 'Ore',
-		getIcon: o => [oreShell, oreIron][o.ore_type],
+		getIcon: o =>
+			[
+				oreShell,
+				oreIron,
+				oreGold,
+				oreDarksteel,
+				oreObsidian,
+				oreCobalt,
+				oreMauvite,
+				oreHyperium,
+				orePhloem,
+				oreZephyr
+			][o.ore_type],
 		attributes: [
 			CanTakeAttr,
 			{
@@ -355,11 +428,15 @@ export const RoomObjects: Record<number, RoomObject> = {
 						size="small"
 						value={v}
 						onChange={e => change(e.target.value as string, 14, 18)}
-						renderValue={selected => <InlineItem {...Items[selected + 600]} />}
+						renderValue={selected => (
+							<InlineItem
+								{...Items[[0, 1, 2, 3, 4, 5, 6, 9, 7, 8][selected] + 600]}
+							/>
+						)}
 						sx={{ mt: '0 !important' }}
 						fullWidth
 					>
-						{[0, 1].map(o => (
+						{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(o => (
 							<MenuItem key={o} value={o}>
 								<InlineItem {...Items[o + 600]} />
 							</MenuItem>
@@ -434,10 +511,25 @@ export const RoomObjects: Record<number, RoomObject> = {
 			}
 		]
 	},
+	9: {
+		name: 'Arena trigger',
+		icon: banditTent,
+		attributes: [
+			{
+				key: 'arena_trigger',
+				name: 'State',
+				getValue: (v, change) => (
+					<TextButton onClick={() => change(v ? '0' : '1', 14, 15)}>
+						{v ? 'Cleared' : 'Active'}
+					</TextButton>
+				)
+			}
+		]
+	},
 	// 10: { name: 'keeps crashing' },
 	// 11: { name: 'its something' },
 	// 12: { name: 'its something' },
-	// 13: { name: 'its something' },
+	13: { name: 'Jungle pot', icon: junglePot, attributes: [CanTakeAttr] },
 	// 14: { name: 'its something' },
 	15: {
 		name: 'Mega plum',

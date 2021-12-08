@@ -38,12 +38,14 @@ const RoomObjectsInfo = ({ room_id }: Pick<Room, 'room_id'>) => {
 		upgrade_obtained: parseHexValue(o[14]),
 		chest_opened: parseHexValue(o[14]),
 		chest_item: parseHexValue(o.slice(15, 23)),
+		arena_trigger: parseHexValue(o[14]),
 		plum_picked: parseHexValue(o[14])
 	}));
 
 	return (
 		<Collapsible
 			title="Objects"
+			initialExpanded
 			sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}
 		>
 			{objects.map((o, i) => (

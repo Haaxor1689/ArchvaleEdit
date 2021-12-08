@@ -1,17 +1,33 @@
 import { Box, Typography } from '@mui/material';
 
+import Sprite from 'components/Sprite';
 import TextButton from 'components/TextButton';
-import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
+import { parseHexValue } from 'utils';
+import { Biomes, RoomObjects, RoomTypes, WorldStateMeta } from 'utils/data';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
+import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
+import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
 import WorldState from './WorldState';
 
 const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
 		useMapContext();
-	const room = rooms?.find(r => r.room_id === selected);
+
+	console.log(
+		rooms
+			.flatMap(r =>
+				r.objects.map(o => [parseHexValue(o.slice(0, 4)), r.room_id])
+			)
+			.filter(([t]) => !RoomObjects[t])
+			.map(([t, r]) => `Object ${t} in room ${r}`)
+			.join('\n')
+	);
+
+	const index = rooms?.findIndex(r => r.room_id === selected);
+	const room = rooms[index];
 	const isRespawn = useIsRoomRespawn(room);
 
 	if (!room) {
@@ -30,9 +46,19 @@ const RoomInfo = () => {
 		>
 			<Typography variant="caption" color="text.secondary">
 				Room
-				<Typography variant="h3" color="text.primary">
-					{type}
-				</Typography>
+				<Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+					<Sprite
+						img={`${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
+							Biomes[room.biome_type]?.sprite ?? 'empty'
+						}_0.png`}
+						width={7}
+						height={7}
+						mr={2}
+					/>
+					<Typography variant="h3" color="text.primary">
+						#{room.room_id} {type}
+					</Typography>
+				</Box>
 			</Typography>
 
 			<Box
@@ -44,24 +70,11 @@ const RoomInfo = () => {
 				}}
 			>
 				<Typography variant="caption" color="text.secondary">
-					Id<Typography color="text.primary">#{room.room_id}</Typography>
-				</Typography>
-
-				<Typography variant="caption" color="text.secondary">
 					Coordinates
 					<Typography color="text.primary">
 						[{room.x},{room.y}]
 					</Typography>
 				</Typography>
-
-				{room.biome_type && (
-					<Typography variant="caption" color="text.secondary">
-						Biome
-						<Typography color="text.primary">
-							{Biomes[room.biome_type]?.name ?? `Unknown #${room.biome_type}`}
-						</Typography>
-					</Typography>
-				)}
 
 				<Typography variant="caption" color="text.secondary">
 					Exploration
@@ -74,6 +87,9 @@ const RoomInfo = () => {
 					</TextButton>
 				</Typography>
 			</Box>
+
+			<RoomBiomeSelect index={index} />
+			<RoomTypeSelect index={index} />
 
 			{isRespawn ? (
 				<Typography>Current spawn point</Typography>

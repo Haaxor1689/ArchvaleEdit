@@ -861,7 +861,7 @@
   type: Ranged Weapon Material
   sprite: [s_item_weapon_great_white_bow_0, 11, 14]
   stats:
-    damage: 450
+    damage: 150
     rate: 4.6
     range: 180
 - id: 182
