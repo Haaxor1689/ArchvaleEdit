@@ -28,11 +28,12 @@ export const parseDungeonExploration = (value: string) => {
  * - 8 - ???
  * - 9 - ???
  * - 10 - ???
- * - 11 - explored
+ * - 11 - visited
+ * TODO: 0 - hidden, 1 - black tiles, 3 - unvisited
  * - 12 - ???
- * - 13 - ???
- * - 14 - seen
- * - 15 - hidden
+ * - 13 - colored + no icons UNUSED
+ * - 14 - unvisited (grey)
+ * - 15 - black tiles
  */
 export const parseRoomFlags = (flags: string) =>
 	pad(parseHexValue(flags).toString(2), 16);
@@ -40,7 +41,7 @@ export const parseRoomFlags = (flags: string) =>
 export const parseRoomExploration = (flags: string) => {
 	const val = parseRoomFlags(flags);
 
-	return val[11] === '1'
+	return val[7] === '1'
 		? 'Visited'
 		: val[14] === '1'
 		? 'Seen'
@@ -78,9 +79,5 @@ export const fixIncorrectExits = (rooms: Room[]) =>
 export const revealRooms = (rooms: Room[]) =>
 	rooms.map(r => ({
 		...r,
-		flags: `0${r.flags[1]}${parseInt(`000100010011`, 2).toString(16)}`,
-		objects: r.objects.map(o => {
-			const type = parseHexValue(o.slice(0, 4));
-			return type === 2 || type === 3 ? `${o.slice(0, 14)}1${o.slice(15)}` : o;
-		})
+		flags: `0${r.flags[1]}103`
 	}));

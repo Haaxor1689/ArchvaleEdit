@@ -39,7 +39,7 @@ const RoomTypeSelect = ({ index }: Props) => {
 					.filter(k => Number(k) >= 0)
 					.filter(
 						type =>
-							showUnused || !RoomTypes[type as never].name?.match(/^UNUSED /)
+							!!showUnused || !RoomTypes[type as never].name?.match(/^UNUSED /)
 					)
 					.map(type => (
 						<MenuItem key={type} value={type}>

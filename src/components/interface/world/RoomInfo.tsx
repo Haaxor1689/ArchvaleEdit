@@ -23,7 +23,7 @@ const RoomInfo = () => {
 
 	const [showUnused] = useShowUnused();
 	const filteredWorldState = WorldStateMeta.filter(
-		f => showUnused || !f.name.match(/^UNUSED /)
+		f => !!showUnused || !f.name.match(/^UNUSED /)
 	);
 
 	if (!room) {

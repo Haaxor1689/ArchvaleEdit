@@ -37,7 +37,8 @@ const RoomBiomeSelect = ({ index }: Props) => {
 			>
 				{Object.keys(Biomes)
 					.filter(
-						type => showUnused || !Biomes[type as never].name?.match(/^UNUSED /)
+						type =>
+							!!showUnused || !Biomes[type as never].name?.match(/^UNUSED /)
 					)
 					.map(type => (
 						<MenuItem key={type} value={type}>

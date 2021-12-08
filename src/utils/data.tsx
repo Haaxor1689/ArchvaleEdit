@@ -460,7 +460,7 @@ export const RoomObjects: Record<number, RoomObject> = {
 		attributes: [FountainUnlockedAttr]
 	},
 	3: {
-		name: 'Fountain',
+		name: 'City Fountain',
 		getIcon: o => (o.fountain_unlocked ? fountainActive : fountainInactive),
 		attributes: [FountainUnlockedAttr]
 	},
