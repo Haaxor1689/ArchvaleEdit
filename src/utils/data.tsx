@@ -40,6 +40,7 @@ import plumIcon from 'assets/world/icons/plum.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
+import samObj from 'assets/world/objects/sam.png';
 import bankerObj from 'assets/world/objects/banker.png';
 import blacksmithObj from 'assets/world/objects/blacksmith.png';
 import chefObj from 'assets/world/objects/chef.png';
@@ -286,6 +287,12 @@ export type StateMeta = {
 };
 
 export const WorldStateMeta: StateMeta[] = [
+	{
+		name: 'UNUSED Sam',
+		flags: ['n0'],
+		types: [],
+		sprite: [samObj, 30, 23]
+	},
 	{
 		name: 'Fairreach Bank',
 		flags: ['n20001'],

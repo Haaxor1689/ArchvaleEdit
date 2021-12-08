@@ -2,11 +2,11 @@ import { Box, Typography } from '@mui/material';
 
 import Sprite from 'components/Sprite';
 import TextButton from 'components/TextButton';
-import { parseHexValue } from 'utils';
-import { Biomes, RoomObjects, RoomTypes, WorldStateMeta } from 'utils/data';
+import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
+import FlagSelect from './roomEdit/FlagSelect';
 import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
@@ -16,22 +16,17 @@ const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
 		useMapContext();
 
-	console.log(
-		rooms
-			.flatMap(r =>
-				r.objects.map(o => [parseHexValue(o.slice(0, 4)), r.room_id])
-			)
-			.filter(([t]) => !RoomObjects[t])
-			.map(([t, r]) => `Object ${t} in room ${r}`)
-			.join('\n')
-	);
-
 	const index = rooms?.findIndex(r => r.room_id === selected);
 	const room = rooms[index];
 	const isRespawn = useIsRoomRespawn(room);
 
 	if (!room) {
-		return <WorldState stateMetaItems={WorldStateMeta} initialExpanded />;
+		return (
+			<>
+				<WorldState stateMetaItems={WorldStateMeta} initialExpanded />
+				<FlagSelect />
+			</>
+		);
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;

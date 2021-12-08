@@ -1,4 +1,6 @@
 type WorldState = {
+	n0: number; // Sam unlocked
+
 	n90002: number; // ??? Overall game progression
 
 	n21001: number; // ???
