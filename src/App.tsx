@@ -42,6 +42,7 @@ const App = () => {
 				maxWidth="lg"
 				component="main"
 				sx={{
+					position: 'relative',
 					display: 'flex',
 					flexDirection: 'column',
 					minHeight: '100vh',
@@ -56,11 +57,11 @@ const App = () => {
 				{waitingWorker && (
 					<Paper
 						sx={{
-							position: 'sticky',
-							top: 0,
+							position: 'absolute',
+							bottom: 0,
 							display: 'flex',
 							alignItems: 'center',
-							alignSelf: 'stretch',
+							width: '100%',
 							zIndex: 3,
 							gap: 3,
 							p: 3
