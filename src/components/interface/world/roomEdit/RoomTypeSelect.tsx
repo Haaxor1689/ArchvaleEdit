@@ -3,6 +3,7 @@ import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
 import { RoomTypes } from 'utils/data';
+import useShowUnused from 'utils/useShowUnused';
 
 type Props = {
 	index: number;
@@ -14,6 +15,8 @@ const RoomTypeSelect = ({ index }: Props) => {
 	} = useField<number>(`world.rooms[${index}].type`, {
 		subscription: { value: true }
 	});
+
+	const [showUnused] = useShowUnused();
 
 	return (
 		<Typography
@@ -34,6 +37,10 @@ const RoomTypeSelect = ({ index }: Props) => {
 			>
 				{Object.keys(RoomTypes)
 					.filter(k => Number(k) >= 0)
+					.filter(
+						type =>
+							showUnused || !RoomTypes[type as never].name?.match(/^UNUSED /)
+					)
 					.map(type => (
 						<MenuItem key={type} value={type}>
 							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>

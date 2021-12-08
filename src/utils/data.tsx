@@ -239,7 +239,7 @@ export const RoomTypes: Record<number, RoomType> = {
 	// 14: town save, crashes
 	15: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Forge' },
 	// 16: town shop, crashes
-	// 17: probably town room, crashes
+	// 17: town bank, crashes
 	18: { sprite: [questIcon, 8, 8], name: 'UNUSED Magic shop' },
 	19: { sprite: [questIcon, 8, 8], name: 'UNUSED Sam' },
 	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
@@ -466,7 +466,7 @@ export const RoomObjects: Record<number, RoomObject> = {
 	},
 	4: { name: 'Defense up', icon: defenseUp, attributes: [CanTakeAttr] },
 	5: {
-		name: 'Upgrade pedestal',
+		name: 'Bomb power',
 		icon: pedestal,
 		attributes: [
 			{

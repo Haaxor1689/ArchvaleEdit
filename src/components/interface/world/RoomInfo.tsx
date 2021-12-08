@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import Sprite from 'components/Sprite';
 import TextButton from 'components/TextButton';
 import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
+import useShowUnused from 'utils/useShowUnused';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
@@ -10,7 +11,7 @@ import FlagSelect from './roomEdit/FlagSelect';
 import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
-import WorldState from './WorldState';
+import WorldState from './roomEdit/WorldState';
 
 const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
@@ -20,10 +21,15 @@ const RoomInfo = () => {
 	const room = rooms?.[index];
 	const isRespawn = useIsRoomRespawn(room);
 
+	const [showUnused] = useShowUnused();
+	const filteredWorldState = WorldStateMeta.filter(
+		f => showUnused || !f.name.match(/^UNUSED /)
+	);
+
 	if (!room) {
 		return (
 			<>
-				<WorldState stateMetaItems={WorldStateMeta} initialExpanded />
+				<WorldState stateMetaItems={filteredWorldState} initialExpanded />
 				<FlagSelect />
 			</>
 		);
@@ -32,7 +38,9 @@ const RoomInfo = () => {
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
 	const status = getRoomStatus(room.room_id);
 
-	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(room.type) >= 0);
+	const stateMeta = filteredWorldState.filter(
+		f => f.types.indexOf(room.type) >= 0
+	);
 
 	return (
 		<Box

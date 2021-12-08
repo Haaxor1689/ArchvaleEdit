@@ -3,6 +3,7 @@ import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
 import { Biomes } from 'utils/data';
+import useShowUnused from 'utils/useShowUnused';
 
 type Props = {
 	index: number;
@@ -14,6 +15,8 @@ const RoomBiomeSelect = ({ index }: Props) => {
 	} = useField<number>(`world.rooms[${index}].biome_type`, {
 		subscription: { value: true }
 	});
+
+	const [showUnused] = useShowUnused();
 
 	return (
 		<Typography
@@ -32,21 +35,25 @@ const RoomBiomeSelect = ({ index }: Props) => {
 				sx={{ mt: '0 !important' }}
 				fullWidth
 			>
-				{Object.keys(Biomes).map(type => (
-					<MenuItem key={type} value={type}>
-						<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-							<Sprite
-								img={`${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
-									Biomes[type as never]?.sprite ?? 'empty'
-								}_0.png`}
-								width={6}
-								height={6}
-								mr={2}
-							/>
-							{Biomes[type as never].name}
-						</Box>
-					</MenuItem>
-				))}
+				{Object.keys(Biomes)
+					.filter(
+						type => showUnused || !Biomes[type as never].name?.match(/^UNUSED /)
+					)
+					.map(type => (
+						<MenuItem key={type} value={type}>
+							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+								<Sprite
+									img={`${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
+										Biomes[type as never]?.sprite ?? 'empty'
+									}_0.png`}
+									width={6}
+									height={6}
+									mr={2}
+								/>
+								{Biomes[type as never].name}
+							</Box>
+						</MenuItem>
+					))}
 			</Select>
 		</Typography>
 	);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Typography, Box, Paper } from '@mui/material';
+import { Box } from '@mui/material';
 
 import badgesTab from 'assets/badgesTab.png';
 import inventoryTab from 'assets/inventoryTab.png';
@@ -15,6 +15,7 @@ import InventoryTab from './interface/inventory/InventoryTab';
 import CharacterTab from './interface/character/CharacterTab';
 import Tab from './interface/Tab';
 import WorldTab from './interface/world/WorldTab';
+import Header from './Header';
 
 const tabs = [
 	{
@@ -69,24 +70,7 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 				gap: 6
 			}}
 		>
-			<Paper
-				sx={{
-					position: 'sticky',
-					top: 0,
-					display: 'flex',
-					alignItems: 'center',
-					alignSelf: 'stretch',
-					zIndex: 3,
-					gap: 3,
-					p: 3
-				}}
-			>
-				<Typography flexGrow={1}>{name}</Typography>
-				<Button onClick={reset}>Discard</Button>
-				<Button type="submit" variant="contained" size="large">
-					Save
-				</Button>
-			</Paper>
+			<Header name={name} reset={reset} />
 			<Box
 				sx={{
 					display: 'flex',
