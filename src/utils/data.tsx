@@ -443,7 +443,7 @@ export const RoomObjects: Record<number, RoomObject> = {
 						sx={{ mt: '0 !important' }}
 						fullWidth
 					>
-						{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(o => (
+						{[0, 1, 2, 3, 4, 5, 6, 9, 7, 8].map(o => (
 							<MenuItem key={o} value={o}>
 								<InlineItem {...Items[o + 600]} />
 							</MenuItem>
