@@ -6,6 +6,8 @@ import Sprite from 'components/Sprite';
 import IconInput from 'components/form/IconInput';
 import MaxAdornment from 'components/MaxAdornment';
 
+const HealingAmount = [15, 20, 25, 30, 35, 40, 50];
+
 const HealingLevel = () => {
 	const {
 		input: { value }
@@ -27,7 +29,7 @@ const HealingLevel = () => {
 			label="Potion level"
 			icon={<Sprite img={potionLevel} width={7} height={6} />}
 			type="number"
-			hint={`Potions will heal you for ${(2 + value * 0.5).toFixed(1)} hearts.`}
+			hint={`Potions will heal you for ${HealingAmount[value]} health.`}
 			InputProps={{
 				endAdornment: value < 6 ? undefined : <MaxAdornment />
 			}}
