@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
 import { Item, Items } from './data';
+import { MaxStackSize } from './inventoryUtils';
 import { InventoryItem } from './types';
 
 export const makeBase64File = (file: File) =>
@@ -71,7 +72,10 @@ export const stackItem = (
 	other?: Pick<Item, 'id'>
 ) =>
 	isStackable(Items[item.id], other)
-		? { ...item, count: Math.max(1, Math.min(255, item.count + delta)) }
+		? {
+				...item,
+				count: Math.max(1, Math.min(MaxStackSize, item.count + delta))
+		  }
 		: item;
 
 export const isUpgradeable = (item: Item, other?: Pick<Item, 'id'>) =>

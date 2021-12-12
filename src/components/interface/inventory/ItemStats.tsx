@@ -81,7 +81,7 @@ const ItemStats = ({
 		<Typography
 			color={`rarity.${rarity}`}
 			sx={
-				rarity === 'divine'
+				rarity === 'masterwork'
 					? { animation: `${rainbowColor} 6s linear 0s infinite` }
 					: undefined
 			}

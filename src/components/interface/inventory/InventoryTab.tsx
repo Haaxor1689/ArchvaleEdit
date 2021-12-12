@@ -17,11 +17,13 @@ import {
 import { InventoryItem } from 'utils/types';
 import { Items } from 'utils/data';
 import Sprite from 'components/Sprite';
+import { MaxStackSize } from 'utils/inventoryUtils';
 
 import ItemCheatMenu from './ItemCheatMenu';
 import GrabbedItem from './GrabbedItem';
 import ItemSlot from './ItemSlot';
 import Equipment from './Equipment';
+import SortInventoryButton from './SortInventoryButton';
 
 type Props = {
 	variant: 'inventory' | 'storage';
@@ -118,12 +120,12 @@ const InventoryTab = ({ variant }: Props) => {
 											isStackable(Items[item.id], heldItem)
 										) {
 											const sum = item.count + heldItem.count;
-											if (sum <= 255) {
+											if (sum <= MaxStackSize) {
 												setHeldItem(undefined);
 												setItem(index, { ...item, count: sum });
 											} else {
-												setHeldItem({ ...item, count: sum - 255 });
-												setItem(index, { ...item, count: 255 });
+												setHeldItem({ ...item, count: sum - MaxStackSize });
+												setItem(index, { ...item, count: MaxStackSize });
 											}
 											return;
 										}
@@ -135,6 +137,39 @@ const InventoryTab = ({ variant }: Props) => {
 							))}
 						</Box>
 					</Scrollbars>
+					<Box
+						sx={{
+							position: 'absolute',
+							left: t => t.spacing(2),
+							bottom: t => t.spacing(2)
+						}}
+					>
+						<SortInventoryButton
+							items={
+								variant === 'inventory'
+									? inventoryItems.slice(8)
+									: inventoryItems
+							}
+							onSort={newItems =>
+								onInventoryChange({
+									target: {
+										value: (variant === 'inventory'
+											? [...inventoryItems.slice(0, 8), ...newItems]
+											: newItems
+										)
+											.map(item =>
+												!item
+													? 'FFFF000'
+													: parseToHex(item.id, 4) +
+													  parseToHex(item.count, 2) +
+													  parseToHex(item.quality, 1)
+											)
+											.join('')
+									}
+								})
+							}
+						/>
+					</Box>
 					<Box
 						sx={{
 							position: 'absolute',
@@ -185,7 +220,7 @@ const InventoryTab = ({ variant }: Props) => {
 									? undefined
 									: {
 											id: item.id,
-											count: e.shiftKey && isStackable(item) ? 255 : 1,
+											count: e.shiftKey && isStackable(item) ? MaxStackSize : 1,
 											quality: e.shiftKey && isUpgradeable(item) ? 5 : 0
 									  }
 							);
@@ -193,9 +228,10 @@ const InventoryTab = ({ variant }: Props) => {
 					/>
 				</Sprite>
 				<Typography variant="caption" textAlign="center">
-					Pick new items from item database below, pick full stack (255) or
-					highest quality (+5) with shift. Use left and right click together
-					with shift to modify count/quality of items in the {variant}.
+					Pick new items from item database below, pick full stack (
+					{MaxStackSize}) or highest quality (+5) with shift. Use left and right
+					click together with shift to modify count/quality of items in the{' '}
+					{variant}.
 				</Typography>
 			</Box>
 		</GrabbedItem>

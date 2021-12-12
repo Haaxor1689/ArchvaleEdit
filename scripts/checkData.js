@@ -52,11 +52,11 @@ console.log(
 					'uncommon',
 					'rare',
 					'epic',
-					'supreme',
 					'legendary',
-					'ancient',
+					'heroic',
 					'mythical',
-					'divine'
+					'divine',
+					'masterwork'
 				].indexOf(item.rarity) < 0
 			) {
 				console.log(`Invalid rarity ${item.rarity}`, item);

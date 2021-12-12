@@ -16,6 +16,8 @@ import headIcon from 'assets/headIcon.png';
 import bodyIcon from 'assets/bodyIcon.png';
 import ringIcon from 'assets/ringIcon.png';
 import treasureIcon from 'assets/treasureIcon.png';
+import { sortItems } from 'utils/inventoryUtils';
+import useShowUnused from 'utils/useShowUnused';
 
 import ItemSlot from './ItemSlot';
 
@@ -27,6 +29,7 @@ type Props = {
 const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 	const spacing = useThemeSpacing();
 	const [filter, setFilter] = useState<Item['type']>();
+	const [showUnused] = useShowUnused();
 	return (
 		<ThemeProvider theme={theme(spacing - 2)}>
 			<Box
@@ -103,7 +106,8 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 							backgroundColor: '#262b44'
 						}}
 					>
-						{Items.filter(v => v)
+						{Items.filter(v => v && (showUnused || !v.unused))
+							.sort(sortItems)
 							.filter(v => !filter || v.type.match(filter))
 							.map(item => (
 								<ItemSlot

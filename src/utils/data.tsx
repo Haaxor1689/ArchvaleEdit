@@ -162,6 +162,7 @@ export type Item = {
 	effect?: string;
 	stats?: Record<string, string | number>;
 	inflicts?: Record<string, string | number>;
+	unused?: boolean;
 } & (
 	| { type: 'Material' }
 	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon${'' | ' Material'}` }

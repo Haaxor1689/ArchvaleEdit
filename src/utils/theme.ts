@@ -13,11 +13,11 @@ declare module '@mui/material/styles' {
 			uncommon: string;
 			rare: string;
 			epic: string;
-			supreme: string;
 			legendary: string;
-			ancient: string;
+			heroic: string;
 			mythical: string;
 			divine: string;
+			masterwork: string;
 		};
 	}
 	// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
@@ -28,11 +28,11 @@ declare module '@mui/material/styles' {
 			uncommon: string;
 			rare: string;
 			epic: string;
-			supreme: string;
 			legendary: string;
-			ancient: string;
+			heroic: string;
 			mythical: string;
 			divine: string;
+			masterwork: string;
 		};
 	}
 }
@@ -51,11 +51,11 @@ const theme = (spacing: number) =>
 				uncommon: '#55c157',
 				rare: '#59beff',
 				epic: '#cf4bd8',
-				supreme: '#ffd800',
-				legendary: '#ff830f',
-				ancient: '#00ffba',
-				mythical: '#ff3d3d',
-				divine: '#2ce8f5'
+				legendary: '#ffd800',
+				heroic: '#ff830f',
+				mythical: '#00ffba',
+				divine: '#ff3d3d',
+				masterwork: '#2ce8f5'
 			},
 			mode: 'dark'
 		},

@@ -5,11 +5,11 @@ const rarities = {
 	uncommon: 2,
 	rare: 3,
 	epic: 4,
-	supreme: 5,
-	legendary: 6,
-	ancient: 7,
-	mythical: 8,
-	divine: 9
+	legendary: 5,
+	heroic: 6,
+	mythical: 7,
+	divine: 8,
+	masterwork: 9
 };
 
 const items = yaml
@@ -29,7 +29,7 @@ const parsed = JSON.parse(
 
 const newData = items
 	.map(meta => {
-		if (meta.unobtainable) return undefined;
+		if (meta.unused) return undefined;
 		const wiki = Object.values(parsed).find(v => v.name === meta.name) ?? {};
 		return {
 			...wiki,
