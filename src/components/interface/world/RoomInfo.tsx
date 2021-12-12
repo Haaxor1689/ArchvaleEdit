@@ -12,13 +12,13 @@ import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
 import WorldState from './roomEdit/WorldState';
+import DeleteRoomButton from './roomEdit/DeleteRoomButton';
 
 const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
 		useMapContext();
 
-	const index = rooms?.findIndex(r => r.room_id === selected);
-	const room = rooms?.[index];
+	const room = rooms?.[selected ?? 0];
 	const isRespawn = useIsRoomRespawn(room);
 
 	const [showUnused] = useShowUnused();
@@ -26,7 +26,7 @@ const RoomInfo = () => {
 		f => !!showUnused || !f.name.match(/^UNUSED /)
 	);
 
-	if (!room) {
+	if (!room || selected === undefined) {
 		return (
 			<>
 				<WorldState stateMetaItems={filteredWorldState} initialExpanded />
@@ -36,7 +36,7 @@ const RoomInfo = () => {
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
-	const status = getRoomStatus(room.room_id);
+	const status = getRoomStatus(selected);
 
 	const stateMeta = filteredWorldState.filter(
 		f => f.types.indexOf(room.type) >= 0
@@ -58,9 +58,11 @@ const RoomInfo = () => {
 						height={7}
 						mr={2}
 					/>
-					<Typography variant="h3" color="text.primary">
+					<Typography variant="h3" color="text.primary" flexGrow={1}>
 						#{room.room_id} {type}
 					</Typography>
+
+					<DeleteRoomButton id={room.room_id} />
 				</Box>
 			</Typography>
 
@@ -91,8 +93,8 @@ const RoomInfo = () => {
 				</Typography>
 			</Box>
 
-			<RoomBiomeSelect index={index} />
-			<RoomTypeSelect index={index} />
+			<RoomBiomeSelect index={selected} />
+			<RoomTypeSelect index={selected} />
 
 			{isRespawn ? (
 				<Typography>Current spawn point</Typography>
