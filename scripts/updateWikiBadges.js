@@ -6,14 +6,15 @@ const items = yaml
 	.filter(f => f);
 
 const data = fs.readFileSync('scripts/badges.lua').toString();
-const parsed = JSON.parse(
-	data
-		.replace(/^return /, '')
-		.replaceAll(/ ?= ?/g, ': ')
-		.replaceAll(/(\S*): /g, '"$1": ')
-		.replaceAll(/ ?--.*/g, '')
-		.replaceAll(/(\d)\.,/g, '$1.0,')
-);
+const cleaned = data
+	.replace(/^return /, '')
+	.replaceAll(/\[['"]([^\]]+)['"]\] = /g, '"$1": ')
+	.replaceAll(/([^{\s]+) = /g, '"$1": ')
+	.replaceAll(/, }/g, ' }')
+	.replaceAll(/ ?--.*/g, '')
+	.replaceAll(/(\d)\.,/g, '$1.0,')
+	.replaceAll(/: \{([^:]+?)\}(,?)\n/gm, ': [$1]$2\n');
+const parsed = JSON.parse(cleaned);
 
 const newData = items
 	.map(({ id, ...meta }) => {
@@ -37,5 +38,10 @@ const newData = items
 
 fs.writeFileSync(
 	'scripts/badges.lua',
-	`return ${JSON.stringify(newData, null, 2).replaceAll(/"(.*)": /g, '$1 = ')}`
+	`return ${JSON.stringify(newData, null, 2)
+		.replaceAll(/"(\S*)": /g, '$1 = ')
+		.replaceAll(/"(.*)": /g, '["$1"] = ')}`.replaceAll(
+		/ = \[([\s\S]*?)\](,?)\n/gm,
+		' = {$1}$2\n'
+	)
 );

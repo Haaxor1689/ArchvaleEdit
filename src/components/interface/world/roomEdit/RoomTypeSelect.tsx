@@ -2,7 +2,7 @@ import { Box, MenuItem, Select, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
-import { RoomTypes } from 'utils/data';
+import { Biomes, RoomTypes } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
 
 type Props = {
@@ -13,6 +13,12 @@ const RoomTypeSelect = ({ index }: Props) => {
 	const {
 		input: { value, onChange }
 	} = useField<number>(`world.rooms[${index}].type`, {
+		subscription: { value: true }
+	});
+
+	const {
+		input: { value: biome }
+	} = useField<number>(`world.rooms[${index}].biome_type`, {
 		subscription: { value: true }
 	});
 
@@ -42,7 +48,14 @@ const RoomTypeSelect = ({ index }: Props) => {
 							!!showUnused || !RoomTypes[type as never].name?.match(/^UNUSED /)
 					)
 					.map(type => (
-						<MenuItem key={type} value={type}>
+						<MenuItem
+							key={type}
+							value={type}
+							disabled={
+								type !== '0' && // Allow combat room for each biome
+								!Biomes[biome]?.types.find(t => type === t.toString())
+							}
+						>
 							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 								<Sprite
 									img={RoomTypes[type as never].sprite?.[0]}

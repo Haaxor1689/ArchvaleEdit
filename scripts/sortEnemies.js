@@ -13,7 +13,6 @@ const cleaned = data
 	.replaceAll(/ ?--.*/g, '')
 	.replaceAll(/(\d)\.,/g, '$1.0,')
 	.replaceAll(/: \{([^:]+?)\}(,?)\n/gm, ': [$1]$2\n');
-console.log(cleaned);
 const parsed = JSON.parse(cleaned);
 
 const newData = Object.values(parsed)

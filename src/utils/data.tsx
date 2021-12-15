@@ -209,6 +209,7 @@ type BiomeMeta = {
 	id: number;
 	sprite: string;
 	name?: string;
+	types: number[];
 };
 
 export const Biomes = loadYamlData<BiomeMeta>(biomes);
@@ -218,46 +219,47 @@ type RoomType = {
 	name: string;
 };
 
+// TODO: camp_easy, arena, border_glade_old
 export const RoomTypes: Record<number, RoomType> = {
 	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
 	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
 	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
 	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
 	0: { name: 'Combat' },
-	1: { sprite: [minibossIcon, 10, 8], name: 'Miniboss' },
-	2: { sprite: [fountainIcon, 10, 8], name: 'Starting Fountain' },
+	1: { sprite: [minibossIcon, 10, 8], name: 'World Boss' }, // boss
+	2: { sprite: [fountainIcon, 10, 8], name: 'Starting Fountain' }, // spawn
 	// 3: instant crash
-	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' },
+	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' }, // treasure
 	// 5: ???
 	// 6: instant crash
 	// 7: cradlewood ladder that crashes game
-	8: { sprite: [townIcon, 8, 8], name: 'UNUSED Home' }, // murkmire
-	9: { sprite: [archIcon, 8, 8], name: 'UNUSED Arch' },
-	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' },
+	8: { sprite: [townIcon, 8, 8], name: 'UNUSED Home' }, // home
+	9: { sprite: [archIcon, 8, 8], name: 'UNUSED Arch' }, // arch
+	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' }, // save
 	// 11: broken teleport
-	12: { sprite: [bombIcon, 10, 10], name: 'Bomb Power' },
+	12: { sprite: [bombIcon, 10, 10], name: 'Bomb Power' }, // bombup
 	// 13: probably town room, crashes
 	// 14: town save, crashes
-	15: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Forge' },
+	15: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Forge' }, // town_forge
 	// 16: town shop, crashes
 	// 17: town bank, crashes
-	18: { sprite: [questIcon, 8, 8], name: 'UNUSED Magic shop' },
-	19: { sprite: [questIcon, 8, 8], name: 'UNUSED Sam' },
-	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' },
-	21: { sprite: [townIcon, 8, 8], name: 'Town' },
-	22: { sprite: [townIcon, 8, 8], name: 'Town (Fairreach)' },
+	18: { sprite: [questIcon, 8, 8], name: 'UNUSED Magic shop' }, // shop
+	19: { sprite: [questIcon, 8, 8], name: 'UNUSED Sam' }, // sam
+	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' }, // plum
+	21: { sprite: [townIcon, 8, 8], name: 'Town' }, // town
+	22: { sprite: [townIcon, 8, 8], name: 'Town (Fairreach)' }, // town_primary
 	// 23: { sprite: [questIcon, 8, 8], name: '23 ???' }, // murkmire
 	// 24: { sprite: [questIcon, 8, 8], name: '24 ???' }, // murkmire
-	25: { sprite: [mapIcon, 8, 8], name: 'UNUSED Map' },
-	26: { sprite: [shrineIcon, 8, 10], name: 'Rune trial 1' },
-	27: { sprite: [shrineIcon, 8, 10], name: 'Rune trial 2' },
+	25: { sprite: [mapIcon, 8, 8], name: 'UNUSED Map' }, // map
+	26: { sprite: [shrineIcon, 8, 10], name: 'Shrine A' }, // lib_a
+	27: { sprite: [shrineIcon, 8, 10], name: 'Shrine B' }, // lib_b
 	// 28: { sprite: [questIcon, 8, 8], name: '28 ???' }, // murkmire
-	29: { sprite: [townIcon, 8, 8], name: 'Town (The Pit)' },
+	29: { sprite: [townIcon, 8, 8], name: 'Town (The Pit)' }, // arena
 	// 30: { sprite: [questIcon, 8, 8], name: '30 ???' }, // murkmire
 	// 31: { sprite: [questIcon, 8, 8], name: '31 ???' },
-	41: { sprite: [arenaIcon, 10, 8], name: 'Arena' },
+	41: { sprite: [arenaIcon, 10, 8], name: 'Camp' }, // camp_medium
 	// 42: { sprite: [questIcon, 8, 8], name: '42 ???' },
-	47: { sprite: [dungeonIcon, 8, 7], name: 'Dungeon' },
+	47: { sprite: [dungeonIcon, 8, 7], name: 'Dungeon' }, // dungeon
 	// 50: { sprite: [questIcon, 8, 8], name: '50 ???' }, // murkmire
 	// 51: { sprite: [questIcon, 8, 8], name: '51 ???' }, // murkmire
 	// 52: { sprite: [questIcon, 8, 8], name: '52 ???' }, // murkmire
@@ -265,19 +267,19 @@ export const RoomTypes: Record<number, RoomType> = {
 	// 54: { sprite: [questIcon, 8, 8], name: '54 ???' }, // murkmire
 	// 55: { sprite: [questIcon, 8, 8], name: '55 ???' }, // murkmire
 	// 56: { sprite: [questIcon, 8, 8], name: '56 ???' }, // murkmire
-	57: { sprite: [treasureIcon, 10, 10], name: 'UNUSED Treasure' },
-	58: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Spell Pillar' },
-	59: { sprite: [arrUp, 8, 9], name: 'Amberpath border' },
-	61: { sprite: [arrRight, 9, 8], name: 'Crabclaw Chasm border' },
-	62: { sprite: [arrRight, 9, 8], name: 'Dustcrag border' },
-	63: { sprite: [arrUp, 8, 9], name: 'Murkmire border' },
-	64: { sprite: [arrUp, 8, 9], name: 'UNUSED Ruins border' },
-	65: { sprite: [arrUp, 8, 9], name: 'Pine Peak border' },
-	66: { sprite: [arrRight, 9, 8], name: 'Twisted Caverns border' },
+	57: { sprite: [treasureIcon, 10, 10], name: 'UNUSED Treasure' }, // treasure
+	58: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Spell Pillar' }, // spell
+	59: { sprite: [arrUp, 8, 9], name: 'Amberpath border' }, // border_glade
+	61: { sprite: [arrRight, 9, 8], name: 'Crabclaw Chasm border' }, // border_cave
+	62: { sprite: [arrRight, 9, 8], name: 'Dustcrag border' }, // border_desert
+	63: { sprite: [arrUp, 8, 9], name: 'Murkmire border' }, // border_swamp
+	64: { sprite: [arrUp, 8, 9], name: 'UNUSED Ruins border' }, // border_temple
+	65: { sprite: [arrUp, 8, 9], name: 'Pine Peak border' }, // border_snow
+	66: { sprite: [arrRight, 9, 8], name: 'Twisted Caverns border' }, // border_cavern
 	// 67: { sprite: [questIcon, 8, 8], name: '67 ???' }, // murkmire
 	// 68: { sprite: [questIcon, 8, 8], name: '68 ???' }, // murkmire
-	69: { sprite: [arrDown, 8, 9], name: 'Tutorial exit' },
-	70: { sprite: [questIcon, 8, 8], name: 'NPC' }
+	69: { sprite: [arrDown, 8, 9], name: 'Tutorial exit' }, // tutorial_exit
+	70: { sprite: [questIcon, 8, 8], name: 'NPC' } // specialnpc
 };
 
 export type StateMeta = {

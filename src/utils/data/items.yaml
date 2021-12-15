@@ -87,7 +87,7 @@
   rarity: mythical
   sprite: [s_item_material_tanglestone_0, 12, 13]
 - id: 18
-  name: Tough scales
+  name: Tough Scales
   type: Material
   rarity: mythical
   sprite: [s_item_material_tough_scales_0, 13, 12]
@@ -1902,51 +1902,61 @@
   name: Shell Shard
   type: Material
   sprite: [s_item_material_shell_shard_0, 10, 8]
+  tags: Ore
 - id: 601
   name: Iron Ore
   rarity: uncommon
   type: Material
   sprite: [s_item_material_iron_ore_0, 8, 9]
+  tags: Ore
 - id: 602
   name: Gold Ore
   rarity: rare
   type: Material
   sprite: [s_item_gold_bar_0, 9, 8]
+  tags: Ore
 - id: 603
   name: Darksteel Ore
   rarity: epic
   type: Material
   sprite: [s_item_darksteel_bar_0, 9, 9]
+  tags: Ore
 - id: 604
   name: Obsidian Shard
   rarity: epic
   type: Material
   sprite: [s_item_obsidian_0, 8, 11]
+  tags: Ore
 - id: 605
   name: Cobalt Ore
   rarity: legendary
   type: Material
   sprite: [s_item_cobalt_bar_0, 8, 9]
+  tags: Ore
 - id: 606
   name: Mauvite Ore
   rarity: heroic
   type: Material
   sprite: [s_item_ore_mauvite_0, 9, 9]
+  tags: Ore
 - id: 607
   name: Phloem Ore
   rarity: mythical
   type: Material
   sprite: [s_item_ore_phloem_0, 8, 9]
+  tags: Ore
 - id: 608
   name: Zephyr Ore
   rarity: divine
   type: Material
   sprite: [s_item_ore_zephyr_0, 8, 10]
+  tags: Ore
 - id: 609
-  name: Hyperium
+  name: Hyperium Ore
   rarity: divine
   type: Material
   sprite: [s_item_ore_hyperium_0, 8, 10]
+  tags: Ore
 - id: 610
   name: Herb
   type: Material
