@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.af21e810.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.af21e810.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.fd23c268.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.fd23c268.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
     "static/js/2.6d9847f1.chunk.js": "/ArchvaleEdit/static/js/2.6d9847f1.chunk.js",
@@ -25,7 +25,7 @@
     "static/media/background.9a6f1d9f.png": "/ArchvaleEdit/static/media/background.9a6f1d9f.png",
     "static/media/badges.fac8f5ff.yaml": "/ArchvaleEdit/static/media/badges.fac8f5ff.yaml",
     "static/media/badgesTab.06150098.png": "/ArchvaleEdit/static/media/badgesTab.06150098.png",
-    "static/media/biomes.99ac6e6b.yaml": "/ArchvaleEdit/static/media/biomes.99ac6e6b.yaml",
+    "static/media/biomes.4e40a240.yaml": "/ArchvaleEdit/static/media/biomes.4e40a240.yaml",
     "static/media/bodyIcon.9587a12c.png": "/ArchvaleEdit/static/media/bodyIcon.9587a12c.png",
     "static/media/bomb.9707da35.png": "/ArchvaleEdit/static/media/bomb.9707da35.png",
     "static/media/dung0.b482795e.png": "/ArchvaleEdit/static/media/dung0.b482795e.png",
@@ -63,7 +63,7 @@
     "static/media/itemRing.ff8b9c86.png": "/ArchvaleEdit/static/media/itemRing.ff8b9c86.png",
     "static/media/itemSlot.bfe3c87f.png": "/ArchvaleEdit/static/media/itemSlot.bfe3c87f.png",
     "static/media/itemTrash.e4ab7dbf.png": "/ArchvaleEdit/static/media/itemTrash.e4ab7dbf.png",
-    "static/media/items.22db162d.yaml": "/ArchvaleEdit/static/media/items.22db162d.yaml",
+    "static/media/items.5ce1b90e.yaml": "/ArchvaleEdit/static/media/items.5ce1b90e.yaml",
     "static/media/magicIcon.3ae20bd6.png": "/ArchvaleEdit/static/media/magicIcon.3ae20bd6.png",
     "static/media/materialIcon.fa9a2ee8.png": "/ArchvaleEdit/static/media/materialIcon.fa9a2ee8.png",
     "static/media/meleeIcon.845a4b70.png": "/ArchvaleEdit/static/media/meleeIcon.845a4b70.png",
@@ -96,6 +96,6 @@
     "static/js/runtime-main.5dbb1da3.js",
     "static/js/2.6d9847f1.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.af21e810.chunk.js"
+    "static/js/main.fd23c268.chunk.js"
   ]
 }
