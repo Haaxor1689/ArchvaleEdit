@@ -28,7 +28,7 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 		validate={({ file }) =>
 			!file
 				? { file: 'Required' }
-				: !file.name.endsWith('.avsv') && !file.name.endsWith('.json')
+				: !file.name.endsWith('.avsv')
 				? { file: 'Wrong file type' }
 				: undefined
 		}
@@ -77,7 +77,7 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 				%AppData%\AV_gms2_3
 			</Typography>
 			<Typography color="badge" sx={{ wordBreak: 'break-word' }}>
-				C:\{'{{USER_NAME}}'}\AppData\Local\Packages\HumbleBundle.Archvale_
+				C:\Users\{'{{USER_NAME}}'}\AppData\Local\Packages\HumbleBundle.Archvale_
 				{'{{HASH}}'}\LocalCache\Roaming\AV_gms2_3
 			</Typography>
 			<Typography />
