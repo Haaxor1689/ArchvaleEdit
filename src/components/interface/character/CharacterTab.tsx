@@ -5,6 +5,7 @@ import panel from 'assets/character/panel.png';
 import cost from 'assets/stats/cost.png';
 import bankCoin from 'assets/character/bankCoin.png';
 import IconInput from 'components/form/IconInput';
+import { PlayerToggle } from 'components/PlayerContext';
 
 import Health from './Health';
 import HealingPotions from './HealingPotions';
@@ -37,6 +38,7 @@ const CharacterTab = () => (
 				p: 6
 			}}
 		>
+			<PlayerToggle />
 			<Box
 				sx={{
 					display: 'flex',

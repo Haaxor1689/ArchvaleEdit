@@ -5,14 +5,17 @@ import { useField } from 'react-final-form';
 import Sprite from 'components/Sprite';
 import dash from 'assets/character/dash.png';
 import { StrokeTextShadow } from 'utils';
-import OverflowAsterisk from 'components/Overflowsterisk';
+import OverflowAsterisk from 'components/OverflowAsterisk';
+import { usePlayerStats } from 'components/PlayerContext';
 
 const DashesMax = 11;
 
 const Dashes = () => {
 	const {
 		input: { value: dashes, onChange }
-	} = useField<number>('player_stats[1]', { subscription: { value: true } });
+	} = useField<number>(`${usePlayerStats()}[1]`, {
+		subscription: { value: true }
+	});
 
 	const onClick: MouseEventHandler = e => {
 		e.button === 2 && e.preventDefault();

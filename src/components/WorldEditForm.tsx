@@ -16,6 +16,7 @@ import CharacterTab from './interface/character/CharacterTab';
 import Tab from './interface/Tab';
 import WorldTab from './interface/world/WorldTab';
 import Header from './Header';
+import { PlayerProvider } from './PlayerContext';
 
 const tabs = [
 	{
@@ -70,26 +71,28 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 				gap: 6
 			}}
 		>
-			<Header name={name} reset={reset} />
-			<Box
-				sx={{
-					display: 'flex',
-					alignSelf: 'center',
-					gap: 2,
-					mb: -6,
-					overflow: 'hidden'
-				}}
-			>
-				{tabs.map(t => (
-					<Tab
-						key={t.name}
-						{...t}
-						active={t.name === activeTab}
-						onClick={() => setActiveTab(t.name)}
-					/>
-				))}
-			</Box>
-			{tab?.component}
+			<PlayerProvider>
+				<Header name={name} reset={reset} />
+				<Box
+					sx={{
+						display: 'flex',
+						alignSelf: 'center',
+						gap: 2,
+						mb: -6,
+						overflow: 'hidden'
+					}}
+				>
+					{tabs.map(t => (
+						<Tab
+							key={t.name}
+							{...t}
+							active={t.name === activeTab}
+							onClick={() => setActiveTab(t.name)}
+						/>
+					))}
+				</Box>
+				{tab?.component}
+			</PlayerProvider>
 		</Form>
 	);
 };

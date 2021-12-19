@@ -4,8 +4,22 @@ import equipPanel from 'assets/inventory/equipPanel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
+import { PlayerToggle, usePlayer } from 'components/PlayerContext';
 
 import ItemSlot from './ItemSlot';
+
+const Slots = {
+	P1: [
+		[0, 'head'],
+		[1, 'chest'],
+		[2, 'ring']
+	],
+	P2: [
+		[3, 'head'],
+		[4, 'chest'],
+		[5, 'ring']
+	]
+} as const;
 
 type Props = {
 	onSlotClick: (
@@ -15,6 +29,8 @@ type Props = {
 };
 
 const Equipment = ({ onSlotClick }: Props) => {
+	const player = usePlayer();
+
 	const {
 		input: { value: equipment, onChange: onEquipmentChange }
 	} = useField<string>('equipment', { subscription: { value: true } });
@@ -64,21 +80,15 @@ const Equipment = ({ onSlotClick }: Props) => {
 				pr: 5
 			}}
 		>
-			<ItemSlot
-				item={equipmentItems[0]}
-				variant="head"
-				onClick={() => setEquipment(0, onSlotClick(0, equipmentItems[0]))}
-			/>
-			<ItemSlot
-				item={equipmentItems[1]}
-				variant="chest"
-				onClick={() => setEquipment(1, onSlotClick(1, equipmentItems[1]))}
-			/>
-			<ItemSlot
-				item={equipmentItems[2]}
-				variant="ring"
-				onClick={() => setEquipment(2, onSlotClick(2, equipmentItems[2]))}
-			/>
+			<PlayerToggle />
+			{Slots[player].map(([i, slot]) => (
+				<ItemSlot
+					key={slot}
+					item={equipmentItems[i]}
+					variant={slot}
+					onClick={() => setEquipment(i, onSlotClick(i, equipmentItems[i]))}
+				/>
+			))}
 		</Sprite>
 	);
 };

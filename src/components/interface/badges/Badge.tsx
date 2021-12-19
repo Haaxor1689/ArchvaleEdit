@@ -6,14 +6,15 @@ import hover from 'assets/badges/hover.png';
 import tile from 'assets/badges/tile.png';
 import slot from 'assets/badges/slot.png';
 import Sprite from 'components/Sprite';
+import { getPlayerColor, usePlayer } from 'components/PlayerContext';
 
 import ItemTooltip from '../ItemTooltip';
 
 const isUnlocked = (unlocked: boolean, hover = true) =>
 	!unlocked ? 'brightness(0)' : `brightness(${hover ? 1 : 0.5})`;
-const isActive = (active: boolean) =>
+const isActive = (active: boolean, c?: string) =>
 	active
-		? ' drop-shadow(3px 0 0 #2ce8f5) drop-shadow(-3px 0 0 #2ce8f5) drop-shadow(0 3px 0 #2ce8f5) drop-shadow(0 -3px 0 #2ce8f5)'
+		? ` drop-shadow(3px 0 0 ${c}) drop-shadow(-3px 0 0 ${c}) drop-shadow(0 3px 0 ${c}) drop-shadow(0 -3px 0 ${c})`
 		: '';
 
 type Props = {
@@ -25,6 +26,7 @@ type Props = {
 };
 
 const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
+	const player = usePlayer();
 	const meta = Badges[index];
 	return (
 		<ItemTooltip
@@ -60,11 +62,19 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					':hover': {
 						'backgroundImage': `url(${hover})`,
 						'& > div': {
-							filter: `${isUnlocked(unlocked)}${isActive(active)}`
+							filter: t =>
+								`${isUnlocked(unlocked)}${isActive(
+									active,
+									t.palette[getPlayerColor(player)]
+								)}`
 						}
 					},
 					'& > div': {
-						filter: `${isUnlocked(unlocked, false)}${isActive(active)}`
+						filter: t =>
+							`${isUnlocked(unlocked, false)}${isActive(
+								active,
+								t.palette[getPlayerColor(player)]
+							)}`
 					}
 				}}
 			>

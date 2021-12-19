@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
+import { MultiplayerToggle } from 'components/PlayerContext';
 import { secondsToPlaytime, StrokeTextShadow } from 'utils';
 
 const DifficultyLabels = ['Easy', 'Normal', 'Hard'];
@@ -17,10 +18,6 @@ const SaveInfo = () => {
 	const {
 		input: { value: version }
 	} = useField<string>('version');
-
-	const {
-		input: { value: mp, onChange: onMpChange }
-	} = useField<number>('mp');
 
 	return (
 		<Box
@@ -58,30 +55,7 @@ const SaveInfo = () => {
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Multiplayer:
 			</Typography>
-			<Box sx={{ display: 'flex', gap: 2 }}>
-				<Button
-					variant={!mp ? 'outlined' : 'text'}
-					size="small"
-					onClick={() => onMpChange({ target: { value: 0 } })}
-					sx={{
-						textShadow: StrokeTextShadow,
-						color: !mp ? 'primary.main' : 'text.primary'
-					}}
-				>
-					Off
-				</Button>
-				<Button
-					variant={mp ? 'outlined' : 'text'}
-					size="small"
-					onClick={() => onMpChange({ target: { value: 1 } })}
-					sx={{
-						textShadow: StrokeTextShadow,
-						color: mp ? 'primary.main' : 'text.primary'
-					}}
-				>
-					On
-				</Button>
-			</Box>
+			<MultiplayerToggle />
 
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Playtime:

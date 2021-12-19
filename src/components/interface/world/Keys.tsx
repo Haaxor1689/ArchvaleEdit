@@ -4,7 +4,7 @@ import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
 import { StrokeTextShadow } from 'utils';
-import OverflowAsterisk from 'components/Overflowsterisk';
+import OverflowAsterisk from 'components/OverflowAsterisk';
 
 import { useMapContext } from './MapProvider';
 

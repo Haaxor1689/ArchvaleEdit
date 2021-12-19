@@ -6,6 +6,7 @@ import { MouseEventHandler } from 'react';
 import Sprite from 'components/Sprite';
 import { StatsMetadata } from 'utils/data';
 import { StrokeTextShadow } from 'utils';
+import { usePlayerStats } from 'components/PlayerContext';
 
 const Indexes = [
 	undefined,
@@ -23,7 +24,7 @@ const Indexes = [
 const Stats = () => {
 	const {
 		input: { value: stats, onChange }
-	} = useField<number[]>('player_stats', { subscription: { value: true } });
+	} = useField<number[]>(usePlayerStats(), { subscription: { value: true } });
 
 	const setStat = (index: number, delta: number) => {
 		const newStats = [...stats];

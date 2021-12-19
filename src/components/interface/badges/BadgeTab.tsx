@@ -6,6 +6,7 @@ import { Badges } from 'utils/data';
 import panel from 'assets/badges/panel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import Sprite from 'components/Sprite';
+import { PlayerToggle, usePlayerBadges } from 'components/PlayerContext';
 
 import BadgeSlots from './BadgeSlots';
 import Badge from './Badge';
@@ -20,7 +21,7 @@ const BadgeTab = () => {
 
 	const {
 		input: { value: equipped, onChange: onEquippedChange }
-	} = useField<string>('badges_equipped', {
+	} = useField<string>(usePlayerBadges(), {
 		subscription: { value: true },
 		parse: v => v
 	});
@@ -90,6 +91,7 @@ const BadgeTab = () => {
 			<Sprite
 				img={panel}
 				sx={{
+					position: 'relative',
 					display: 'grid',
 					gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
 					gap: 1,
@@ -98,6 +100,7 @@ const BadgeTab = () => {
 					pb: 7
 				}}
 			>
+				<PlayerToggle />
 				{[...badges].map((unlocked, index) => (
 					<Badge
 						key={index}

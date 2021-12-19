@@ -5,7 +5,7 @@ import { useField } from 'react-final-form';
 import Sprite from 'components/Sprite';
 import portion from 'assets/character/potion.png';
 import { StrokeTextShadow } from 'utils';
-import OverflowAsterisk from 'components/Overflowsterisk';
+import OverflowAsterisk from 'components/OverflowAsterisk';
 
 const PotionsMax = 10;
 

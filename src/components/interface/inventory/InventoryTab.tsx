@@ -197,9 +197,9 @@ const InventoryTab = ({ variant }: Props) => {
 
 								const itemMeta = Items[heldItem.id];
 								const canEquip =
-									index === 0
+									index === 0 || index === 3
 										? itemMeta.type.match('Head Armour')
-										: index === 1
+										: index === 1 || index === 4
 										? itemMeta.type.match('Body Armour')
 										: itemMeta.type === 'Ring';
 

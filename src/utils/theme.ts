@@ -9,6 +9,7 @@ declare module '@mui/material/styles' {
 	interface Palette {
 		badge?: string;
 		highlight?: string;
+		player_2?: string;
 		rarity: {
 			uncommon: string;
 			rare: string;
@@ -24,6 +25,7 @@ declare module '@mui/material/styles' {
 	interface PaletteOptions {
 		badge?: string;
 		highlight?: string;
+		player_2?: string;
 		rarity: {
 			uncommon: string;
 			rare: string;
@@ -46,6 +48,7 @@ const theme = (spacing: number) =>
 			error: { main: '#e43b44' },
 			success: { main: '#63c74d' },
 			badge: '#2ce8f5',
+			player_2: '#f02acd',
 			highlight: '#fee761',
 			rarity: {
 				uncommon: '#55c157',

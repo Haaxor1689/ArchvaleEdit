@@ -6,12 +6,15 @@ import Sprite from 'components/Sprite';
 import heart from 'assets/character/heart.png';
 import halfHeart from 'assets/character/halfHeart.png';
 import { StrokeTextShadow } from 'utils';
-import OverflowAsterisk from 'components/Overflowsterisk';
+import OverflowAsterisk from 'components/OverflowAsterisk';
+import { usePlayerStats } from 'components/PlayerContext';
 
 const Health = () => {
 	const {
 		input: { value, onChange }
-	} = useField<number>('player_stats[0]', { subscription: { value: true } });
+	} = useField<number>(`${usePlayerStats()}[0]`, {
+		subscription: { value: true }
+	});
 
 	const hearts = Math.floor(value / 10);
 	const hasHalfHeart = !!(value % 10);

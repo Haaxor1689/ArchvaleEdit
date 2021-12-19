@@ -68,6 +68,7 @@ export type Dungeon = {
 
 export type World = {
 	difficulty: number;
+	mp: number;
 	version: string;
 	playtime: number;
 
@@ -91,6 +92,7 @@ export type World = {
 	// Stats
 	player_bomb_level: number;
 	player_stats: number[];
+	player_2_stats: number[];
 
 	// Items
 	inventory: string;
@@ -99,13 +101,12 @@ export type World = {
 	// Badges
 	badges: string;
 	badges_equipped: string;
+	badges_equipped_p2: string;
 	badge_slots: number;
 
 	// Unused?
 	time: number;
 	player_runes: number; // TODO: increased by picking up token objects
-	mp: number; // TODO: multiplayer flag
-	player_2_stats: number[];
 };
 
 export type InventoryItem = {
