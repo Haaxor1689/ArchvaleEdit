@@ -47,12 +47,16 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			sx={{ aspectRatio: '1', imageRendering: 'initial', mb: -16 }}
 		/>
 		<Typography textAlign="center" variant="body2">
-			Start by opening your save file.{' '}
+			Start by opening a save file named{' '}
+			<Typography component="span" color="badge">
+				worldX.avsv
+			</Typography>
+			.{' '}
 			<Typography component="span" color="badge">
 				X
 			</Typography>{' '}
 			corresponds to the order of the save file. Save location is based on the
-			version of game you own.
+			version of the game you own.
 		</Typography>
 		<Box
 			sx={{
@@ -64,35 +68,34 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			}}
 		>
 			<Typography variant="h3" color="primary.main">
-				Steam
+				Steam or GoG
 			</Typography>
 			<Typography variant="h3" color="primary.main">
 				XBox GamePass
 			</Typography>
-			<Typography>
-				<Typography component="span" color="badge">
-					worldX.avsv
-				</Typography>{' '}
-				in{' '}
-				<Typography component="span" color="badge">
-					%AppData%\AV_gms2_3
-				</Typography>{' '}
-				folder
+			<Typography color="badge" sx={{ wordBreak: 'break-word' }}>
+				%AppData%\AV_gms2_3
 			</Typography>
-			<Typography sx={{ wordBreak: 'break-word' }}>
-				Search for{' '}
-				<Typography component="span" color="badge">
-					C:\{'{{USER_NAME}}'}\AppData\Local\Packages\HumbleBundle.Archvale_
-					{'{{HASH}}'}\LocalCache\Roaming\AV_gms2_3
-				</Typography>{' '}
-				folder and open{' '}
-				<Typography component="span" color="badge">
-					worldX.json
-				</Typography>
+			<Typography color="badge" sx={{ wordBreak: 'break-word' }}>
+				C:\{'{{USER_NAME}}'}\AppData\Local\Packages\HumbleBundle.Archvale_
+				{'{{HASH}}'}\LocalCache\Roaming\AV_gms2_3
 			</Typography>
 			<Typography />
 		</Box>
-		<FileInput id="file" label="Select" acceptFileTypes={['.avsv', '.json']} />
+		<Typography variant="caption" textAlign="center">
+			If you started playing on the release version on XBox GamePass, after
+			updating to the latest update, you may see your saves missing. You can fix
+			this by going the the GamePass save folder and renaming all the old{' '}
+			<Typography component="span" variant="caption" color="badge">
+				worldX.json
+			</Typography>{' '}
+			files to{' '}
+			<Typography component="span" variant="caption" color="badge">
+				worldX.avsv
+			</Typography>
+			.
+		</Typography>
+		<FileInput id="file" label="Select" acceptFileTypes={['.avsv']} />
 		<AutoSubmit />
 	</Form>
 );
