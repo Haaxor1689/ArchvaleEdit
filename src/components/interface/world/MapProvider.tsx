@@ -2,7 +2,11 @@ import { createContext, FC, useContext, useState } from 'react';
 import { useField } from 'react-final-form';
 
 import { Dungeons, WorldStateMeta } from 'utils/data';
-import { parseDungeonExploration, parseRoomExploration } from 'utils/roomUtils';
+import {
+	filterRoomState,
+	parseDungeonExploration,
+	parseRoomExploration
+} from 'utils/roomUtils';
 import { Dungeon, Room, World } from 'utils/types';
 
 export type RoomStatus = 'Visited' | 'Seen' | 'Hidden' | 'Cleared';
@@ -203,13 +207,14 @@ export const useIsRoomRespawn = (room?: Partial<Room>) => {
 	);
 };
 
-export const useObtainedWorldState = (type?: number) => {
+export const useObtainedWorldState = (type?: number, biome?: number) => {
 	const {
 		input: { value }
 	} = useField('npst', { subscription: { value: true } });
-	const stateMeta = WorldStateMeta.filter(f => f.types.indexOf(type ?? 0) >= 0);
+	const stateMeta = WorldStateMeta.filter(filterRoomState(type, biome));
 
 	return (flags?: string[]) => {
+		if (stateMeta.length === 0) return true;
 		const f = flags ?? stateMeta.flatMap(s => s.flags);
 		if (f.length === 0) return false;
 		return f.some(f => value[f] === 1);

@@ -66,7 +66,7 @@ const MapRoom = (room: Props) => {
 
 	const isDungeon = map !== -1;
 
-	const obtainedWorld = useObtainedWorldState(room.type)();
+	const obtainedWorld = useObtainedWorldState(room.type, room.biome_type)();
 	const obtainedObject = useObtainedObjectState(room.type, room.objects);
 
 	return (

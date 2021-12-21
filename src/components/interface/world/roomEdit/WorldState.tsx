@@ -10,9 +10,14 @@ import Collapsible from 'components/Collapsible';
 type Props = {
 	stateMetaItems: StateMeta[];
 	initialExpanded?: boolean;
+	columns?: number;
 };
 
-const WorldState = ({ stateMetaItems, initialExpanded }: Props) => {
+const WorldState = ({
+	stateMetaItems,
+	initialExpanded,
+	columns = 3
+}: Props) => {
 	const {
 		input: { value, onChange }
 	} = useField('npst', { subscription: { value: true } });
@@ -25,7 +30,9 @@ const WorldState = ({ stateMetaItems, initialExpanded }: Props) => {
 			title="Events and collectibles"
 			sx={{
 				display: 'grid',
-				gridTemplateColumns: '1fr 1fr 1fr',
+				gridTemplateColumns: [...Array(columns).keys()]
+					.map(() => '1fr')
+					.join(' '),
 				gap: 1
 			}}
 		>
@@ -52,12 +59,26 @@ const WorldState = ({ stateMetaItems, initialExpanded }: Props) => {
 							});
 						}}
 						sx={{
+							position: 'relative',
 							display: 'flex',
 							alignItems: 'center',
 							borderRadius: 0,
 							height: t => t.spacing(16)
 						}}
 					>
+						{s.secondarySprite && (
+							<Sprite
+								img={s.secondarySprite[0]}
+								width={s.secondarySprite[1] / 2}
+								height={s.secondarySprite[2] / 2}
+								sx={{
+									position: 'absolute',
+									top: t => t.spacing(1),
+									right: t => t.spacing(1),
+									filter: !obtained ? 'saturate(0)' : undefined
+								}}
+							/>
+						)}
 						<Sprite
 							title={s.name}
 							img={s.sprite[0]}
@@ -78,7 +99,7 @@ const WorldState = ({ stateMetaItems, initialExpanded }: Props) => {
 								textShadow: StrokeTextShadow
 							}}
 						>
-							{s.name}
+							{s.shortName ?? s.name}
 						</Typography>
 					</IconButton>
 				);

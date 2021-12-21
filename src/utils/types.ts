@@ -1,20 +1,44 @@
 type WorldState = {
-	n0: number; // Sam unlocked
-
-	n90002: number; // ??? Overall game progression
-
-	n21001: number; // ???
-	n21002: number; // ???
-	n21010: number; // ???
-	n50001: number; // ???
-	n90004: number; // ??? Fountain
-
 	// Town
+	n0: number; // Sam unlocked
 	n12: number; // Chef - 1: talked, 2: done
 	n24: number; // Blacksmith - 1: talked
 	n25: number; // Collector - 1: talked
 	n26: number; // Shopkeep - 1: talked
-	n20001: number; // Banker - 1: unlocked
+
+	n90002: number; // Enemy kills
+	n90004: number; // Fountains unlocked
+
+	// Banker
+	n20001: number; // Fairreach
+	n20002: number; // Bogtown
+	n20003: number; // Chamberstone
+	n20004: number; // The Pit
+	n20005: number; // Pearlloch
+	n20006: number; // Sprucepoint
+	n20007: number; // Buckler's cove
+	n20008: number; // Morelton
+
+	// Shopkeeper
+	n21001: number; // Exclamation mark
+	n21002: number; // Fairreach
+	n21003: number; // Buckler's cove
+	n21004: number; // Bogtown
+	n21005: number; // Sprucepoint
+	n21006: number; // Chamberstone
+	n21007: number; // The Pit
+	n21008: number; // Pearlloch
+	n21009: number; // Morelton
+
+	// Badge trader
+	n21010: number; // Exclamation mark
+	n21011: number; // Fairreach
+	n21012: number; // Buckler's cove
+	n21013: number; // Bogtown
+	n21014: number; // Sprucepoint
+	n21015: number; // Chamberstone
+	n21016: number; // Pearlloch
+	n21017: number; // The Pit
 
 	// Great Slime
 	n30003: number; // Fight - flag
@@ -25,6 +49,7 @@ type WorldState = {
 	n31007: number; // Health upgrade - flag
 	n32001: number; // Potion - flag
 
+	n50001: number; // ???
 	n50106: number; // Bomb - flag
 
 	n10005: number; // 1st archstone overworld

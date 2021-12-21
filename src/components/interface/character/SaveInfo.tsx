@@ -19,6 +19,14 @@ const SaveInfo = () => {
 		input: { value: version }
 	} = useField<string>('version');
 
+	const {
+		input: { value: enemiesKilled }
+	} = useField<string>('npst.n90002');
+
+	const {
+		input: { value: fountainsCleansed }
+	} = useField<string>('npst.n90004');
+
 	return (
 		<Box
 			sx={{
@@ -69,6 +77,13 @@ const SaveInfo = () => {
 			</Typography>
 			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
 				{version}
+			</Typography>
+
+			<Typography variant="body2" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+				Kills: {enemiesKilled}
+			</Typography>
+			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
+				Fountains: {fountainsCleansed}
 			</Typography>
 		</Box>
 	);

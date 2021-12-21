@@ -4,10 +4,10 @@ import Sprite from 'components/Sprite';
 import TextButton from 'components/TextButton';
 import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
+import { filterRoomState } from 'utils/roomUtils';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
-import FlagSelect from './roomEdit/FlagSelect';
 import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
@@ -27,19 +27,14 @@ const RoomInfo = () => {
 	);
 
 	if (!room || selected === undefined) {
-		return (
-			<>
-				<WorldState stateMetaItems={filteredWorldState} initialExpanded />
-				<FlagSelect />
-			</>
-		);
+		return <WorldState stateMetaItems={filteredWorldState} initialExpanded />;
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
 	const status = getRoomStatus(selected);
 
 	const stateMeta = filteredWorldState.filter(
-		f => f.types.indexOf(room.type) >= 0
+		filterRoomState(room.type, room.biome_type)
 	);
 
 	return (

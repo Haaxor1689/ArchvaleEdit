@@ -3,6 +3,7 @@ import { useField } from 'react-final-form';
 import { useState } from 'react';
 
 import TextInput from 'components/form/TextInput';
+import { WorldStateMeta } from 'utils/data';
 
 const FlagSelect = () => {
 	const {
@@ -22,15 +23,23 @@ const FlagSelect = () => {
 					value={flag}
 					onChange={e => setFlag(e.target.value)}
 				>
-					{Object.keys(npst).map(k => (
-						<MenuItem key={k} value={k}>
-							{k}
-						</MenuItem>
-					))}
+					{Object.keys(npst)
+						.filter(k => !WorldStateMeta.find(m => m.flags.indexOf(k) >= 0))
+						.sort()
+						.map(k => (
+							<MenuItem key={k} value={k}>
+								{k}
+							</MenuItem>
+						))}
 				</Select>
 			</FormControl>
 			{flag && (
-				<TextInput id={`npst[${flag}]`} variant="standard" label="Value" />
+				<TextInput
+					id={`npst[${flag}]`}
+					type="number"
+					variant="standard"
+					label="Value"
+				/>
 			)}
 		</Box>
 	);

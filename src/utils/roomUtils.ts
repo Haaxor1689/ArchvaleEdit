@@ -1,6 +1,12 @@
 import { pad, parseHexValue } from 'utils';
 
+import { StateMeta } from './data';
 import { Room } from './types';
+
+export const filterRoomState =
+	(type?: number, biome?: number) => (f: StateMeta) =>
+		(!f.types || f.types.indexOf(type ?? 0) >= 0) &&
+		(!f.biomes || f.biomes.indexOf(biome ?? 0) >= 0);
 
 export const parseDungeonExploration = (value: string) => {
 	switch (value) {

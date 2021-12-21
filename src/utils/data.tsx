@@ -40,6 +40,7 @@ import plumIcon from 'assets/world/icons/plum.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
+import badgeTraderObj from 'assets/world/objects/badgeTrader.png';
 import samObj from 'assets/world/objects/sam.png';
 import bankerObj from 'assets/world/objects/banker.png';
 import blacksmithObj from 'assets/world/objects/blacksmith.png';
@@ -106,6 +107,19 @@ import dung12 from 'assets/world/directions/dung12.png';
 import dung13 from 'assets/world/directions/dung13.png';
 import dung14 from 'assets/world/directions/dung14.png';
 import dung15 from 'assets/world/directions/dung15.png';
+import exclamationBubble from 'assets/world/objects/exclamationBubble.png';
+import speechBubble from 'assets/world/objects/speechBubble.png';
+import cradlewood from 'assets/customIcons/cradlewood.png';
+// import amberpath from 'assets/customIcons/amberpath.png';
+// import crabclawChasm from 'assets/customIcons/crabclawChasm.png';
+import dustcrag from 'assets/customIcons/dustcrag.png';
+import murkmire from 'assets/customIcons/murkmire.png';
+import pinePeak from 'assets/customIcons/pinePeak.png';
+import twistedCaverns from 'assets/customIcons/twistedCaverns.png';
+import fungusGrotto from 'assets/customIcons/fungusGrotto.png';
+// import tanglegrove from 'assets/customIcons/tanglegrove.png';
+import brinkreef from 'assets/customIcons/brinkreef.png';
+import moltenRift from 'assets/customIcons/moltenRift.png';
 import ItemSlot from 'components/interface/inventory/ItemSlot';
 import TextButton from 'components/TextButton';
 import InlineItem from 'components/InlineItem';
@@ -284,47 +298,251 @@ export const RoomTypes: Record<number, RoomType> = {
 
 export type StateMeta = {
 	name: string;
+	shortName?: string;
 	flags: string[];
-	types: number[];
+	types?: number[];
+	biomes?: number[];
 	sprite: [string, number, number];
+	secondarySprite?: [string, number, number];
 };
 
 export const WorldStateMeta: StateMeta[] = [
 	{
-		name: 'UNUSED Sam',
+		name: 'UNUSED Talked to Sam',
+		shortName: 'UNUSED Talked',
 		flags: ['n0'],
-		types: [],
-		sprite: [samObj, 30, 23]
-	},
-	{
-		name: 'Fairreach Bank',
-		flags: ['n20001'],
-		types: [22],
-		sprite: [bankerObj, 17, 19]
-	},
-	{
-		name: 'Fairreach Shopkeeper',
-		flags: ['n26'],
-		types: [22],
-		sprite: [shopkeeperObj, 14, 22]
+		sprite: [samObj, 30, 23],
+		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
 		name: 'Talked to the Chef',
+		shortName: 'Talked',
 		flags: ['n12'],
 		types: [22],
-		sprite: [chefObj, 19, 27]
-	},
-	{
-		name: 'Talked to the Collector',
-		flags: ['n25'],
-		types: [22],
-		sprite: [collectorObj, 21, 21]
+		sprite: [chefObj, 19, 27],
+		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
 		name: 'Talked to the Blacksmith',
+		shortName: 'Talked',
 		flags: ['n24'],
 		types: [22],
-		sprite: [blacksmithObj, 22, 19]
+		sprite: [blacksmithObj, 22, 19],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to the Collector',
+		shortName: 'Talked',
+		flags: ['n25'],
+		types: [22],
+		sprite: [collectorObj, 21, 21],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to the Shopkeeper',
+		shortName: 'Talked',
+		flags: ['n26'],
+		types: [22],
+		sprite: [shopkeeperObj, 14, 22],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Fairreach Bank',
+		shortName: 'Fairreach',
+		flags: ['n20001'],
+		biomes: [45],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [cradlewood, 10, 10]
+	},
+	{
+		name: "Buckler's cove Bank",
+		shortName: "Buckler's cove",
+		flags: ['n20007'],
+		biomes: [7],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [dustcrag, 10, 10]
+	},
+	{
+		name: 'Bogtown Bank',
+		shortName: 'Bogtown',
+		flags: ['n20002'],
+		biomes: [12],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [murkmire, 10, 10]
+	},
+	{
+		name: 'Sprucepoint Bank',
+		shortName: 'Sprucepoint',
+		flags: ['n20006'],
+		biomes: [46],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [pinePeak, 10, 10]
+	},
+	{
+		name: 'Chamberstone Bank',
+		shortName: 'Chamberstone',
+		flags: ['n20003'],
+		biomes: [26],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [twistedCaverns, 10, 10]
+	},
+	{
+		name: 'Morelton Bank',
+		shortName: 'Morelton',
+		flags: ['n20008'],
+		biomes: [16],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [fungusGrotto, 10, 10]
+	},
+	{
+		name: 'Pearlloch Bank',
+		shortName: 'Pearlloch',
+		flags: ['n20005'],
+		biomes: [48],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [brinkreef, 10, 10]
+	},
+	{
+		name: 'The Pit Bank',
+		shortName: 'The Pit',
+		flags: ['n20004'],
+		biomes: [50],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [moltenRift, 10, 10]
+	},
+	{
+		name: 'Shopkeeper New items',
+		shortName: 'New items',
+		flags: ['n21001'],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [exclamationBubble, 11, 13]
+	},
+	{
+		name: 'Fairreach Shopkeeper',
+		shortName: 'Fairreach',
+		flags: ['n21002'],
+		biomes: [45],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [cradlewood, 10, 10]
+	},
+	{
+		name: "Buckler's cove Shopkeeper",
+		shortName: "Buckler's cove",
+		flags: ['n21003'],
+		biomes: [7],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [dustcrag, 10, 10]
+	},
+	{
+		name: 'Bogtown Shopkeeper',
+		shortName: 'Bogtown',
+		flags: ['n21004'],
+		biomes: [12],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [murkmire, 10, 10]
+	},
+	{
+		name: 'Sprucepoint Shopkeeper',
+		shortName: 'Sprucepoint',
+		flags: ['n21005'],
+		biomes: [46],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [pinePeak, 10, 10]
+	},
+	{
+		name: 'Chamberstone Shopkeeper',
+		shortName: 'Chamberstone',
+		flags: ['n21006'],
+		biomes: [26],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [twistedCaverns, 10, 10]
+	},
+	{
+		name: 'Morelton Shopkeeper',
+		shortName: 'Morelton',
+		flags: ['n21009'],
+		biomes: [16],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [fungusGrotto, 10, 10]
+	},
+	{
+		name: 'Pearlloch Shopkeeper',
+		shortName: 'Pearlloch',
+		flags: ['n21008'],
+		biomes: [48],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [brinkreef, 10, 10]
+	},
+	{
+		name: 'The Pit Shopkeeper',
+		shortName: 'The Pit',
+		flags: ['n21007'],
+		biomes: [50],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [moltenRift, 10, 10]
+	},
+	{
+		name: 'Badge trader Exclamation mark',
+		shortName: 'New items',
+		flags: ['n21010'],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [exclamationBubble, 11, 13]
+	},
+	{
+		name: 'Fairreach Badge trader',
+		shortName: 'Fairreach',
+		flags: ['n21011'],
+		biomes: [45],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [cradlewood, 10, 10]
+	},
+	{
+		name: "Buckler's cove Badge trader",
+		shortName: "Buckler's cove",
+		flags: ['n21012'],
+		biomes: [7],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [dustcrag, 10, 10]
+	},
+	{
+		name: 'Bogtown Badge trader',
+		shortName: 'Bogtown',
+		flags: ['n21013'],
+		biomes: [12],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [murkmire, 10, 10]
+	},
+	{
+		name: 'Sprucepoint Badge trader',
+		shortName: 'Sprucepoint',
+		flags: ['n21014'],
+		biomes: [46],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [pinePeak, 10, 10]
+	},
+	{
+		name: 'Chamberstone Badge trader',
+		shortName: 'Chamberstone',
+		flags: ['n21015'],
+		biomes: [26],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [twistedCaverns, 10, 10]
+	},
+	{
+		name: 'Pearlloch Badge trader',
+		shortName: 'Pearlloch',
+		flags: ['n21016'],
+		biomes: [48],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [brinkreef, 10, 10]
+	},
+	{
+		name: 'The Pit Badge trader',
+		shortName: 'The Pit',
+		flags: ['n21017'],
+		biomes: [50],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [moltenRift, 10, 10]
 	},
 	{
 		name: 'Great Slime killed',
