@@ -66,6 +66,15 @@ const WorldState = ({
 							height: t => t.spacing(16)
 						}}
 					>
+						<Sprite
+							title={s.name}
+							img={s.sprite[0]}
+							width={s.sprite[1] / 2}
+							height={s.sprite[2] / 2}
+							sx={{
+								filter: !obtained ? 'saturate(0)' : undefined
+							}}
+						/>
 						{s.secondarySprite && (
 							<Sprite
 								img={s.secondarySprite[0]}
@@ -79,15 +88,6 @@ const WorldState = ({
 								}}
 							/>
 						)}
-						<Sprite
-							title={s.name}
-							img={s.sprite[0]}
-							width={s.sprite[1] / 2}
-							height={s.sprite[2] / 2}
-							sx={{
-								filter: !obtained ? 'saturate(0)' : undefined
-							}}
-						/>
 						<Typography
 							variant="caption"
 							textAlign="center"

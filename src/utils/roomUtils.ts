@@ -1,12 +1,12 @@
 import { pad, parseHexValue } from 'utils';
 
 import { StateMeta } from './data';
-import { Room } from './types';
+import { Dungeon, Room } from './types';
 
 export const filterRoomState =
 	(type?: number, biome?: number) => (f: StateMeta) =>
-		(!f.types || f.types.indexOf(type ?? 0) >= 0) &&
-		(!f.biomes || f.biomes.indexOf(biome ?? 0) >= 0);
+		(!type || (f.types ?? []).indexOf(type ?? 0) >= 0) &&
+		(!biome || (f.biomes ?? []).indexOf(biome ?? 0) >= 0);
 
 export const parseDungeonExploration = (value: string) => {
 	switch (value) {
@@ -86,4 +86,10 @@ export const revealRooms = (rooms: Room[]) =>
 	rooms.map(r => ({
 		...r,
 		flags: `0${r.flags[1]}103`
+	}));
+
+export const revealDungeons = (dungeons: Dungeon[]) =>
+	dungeons.map(d => ({
+		...d,
+		exploration_data: [...d.exploration_data].map(() => '3').join('')
 	}));

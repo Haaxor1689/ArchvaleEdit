@@ -40,6 +40,10 @@ type WorldState = {
 	n21016: number; // Pearlloch
 	n21017: number; // The Pit
 
+	// Mongo
+	n30001: number; // Fight - flag
+	n31001: number; // Health upgrade - flag
+
 	// Great Slime
 	n30003: number; // Fight - flag
 	n31003: number; // Health upgrade - flag
@@ -49,7 +53,7 @@ type WorldState = {
 	n31007: number; // Health upgrade - flag
 	n32001: number; // Potion - flag
 
-	n50001: number; // ???
+	n50001: number; // Lichen Keep - treasure
 	n50106: number; // Bomb - flag
 
 	n10005: number; // 1st archstone overworld

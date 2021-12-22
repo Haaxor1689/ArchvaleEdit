@@ -2,13 +2,22 @@ import { Box, Button, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import { StrokeTextShadow } from 'utils';
-import { fixIncorrectExits, revealRooms } from 'utils/roomUtils';
-import { Room } from 'utils/types';
+import {
+	fixIncorrectExits,
+	revealDungeons,
+	revealRooms
+} from 'utils/roomUtils';
+import { Dungeon, Room } from 'utils/types';
 
 const Tools = () => {
 	const {
-		input: { value, onChange }
+		input: { value: rooms, onChange: onRoomsChange }
 	} = useField<Room[]>('world.rooms', { subscription: { value: true } });
+
+	const {
+		input: { value: dungeons, onChange: onDungeonsChange }
+	} = useField<Dungeon[]>('dungeon_data', { subscription: { value: true } });
+
 	return (
 		<Box
 			sx={{
@@ -30,7 +39,7 @@ const Tools = () => {
 				variant="outlined"
 				size="small"
 				onClick={() =>
-					onChange({ target: { value: fixIncorrectExits(value) } })
+					onRoomsChange({ target: { value: fixIncorrectExits(rooms) } })
 				}
 				sx={{
 					textShadow: StrokeTextShadow,
@@ -42,7 +51,10 @@ const Tools = () => {
 			<Button
 				variant="outlined"
 				size="small"
-				onClick={() => onChange({ target: { value: revealRooms(value) } })}
+				onClick={() => {
+					onRoomsChange({ target: { value: revealRooms(rooms) } });
+					onDungeonsChange({ target: { value: revealDungeons(dungeons) } });
+				}}
 				sx={{
 					textShadow: StrokeTextShadow,
 					color: 'primary.main'

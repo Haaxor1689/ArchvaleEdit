@@ -18,7 +18,7 @@ const RoomInfo = () => {
 	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
 		useMapContext();
 
-	const room = rooms?.[selected ?? 0];
+	const room = rooms?.find(r => r.room_id === selected);
 	const isRespawn = useIsRoomRespawn(room);
 
 	const [showUnused] = useShowUnused();
@@ -26,12 +26,12 @@ const RoomInfo = () => {
 		f => !!showUnused || !f.name.match(/^UNUSED /)
 	);
 
-	if (!room || selected === undefined) {
+	if (!room) {
 		return <WorldState stateMetaItems={filteredWorldState} initialExpanded />;
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
-	const status = getRoomStatus(selected);
+	const status = getRoomStatus(room.room_id);
 
 	const stateMeta = filteredWorldState.filter(
 		filterRoomState(room.type, room.biome_type)
@@ -88,8 +88,8 @@ const RoomInfo = () => {
 				</Typography>
 			</Box>
 
-			<RoomBiomeSelect index={selected} />
-			<RoomTypeSelect index={selected} />
+			{map === -1 && <RoomBiomeSelect index={room.room_id} />}
+			{map === -1 && <RoomTypeSelect index={room.room_id} />}
 
 			{isRespawn ? (
 				<Typography>Current spawn point</Typography>

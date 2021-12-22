@@ -48,7 +48,20 @@ import chefObj from 'assets/world/objects/chef.png';
 import collectorObj from 'assets/world/objects/collector.png';
 import maxillaObj from 'assets/world/objects/maxilla.png';
 import shopkeeperObj from 'assets/world/objects/shopkeeper.png';
-import slimeObj from 'assets/world/objects/slime.png';
+import greatSlimeObj from 'assets/world/objects/greatSlime.png';
+import mongoObj from 'assets/world/objects/mongo.png';
+import ghostCrabObj from 'assets/world/objects/ghostCrab.png';
+import frankenslimeObj from 'assets/world/objects/frankenslime.png';
+import queenDunewormObj from 'assets/world/objects/queenDuneworm.png';
+import crabbyPatObj from 'assets/world/objects/crabbyPat.png';
+import clayManObj from 'assets/world/objects/clayMan.png';
+import soulSerpentObj from 'assets/world/objects/soulSerpent.png';
+import fallenPharaohObj from 'assets/world/objects/fallenPharaoh.png';
+import exiledWizardObj from 'assets/world/objects/exiledWizard.png';
+import rottedKingObj from 'assets/world/objects/rottedKing.png';
+import grovesBlightObj from 'assets/world/objects/grovesBlight.png';
+import sunkenQueenObj from 'assets/world/objects/sunkenQueen.png';
+import banishedExecutionerObj from 'assets/world/objects/banishedExecutioner.png';
 import bombObj from 'assets/world/objects/bomb.png';
 import oreShell from 'assets/world/objects/oreShell.png';
 import oreIron from 'assets/world/objects/oreIron.png';
@@ -62,6 +75,9 @@ import oreZephyr from 'assets/world/objects/oreZephyr.png';
 import oreHyperium from 'assets/world/objects/oreHyperium.png';
 import fountainActive from 'assets/world/objects/fountainActive.png';
 import fountainInactive from 'assets/world/objects/fountainInactive.png';
+import heart from 'assets/world/objects/heart.png';
+import heartHalf from 'assets/world/objects/heartHalf.png';
+import healingFlask from 'assets/world/objects/healingFlask.png';
 import defenseUp from 'assets/world/objects/defenseUp.png';
 import pedestal from 'assets/world/objects/pedestal.png';
 import token from 'assets/world/objects/token.png';
@@ -117,7 +133,7 @@ import murkmire from 'assets/customIcons/murkmire.png';
 import pinePeak from 'assets/customIcons/pinePeak.png';
 import twistedCaverns from 'assets/customIcons/twistedCaverns.png';
 import fungusGrotto from 'assets/customIcons/fungusGrotto.png';
-// import tanglegrove from 'assets/customIcons/tanglegrove.png';
+import tanglegrove from 'assets/customIcons/tanglegrove.png';
 import brinkreef from 'assets/customIcons/brinkreef.png';
 import moltenRift from 'assets/customIcons/moltenRift.png';
 import ItemSlot from 'components/interface/inventory/ItemSlot';
@@ -306,6 +322,7 @@ export type StateMeta = {
 	secondarySprite?: [string, number, number];
 };
 
+// TODO: Differentiate between dungeons
 export const WorldStateMeta: StateMeta[] = [
 	{
 		name: 'UNUSED Talked to Sam',
@@ -344,6 +361,24 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n26'],
 		types: [22],
 		sprite: [shopkeeperObj, 14, 22],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to the Clay Man',
+		shortName: 'Talked',
+		flags: ['n28'],
+		types: [70],
+		biomes: [29],
+		sprite: [clayManObj, 20, 34],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to Crabby Pat',
+		shortName: 'Talked',
+		flags: ['n29'],
+		types: [70],
+		biomes: [8],
+		sprite: [crabbyPatObj, 33, 27],
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
@@ -545,28 +580,347 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [moltenRift, 10, 10]
 	},
 	{
-		name: 'Great Slime killed',
-		flags: ['n30003', 'n31003'],
+		name: 'Great Slime',
+		flags: ['n30003'],
 		types: [1],
-		sprite: [slimeObj, 46, 44]
+		biomes: [1],
+		sprite: [greatSlimeObj, 46, 44]
 	},
 	{
-		name: 'Maxilla killed',
-		flags: ['n30007', 'n31007', 'n32001'],
+		name: 'Great Slime Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31003'],
+		types: [1],
+		biomes: [1],
+		sprite: [greatSlimeObj, 46, 44],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Mongo',
+		flags: ['n30001'],
+		types: [1],
+		biomes: [23],
+		sprite: [mongoObj, 35, 35]
+	},
+	{
+		name: 'Mongo Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31001'],
+		types: [1],
+		biomes: [23],
+		sprite: [mongoObj, 35, 35],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Ghost Crab',
+		flags: ['n30004'],
+		types: [1],
+		biomes: [8],
+		sprite: [ghostCrabObj, 40, 26]
+	},
+	{
+		name: 'Ghost Crab Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31004'],
+		types: [1],
+		biomes: [8],
+		sprite: [ghostCrabObj, 40, 26],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Queen Duneworm',
+		flags: ['n30005'],
+		types: [1],
+		biomes: [5],
+		sprite: [queenDunewormObj, 25, 47]
+	},
+	{
+		name: 'Queen Duneworm Crab Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31006'],
+		types: [1],
+		biomes: [5],
+		sprite: [queenDunewormObj, 25, 47],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Soul Serpent',
+		flags: ['n30002'],
+		types: [1],
+		biomes: [10],
+		sprite: [soulSerpentObj, 48, 48]
+	},
+	{
+		name: 'Soul Serpent Crab Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31002'],
+		types: [1],
+		biomes: [10],
+		sprite: [soulSerpentObj, 48, 48],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Frankenslime',
+		flags: ['n30006'],
+		types: [1],
+		biomes: [25],
+		sprite: [frankenslimeObj, 72, 40]
+	},
+	{
+		name: 'Frankenslime Crab Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31005'],
+		types: [1],
+		biomes: [25],
+		sprite: [frankenslimeObj, 72, 40],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Talked to Maxilla',
+		shortName: 'Talked',
+		flags: ['n50001'],
+		types: [-1],
+		sprite: [maxillaObj, 15, 22],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Maxilla',
+		flags: ['n30007'],
 		types: [-1],
 		sprite: [maxillaObj, 15, 22]
 	},
 	{
-		name: 'Bomb unlocked',
+		name: 'Maxilla Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31007'],
+		types: [-1],
+		sprite: [maxillaObj, 15, 22],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Maxilla Potion',
+		shortName: 'Potion',
+		flags: ['n32001'],
+		types: [-1],
+		sprite: [maxillaObj, 15, 22],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Fallen Pharaoh',
+		flags: ['n30008'],
+		types: [-1],
+		sprite: [fallenPharaohObj, 24, 47]
+	},
+	{
+		name: 'Fallen Pharaoh Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31008'],
+		types: [-1],
+		sprite: [fallenPharaohObj, 24, 47],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Fallen Pharaoh Potion',
+		shortName: 'Potion',
+		flags: ['n32002'],
+		types: [-1],
+		sprite: [fallenPharaohObj, 24, 47],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Exiled Wizard',
+		flags: ['n30009'],
+		types: [-1],
+		sprite: [exiledWizardObj, 16, 23]
+	},
+	{
+		name: 'Exiled Wizard Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n31009'],
+		types: [-1],
+		sprite: [exiledWizardObj, 16, 23],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Exiled Wizard Potion',
+		shortName: 'Potion',
+		flags: ['n32003'],
+		types: [-1],
+		sprite: [exiledWizardObj, 16, 23],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Talked to the Rotted King',
+		shortName: 'Talked',
+		flags: ['n50005'],
+		types: [-1],
+		sprite: [rottedKingObj, 50, 43],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Rotted King',
+		flags: ['n30011'],
+		types: [-1],
+		sprite: [rottedKingObj, 50, 43]
+	},
+	{
+		name: 'Rotted King Heart',
+		shortName: 'Heart',
+		flags: ['n31011'],
+		types: [-1],
+		sprite: [rottedKingObj, 50, 43],
+		secondarySprite: [heart, 15, 14]
+	},
+	{
+		name: 'Rotted King Potion',
+		shortName: 'Potion',
+		flags: ['n32005'],
+		types: [-1],
+		sprite: [rottedKingObj, 50, 43],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: "Grove's Blight",
+		flags: ['n30010'],
+		types: [-1],
+		sprite: [grovesBlightObj, 46, 47]
+	},
+	{
+		name: "Grove's Blight Heart",
+		shortName: 'Heart',
+		flags: ['n31010'],
+		types: [-1],
+		sprite: [grovesBlightObj, 46, 47],
+		secondarySprite: [heart, 15, 14]
+	},
+	{
+		name: "Grove's Blight Potion",
+		shortName: 'Potion',
+		flags: ['n32004'],
+		types: [-1],
+		sprite: [grovesBlightObj, 46, 47],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Talked to the Sunken Queen',
+		shortName: 'Talked',
+		flags: ['n50007'],
+		types: [-1],
+		sprite: [sunkenQueenObj, 47, 44],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Sunken Queen',
+		flags: ['n30013'],
+		types: [-1],
+		sprite: [sunkenQueenObj, 47, 44]
+	},
+	{
+		name: 'Sunken Queen Heart',
+		shortName: 'Heart',
+		flags: ['n31013'],
+		types: [-1],
+		sprite: [sunkenQueenObj, 47, 44],
+		secondarySprite: [heart, 15, 14]
+	},
+	{
+		name: 'Sunken Queen Potion',
+		shortName: 'Potion',
+		flags: ['n0'], // n32007
+		types: [-1],
+		sprite: [sunkenQueenObj, 47, 44],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Banished Executioner',
+		flags: ['n30012'],
+		types: [-1],
+		sprite: [banishedExecutionerObj, 34, 41]
+	},
+	{
+		name: 'Banished Executioner Heart',
+		shortName: 'Heart',
+		flags: ['n31012'],
+		types: [-1],
+		sprite: [banishedExecutionerObj, 34, 41],
+		secondarySprite: [heart, 15, 14]
+	},
+	{
+		name: 'Banished Executioner Potion',
+		shortName: 'Potion',
+		flags: ['n32006'],
+		types: [-1],
+		sprite: [banishedExecutionerObj, 34, 41],
+		secondarySprite: [healingFlask, 10, 14]
+	},
+	{
+		name: 'Bomb',
 		flags: ['n50106'],
 		types: [-2],
 		sprite: [bombObj, 16, 15]
 	},
 	{
 		name: '1st Archstone',
-		flags: ['n10005', 'n40001'],
+		shortName: 'Lichen Keep',
+		flags: ['n40001', 'n10005'],
 		types: [-3, 47],
-		sprite: [archstoneIcon, 12, 11]
+		biomes: [1],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [cradlewood, 10, 10]
+	},
+	{
+		name: '2nd Archstone',
+		shortName: 'Tomb of Kings',
+		flags: ['n40002'],
+		types: [-3, 47],
+		biomes: [5],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [dustcrag, 10, 10]
+	},
+	{
+		name: '3rd Archstone',
+		shortName: 'Crystal Atheneum',
+		flags: ['n40003'],
+		types: [-3, 47],
+		biomes: [13],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [pinePeak, 10, 10]
+	},
+	{
+		name: '4th Archstone',
+		shortName: 'Agarica Palace',
+		flags: ['n40005'],
+		types: [-3, 47],
+		biomes: [16],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [fungusGrotto, 10, 10]
+	},
+	{
+		name: '5th Archstone',
+		shortName: 'Temple of Groveheart',
+		flags: ['n40004'],
+		types: [-3, 47],
+		biomes: [29],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [tanglegrove, 10, 10]
+	},
+	{
+		name: '6th Archstone',
+		shortName: 'Drowned Mausoleum',
+		flags: ['n40007'],
+		types: [-3, 47],
+		biomes: [47],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [brinkreef, 10, 10]
+	},
+	{
+		name: '7th Archstone',
+		shortName: "The Executioner's Lair",
+		flags: ['n40006'],
+		types: [-3, 47],
+		biomes: [49],
+		sprite: [archstoneIcon, 12, 11],
+		secondarySprite: [moltenRift, 10, 10]
 	}
 ];
 
