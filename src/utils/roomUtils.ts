@@ -4,9 +4,10 @@ import { StateMeta } from './data';
 import { Dungeon, Room } from './types';
 
 export const filterRoomState =
-	(type?: number, biome?: number) => (f: StateMeta) =>
-		(!type || (f.types ?? []).indexOf(type ?? 0) >= 0) &&
-		(!biome || (f.biomes ?? []).indexOf(biome ?? 0) >= 0);
+	(type?: number, biome?: number, map?: number) => (f: StateMeta) =>
+		(type === undefined || !f.types || f.types.indexOf(type) >= 0) &&
+		(biome === undefined || !f.biomes || f.biomes.indexOf(biome) >= 0) &&
+		(map === undefined || (f.maps ?? [-1]).indexOf(map) >= 0);
 
 export const parseDungeonExploration = (value: string) => {
 	switch (value) {

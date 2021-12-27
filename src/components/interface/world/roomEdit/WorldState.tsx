@@ -16,7 +16,7 @@ type Props = {
 const WorldState = ({
 	stateMetaItems,
 	initialExpanded,
-	columns = 3
+	columns = 2
 }: Props) => {
 	const {
 		input: { value, onChange }
@@ -31,7 +31,7 @@ const WorldState = ({
 			sx={{
 				display: 'grid',
 				gridTemplateColumns: [...Array(columns).keys()]
-					.map(() => '1fr')
+					.map(() => 'minmax(0, 1fr)')
 					.join(' '),
 				gap: 1
 			}}
@@ -62,8 +62,9 @@ const WorldState = ({
 							position: 'relative',
 							display: 'flex',
 							alignItems: 'center',
+							justifyContent: 'center',
 							borderRadius: 0,
-							height: t => t.spacing(16)
+							height: t => t.spacing(20)
 						}}
 					>
 						<Sprite
@@ -72,7 +73,9 @@ const WorldState = ({
 							width={s.sprite[1] / 2}
 							height={s.sprite[2] / 2}
 							sx={{
-								filter: !obtained ? 'saturate(0)' : undefined
+								flexShrink: 0,
+								filter: !obtained ? 'saturate(0)' : undefined,
+								opacity: !obtained ? 0.5 : undefined
 							}}
 						/>
 						{s.secondarySprite && (

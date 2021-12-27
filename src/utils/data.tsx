@@ -62,6 +62,8 @@ import rottedKingObj from 'assets/world/objects/rottedKing.png';
 import grovesBlightObj from 'assets/world/objects/grovesBlight.png';
 import sunkenQueenObj from 'assets/world/objects/sunkenQueen.png';
 import banishedExecutionerObj from 'assets/world/objects/banishedExecutioner.png';
+import constructionChamberDoorObj from 'assets/world/objects/constructionChamberDoor.png';
+import oldKingObj from 'assets/world/objects/oldKing.png';
 import bombObj from 'assets/world/objects/bomb.png';
 import oreShell from 'assets/world/objects/oreShell.png';
 import oreIron from 'assets/world/objects/oreIron.png';
@@ -253,10 +255,9 @@ type RoomType = {
 export const RoomTypes: Record<number, RoomType> = {
 	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
 	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
-	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb' },
-	[-1]: { sprite: [minibossIcon, 10, 8], name: 'Maxilla' },
+	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb unlock' },
 	0: { name: 'Combat' },
-	1: { sprite: [minibossIcon, 10, 8], name: 'World Boss' }, // boss
+	1: { sprite: [minibossIcon, 10, 8], name: 'Boss' }, // boss
 	2: { sprite: [fountainIcon, 10, 8], name: 'Starting Fountain' }, // spawn
 	// 3: instant crash
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' }, // treasure
@@ -318,16 +319,18 @@ export type StateMeta = {
 	flags: string[];
 	types?: number[];
 	biomes?: number[];
+	maps?: number[];
 	sprite: [string, number, number];
 	secondarySprite?: [string, number, number];
 };
 
-// TODO: Differentiate between dungeons
 export const WorldStateMeta: StateMeta[] = [
 	{
 		name: 'UNUSED Talked to Sam',
 		shortName: 'UNUSED Talked',
 		flags: ['n0'],
+		types: [21],
+		biomes: [], // Missing amberpath town biome
 		sprite: [samObj, 30, 23],
 		secondarySprite: [speechBubble, 11, 10]
 	},
@@ -336,6 +339,7 @@ export const WorldStateMeta: StateMeta[] = [
 		shortName: 'Talked',
 		flags: ['n12'],
 		types: [22],
+		biomes: [45],
 		sprite: [chefObj, 19, 27],
 		secondarySprite: [speechBubble, 11, 10]
 	},
@@ -344,6 +348,7 @@ export const WorldStateMeta: StateMeta[] = [
 		shortName: 'Talked',
 		flags: ['n24'],
 		types: [22],
+		biomes: [45],
 		sprite: [blacksmithObj, 22, 19],
 		secondarySprite: [speechBubble, 11, 10]
 	},
@@ -352,6 +357,7 @@ export const WorldStateMeta: StateMeta[] = [
 		shortName: 'Talked',
 		flags: ['n25'],
 		types: [22],
+		biomes: [45],
 		sprite: [collectorObj, 21, 21],
 		secondarySprite: [speechBubble, 11, 10]
 	},
@@ -359,7 +365,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Talked to the Shopkeeper',
 		shortName: 'Talked',
 		flags: ['n26'],
-		types: [22],
+		types: [21, 22, 29],
+		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
 		sprite: [shopkeeperObj, 14, 22],
 		secondarySprite: [speechBubble, 11, 10]
 	},
@@ -385,6 +392,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Fairreach Bank',
 		shortName: 'Fairreach',
 		flags: ['n20001'],
+		types: [22],
 		biomes: [45],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [cradlewood, 10, 10]
@@ -393,6 +401,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: "Buckler's cove Bank",
 		shortName: "Buckler's cove",
 		flags: ['n20007'],
+		types: [21],
 		biomes: [7],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [dustcrag, 10, 10]
@@ -401,6 +410,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Bogtown Bank',
 		shortName: 'Bogtown',
 		flags: ['n20002'],
+		types: [21],
 		biomes: [12],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [murkmire, 10, 10]
@@ -409,6 +419,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Sprucepoint Bank',
 		shortName: 'Sprucepoint',
 		flags: ['n20006'],
+		types: [21],
 		biomes: [46],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [pinePeak, 10, 10]
@@ -417,6 +428,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Chamberstone Bank',
 		shortName: 'Chamberstone',
 		flags: ['n20003'],
+		types: [21],
 		biomes: [26],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [twistedCaverns, 10, 10]
@@ -425,6 +437,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Morelton Bank',
 		shortName: 'Morelton',
 		flags: ['n20008'],
+		types: [21],
 		biomes: [16],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [fungusGrotto, 10, 10]
@@ -433,6 +446,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Pearlloch Bank',
 		shortName: 'Pearlloch',
 		flags: ['n20005'],
+		types: [21],
 		biomes: [48],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [brinkreef, 10, 10]
@@ -441,6 +455,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'The Pit Bank',
 		shortName: 'The Pit',
 		flags: ['n20004'],
+		types: [29],
 		biomes: [50],
 		sprite: [bankerObj, 17, 19],
 		secondarySprite: [moltenRift, 10, 10]
@@ -449,6 +464,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Shopkeeper New items',
 		shortName: 'New items',
 		flags: ['n21001'],
+		types: [21, 22, 29],
+		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [exclamationBubble, 11, 13]
 	},
@@ -456,6 +473,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Fairreach Shopkeeper',
 		shortName: 'Fairreach',
 		flags: ['n21002'],
+		types: [22],
 		biomes: [45],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [cradlewood, 10, 10]
@@ -464,6 +482,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: "Buckler's cove Shopkeeper",
 		shortName: "Buckler's cove",
 		flags: ['n21003'],
+		types: [21],
 		biomes: [7],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [dustcrag, 10, 10]
@@ -472,6 +491,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Bogtown Shopkeeper',
 		shortName: 'Bogtown',
 		flags: ['n21004'],
+		types: [21],
 		biomes: [12],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [murkmire, 10, 10]
@@ -480,6 +500,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Sprucepoint Shopkeeper',
 		shortName: 'Sprucepoint',
 		flags: ['n21005'],
+		types: [21],
 		biomes: [46],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [pinePeak, 10, 10]
@@ -488,6 +509,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Chamberstone Shopkeeper',
 		shortName: 'Chamberstone',
 		flags: ['n21006'],
+		types: [21],
 		biomes: [26],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [twistedCaverns, 10, 10]
@@ -496,6 +518,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Morelton Shopkeeper',
 		shortName: 'Morelton',
 		flags: ['n21009'],
+		types: [21],
 		biomes: [16],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [fungusGrotto, 10, 10]
@@ -504,6 +527,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Pearlloch Shopkeeper',
 		shortName: 'Pearlloch',
 		flags: ['n21008'],
+		types: [21],
 		biomes: [48],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [brinkreef, 10, 10]
@@ -512,6 +536,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'The Pit Shopkeeper',
 		shortName: 'The Pit',
 		flags: ['n21007'],
+		types: [29],
 		biomes: [50],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [moltenRift, 10, 10]
@@ -520,6 +545,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Badge trader Exclamation mark',
 		shortName: 'New items',
 		flags: ['n21010'],
+		types: [21, 22, 29],
+		biomes: [45, 7, 12, 46, 26, 48, 50],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [exclamationBubble, 11, 13]
 	},
@@ -527,6 +554,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Fairreach Badge trader',
 		shortName: 'Fairreach',
 		flags: ['n21011'],
+		types: [22],
 		biomes: [45],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [cradlewood, 10, 10]
@@ -535,6 +563,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: "Buckler's cove Badge trader",
 		shortName: "Buckler's cove",
 		flags: ['n21012'],
+		types: [21],
 		biomes: [7],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [dustcrag, 10, 10]
@@ -543,6 +572,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Bogtown Badge trader',
 		shortName: 'Bogtown',
 		flags: ['n21013'],
+		types: [21],
 		biomes: [12],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [murkmire, 10, 10]
@@ -551,6 +581,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Sprucepoint Badge trader',
 		shortName: 'Sprucepoint',
 		flags: ['n21014'],
+		types: [21],
 		biomes: [46],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [pinePeak, 10, 10]
@@ -559,6 +590,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Chamberstone Badge trader',
 		shortName: 'Chamberstone',
 		flags: ['n21015'],
+		types: [21],
 		biomes: [26],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [twistedCaverns, 10, 10]
@@ -567,6 +599,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Pearlloch Badge trader',
 		shortName: 'Pearlloch',
 		flags: ['n21016'],
+		types: [21],
 		biomes: [48],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [brinkreef, 10, 10]
@@ -575,6 +608,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'The Pit Badge trader',
 		shortName: 'The Pit',
 		flags: ['n21017'],
+		types: [29],
 		biomes: [50],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [moltenRift, 10, 10]
@@ -679,21 +713,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Talked to Maxilla',
 		shortName: 'Talked',
 		flags: ['n50001'],
-		types: [-1],
+		types: [1],
+		maps: [0],
 		sprite: [maxillaObj, 15, 22],
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
 		name: 'Maxilla',
 		flags: ['n30007'],
-		types: [-1],
+		types: [1],
+		maps: [0],
 		sprite: [maxillaObj, 15, 22]
 	},
 	{
 		name: 'Maxilla Half-Heart',
 		shortName: 'Half-Heart',
 		flags: ['n31007'],
-		types: [-1],
+		types: [1],
+		maps: [0],
 		sprite: [maxillaObj, 15, 22],
 		secondarySprite: [heartHalf, 15, 14]
 	},
@@ -701,21 +738,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Maxilla Potion',
 		shortName: 'Potion',
 		flags: ['n32001'],
-		types: [-1],
+		types: [1],
+		maps: [0],
 		sprite: [maxillaObj, 15, 22],
 		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
 		name: 'Fallen Pharaoh',
 		flags: ['n30008'],
-		types: [-1],
+		types: [1],
+		maps: [1],
 		sprite: [fallenPharaohObj, 24, 47]
 	},
 	{
 		name: 'Fallen Pharaoh Half-Heart',
 		shortName: 'Half-Heart',
 		flags: ['n31008'],
-		types: [-1],
+		types: [1],
+		maps: [1],
 		sprite: [fallenPharaohObj, 24, 47],
 		secondarySprite: [heartHalf, 15, 14]
 	},
@@ -723,21 +763,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Fallen Pharaoh Potion',
 		shortName: 'Potion',
 		flags: ['n32002'],
-		types: [-1],
+		types: [1],
+		maps: [1],
 		sprite: [fallenPharaohObj, 24, 47],
 		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
 		name: 'Exiled Wizard',
 		flags: ['n30009'],
-		types: [-1],
+		types: [1],
+		maps: [2],
 		sprite: [exiledWizardObj, 16, 23]
 	},
 	{
 		name: 'Exiled Wizard Half-Heart',
 		shortName: 'Half-Heart',
 		flags: ['n31009'],
-		types: [-1],
+		types: [1],
+		maps: [2],
 		sprite: [exiledWizardObj, 16, 23],
 		secondarySprite: [heartHalf, 15, 14]
 	},
@@ -745,7 +788,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Exiled Wizard Potion',
 		shortName: 'Potion',
 		flags: ['n32003'],
-		types: [-1],
+		types: [1],
+		maps: [2],
 		sprite: [exiledWizardObj, 16, 23],
 		secondarySprite: [healingFlask, 10, 14]
 	},
@@ -753,21 +797,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Talked to the Rotted King',
 		shortName: 'Talked',
 		flags: ['n50005'],
-		types: [-1],
+		types: [1],
+		maps: [4],
 		sprite: [rottedKingObj, 50, 43],
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
 		name: 'Rotted King',
 		flags: ['n30011'],
-		types: [-1],
+		types: [1],
+		maps: [4],
 		sprite: [rottedKingObj, 50, 43]
 	},
 	{
 		name: 'Rotted King Heart',
 		shortName: 'Heart',
 		flags: ['n31011'],
-		types: [-1],
+		types: [1],
+		maps: [4],
 		sprite: [rottedKingObj, 50, 43],
 		secondarySprite: [heart, 15, 14]
 	},
@@ -775,21 +822,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Rotted King Potion',
 		shortName: 'Potion',
 		flags: ['n32005'],
-		types: [-1],
+		types: [1],
+		maps: [4],
 		sprite: [rottedKingObj, 50, 43],
 		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
 		name: "Grove's Blight",
 		flags: ['n30010'],
-		types: [-1],
+		types: [1],
+		maps: [3],
 		sprite: [grovesBlightObj, 46, 47]
 	},
 	{
 		name: "Grove's Blight Heart",
 		shortName: 'Heart',
 		flags: ['n31010'],
-		types: [-1],
+		types: [1],
+		maps: [3],
 		sprite: [grovesBlightObj, 46, 47],
 		secondarySprite: [heart, 15, 14]
 	},
@@ -797,7 +847,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: "Grove's Blight Potion",
 		shortName: 'Potion',
 		flags: ['n32004'],
-		types: [-1],
+		types: [1],
+		maps: [3],
 		sprite: [grovesBlightObj, 46, 47],
 		secondarySprite: [healingFlask, 10, 14]
 	},
@@ -805,21 +856,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Talked to the Sunken Queen',
 		shortName: 'Talked',
 		flags: ['n50007'],
-		types: [-1],
+		types: [1],
+		maps: [6],
 		sprite: [sunkenQueenObj, 47, 44],
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
 		name: 'Sunken Queen',
 		flags: ['n30013'],
-		types: [-1],
+		types: [1],
+		maps: [6],
 		sprite: [sunkenQueenObj, 47, 44]
 	},
 	{
 		name: 'Sunken Queen Heart',
 		shortName: 'Heart',
 		flags: ['n31013'],
-		types: [-1],
+		types: [1],
+		maps: [6],
 		sprite: [sunkenQueenObj, 47, 44],
 		secondarySprite: [heart, 15, 14]
 	},
@@ -827,21 +881,24 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Sunken Queen Potion',
 		shortName: 'Potion',
 		flags: ['n0'], // n32007
-		types: [-1],
+		types: [1],
+		maps: [6],
 		sprite: [sunkenQueenObj, 47, 44],
 		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
 		name: 'Banished Executioner',
 		flags: ['n30012'],
-		types: [-1],
+		types: [1],
+		maps: [5],
 		sprite: [banishedExecutionerObj, 34, 41]
 	},
 	{
 		name: 'Banished Executioner Heart',
 		shortName: 'Heart',
 		flags: ['n31012'],
-		types: [-1],
+		types: [1],
+		maps: [5],
 		sprite: [banishedExecutionerObj, 34, 41],
 		secondarySprite: [heart, 15, 14]
 	},
@@ -849,7 +906,8 @@ export const WorldStateMeta: StateMeta[] = [
 		name: 'Banished Executioner Potion',
 		shortName: 'Potion',
 		flags: ['n32006'],
-		types: [-1],
+		types: [1],
+		maps: [5],
 		sprite: [banishedExecutionerObj, 34, 41],
 		secondarySprite: [healingFlask, 10, 14]
 	},
@@ -865,6 +923,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40001', 'n10005'],
 		types: [-3, 47],
 		biomes: [1],
+		maps: [-1, 0],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [cradlewood, 10, 10]
 	},
@@ -874,6 +933,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40002'],
 		types: [-3, 47],
 		biomes: [5],
+		maps: [-1, 1],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [dustcrag, 10, 10]
 	},
@@ -883,6 +943,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40003'],
 		types: [-3, 47],
 		biomes: [13],
+		maps: [-1, 2],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [pinePeak, 10, 10]
 	},
@@ -892,6 +953,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40005'],
 		types: [-3, 47],
 		biomes: [16],
+		maps: [-1, 4],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [fungusGrotto, 10, 10]
 	},
@@ -901,6 +963,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40004'],
 		types: [-3, 47],
 		biomes: [29],
+		maps: [-1, 3],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [tanglegrove, 10, 10]
 	},
@@ -910,6 +973,7 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40007'],
 		types: [-3, 47],
 		biomes: [47],
+		maps: [-1, 6],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [brinkreef, 10, 10]
 	},
@@ -919,8 +983,26 @@ export const WorldStateMeta: StateMeta[] = [
 		flags: ['n40006'],
 		types: [-3, 47],
 		biomes: [49],
+		maps: [-1, 5],
 		sprite: [archstoneIcon, 12, 11],
 		secondarySprite: [moltenRift, 10, 10]
+	},
+	{
+		name: 'Construction Chamber Opened',
+		shortName: 'Opened',
+		flags: ['n40008'],
+		types: [47],
+		biomes: [25],
+		sprite: [constructionChamberDoorObj, 59, 39]
+	},
+	{
+		name: 'Talked to the Old King',
+		shortName: 'Talked',
+		flags: ['n50008'],
+		types: [1],
+		maps: [7],
+		sprite: [oldKingObj, 35, 48],
+		secondarySprite: [speechBubble, 11, 10]
 	}
 ];
 

@@ -41,7 +41,8 @@ const MapRoom = (room: Props) => {
 	const type = room?.type !== undefined ? RoomTypes[room.type] : RoomTypes[0];
 	const biome = room?.biome_type ? Biomes[room.biome_type] : undefined;
 
-	const explore = room?.room_id ? getRoomStatus(room.room_id) : 'Hidden';
+	const explore =
+		room?.room_id !== undefined ? getRoomStatus(room.room_id) : 'Hidden';
 	const filter =
 		room.variant === 'edit'
 			? !room.isMiddle
@@ -66,7 +67,11 @@ const MapRoom = (room: Props) => {
 
 	const isDungeon = map !== -1;
 
-	const obtainedWorld = useObtainedWorldState(room.type, room.biome_type)();
+	const obtainedWorld = useObtainedWorldState(
+		room.type,
+		room.biome_type,
+		map
+	)();
 	const obtainedObject = useObtainedObjectState(room.type, room.objects);
 
 	return (

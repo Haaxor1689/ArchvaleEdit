@@ -1,3 +1,8 @@
+# Direction flags
+# 8 - bottom
+# 4 - left
+# 2 - top
+# 1 - right
 - id: 0
   name: Lichen Keep
   rooms:
@@ -90,7 +95,7 @@
     - room_id: 17
       x: 6
       y: 1
-      type: -1
+      type: 1
       flags: '0A000'
     - room_id: 18
       x: 6
@@ -113,11 +118,49 @@
       y: 0
       type: -3
       flags: '08000'
+    - room_id: 1
+      x: 0
+      y: 3
+      flags: '01000'
+    - room_id: 2
+      x: 1
+      y: 3
+      flags: '0D000'
+    - room_id: 3
+      x: 1
+      y: 4
+      flags: '0B000'
     - room_id: 4
       x: 1
       y: 5
       type: 10
       flags: '0A000'
+    - room_id: 5
+      x: 2
+      y: 3
+      flags: '0D000'
+    - room_id: 6
+      x: 2
+      y: 4
+      flags: '07000'
+    - room_id: 7
+      x: 3
+      y: 3
+      flags: '0D000'
+    - room_id: 8
+      x: 3
+      y: 4
+      flags: '0F000'
+    - room_id: 9
+      x: 3
+      y: 5
+      type: -4
+      flags: '0A000'
+    - room_id: 10
+      x: 3
+      y: 6
+      type: 20
+      flags: '02000'
     - room_id: 11
       x: 4
       y: 0
@@ -128,6 +171,75 @@
       y: 1
       type: 10
       flags: '03000'
+    - room_id: 13
+      x: 4
+      y: 2
+      flags: '09000'
+    - room_id: 14
+      x: 4
+      y: 3
+      flags: '07000'
+    - room_id: 15
+      x: 4
+      y: 4
+      flags: '05000'
+    - room_id: 16
+      x: 5
+      y: 1
+      flags: '0C000'
+    - room_id: 17
+      x: 5
+      y: 2
+      flags: '0F000'
+    - room_id: 18
+      x: 5
+      y: 3
+      flags: '0F000'
+    - room_id: 19
+      x: 5
+      y: 4
+      type: 10
+      flags: '07000'
+    - room_id: 20
+      x: 6
+      y: 1
+      flags: '09000'
+    - room_id: 21
+      x: 6
+      y: 2
+      flags: '07000'
+    - room_id: 22
+      x: 6
+      y: 3
+      flags: '05000'
+    - room_id: 23
+      x: 6
+      y: 4
+      flags: '0C000'
+    - room_id: 24
+      x: 6
+      y: 5
+      flags: '03000'
+    - room_id: 25
+      x: 7
+      y: 1
+      flags: '0C000'
+    - room_id: 26
+      x: 7
+      y: 2
+      flags: '06000'
+    - room_id: 27
+      x: 7
+      y: 3
+      flags: '0C000'
+    - room_id: 28
+      x: 7
+      y: 4
+      flags: '0A000'
+    - room_id: 29
+      x: 7
+      y: 5
+      flags: '06000'
 - id: 2
   name: Crystal Atheneum
   rooms:
@@ -136,12 +248,147 @@
       y: 0
       type: -3
       flags: '08000'
+    - room_id: 1
+      x: 1
+      y: 1
+      flags: '01000'
+    - room_id: 2
+      x: 4
+      y: 6
+      type: 20
+      flags: '01000'
+    - room_id: 3
+      x: 5
+      y: 5
+      flags: '09000'
+    - room_id: 4
+      x: 5
+      y: 6
+      flags: '07000'
+    - room_id: 5
+      x: 6
+      y: 5
+      flags: '05000'
+    - room_id: 6
+      x: 6
+      y: 6
+      flags: '0C000'
+    - room_id: 7
+      x: 6
+      y: 7
+      flags: '0A000'
+    - room_id: 8
+      x: 6
+      y: 8
+      type: 10
+      flags: '0B000'
+    - room_id: 9
+      x: 7
+      y: 5
+      flags: '05000'
+    - room_id: 10
+      x: 7
+      y: 7
+      flags: '09000'
+    - room_id: 11
+      x: 7
+      y: 8
+      flags: '07000'
+    - room_id: 12
+      x: 8
+      y: 5
+      flags: '05000'
+    - room_id: 13
+      x: 8
+      y: 7
+      flags: '05000'
+    - room_id: 14
+      x: 8
+      y: 8
+      flags: '05000'
+    - room_id: 15
+      x: 9
+      y: 5
+      type: 10
+      flags: '0C000'
+    - room_id: 16
+      x: 9
+      y: 6
+      flags: '0A000'
+    - room_id: 17
+      x: 9
+      y: 7
+      flags: '06000'
+    - room_id: 18
+      x: 9
+      y: 8
+      flags: '05000'
+    - room_id: 19
+      x: 10
+      y: 6
+      type: 10
+      flags: '09000'
+    - room_id: 20
+      x: 10
+      y: 7
+      flags: '0A000'
+    - room_id: 21
+      x: 10
+      y: 8
+      flags: '06000'
+    - room_id: 22
+      x: 11
+      y: 3
+      flags: '01000'
+    - room_id: 23
+      x: 11
+      y: 6
+      flags: '0C000'
+    - room_id: 24
+      x: 11
+      y: 7
+      flags: '03000'
+    - room_id: 25
+      x: 12
+      y: 0
+      type: 1
+      flags: '0A000'
+    - room_id: 26
+      x: 12
+      y: 1
+      type: 10
+      flags: '0A000'
+    - room_id: 27
+      x: 12
+      y: 2
+      flags: '0A000'
+    - room_id: 28
+      x: 12
+      y: 3
+      flags: '0E000'
+    - room_id: 29
+      x: 12
+      y: 4
+      flags: '0A000'
+    - room_id: 30
+      x: 12
+      y: 5
+      flags: '0A000'
+    - room_id: 31
+      x: 12
+      y: 6
+      type: 10
+      flags: '0A000'
+    - room_id: 32
+      x: 12
+      y: 7
+      flags: '06000'
 - id: 3
   name: Temple of Groveheart
   rooms:
     - room_id: 7
-      x: 2
-      y: 0
+      x: 3
+      y: 1
       type: -3
       flags: '08000'
 - id: 4
@@ -220,6 +467,29 @@
       y: 0
       type: -3
       flags: '08000'
+- id: 7
+  name: Construction Chamber
+  rooms:
+    - room_id: 0
+      x: 1
+      y: 1
+      type: 1
+      flags: '08000'
+    - room_id: 1
+      x: 1
+      y: 2
+      type: 10
+      flags: '0A000'
+    - room_id: 2
+      x: 4
+      y: 0
+      type: 1
+      flags: '0F000'
+    - room_id: 3
+      x: 4
+      y: 1
+      type: 1
+      flags: '0F000'
 - id: 8
   name: Challenge room 1
   rooms:

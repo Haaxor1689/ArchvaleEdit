@@ -207,11 +207,15 @@ export const useIsRoomRespawn = (room?: Partial<Room>) => {
 	);
 };
 
-export const useObtainedWorldState = (type?: number, biome?: number) => {
+export const useObtainedWorldState = (
+	type?: number,
+	biome?: number,
+	map?: number
+) => {
 	const {
 		input: { value }
 	} = useField('npst', { subscription: { value: true } });
-	const stateMeta = WorldStateMeta.filter(filterRoomState(type, biome));
+	const stateMeta = WorldStateMeta.filter(filterRoomState(type, biome, map));
 
 	return (flags?: string[]) => {
 		if (stateMeta.length === 0) return true;

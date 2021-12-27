@@ -27,14 +27,21 @@ const RoomInfo = () => {
 	);
 
 	if (!room) {
-		return <WorldState stateMetaItems={filteredWorldState} initialExpanded />;
+		return (
+			<WorldState
+				stateMetaItems={filteredWorldState.filter(
+					filterRoomState(undefined, undefined, map)
+				)}
+				initialExpanded
+			/>
+		);
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
 	const status = getRoomStatus(room.room_id);
 
 	const stateMeta = filteredWorldState.filter(
-		filterRoomState(room.type, room.biome_type)
+		filterRoomState(room.type ?? 0, room.biome_type, map)
 	);
 
 	return (
