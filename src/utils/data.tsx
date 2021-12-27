@@ -109,6 +109,7 @@ import dir11 from 'assets/world/directions/dir11.png';
 import dir12 from 'assets/world/directions/dir12.png';
 import dir13 from 'assets/world/directions/dir13.png';
 import dir14 from 'assets/world/directions/dir14.png';
+import dir15 from 'assets/world/directions/dir15.png';
 import dung0 from 'assets/world/directions/dung0.png';
 import dung1 from 'assets/world/directions/dung1.png';
 import dung2 from 'assets/world/directions/dung2.png';
@@ -1253,7 +1254,8 @@ export const RoomDirections = [
 	dir11,
 	dir12,
 	dir13,
-	dir14
+	dir14,
+	dir15
 ];
 
 export const DungeonDirections = [
