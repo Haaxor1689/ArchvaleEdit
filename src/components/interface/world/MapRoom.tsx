@@ -14,12 +14,7 @@ import {
 import { Room } from 'utils/types';
 import { parseRoomDirection } from 'utils/roomUtils';
 
-import {
-	useIsRoomRespawn,
-	useMapContext,
-	useObtainedObjectState,
-	useObtainedWorldState
-} from './MapProvider';
+import { useIsRoomRespawn, useMapContext, useObtained } from './MapProvider';
 
 type Props = Partial<Room> &
 	(
@@ -63,16 +58,11 @@ const MapRoom = (room: Props) => {
 
 	const isRespawn = useIsRoomRespawn(room);
 
-	const direction = room?.flags ? parseRoomDirection(room.flags) : 16;
+	const direction = parseRoomDirection(room.flags);
 
 	const isDungeon = map !== -1;
 
-	const obtainedWorld = useObtainedWorldState(
-		room.type,
-		room.biome_type,
-		map
-	)();
-	const obtainedObject = useObtainedObjectState(room.type, room.objects);
+	const obtained = useObtained(room, map);
 
 	return (
 		<IconButton
@@ -146,10 +136,7 @@ const MapRoom = (room: Props) => {
 							  }
 							: {})}
 						sx={{
-							opacity:
-								(obtainedWorld && room.objective_complete) || obtainedObject
-									? 0.25
-									: undefined,
+							opacity: obtained ? 0.25 : undefined,
 							zIndex: 2,
 							filter
 						}}

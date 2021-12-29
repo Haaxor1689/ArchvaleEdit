@@ -207,34 +207,52 @@ export const useIsRoomRespawn = (room?: Partial<Room>) => {
 	);
 };
 
-export const useObtainedWorldState = (
-	type?: number,
-	biome?: number,
-	map?: number
-) => {
+export const useObtained = (room: Partial<Room>, map: number) => {
 	const {
 		input: { value }
 	} = useField('npst', { subscription: { value: true } });
-	const stateMeta = WorldStateMeta.filter(filterRoomState(type, biome, map));
 
-	return (flags?: string[]) => {
-		if (stateMeta.length === 0) return true;
-		const f = flags ?? stateMeta.flatMap(s => s.flags);
-		if (f.length === 0) return false;
-		return f.some(f => value[f] === 1);
-	};
-};
+	if (room.objective_complete) return true;
 
-export const useObtainedObjectState = (type?: number, objects?: string[]) => {
-	switch (type) {
+	const exploration = parseRoomExploration(room.flags ?? '');
+
+	switch (room.type) {
+		// Towns and Dungeons
+		case 21:
+		case 22:
+		case 29:
+		case 47:
+			return false;
+		// Dustcrag border, Pine Peak border and Tutorial exit
+		case 62:
+		case 65:
+		case 69:
+			return exploration === 'Visited';
 		case 4:
-			return objects?.find(o => o.match(/^0008/))?.[14] === '1';
+			return room.objects?.find(o => o.match(/^0008/))?.[14] === '1';
 		case 12:
-			return objects?.find(o => o.match(/^0005/))?.[14] === '1';
+			return room.objects?.find(o => o.match(/^0005/))?.[14] === '1';
 		case 20:
-			return objects?.find(o => o.match(/^000F/))?.[14] === '1';
+			return room.objects?.find(o => o.match(/^000F/))?.[14] === '1';
+		case 59:
+			return room.objects?.find(o => o.match(/^0013/))?.[4] === '0';
 	}
-	return false;
+
+	// Crabclaw Chasm - Twisted Caverns border
+	if (room.type === 66 && room.biome_type === 8 && exploration === 'Visited')
+		return true;
+
+	// Murkmire - Pine Peak border
+	if (room.type === 63 && room.biome_type === 13 && exploration === 'Visited')
+		return true;
+
+	const stateMeta = WorldStateMeta.filter(
+		filterRoomState(room.type, room.biome_type, map)
+	);
+	if (stateMeta.length === 0) return false;
+	const f = stateMeta.flatMap(s => s.flags);
+	if (f.length === 0) return false;
+	return f.every(f => value[f]);
 };
 
 const MapContext = createContext<Context>(undefined as never);

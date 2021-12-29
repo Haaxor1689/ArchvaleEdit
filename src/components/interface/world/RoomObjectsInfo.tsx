@@ -28,7 +28,7 @@ const RoomObjectsInfo = ({ room_id }: Pick<Room, 'room_id'>) => {
 	const objects = value.map<ParsedObject>(o => ({
 		o,
 		type: parseHexValue(o.slice(0, 4)),
-		can_take: parseHexValue(o.slice(4, 5)),
+		can_take: parseHexValue(o[4]),
 		x: parseHexValue(o.slice(5, 8)),
 		_foo: parseHexValue(o.slice(8, 9)),
 		y: parseHexValue(o.slice(9, 12)),

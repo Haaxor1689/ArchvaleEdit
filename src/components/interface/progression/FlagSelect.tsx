@@ -1,4 +1,11 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import {
+	Box,
+	FormControl,
+	InputLabel,
+	MenuItem,
+	Select,
+	Typography
+} from '@mui/material';
 import { useField } from 'react-final-form';
 import { useState } from 'react';
 
@@ -12,36 +19,44 @@ const FlagSelect = () => {
 		subscription: { value: true }
 	});
 
-	const [flag, setFlag] = useState(Object.keys(npst)[0]);
+	const flags = Object.keys(npst)
+		.filter(
+			k => !WorldStateMeta.find(m => m.flags.indexOf(k) >= 0) && !k.match(/^n9/)
+		)
+		.sort();
+
+	const [flag, setFlag] = useState(flags[0]);
+
+	if (flags.length <= 0) return null;
 
 	return (
-		<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1 }}>
-			<FormControl variant="standard" fullWidth size="small">
-				<InputLabel id="npst.select">Flag</InputLabel>
-				<Select
-					labelId="npst.select"
-					value={flag}
-					onChange={e => setFlag(e.target.value)}
-				>
-					{Object.keys(npst)
-						.filter(k => !WorldStateMeta.find(m => m.flags.indexOf(k) >= 0))
-						.sort()
-						.map(k => (
+		<>
+			<Typography variant="h4">Unknown flags:</Typography>
+			<Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 1 }}>
+				<FormControl variant="standard" fullWidth size="small">
+					<InputLabel id="npst.select">Flag</InputLabel>
+					<Select
+						labelId="npst.select"
+						value={flag}
+						onChange={e => setFlag(e.target.value)}
+					>
+						{flags.map(k => (
 							<MenuItem key={k} value={k}>
 								{k}
 							</MenuItem>
 						))}
-				</Select>
-			</FormControl>
-			{flag && (
-				<TextInput
-					id={`npst[${flag}]`}
-					type="number"
-					variant="standard"
-					label="Value"
-				/>
-			)}
-		</Box>
+					</Select>
+				</FormControl>
+				{flag && (
+					<TextInput
+						id={`npst[${flag}]`}
+						type="number"
+						variant="standard"
+						label="Value"
+					/>
+				)}
+			</Box>
+		</>
 	);
 };
 

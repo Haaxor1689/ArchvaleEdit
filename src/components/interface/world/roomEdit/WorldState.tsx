@@ -37,7 +37,7 @@ const WorldState = ({
 			}}
 		>
 			{stateMetaItems.map((s, i) => {
-				const obtained = s.flags.some(f => value[f] === 1);
+				const obtained = s.flags.some(f => value[f] === (s.value ?? 1));
 
 				return (
 					<IconButton
@@ -50,7 +50,7 @@ const WorldState = ({
 										...s.flags.reduce(
 											(obj, f) => ({
 												...obj,
-												[f]: obtained ? undefined : 1
+												[f]: obtained ? undefined : s.value ?? 1
 											}),
 											{}
 										)

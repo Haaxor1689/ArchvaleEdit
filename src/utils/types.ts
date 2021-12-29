@@ -2,11 +2,14 @@ type WorldState = {
 	// Town
 	n0: number; // Sam unlocked
 	n12: number; // Chef - 1: talked, 2: done
+	n13: number; // Hell dungeon guardian - 2: locked, 3: open
 	n24: number; // Blacksmith - 1: talked
 	n25: number; // Collector - 1: talked
 	n26: number; // Shopkeep - 1: talked
 
+	n90001: number; // Items crafted
 	n90002: number; // Enemy kills
+	n90003: number; // Treasures sold
 	n90004: number; // Fountains unlocked
 
 	// Banker

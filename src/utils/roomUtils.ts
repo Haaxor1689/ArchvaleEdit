@@ -55,7 +55,8 @@ export const parseRoomExploration = (flags: string) => {
 		: ('Hidden' as const);
 };
 
-export const parseRoomDirection = (flags: string) => parseHexValue(flags[1]);
+export const parseRoomDirection = (flags?: string) =>
+	parseHexValue(flags?.[1] ?? 'F');
 
 const getNeighboringRooms = (room: Room, rooms: Room[]) =>
 	[

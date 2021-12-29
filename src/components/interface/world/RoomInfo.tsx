@@ -2,9 +2,14 @@ import { Box, Typography } from '@mui/material';
 
 import Sprite from 'components/Sprite';
 import TextButton from 'components/TextButton';
-import { Biomes, RoomTypes, WorldStateMeta } from 'utils/data';
+import {
+	Biomes,
+	DungeonDirections,
+	RoomTypes,
+	WorldStateMeta
+} from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
-import { filterRoomState } from 'utils/roomUtils';
+import { filterRoomState, parseRoomDirection } from 'utils/roomUtils';
 
 import { useIsRoomRespawn, useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
@@ -53,9 +58,13 @@ const RoomInfo = () => {
 				Room
 				<Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
 					<Sprite
-						img={`${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
-							Biomes[room.biome_type]?.sprite ?? 'empty'
-						}_0.png`}
+						img={
+							map !== -1
+								? DungeonDirections[parseRoomDirection(room.flags)]
+								: `${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
+										Biomes[room.biome_type]?.sprite ?? 'empty'
+								  }_0.png`
+						}
 						width={7}
 						height={7}
 						mr={2}

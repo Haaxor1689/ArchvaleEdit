@@ -20,8 +20,16 @@ const SaveInfo = () => {
 	} = useField<string>('version');
 
 	const {
+		input: { value: itemsCrafted }
+	} = useField<string>('npst.n90001');
+
+	const {
 		input: { value: enemiesKilled }
 	} = useField<string>('npst.n90002');
+
+	const {
+		input: { value: treasuresSold }
+	} = useField<string>('npst.n90003');
 
 	const {
 		input: { value: fountainsCleansed }
@@ -37,7 +45,6 @@ const SaveInfo = () => {
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'flex-start',
-				width: t => t.spacing(30),
 				gap: 1,
 				p: 2
 			}}
@@ -79,12 +86,36 @@ const SaveInfo = () => {
 				{version}
 			</Typography>
 
-			<Typography variant="body2" mt={3} sx={{ textShadow: StrokeTextShadow }}>
-				Kills: {enemiesKilled}
+			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+				Statistics:
 			</Typography>
-			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
-				Fountains: {fountainsCleansed}
-			</Typography>
+			<Box
+				sx={{
+					display: 'grid',
+					gridTemplateColumns: 'auto auto',
+					gap: 1,
+					columnGap: 3,
+					alignItems: 'baseline',
+					textShadow: StrokeTextShadow
+				}}
+			>
+				<Typography variant="body2" justifySelf="flex-end">
+					Items crafted:
+				</Typography>
+				<Typography variant="body2">{itemsCrafted || 0}</Typography>
+				<Typography variant="body2" justifySelf="flex-end">
+					Enemies killed:
+				</Typography>
+				<Typography variant="body2">{enemiesKilled || 0}</Typography>
+				<Typography variant="body2" justifySelf="flex-end">
+					Treasures sold:
+				</Typography>
+				<Typography variant="body2">{treasuresSold || 0}</Typography>
+				<Typography variant="body2" justifySelf="flex-end">
+					Fountains cleansed:
+				</Typography>
+				<Typography variant="body2">{fountainsCleansed || 0}</Typography>
+			</Box>
 		</Box>
 	);
 };

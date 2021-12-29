@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 
 import badgesTab from 'assets/badgesTab.png';
@@ -63,6 +63,12 @@ type Props = {
 const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 	const [activeTab, setActiveTab] = useState<TabName>('character');
 	const tab = tabs.find(t => t.name === activeTab);
+	useEffect(() => {
+		document.title = `${name} | Archvale Save Edit`;
+		return () => {
+			document.title = 'Archvale Save Edit';
+		};
+	}, [name]);
 	return (
 		<Form
 			initialValues={world}

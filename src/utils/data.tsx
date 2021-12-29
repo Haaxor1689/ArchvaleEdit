@@ -41,6 +41,7 @@ import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
 import treasureIcon from 'assets/world/icons/treasure.png';
 import badgeTraderObj from 'assets/world/objects/badgeTrader.png';
+import wizardObj from 'assets/world/objects/wizard.png';
 import samObj from 'assets/world/objects/sam.png';
 import bankerObj from 'assets/world/objects/banker.png';
 import blacksmithObj from 'assets/world/objects/blacksmith.png';
@@ -48,6 +49,9 @@ import chefObj from 'assets/world/objects/chef.png';
 import collectorObj from 'assets/world/objects/collector.png';
 import maxillaObj from 'assets/world/objects/maxilla.png';
 import shopkeeperObj from 'assets/world/objects/shopkeeper.png';
+import barrelBobObj from 'assets/world/objects/barrelBob.png';
+import comedianFishObj from 'assets/world/objects/comedianFish.png';
+import lennyObj from 'assets/world/objects/lenny.png';
 import greatSlimeObj from 'assets/world/objects/greatSlime.png';
 import mongoObj from 'assets/world/objects/mongo.png';
 import ghostCrabObj from 'assets/world/objects/ghostCrab.png';
@@ -63,6 +67,10 @@ import grovesBlightObj from 'assets/world/objects/grovesBlight.png';
 import sunkenQueenObj from 'assets/world/objects/sunkenQueen.png';
 import banishedExecutionerObj from 'assets/world/objects/banishedExecutioner.png';
 import constructionChamberDoorObj from 'assets/world/objects/constructionChamberDoor.png';
+import jungleEntranceObj from 'assets/world/objects/jungleEntrance.png';
+import hellGuardianObj from 'assets/world/objects/hellGuardian.png';
+import hellArenaObj from 'assets/world/objects/hellArena.png';
+import pitEntranceObj from 'assets/world/objects/pitEntrance.png';
 import oldKingObj from 'assets/world/objects/oldKing.png';
 import bombObj from 'assets/world/objects/bomb.png';
 import oreShell from 'assets/world/objects/oreShell.png';
@@ -79,6 +87,7 @@ import fountainActive from 'assets/world/objects/fountainActive.png';
 import fountainInactive from 'assets/world/objects/fountainInactive.png';
 import heart from 'assets/world/objects/heart.png';
 import heartHalf from 'assets/world/objects/heartHalf.png';
+import badgeSlot from 'assets/world/objects/badgeSlot.png';
 import healingFlask from 'assets/world/objects/healingFlask.png';
 import defenseUp from 'assets/world/objects/defenseUp.png';
 import pedestal from 'assets/world/objects/pedestal.png';
@@ -185,7 +194,10 @@ type DungeonMeta = {
 	rooms: DungeonRoom[];
 };
 
-export const Dungeons = loadYamlData<DungeonMeta>(dungeons);
+export const Dungeons = loadYamlData<DungeonMeta>(dungeons, d => ({
+	...d,
+	rooms: (d.rooms ?? []).map(r => ({ ...r, type: r.type ?? 0 }))
+}));
 
 export type Item = {
 	id: number;
@@ -317,12 +329,14 @@ export const RoomTypes: Record<number, RoomType> = {
 export type StateMeta = {
 	name: string;
 	shortName?: string;
+	value?: number;
 	flags: string[];
 	types?: number[];
 	biomes?: number[];
 	maps?: number[];
 	sprite: [string, number, number];
 	secondarySprite?: [string, number, number];
+	nonCompletion?: boolean;
 };
 
 export const WorldStateMeta: StateMeta[] = [
@@ -333,6 +347,25 @@ export const WorldStateMeta: StateMeta[] = [
 		types: [21],
 		biomes: [], // Missing amberpath town biome
 		sprite: [samObj, 30, 23],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: 'Talked to the Banker',
+		shortName: 'Talked',
+		flags: ['n10'],
+		types: [21, 22, 29],
+		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
+		sprite: [bankerObj, 17, 19],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to the Shopkeeper',
+		shortName: 'Talked',
+		flags: ['n26'],
+		types: [21, 22, 29],
+		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
+		sprite: [shopkeeperObj, 14, 22],
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
@@ -342,7 +375,18 @@ export const WorldStateMeta: StateMeta[] = [
 		types: [22],
 		biomes: [45],
 		sprite: [chefObj, 19, 27],
-		secondarySprite: [speechBubble, 11, 10]
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: 'Fully upgraded healing brew',
+		shortName: 'Fully upgraded',
+		value: 2,
+		flags: ['n12'],
+		types: [22],
+		biomes: [45],
+		sprite: [chefObj, 19, 27],
+		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
 		name: 'Talked to the Blacksmith',
@@ -363,13 +407,44 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [speechBubble, 11, 10]
 	},
 	{
-		name: 'Talked to the Shopkeeper',
+		name: 'Talked to the Wizard',
 		shortName: 'Talked',
-		flags: ['n26'],
-		types: [21, 22, 29],
-		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
-		sprite: [shopkeeperObj, 14, 22],
+		flags: ['n30'],
+		types: [22],
+		biomes: [45],
+		sprite: [wizardObj, 24, 26],
 		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Talked to Barrel Bob',
+		shortName: 'Talked',
+		flags: ['n23'],
+		types: [21],
+		biomes: [7],
+		sprite: [barrelBobObj, 14, 22],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: 'Heard the 1st joke from the Comedian fish',
+		shortName: '1st joke',
+		flags: ['n22'],
+		types: [21],
+		biomes: [47],
+		sprite: [comedianFishObj, 18, 19],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: 'Heard the 2nd joke from the Comedian fish',
+		shortName: '2nd joke',
+		flags: ['n22'],
+		value: 2,
+		types: [21],
+		biomes: [47],
+		sprite: [comedianFishObj, 18, 19],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
 	},
 	{
 		name: 'Talked to the Clay Man',
@@ -462,13 +537,14 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [moltenRift, 10, 10]
 	},
 	{
-		name: 'Shopkeeper New items',
+		name: 'Shopkeeper new items',
 		shortName: 'New items',
 		flags: ['n21001'],
 		types: [21, 22, 29],
 		biomes: [45, 7, 12, 46, 26, 16, 48, 50],
 		sprite: [shopkeeperObj, 17, 19],
-		secondarySprite: [exclamationBubble, 11, 13]
+		secondarySprite: [exclamationBubble, 11, 13],
+		nonCompletion: true
 	},
 	{
 		name: 'Fairreach Shopkeeper',
@@ -489,6 +565,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [dustcrag, 10, 10]
 	},
 	{
+		name: "Buckler's cove Shopkeeper Half-Heart",
+		shortName: 'Half-Heart',
+		flags: ['n60003'],
+		types: [21],
+		biomes: [7],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
 		name: 'Bogtown Shopkeeper',
 		shortName: 'Bogtown',
 		flags: ['n21004'],
@@ -496,6 +581,15 @@ export const WorldStateMeta: StateMeta[] = [
 		biomes: [12],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [murkmire, 10, 10]
+	},
+	{
+		name: 'Bogtown Shopkeeper Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n60001'],
+		types: [21],
+		biomes: [12],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14]
 	},
 	{
 		name: 'Sprucepoint Shopkeeper',
@@ -507,6 +601,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [pinePeak, 10, 10]
 	},
 	{
+		name: 'Sprucepoint Shopkeeper Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n60002'],
+		types: [21],
+		biomes: [46],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
 		name: 'Chamberstone Shopkeeper',
 		shortName: 'Chamberstone',
 		flags: ['n21006'],
@@ -514,6 +617,16 @@ export const WorldStateMeta: StateMeta[] = [
 		biomes: [26],
 		sprite: [shopkeeperObj, 17, 19],
 		secondarySprite: [twistedCaverns, 10, 10]
+	},
+	{
+		name: 'UNUSED Chamberstone Shopkeeper Half-Heart',
+		shortName: 'UNUSED Half-Heart',
+		flags: ['n60012'],
+		types: [21],
+		biomes: [26],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14],
+		nonCompletion: true
 	},
 	{
 		name: 'Morelton Shopkeeper',
@@ -534,6 +647,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [brinkreef, 10, 10]
 	},
 	{
+		name: 'Pearlloch Shopkeeper Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n60005'],
+		types: [21],
+		biomes: [48],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
 		name: 'The Pit Shopkeeper',
 		shortName: 'The Pit',
 		flags: ['n21007'],
@@ -543,13 +665,23 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [moltenRift, 10, 10]
 	},
 	{
-		name: 'Badge trader Exclamation mark',
+		name: 'The Pit Shopkeeper Half-Heart',
+		shortName: 'Half-Heart',
+		flags: ['n60004'],
+		types: [29],
+		biomes: [50],
+		sprite: [shopkeeperObj, 17, 19],
+		secondarySprite: [heartHalf, 15, 14]
+	},
+	{
+		name: 'Badge trader new items',
 		shortName: 'New items',
 		flags: ['n21010'],
 		types: [21, 22, 29],
 		biomes: [45, 7, 12, 46, 26, 48, 50],
 		sprite: [badgeTraderObj, 17, 23],
-		secondarySprite: [exclamationBubble, 11, 13]
+		secondarySprite: [exclamationBubble, 11, 13],
+		nonCompletion: true
 	},
 	{
 		name: 'Fairreach Badge trader',
@@ -570,6 +702,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [dustcrag, 10, 10]
 	},
 	{
+		name: "Buckler's cove Badge trader Badge Slot",
+		shortName: 'Badge Slot',
+		flags: ['n60008'],
+		types: [21],
+		biomes: [7],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
+	},
+	{
 		name: 'Bogtown Badge trader',
 		shortName: 'Bogtown',
 		flags: ['n21013'],
@@ -577,6 +718,15 @@ export const WorldStateMeta: StateMeta[] = [
 		biomes: [12],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [murkmire, 10, 10]
+	},
+	{
+		name: 'Bogtown Badge trader Badge Slot',
+		shortName: 'Badge Slot',
+		flags: ['n60006'],
+		types: [21],
+		biomes: [12],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
 	},
 	{
 		name: 'Sprucepoint Badge trader',
@@ -588,6 +738,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [pinePeak, 10, 10]
 	},
 	{
+		name: 'Sprucepoint Badge trader Badge Slot',
+		shortName: 'Badge Slot',
+		flags: ['n60007'],
+		types: [21],
+		biomes: [46],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
+	},
+	{
 		name: 'Chamberstone Badge trader',
 		shortName: 'Chamberstone',
 		flags: ['n21015'],
@@ -595,6 +754,15 @@ export const WorldStateMeta: StateMeta[] = [
 		biomes: [26],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [twistedCaverns, 10, 10]
+	},
+	{
+		name: 'Chamberstone trader Badge Slot',
+		shortName: 'Badge Slot',
+		flags: ['n60009'],
+		types: [21],
+		biomes: [26],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
 	},
 	{
 		name: 'Pearlloch Badge trader',
@@ -606,6 +774,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [brinkreef, 10, 10]
 	},
 	{
+		name: 'Pearlloch trader Badge Slot',
+		shortName: 'Badge Slot',
+		flags: ['n60011'],
+		types: [21],
+		biomes: [48],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
+	},
+	{
 		name: 'The Pit Badge trader',
 		shortName: 'The Pit',
 		flags: ['n21017'],
@@ -613,6 +790,15 @@ export const WorldStateMeta: StateMeta[] = [
 		biomes: [50],
 		sprite: [badgeTraderObj, 17, 23],
 		secondarySprite: [moltenRift, 10, 10]
+	},
+	{
+		name: 'The Pit trader Badge Slot',
+		shortName: 'Badge Slot',
+		flags: ['n60010'],
+		types: [29],
+		biomes: [50],
+		sprite: [badgeTraderObj, 17, 23],
+		secondarySprite: [badgeSlot, 14, 14]
 	},
 	{
 		name: 'Great Slime',
@@ -913,6 +1099,15 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [healingFlask, 10, 14]
 	},
 	{
+		name: 'Talked to the Old King',
+		shortName: 'Talked',
+		flags: ['n50008'],
+		types: [1],
+		maps: [7],
+		sprite: [oldKingObj, 35, 48],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
 		name: 'Bomb',
 		flags: ['n50106'],
 		types: [-2],
@@ -989,21 +1184,85 @@ export const WorldStateMeta: StateMeta[] = [
 		secondarySprite: [moltenRift, 10, 10]
 	},
 	{
+		name: 'Tanglegrove entrance challenge done',
+		shortName: 'Tanglegrove entrance',
+		flags: ['n10001'],
+		types: [63],
+		biomes: [29],
+		sprite: [jungleEntranceObj, 48, 29]
+	},
+	{
+		name: 'Talked to Lenny',
+		shortName: 'Talked',
+		flags: ['n27'],
+		types: [21],
+		biomes: [7],
+		sprite: [lennyObj, 39, 33],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: 'Given 10 Living Vines to Lenny',
+		shortName: 'Brinkreef entrance',
+		value: 2,
+		flags: ['n27'],
+		types: [21],
+		biomes: [7],
+		sprite: [lennyObj, 39, 33]
+	},
+	{
+		name: 'Molten Rift entrance challenge done',
+		shortName: 'Molten Rift entrance',
+		flags: ['n10002'],
+		types: [66],
+		biomes: [49],
+		sprite: [hellGuardianObj, 25, 29]
+	},
+	{
+		name: 'Arena entrance guardian talked to',
+		shortName: 'Talked',
+		value: 2,
+		flags: ['n10004'],
+		types: [29],
+		biomes: [50],
+		sprite: [hellGuardianObj, 25, 29],
+		secondarySprite: [speechBubble, 11, 10]
+	},
+	{
+		name: 'Beaten Molten Rift arena',
+		shortName: 'Arena beaten',
+		flags: ['n10003'],
+		types: [29],
+		biomes: [50],
+		sprite: [hellArenaObj, 33, 49]
+	},
+	{
+		name: "Talked to the Executioner's Lair entrance guardian",
+		shortName: 'Talked',
+		value: 2,
+		flags: ['n13'],
+		types: [47],
+		biomes: [49],
+		sprite: [hellGuardianObj, 25, 29],
+		secondarySprite: [speechBubble, 11, 10],
+		nonCompletion: true
+	},
+	{
+		name: "Executioner's Lair entrance",
+		shortName: 'Opened',
+		value: 3,
+		flags: ['n13'],
+		types: [47],
+		biomes: [49],
+		sprite: [pitEntranceObj, 65, 40]
+	},
+	{
 		name: 'Construction Chamber Opened',
 		shortName: 'Opened',
 		flags: ['n40008'],
 		types: [47],
 		biomes: [25],
 		sprite: [constructionChamberDoorObj, 59, 39]
-	},
-	{
-		name: 'Talked to the Old King',
-		shortName: 'Talked',
-		flags: ['n50008'],
-		types: [1],
-		maps: [7],
-		sprite: [oldKingObj, 35, 48],
-		secondarySprite: [speechBubble, 11, 10]
 	}
 ];
 
