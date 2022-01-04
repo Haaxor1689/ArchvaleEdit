@@ -25,3 +25,5 @@ yarn-error.log*
 .assets
 scripts/*.lua
 scripts/*.json
+scripts/*.csv
+scripts/*.yaml

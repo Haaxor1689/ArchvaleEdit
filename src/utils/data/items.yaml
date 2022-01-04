@@ -1,150 +1,151 @@
 - id: 1
   name: Slime
   type: Material
-  sprite: [s_item_material_slime_0, 8, 10]
+  sprite: [s_item_material_slime, 8, 10]
 - id: 2
   name: Bandit Scraps
   type: Material
   rarity: uncommon
-  sprite: [s_item_material_bandit_scraps_0, 13, 12]
+  sprite: [s_item_material_bandit_scraps, 13, 12]
 - id: 3
   name: Crab Shell
   type: Material
   rarity: uncommon
-  sprite: [s_item_material_crab_shell_0, 10, 13]
+  sprite: [s_item_material_crab_shell, 10, 13]
 - id: 4
   name: Bull Hide
   type: Material
   rarity: rare
-  sprite: [s_item_material_bull_hide_0, 10, 13]
+  sprite: [s_item_material_bull_hide, 10, 13]
   unused: true
 - id: 5
   name: Enchanted Oak
   type: Material
   rarity: epic
-  sprite: [s_item_material_enchanted_oak_0, 8, 10]
+  sprite: [s_item_material_enchanted_oak, 8, 10]
 - id: 6
   name: Wisp Dust
   type: Material
   rarity: epic
-  sprite: [s_item_material_wisp_dust_0, 10, 8]
+  sprite: [s_item_material_wisp_dust, 10, 8]
 - id: 7
   name: Poison Sac
   type: Material
   rarity: rare
-  sprite: [s_item_material_poison_vial_0, 8, 12]
+  sprite: [s_item_material_poison_vial, 8, 12]
 - id: 8
   name: Frozen Capsule
   type: Material
   rarity: epic
-  sprite: [s_item_material_frozen_capsule_0, 9, 12]
+  sprite: [s_item_material_frozen_capsule, 9, 12]
 - id: 9
   name: Spider Chunk
   type: Material
   rarity: epic
-  sprite: [s_item_material_spider_parts_0, 13, 14]
+  sprite: [s_item_material_spider_parts, 13, 14]
   unused: true
 - id: 10
   name: Spiderweave
   type: Material
   rarity: epic
-  sprite: [s_item_material_spiderweave_0, 10, 10]
+  sprite: [s_item_material_spiderweave, 10, 10]
 - id: 11
   name: Yeti Pelt
   type: Material
   rarity: epic
-  sprite: [s_item_material_yeti_pelt_0, 10, 13]
+  sprite: [s_item_material_yeti_pelt, 10, 13]
   unused: true
 - id: 12
   name: Undead Essence
   type: Material
   rarity: legendary
-  sprite: [s_item_material_undead_essence_0, 12, 13]
+  sprite: [s_item_material_undead_essence, 12, 13]
 - id: 13
   name: Scarlet Shard
   type: Material
   rarity: heroic
-  sprite: [s_item_material_crystal_shards_0, 10, 9]
+  sprite: [s_item_material_crystal_shards, 10, 9]
 - id: 14
   name: Fungal Cap
   type: Material
   rarity: heroic
-  sprite: [s_item_material_fungal_cap_0, 12, 12]
+  sprite: [s_item_material_fungal_cap, 12, 12]
   unused: true
 - id: 15
   name: Jungle Essence
   type: Material
   rarity: mythical
-  sprite: [s_item_material_jungle_essence_0, 12, 13]
+  sprite: [s_item_material_jungle_essence, 12, 13]
 - id: 16
   name: Living Vine
   type: Material
   rarity: mythical
-  sprite: [s_item_material_living_vine_0, 13, 13]
+  sprite: [s_item_material_living_vine, 13, 13]
 - id: 17
   name: Tanglestone
   type: Material
   rarity: mythical
-  sprite: [s_item_material_tanglestone_0, 12, 13]
+  sprite: [s_item_material_tanglestone, 12, 13]
 - id: 18
   name: Tough Scales
   type: Material
   rarity: mythical
-  sprite: [s_item_material_tough_scales_0, 13, 12]
+  sprite: [s_item_material_tough_scales, 13, 12]
 - id: 19
   name: Black Pearl
   type: Material
   rarity: divine
-  sprite: [s_item_material_black_pearl_0, 8, 8]
+  sprite: [s_item_material_black_pearl, 8, 8]
   unused: true
 - id: 20
   name: Coral Stone
   type: Material
   rarity: mythical
-  sprite: [s_item_material_coralstone_0, 11, 10]
+  sprite: [s_item_material_coralstone, 11, 10]
   unused: true
 - id: 21
   name: Ember Slag
   type: Material
   rarity: divine
-  sprite: [s_item_material_ember_slag_0, 8, 9]
+  sprite: [s_item_material_ember_slag, 8, 9]
 - id: 22
   name: Flaming Essence
   type: Material
   rarity: divine
-  sprite: [s_item_material_flaming_essence_0, 12, 13]
+  sprite: [s_item_material_flaming_essence, 12, 13]
 - id: 23
   name: Glowing Pearl
   type: Material
   rarity: mythical
-  sprite: [s_item_material_pale_pearl_0, 8, 8]
+  sprite: [s_item_material_pale_pearl, 8, 8]
   unused: true
 - id: 24
   name: Glowing Spore
   type: Material
   rarity: heroic
-  sprite: [s_item_material_glowing_spore_0, 11, 12]
+  sprite: [s_item_material_glowing_spore, 11, 12]
   unused: true
 - id: 25
   name: Ice Crystal
   type: Material
   rarity: epic
-  sprite: [s_item_material_ice_crystal_0, 13, 13]
+  sprite: [s_item_material_ice_crystal, 13, 13]
   unused: true
 - id: 26
   name: Mega Plum
   rarity: divine
   type: Material
-  sprite: [s_plum_item_0, 15, 13]
+  sprite: [s_plum_item, 15, 13]
+  unique: true
 - id: 50
   name: Arrow
   type: Material
-  sprite: [s_item_arrow_0, 10, 10]
+  sprite: [s_item_arrow, 10, 10]
   unused: true
 - id: 100
   name: Wooden Blade
   type: Melee Weapon
-  sprite: [s_player_weapon_woodland_blade_icon_0, 6, 13]
+  sprite: [s_player_weapon_woodland_blade_icon, 6, 13]
   stats:
     damage: 50
     rate: 2.7
@@ -152,7 +153,7 @@
 - id: 101
   name: Pinewood Bow
   type: Ranged Weapon
-  sprite: [s_item_weapon_pinewood_bow_0, 6, 11]
+  sprite: [s_item_weapon_pinewood_bow, 6, 11]
   stats:
     damage: 30
     rate: 3.6
@@ -160,7 +161,7 @@
 - id: 102
   name: Amethyst Staff
   type: Magical Weapon
-  sprite: [s_item_weapon_amethyst_staff_0, 10, 11]
+  sprite: [s_item_weapon_amethyst_staff, 10, 11]
   stats:
     damage: 25
     rate: 4
@@ -168,7 +169,7 @@
 - id: 103
   name: Wooden Spear
   type: Melee Weapon
-  sprite: [s_item_weapon_wooden_spear_0, 5, 16]
+  sprite: [s_item_weapon_wooden_spear, 5, 16]
   stats:
     damage: 60
     rate: 2
@@ -179,14 +180,14 @@
 - id: 104
   name: Wooden Boomerang
   type: Ranged Weapon
-  sprite: [s_item_weapon_wooden_boomerang_0, 9, 9]
+  sprite: [s_item_weapon_wooden_boomerang, 9, 9]
   stats:
     damage: 50
     rate: 1.5
 - id: 105
   name: Tome of Flame
   type: Magical Weapon
-  sprite: [s_item_weapon_tome_of_flame_0, 11, 11]
+  sprite: [s_item_weapon_tome_of_flame, 11, 11]
   stats:
     damage: 15
     burn: 5
@@ -194,8 +195,9 @@
     range: 200
 - id: 106
   name: Rusty Flail
-  type: Melee Weapon Material
-  sprite: [s_item_flail_rusty_0, 12, 13]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_flail_rusty, 12, 13]
   stats:
     damage: 40
     rate: 1
@@ -204,7 +206,7 @@
   name: Crabberang
   rarity: rare
   type: Ranged Weapon
-  sprite: [s_item_weapon_crabberang_0, 10, 10]
+  sprite: [s_item_weapon_crabberang, 10, 10]
   stats:
     damage: 80
     rate: 2
@@ -212,7 +214,7 @@
   name: Slimy Flail
   rarity: uncommon
   type: Melee Weapon
-  sprite: [s_item_weapon_slimy_flail_0, 12, 13]
+  sprite: [s_item_weapon_slimy_flail, 12, 13]
   stats:
     damage: 50
     rate: 1
@@ -223,7 +225,7 @@
   name: Bandit Crossbow
   rarity: uncommon
   type: Ranged Weapon
-  sprite: [s_item_weapon_bandit_crossbow_0, 13, 12]
+  sprite: [s_item_weapon_bandit_crossbow, 13, 12]
   stats:
     damage: 25
     rate: 1.5
@@ -232,7 +234,7 @@
   name: Ruby Staff
   rarity: uncommon
   type: Magical Weapon
-  sprite: [s_item_ruby_staff_0, 13, 13]
+  sprite: [s_item_ruby_staff, 13, 13]
   stats:
     damage: 35
     rate: 4
@@ -241,7 +243,7 @@
   name: Spiked Club
   rarity: uncommon
   type: Melee Weapon
-  sprite: [s_item_weapon_bandit_club_0, 9, 17]
+  sprite: [s_item_weapon_bandit_club, 9, 17]
   stats:
     damage: 110
     bleed: 25
@@ -250,8 +252,9 @@
 - id: 112
   name: Swift Sword
   rarity: uncommon
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_swift_sword_0, 7, 17]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_swift_sword, 7, 17]
   stats:
     damage: 40
     rate: 3.7
@@ -259,8 +262,9 @@
 - id: 113
   name: Bag of Knives
   rarity: uncommon
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_bag_of_knives_0, 12, 15]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_bag_of_knives, 12, 15]
   stats:
     damage: 20
     rate: 2
@@ -269,7 +273,7 @@
   name: Slimeshot
   rarity: uncommon
   type: Ranged Weapon
-  sprite: [s_item_weapon_slimeshot_0, 13, 12]
+  sprite: [s_item_weapon_slimeshot, 13, 12]
   unused: true
   stats:
     damage: 30
@@ -281,7 +285,7 @@
   name: Infection Staff
   rarity: rare
   type: Magical Weapon
-  sprite: [s_item_weapon_infection_staff_0, 13, 13]
+  sprite: [s_item_weapon_infection_staff, 13, 13]
   stats:
     damage: 30
     poison: 15
@@ -293,7 +297,7 @@
   name: Clawblade
   rarity: rare
   type: Melee Weapon
-  sprite: [s_item_weapon_clawblade_0, 7, 15]
+  sprite: [s_item_weapon_clawblade, 7, 15]
   stats:
     damage: 60
     rate: 3.6
@@ -302,7 +306,7 @@
   name: Bag of Frozen Poisoned Knives
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_bag_of_frozen_poisoned_knives_0, 12, 15]
+  sprite: [s_item_weapon_bag_of_frozen_poisoned_knives, 12, 15]
   stats:
     damage: 35
     poison: 15
@@ -313,8 +317,9 @@
 - id: 118
   name: Bag of Poisoned Knives
   rarity: rare
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_bag_of_poisoned_knives_0, 12, 15]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_bag_of_poisoned_knives, 12, 15]
   stats:
     damage: 25
     poison: 10
@@ -323,8 +328,9 @@
 - id: 119
   name: Twinshot Bow
   rarity: uncommon
-  type: Ranged Weapon Material
-  sprite: [s_item_twoshot_bow_0, 6, 15]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_twoshot_bow, 6, 15]
   stats:
     damage: 40
     rate: 3.4
@@ -332,8 +338,9 @@
 - id: 120
   name: Bubble Scepter
   rarity: uncommon
-  type: Magical Weapon Material
-  sprite: [s_item_bubble_scepter_0, 13, 13]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_bubble_scepter, 13, 13]
   stats:
     damage: 75
     rate: 1.8
@@ -341,8 +348,9 @@
 - id: 121
   name: Jousting Lance
   rarity: uncommon
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_jousting_lance_0, 16, 16]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_jousting_lance, 16, 16]
   stats:
     damage: 140
     rate: 1.5
@@ -353,8 +361,9 @@
 - id: 122
   name: Splash Tome
   rarity: uncommon
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_splash_tome_0, 11, 11]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_splash_tome, 11, 11]
   stats:
     damage: 20
     rate: 5
@@ -362,8 +371,9 @@
 - id: 123
   name: Winged Bow
   rarity: rare
-  type: Ranged Weapon Material
-  sprite: [s_item_winged_bow_0, 8, 15]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_winged_bow, 8, 15]
   stats:
     damage: 35
     rate: 6
@@ -372,7 +382,7 @@
   name: Cactus Flail
   rarity: rare
   type: Melee Weapon
-  sprite: [s_item_flail_cactus_0, 13, 14]
+  sprite: [s_item_flail_cactus, 13, 14]
   stats:
     damage: 55
     bleed: 20
@@ -381,8 +391,9 @@
 - id: 126
   name: Jackal Spear
   rarity: rare
-  type: Melee Weapon Material
-  sprite: [s_item_jackal_spear_0, 7, 18]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_jackal_spear, 7, 18]
   stats:
     damage: 160
     rate: 1.5
@@ -393,8 +404,9 @@
 - id: 128
   name: Fire Flower
   rarity: rare
-  type: Magical Weapon Material
-  sprite: [s_item_fire_flower_0, 14, 14]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_fire_flower, 14, 14]
   stats:
     damage: 30
     burn: 10
@@ -404,7 +416,7 @@
   name: Wormspit Cannon
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_wormspit_cannon_0, 15, 9]
+  sprite: [s_item_weapon_wormspit_cannon, 15, 9]
   stats:
     damage: 90
     poison: 10
@@ -414,7 +426,7 @@
   name: Toxic Twoshot
   rarity: rare
   type: Ranged Weapon
-  sprite: [s_item_weapon_toxic_twoshot_0, 7, 15]
+  sprite: [s_item_weapon_toxic_twoshot, 7, 15]
   stats:
     damage: 40
     poison: 20
@@ -424,7 +436,7 @@
   name: Slime Bubbler
   rarity: rare
   type: Magical Weapon
-  sprite: [s_item_weapon_slime_bubbler_0, 13, 13]
+  sprite: [s_item_weapon_slime_bubbler, 13, 13]
   stats:
     damage: 80
     rate: 1.9
@@ -435,7 +447,7 @@
   name: Fairy Lance
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_fairy_lance_0, 16, 16]
+  sprite: [s_item_weapon_fairy_lance, 16, 16]
   stats:
     damage: 100
     rate: 2.7
@@ -448,7 +460,7 @@
   name: Poison Wave Tome
   rarity: rare
   type: Magical Weapon
-  sprite: [s_item_weapon_poison_wave_tome_0, 11, 11]
+  sprite: [s_item_weapon_poison_wave_tome, 11, 11]
   stats:
     damage: 25
     poison: 10
@@ -458,7 +470,7 @@
   name: Snow Angel
   rarity: legendary
   type: Ranged Weapon
-  sprite: [s_item_weapon_snow_angel_0, 8, 17]
+  sprite: [s_item_weapon_snow_angel, 8, 17]
   stats:
     damage: 45
     rate: 6.6
@@ -469,7 +481,7 @@
   name: Widow Spear
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_widow_spear_0, 7, 18]
+  sprite: [s_item_weapon_widow_spear, 7, 18]
   stats:
     damage: 200
     rate: 1.5
@@ -482,7 +494,7 @@
   name: Doom Rose
   rarity: legendary
   type: Magical Weapon
-  sprite: [s_item_weapon_doom_rose_0, 16, 16]
+  sprite: [s_item_weapon_doom_rose, 16, 16]
   stats:
     damage: 35
     burn: 15
@@ -493,7 +505,7 @@
   name: Druid Bow
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_druid_bow_0, 8, 14]
+  sprite: [s_item_weapon_druid_bow, 8, 14]
   stats:
     damage: 60
     rate: 2
@@ -502,7 +514,7 @@
   name: Spider Octoshot
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_spider_octoshot_0, 13, 14]
+  sprite: [s_item_weapon_spider_octoshot, 13, 14]
   stats:
     damage: 100
     rate: 1.25
@@ -513,7 +525,7 @@
   name: Gatormage Staff
   rarity: epic
   type: Magical Weapon
-  sprite: [s_item_weapon_gatormage_staff_0, 12, 12]
+  sprite: [s_item_weapon_gatormage_staff, 12, 12]
   stats:
     damage: 35
     rate: 1
@@ -522,7 +534,7 @@
   name: Wispmother Staff
   rarity: rare
   type: Magical Weapon
-  sprite: [s_item_weapon_wispmother_staff_0, 11, 11]
+  sprite: [s_item_weapon_wispmother_staff, 11, 11]
   stats:
     damage: 60
     rate: 3.6
@@ -530,8 +542,9 @@
 - id: 141
   name: Old Scythe
   rarity: rare
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_old_scythe_0, 14, 13]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_old_scythe, 14, 13]
   stats:
     damage: 200
     rate: 1.5
@@ -540,7 +553,7 @@
   name: Sinister Sword
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_sinister_sword_0, 9, 16]
+  sprite: [s_item_weapon_sinister_sword, 9, 16]
   stats:
     damage: 80
     bleed: 20
@@ -550,7 +563,7 @@
   name: Soul Ripper
   rarity: legendary
   type: Melee Weapon
-  sprite: [s_item_weapon_soul_ripper_0, 17, 14]
+  sprite: [s_item_weapon_soul_ripper, 17, 14]
   stats:
     damage: 210
     bleed: 65
@@ -559,8 +572,9 @@
 - id: 144
   name: Maroon Arc
   rarity: epic
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_maroon_arc_0, 10, 14]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_maroon_arc, 10, 14]
   stats:
     damage: 75
     rate: 3.2
@@ -569,7 +583,7 @@
   name: Frost Ray
   rarity: epic
   type: Magical Weapon
-  sprite: [s_item_weapon_frost_ray_0, 13, 13]
+  sprite: [s_item_weapon_frost_ray, 13, 13]
   stats:
     damage: 75
     rate: 3
@@ -578,7 +592,7 @@
   name: Glacial Spear
   rarity: legendary
   type: Melee Weapon
-  sprite: [s_item_weapon_glacial_spear_0, 7, 18]
+  sprite: [s_item_weapon_glacial_spear, 7, 18]
   stats:
     damage: 140
     rate: 2.5
@@ -590,7 +604,7 @@
   name: Arctic Staff
   rarity: epic
   type: Magical Weapon
-  sprite: [s_item_arctic_staff_0, 12, 12]
+  sprite: [s_item_arctic_staff, 12, 12]
   stats:
     damage: 75
     rate: 3
@@ -599,16 +613,16 @@
   name: Frozen Shortsword
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_frozen_shortsword_0, 9, 15]
+  sprite: [s_item_frozen_shortsword, 9, 15]
   stats:
-    damage: 100
+    damage: 110
     rate: 2.7
     range: 60
 - id: 149
   name: Tome of Balance
   rarity: legendary
   type: Magical Weapon
-  sprite: [s_item_weapon_tome_of_balance_0, 12, 12]
+  sprite: [s_item_weapon_tome_of_balance, 12, 12]
   stats:
     damage: 40
     rate: 5.5
@@ -616,8 +630,9 @@
 - id: 150
   name: Soulthief Dagger
   rarity: epic
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_soulthief_dagger_0, 5, 13]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_soulthief_dagger, 5, 13]
   stats:
     damage: 120
     rate: 2.6
@@ -626,7 +641,7 @@
   name: Snowflake Cannon
   rarity: legendary
   type: Ranged Weapon
-  sprite: [s_item_weapon_snowflake_cannon_0, 16, 10]
+  sprite: [s_item_weapon_snowflake_cannon, 16, 10]
   stats:
     damage: 90
     rate: 3.6
@@ -635,7 +650,7 @@
   name: Scarlet Gembow
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_scarlet_gembow_0, 10, 14]
+  sprite: [s_item_weapon_scarlet_gembow, 10, 14]
   stats:
     damage: 110
     rate: 3.6
@@ -644,7 +659,7 @@
   name: Soulthief Spear
   rarity: mythical
   type: Melee Weapon
-  sprite: [s_item_weapon_soulthief_spear_0, 5, 18]
+  sprite: [s_item_weapon_soulthief_spear, 5, 18]
   stats:
     damage: 260
     rate: 2.5
@@ -653,8 +668,9 @@
 - id: 154
   name: Scarlet Crystal
   rarity: heroic
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_scarlet_crystal_0, 13, 13]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_scarlet_crystal, 13, 13]
   stats:
     damage: 65
     rate: 5
@@ -664,7 +680,7 @@
   name: Crystalline Halberd
   rarity: heroic
   type: Melee Weapon
-  sprite: [s_item_weapon_crystalline_halberd_0, 9, 18]
+  sprite: [s_item_weapon_crystalline_halberd, 9, 18]
   stats:
     damage: 240
     rate: 2
@@ -675,7 +691,7 @@
   name: Darkwizard Staff
   rarity: legendary
   type: Magical Weapon
-  sprite: [s_item_weapon_nightwizard_staff_0, 14, 13]
+  sprite: [s_item_weapon_nightwizard_staff, 14, 13]
   stats:
     damage: 115
     rate: 3
@@ -685,7 +701,7 @@
   name: Gemstone Blade
   rarity: heroic
   type: Melee Weapon
-  sprite: [s_item_weapon_gemstone_blade_0, 9, 19]
+  sprite: [s_item_weapon_gemstone_blade, 9, 19]
   stats:
     damage: 170
     rate: 3
@@ -694,7 +710,7 @@
   name: Third Eye Tome
   rarity: heroic
   type: Magical Weapon
-  sprite: [s_item_weapon_third_eye_tome_0, 12, 12]
+  sprite: [s_item_weapon_third_eye_tome, 12, 12]
   stats:
     damage: 90
     rate: 3.5
@@ -703,7 +719,7 @@
   name: Oobleck Rod
   rarity: heroic
   type: Magical Weapon
-  sprite: [s_item_weapon_lichen_staff_0, 12, 12]
+  sprite: [s_item_weapon_lichen_staff, 12, 12]
   stats:
     damage: 120
     rate: 2.7
@@ -711,8 +727,9 @@
 - id: 161
   name: Slime Cannon
   rarity: heroic
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_slime_cannon_0, 15, 10]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_slime_cannon, 15, 10]
   stats:
     damage: 210
     rate: 2.1
@@ -720,8 +737,9 @@
 - id: 162
   name: Luminous Prism
   rarity: heroic
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_luminous_prism_0, 14, 14]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_luminous_prism, 14, 14]
   stats:
     damage: 85
     rate: 5
@@ -731,7 +749,7 @@
   name: Magma Cannon
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_magma_cannon_0, 17, 10]
+  sprite: [s_item_weapon_magma_cannon, 17, 10]
   stats:
     damage: 330
     burn: 30
@@ -741,7 +759,7 @@
   name: Fungal Bow
   rarity: mythical
   type: Ranged Weapon
-  sprite: [s_item_weapon_fungal_bow_0, 10, 14]
+  sprite: [s_item_weapon_fungal_bow, 10, 14]
   stats:
     damage: 130
     rate: 3.6
@@ -750,7 +768,7 @@
   name: Spore Flail
   rarity: heroic
   type: Melee Weapon
-  sprite: [s_item_weapon_spore_flail_0, 14, 15]
+  sprite: [s_item_weapon_spore_flail, 14, 15]
   stats:
     damage: 140
     rate: 1
@@ -761,7 +779,7 @@
   name: Colossus Sword
   rarity: mythical
   type: Melee Weapon
-  sprite: [s_item_weapon_colossus_sword_0, 9, 23]
+  sprite: [s_item_weapon_colossus_sword, 9, 23]
   stats:
     damage: 500
     rate: 1.2
@@ -770,7 +788,7 @@
   name: Living Bow
   rarity: masterwork
   type: Ranged Weapon
-  sprite: [s_item_weapon_sentient_bow_0, 10, 18]
+  sprite: [s_item_weapon_sentient_bow, 10, 18]
   stats:
     damage: 240
     rate: 3.4
@@ -779,7 +797,7 @@
   name: Grove Hatchet
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_grove_hatchet_0, 10, 14]
+  sprite: [s_item_weapon_grove_hatchet, 10, 14]
   stats:
     damage: 160
     rate: 4
@@ -788,8 +806,9 @@
 - id: 172
   name: Bloomerang
   rarity: mythical
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_bloomerang_0, 12, 12]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_bloomerang, 12, 12]
   stats:
     damage: 190
     rate: 2.5
@@ -797,7 +816,7 @@
   name: Terracotta Bow
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_terracotta_bow_0, 11, 16]
+  sprite: [s_item_weapon_terracotta_bow, 11, 16]
   stats:
     damage: 625
     rate: 0.9
@@ -806,8 +825,9 @@
 - id: 174
   name: Vinestring Shortbow
   rarity: mythical
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_vinestring_longbow_0, 9, 16]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_vinestring_longbow, 9, 16]
   stats:
     damage: 120
     rate: 2
@@ -816,7 +836,7 @@
   name: Bulbhead Flail
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_bulbhead_flail_0, 14, 15]
+  sprite: [s_item_weapon_bulbhead_flail, 14, 15]
   stats:
     damage: 225
     rate: 1
@@ -825,7 +845,7 @@
   name: Terracotta Claymore
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_terracotta_claymore_0, 9, 18]
+  sprite: [s_item_weapon_terracotta_claymore, 9, 18]
   unused: true
   stats:
     damage: 800
@@ -834,8 +854,9 @@
 - id: 178
   name: Tanglegrove Codex
   rarity: mythical
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_tanglegrove_codex_0, 12, 12]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_tanglegrove_codex, 12, 12]
   stats:
     damage: 70
     rate: 6.5
@@ -844,7 +865,7 @@
   name: Stinger Launcher
   rarity: mythical
   type: Ranged Weapon
-  sprite: [s_item_weapon_stinger_launcher_0, 18, 13]
+  sprite: [s_item_weapon_stinger_launcher, 18, 13]
   stats:
     damage: 170
     poison: 55
@@ -854,7 +875,7 @@
   name: Doomerang
   rarity: masterwork
   type: Ranged Weapon
-  sprite: [s_item_weapon_doomerang_0, 14, 14]
+  sprite: [s_item_weapon_doomerang, 14, 14]
   stats:
     damage: 230
     bleed: 70
@@ -862,8 +883,9 @@
 - id: 181
   name: Great White Bow
   rarity: divine
-  type: Ranged Weapon Material
-  sprite: [s_item_weapon_great_white_bow_0, 11, 14]
+  type: Ranged Weapon
+  material: true
+  sprite: [s_item_weapon_great_white_bow, 11, 14]
   stats:
     damage: 150
     rate: 4.6
@@ -871,8 +893,9 @@
 - id: 182
   name: Maelstrom Flail
   rarity: divine
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_maelstrom_flail_0, 13, 14]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_maelstrom_flail, 13, 14]
   stats:
     damage: 250
     rate: 1
@@ -880,8 +903,9 @@
 - id: 183
   name: Trench Geyser
   rarity: divine
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_trench_geyser_0, 13, 13]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_trench_geyser, 13, 13]
   stats:
     damage: 230
     rate: 3
@@ -889,8 +913,9 @@
 - id: 184
   name: Merman Trident
   rarity: mythical
-  type: Melee Weapon Material
-  sprite: [s_item_weapon_merman_trident_0, 14, 14]
+  type: Melee Weapon
+  material: true
+  sprite: [s_item_weapon_merman_trident, 14, 14]
   stats:
     damage: 200
     rate: 3
@@ -901,8 +926,9 @@
 - id: 185
   name: Brinkreef Codex
   rarity: divine
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_brinkreef_codex_0, 12, 12]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_brinkreef_codex, 12, 12]
   stats:
     damage: 90
     rate: 6
@@ -913,7 +939,7 @@
   name: Flare Vortex
   rarity: masterwork
   type: Melee Weapon
-  sprite: [s_item_weapon_flare_vortex_0, 15, 14]
+  sprite: [s_item_weapon_flare_vortex, 15, 14]
   stats:
     damage: 260
     burn: 130
@@ -923,7 +949,7 @@
   name: Lifeblood Ray
   rarity: masterwork
   type: Magical Weapon
-  sprite: [s_item_weapon_lifeblood_ray_0, 14, 14]
+  sprite: [s_item_weapon_lifeblood_ray, 14, 14]
   stats:
     damage: 400
     rate: 3
@@ -932,7 +958,7 @@
   name: Hellfire Crossbow
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_hellfire_crossbow_0, 14, 13]
+  sprite: [s_item_weapon_hellfire_crossbow, 14, 13]
   stats:
     damage: 125
     burn: 65
@@ -942,7 +968,7 @@
   name: Flaming Pitchfork
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_flaming_pitchfork_0, 15, 15]
+  sprite: [s_item_weapon_flaming_pitchfork, 15, 15]
   stats:
     damage: 380
     burn: 120
@@ -955,7 +981,7 @@
   name: Staff of the Rift
   rarity: divine
   type: Magical Weapon
-  sprite: [s_item_weapon_staff_of_the_rift_0, 14, 14]
+  sprite: [s_item_weapon_staff_of_the_rift, 14, 14]
   stats:
     damage: 255
     burn: 90
@@ -965,7 +991,7 @@
   name: Avarn's Sword
   rarity: masterwork
   type: Melee Weapon
-  sprite: [s_item_weapon_avarn_sword_0, 8, 19]
+  sprite: [s_item_weapon_avarn_sword, 8, 19]
   stats:
     damage: 500
     rate: 2.7
@@ -974,7 +1000,7 @@
   name: Demonic Blade
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_demonic_blade_0, 15, 15]
+  sprite: [s_item_weapon_demonic_blade, 15, 15]
   stats:
     damage: 420
     rate: 3.3
@@ -982,8 +1008,9 @@
 - id: 195
   name: Rift Codex
   rarity: divine
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_rift_codex_0, 12, 12]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_rift_codex, 12, 12]
   stats:
     damage: 110
     burn: 35
@@ -993,7 +1020,7 @@
   name: Archvale Lexicon
   rarity: masterwork
   type: Magical Weapon
-  sprite: [s_item_weapon_archvale_lexicon_0, 13, 13]
+  sprite: [s_item_weapon_archvale_lexicon, 13, 13]
   stats:
     damage: 130
     burn: 30
@@ -1002,7 +1029,7 @@
 - id: 197
   name: Crab Hammers
   type: Ranged Weapon
-  sprite: [s_item_weapon_crab_hammers_0, 7, 10]
+  sprite: [s_item_weapon_crab_hammers, 7, 10]
   stats:
     damage: 35
     rate: 3.6
@@ -1011,7 +1038,7 @@
 - id: 300
   name: Shell Axe
   type: Ranged Weapon
-  sprite: [s_item_weapon_shell_axe_0, 8, 12]
+  sprite: [s_item_weapon_shell_axe, 8, 12]
   stats:
     damage: 35
     rate: 3
@@ -1019,7 +1046,7 @@
 - id: 301
   name: Shell Blade
   type: Melee Weapon
-  sprite: [s_item_weapon_shell_blade_0, 5, 10]
+  sprite: [s_item_weapon_shell_blade, 5, 10]
   stats:
     damage: 40
     bleed: 15
@@ -1028,7 +1055,7 @@
 - id: 302
   name: Snail Rod
   type: Magical Weapon
-  sprite: [s_item_weapon_snail_rod_0, 13, 13]
+  sprite: [s_item_weapon_snail_rod, 13, 13]
   stats:
     damage: 35
     rate: 2.3
@@ -1037,7 +1064,7 @@
   name: Iron Bow
   rarity: uncommon
   type: Ranged Weapon
-  sprite: [s_item_weapon_iron_bow_0, 7, 12]
+  sprite: [s_item_weapon_iron_bow, 7, 12]
   stats:
     damage: 40
     rate: 3.6
@@ -1046,7 +1073,7 @@
   name: Iron Shortblade
   rarity: uncommon
   type: Melee Weapon
-  sprite: [s_item_weapon_iron_shortblade_0, 6, 10]
+  sprite: [s_item_weapon_iron_shortblade, 6, 10]
   stats:
     damage: 50
     bleed: 15
@@ -1056,7 +1083,7 @@
   name: Iron Sword
   rarity: uncommon
   type: Melee Weapon
-  sprite: [s_item_weapon_iron_sword_0, 6, 14]
+  sprite: [s_item_weapon_iron_sword, 6, 14]
   stats:
     damage: 50
     rate: 2.7
@@ -1065,7 +1092,7 @@
   name: Iron Throwing Axe
   rarity: uncommon
   type: Ranged Weapon
-  sprite: [s_item_weapon_iron_throwing_axe_0, 9, 13]
+  sprite: [s_item_weapon_iron_throwing_axe, 9, 13]
   stats:
     damage: 40
     rate: 3
@@ -1074,7 +1101,7 @@
   name: Golden Bow
   rarity: rare
   type: Ranged Weapon
-  sprite: [s_item_gold_bow_0, 6, 12]
+  sprite: [s_item_gold_bow, 6, 12]
   stats:
     damage: 50
     rate: 3.7
@@ -1083,7 +1110,7 @@
   name: Golden Dagger
   rarity: rare
   type: Melee Weapon
-  sprite: [s_item_weapon_golden_dagger_0, 6, 11]
+  sprite: [s_item_weapon_golden_dagger, 6, 11]
   stats:
     damage: 60
     bleed: 20
@@ -1093,11 +1120,11 @@
   name: Golden Halberd
   rarity: rare
   type: Melee Weapon
-  sprite: [s_item_golden_halberd_0, 8, 16]
+  sprite: [s_item_golden_halberd, 8, 16]
   stats:
     damage: 100
     rate: 2
-    range: 100
+    range: 80
     ar_pen: 2
   inflicts:
     ar_break: 100
@@ -1105,7 +1132,7 @@
   name: Obsidian Spear
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_obsidian_spear_0, 5, 16]
+  sprite: [s_item_weapon_obsidian_spear, 5, 16]
   stats:
     damage: 120
     rate: 2
@@ -1117,7 +1144,7 @@
   name: Gold Sword
   rarity: rare
   type: Melee Weapon
-  sprite: [s_item_weapon_golden_sword_0, 8, 15]
+  sprite: [s_item_weapon_golden_sword, 8, 15]
   stats:
     damage: 60
     rate: 2.7
@@ -1126,7 +1153,7 @@
   name: Darksteel Boomerang
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_darksteel_boomerang_0, 10, 10]
+  sprite: [s_item_weapon_darksteel_boomerang, 10, 10]
   stats:
     damage: 130
     rate: 1.5
@@ -1134,7 +1161,7 @@
   name: Obsidian Thrownaxe
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_obsidian_thrownaxe_0, 8, 13]
+  sprite: [s_item_weapon_obsidian_thrownaxe, 8, 13]
   stats:
     damage: 50
     rate: 4.1
@@ -1143,7 +1170,7 @@
   name: Cobalt Crossbow
   rarity: legendary
   type: Ranged Weapon
-  sprite: [s_item_weapon_cobalt_crossbow_0, 14, 12]
+  sprite: [s_item_weapon_cobalt_crossbow, 14, 12]
   stats:
     damage: 70
     rate: 1.5
@@ -1152,7 +1179,7 @@
   name: Cobalt Dagger
   rarity: legendary
   type: Melee Weapon
-  sprite: [s_item_weapon_cobalt_dagger_0, 6, 12]
+  sprite: [s_item_weapon_cobalt_dagger, 6, 12]
   stats:
     damage: 90
     bleed: 30
@@ -1163,7 +1190,7 @@
   name: Cobalt Halberd
   rarity: legendary
   type: Melee Weapon
-  sprite: [s_item_weapon_cobalt_halberd_0, 8, 17]
+  sprite: [s_item_weapon_cobalt_halberd, 8, 17]
   stats:
     damage: 180
     rate: 2
@@ -1175,7 +1202,7 @@
   name: Cobalt Rod
   rarity: legendary
   type: Magical Weapon
-  sprite: [s_item_weapon_cobalt_rod_0, 13, 13]
+  sprite: [s_item_weapon_cobalt_rod, 13, 13]
   stats:
     damage: 90
     rate: 2.3
@@ -1184,7 +1211,7 @@
   name: Cobalt Sword
   rarity: legendary
   type: Melee Weapon
-  sprite: [s_item_weapon_cobalt_sword_0, 6, 17]
+  sprite: [s_item_weapon_cobalt_sword, 6, 17]
   stats:
     damage: 120
     rate: 2.7
@@ -1193,7 +1220,7 @@
   name: Mauvite Axe
   rarity: heroic
   type: Ranged Weapon
-  sprite: [s_item_weapon_mauvite_axe_0, 9, 14]
+  sprite: [s_item_weapon_mauvite_axe, 9, 14]
   stats:
     damage: 90
     rate: 3.9
@@ -1203,7 +1230,7 @@
   name: Mauvite Bow
   rarity: heroic
   type: Ranged Weapon
-  sprite: [s_item_weapon_mauvite_bow_0, 8, 14]
+  sprite: [s_item_weapon_mauvite_bow, 8, 14]
   stats:
     damage: 100
     rate: 3.6
@@ -1212,7 +1239,7 @@
   name: Mauvite Spear
   rarity: heroic
   type: Melee Weapon
-  sprite: [s_item_weapon_mauvite_spear_0, 7, 18]
+  sprite: [s_item_weapon_mauvite_spear, 7, 18]
   stats:
     damage: 220
     rate: 2
@@ -1224,7 +1251,7 @@
   name: Mauvite Staff
   rarity: heroic
   type: Magical Weapon
-  sprite: [s_item_weapon_mauvite_staff_0, 14, 14]
+  sprite: [s_item_weapon_mauvite_staff, 14, 14]
   stats:
     damage: 195
     rate: 2
@@ -1233,7 +1260,7 @@
   name: Mauvite Sword
   rarity: heroic
   type: Melee Weapon
-  sprite: [s_item_weapon_mauvite_sword_0, 7, 16]
+  sprite: [s_item_weapon_mauvite_sword, 7, 16]
   stats:
     damage: 180
     rate: 2.7
@@ -1242,7 +1269,7 @@
   name: Phloem Battlestaff
   rarity: mythical
   type: Magical Weapon
-  sprite: [s_item_weapon_phloem_battlestaff_0, 14, 14]
+  sprite: [s_item_weapon_phloem_battlestaff, 14, 14]
   stats:
     damage: 135
     rate: 4
@@ -1251,9 +1278,9 @@
   name: Phloem Dagger
   rarity: mythical
   type: Melee Weapon
-  sprite: [s_item_weapon_phloem_dagger_0, 5, 13]
+  sprite: [s_item_weapon_phloem_dagger, 5, 13]
   stats:
-    damage: 460
+    damage: 160
     bleed: 50
     rate: 3.4
     range: 60
@@ -1261,7 +1288,7 @@
   name: Phloem Scepter
   rarity: mythical
   type: Magical Weapon
-  sprite: [s_item_weapon_phloem_scepter_0, 14, 14]
+  sprite: [s_item_weapon_phloem_scepter, 14, 14]
   stats:
     damage: 80
     rate: 3
@@ -1270,7 +1297,7 @@
   name: Phloem Spear
   rarity: mythical
   type: Melee Weapon
-  sprite: [s_item_weapon_phloem_spear_0, 7, 18]
+  sprite: [s_item_weapon_phloem_spear, 7, 18]
   stats:
     damage: 280
     rate: 2
@@ -1282,7 +1309,7 @@
   name: Phloem Sword
   rarity: mythical
   type: Melee Weapon
-  sprite: [s_item_weapon_phloem_sword_0, 8, 19]
+  sprite: [s_item_weapon_phloem_sword, 8, 19]
   stats:
     damage: 220
     rate: 2.7
@@ -1291,7 +1318,7 @@
   name: Phloem Multishot
   rarity: mythical
   type: Ranged Weapon
-  sprite: [s_item_weapon_phloem_multishot_0, 15, 12]
+  sprite: [s_item_weapon_phloem_multishot, 15, 12]
   stats:
     damage: 110
     rate: 1.5
@@ -1300,7 +1327,7 @@
   name: Zephyr Longbow
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_zephyr_longbow_0, 9, 18]
+  sprite: [s_item_weapon_zephyr_longbow, 9, 18]
   stats:
     damage: 180
     rate: 3.6
@@ -1309,7 +1336,7 @@
   name: Zephyr Crossbow
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_zephyr_crossbow_0, 14, 15]
+  sprite: [s_item_weapon_zephyr_crossbow, 14, 15]
   stats:
     damage: 150
     rate: 1.5
@@ -1318,7 +1345,7 @@
   name: Zephyr Hatchet
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_zephyr_hatchet_0, 10, 14]
+  sprite: [s_item_weapon_zephyr_hatchet, 10, 14]
   stats:
     damage: 110
     rate: 5
@@ -1327,7 +1354,7 @@
   name: Zephyr Shiv
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_zephyr_shiv_0, 6, 13]
+  sprite: [s_item_weapon_zephyr_shiv, 6, 13]
   stats:
     damage: 360
     bleed: 120
@@ -1337,7 +1364,7 @@
   name: Zephyr Scimitar
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_zephyr_sword_0, 8, 18]
+  sprite: [s_item_weapon_zephyr_sword, 8, 18]
   stats:
     damage: 240
     rate: 3
@@ -1346,7 +1373,7 @@
   name: Zephyr Wand
   rarity: divine
   type: Magical Weapon
-  sprite: [s_item_weapon_zephyr_rod_0, 13, 13]
+  sprite: [s_item_weapon_zephyr_rod, 13, 13]
   stats:
     damage: 200
     rate: 2.3
@@ -1355,7 +1382,7 @@
   name: Hyperium Ballista
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_hyperium_ballista_0, 14, 17]
+  sprite: [s_item_weapon_hyperium_ballista, 14, 17]
   stats:
     damage: 120
     rate: 1.5
@@ -1364,7 +1391,7 @@
   name: Hyperium Greatsword
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_hyperium_greatsword_0, 7, 19]
+  sprite: [s_item_weapon_hyperium_greatsword, 7, 19]
   stats:
     damage: 400
     rate: 2.2
@@ -1373,7 +1400,7 @@
   name: Hyperium Lance
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_hyperium_lance_0, 16, 16]
+  sprite: [s_item_weapon_hyperium_lance, 16, 16]
   stats:
     damage: 390
     rate: 2
@@ -1385,7 +1412,7 @@
   name: Hyperium Rod
   rarity: divine
   type: Magical Weapon
-  sprite: [s_item_weapon_hyperium_rod_0, 14, 14]
+  sprite: [s_item_weapon_hyperium_rod, 14, 14]
   stats:
     damage: 215
     rate: 2.3
@@ -1394,7 +1421,7 @@
   name: Hyperium Shortsword
   rarity: divine
   type: Melee Weapon
-  sprite: [s_item_weapon_hyperium_shortsword_0, 7, 15]
+  sprite: [s_item_weapon_hyperium_shortsword, 7, 15]
   stats:
     damage: 320
     rate: 2.7
@@ -1403,7 +1430,7 @@
   name: Hyperium Thrownaxe
   rarity: divine
   type: Ranged Weapon
-  sprite: [s_item_weapon_hyperium_thrownaxe_0, 11, 14]
+  sprite: [s_item_weapon_hyperium_thrownaxe, 11, 14]
   stats:
     damage: 190
     rate: 3.5
@@ -1412,7 +1439,7 @@
   name: Obsidian Boomerang
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_obsidian_boomerang_0, 12, 12]
+  sprite: [s_item_obsidian_boomerang, 12, 12]
   stats:
     damage: 70
     rate: 3
@@ -1420,7 +1447,7 @@
   name: Obsidian Sword
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_obsidian_sword_0, 6, 15]
+  sprite: [s_item_weapon_obsidian_sword, 6, 15]
   stats:
     damage: 50
     rate: 5
@@ -1429,7 +1456,7 @@
   name: Darksteel Sword
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_darksteel_sword_0, 6, 16]
+  sprite: [s_item_weapon_darksteel_sword, 6, 16]
   stats:
     damage: 100
     rate: 2.7
@@ -1438,7 +1465,7 @@
   name: Darksteel Bow
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_darksteel_bow_0, 9, 12]
+  sprite: [s_item_weapon_darksteel_bow, 9, 12]
   stats:
     damage: 70
     rate: 3
@@ -1447,7 +1474,7 @@
   name: Darksteel Dagger
   rarity: epic
   type: Melee Weapon
-  sprite: [s_item_weapon_darksteel_dagger_0, 6, 12]
+  sprite: [s_item_weapon_darksteel_dagger, 6, 12]
   stats:
     damage: 70
     bleed: 25
@@ -1458,7 +1485,7 @@
   name: Darksteel Staff
   rarity: epic
   type: Magical Weapon
-  sprite: [s_item_weapon_darksteel_staff_0, 13, 13]
+  sprite: [s_item_weapon_darksteel_staff, 13, 13]
   stats:
     damage: 50
     rate: 4
@@ -1467,7 +1494,7 @@
   name: Darksteel Hatchet
   rarity: epic
   type: Ranged Weapon
-  sprite: [s_item_weapon_darksteel_hatchet_0, 9, 14]
+  sprite: [s_item_weapon_darksteel_hatchet, 9, 14]
   stats:
     damage: 60
     rate: 3.2
@@ -1475,8 +1502,9 @@
 - id: 364
   name: Golden Scepter
   rarity: rare
-  type: Magical Weapon Material
-  sprite: [s_item_weapon_golden_scepter_0, 12, 12]
+  type: Magical Weapon
+  material: true
+  sprite: [s_item_weapon_golden_scepter, 12, 12]
   stats:
     damage: 30
     rate: 1.8
@@ -1485,7 +1513,7 @@
   name: Obsidian Rod
   rarity: epic
   type: Magical Weapon
-  sprite: [s_item_weapon_obsidian_rod_0, 13, 13]
+  sprite: [s_item_weapon_obsidian_rod, 13, 13]
   stats:
     damage: 70
     rate: 2.3
@@ -1495,7 +1523,7 @@
   name: Bowman's Hat
   rarity: uncommon
   type: Head Armour
-  sprite: [s_item_armour_ranger_hat_0, 10, 7]
+  sprite: [s_item_armour_ranger_hat, 10, 7]
   stats:
     def: 1
     range_dmg: 2
@@ -1503,21 +1531,21 @@
   name: Shellsloth Helmet
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_turtle_shellmet_0, 10, 9]
+  sprite: [s_item_armour_turtle_shellmet, 10, 9]
   stats:
     def: 10
     atk_spd: -3
 - id: 403
   name: Apprentice Hood
   type: Head Armour
-  sprite: [s_item_armour_apprentice_hood_0, 9, 9]
+  sprite: [s_item_armour_apprentice_hood, 9, 9]
   stats:
     def: 1
     magic_dmg: 2
 - id: 404
   name: Apprentice Robes
   type: Body Armour
-  sprite: [s_item_armour_apprentice_robes_0, 10, 9]
+  sprite: [s_item_armour_apprentice_robes, 10, 9]
   stats:
     def: 3
     magic_dmg: 1
@@ -1525,7 +1553,7 @@
   name: Bandit Hood
   rarity: uncommon
   type: Head Armour
-  sprite: [s_item_armour_bandit_hood_0, 8, 10]
+  sprite: [s_item_armour_bandit_hood, 8, 10]
   stats:
     def: 2
     all_dmg: 1
@@ -1533,7 +1561,7 @@
   name: Bandit Tunic
   rarity: uncommon
   type: Body Armour
-  sprite: [s_item_armour_bandit_tunic_0, 10, 9]
+  sprite: [s_item_armour_bandit_tunic, 10, 9]
   stats:
     def: 4
     atk_spd: 2
@@ -1541,7 +1569,7 @@
   name: Hogtail Hat
   rarity: rare
   type: Head Armour
-  sprite: [s_item_armour_hogtail_hat_0, 11, 8]
+  sprite: [s_item_armour_hogtail_hat, 11, 8]
   stats:
     def: 2
     atk_spd: 4
@@ -1549,7 +1577,7 @@
   name: Crab Helmet
   rarity: rare
   type: Head Armour
-  sprite: [s_item_armour_crab_helmet_0, 8, 12]
+  sprite: [s_item_armour_crab_helmet, 8, 12]
   stats:
     def: 4
     melee_dmg: 2
@@ -1557,7 +1585,7 @@
   name: Crab Scalemail
   rarity: rare
   type: Body Armour
-  sprite: [s_item_armour_crab_scalemail_0, 10, 9]
+  sprite: [s_item_armour_crab_scalemail, 10, 9]
   stats:
     def: 6
     melee_dmg: 2
@@ -1565,7 +1593,7 @@
   name: Archeologist's Hat
   rarity: rare
   type: Head Armour
-  sprite: [s_item_armour_archaeologist_hat_0, 10, 6]
+  sprite: [s_item_armour_archaeologist_hat, 10, 6]
   stats:
     def: 4
     range_dmg: 2
@@ -1573,7 +1601,7 @@
   name: Archeologist's Jacket
   rarity: rare
   type: Body Armour
-  sprite: [s_item_armour_archaeologist_jacket_0, 10, 9]
+  sprite: [s_item_armour_archaeologist_jacket, 10, 9]
   stats:
     def: 6
     range_dmg: 2
@@ -1581,7 +1609,7 @@
   name: Bullhide Tunic
   rarity: epic
   type: Body Armour
-  sprite: [s_item_armour_bullhide_tunic_0, 10, 10]
+  sprite: [s_item_armour_bullhide_tunic, 10, 10]
   unused: true
   stats:
     def: 16
@@ -1590,7 +1618,7 @@
   name: Cursed Mask
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_cursed_mask_0, 10, 13]
+  sprite: [s_item_armour_cursed_mask, 10, 13]
   stats:
     def: -4
     all_dmg: 4
@@ -1598,7 +1626,7 @@
   name: Wispsilk Hood
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_wispsilk_hood_0, 10, 12]
+  sprite: [s_item_armour_wispsilk_hood, 10, 12]
   stats:
     def: 4
     prot: 1
@@ -1607,7 +1635,7 @@
   name: Wispwood Chestpiece
   rarity: epic
   type: Body Armour
-  sprite: [s_item_armour_wispwood_chestpiece_0, 10, 8]
+  sprite: [s_item_armour_wispwood_chestpiece, 10, 8]
   stats:
     def: 9
     prot: 1
@@ -1615,7 +1643,7 @@
   name: Wispwood Helmet
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_wispwood_helmet_0, 10, 11]
+  sprite: [s_item_armour_wispwood_helmet, 10, 11]
   stats:
     def: 5
     prot: 1
@@ -1624,7 +1652,7 @@
   name: Frozen Crown
   rarity: legendary
   type: Head Armour
-  sprite: [s_item_armour_frozen_crown_0, 12, 8]
+  sprite: [s_item_armour_frozen_crown, 12, 8]
   stats:
     def: 6
     atk_spd: -10
@@ -1633,15 +1661,15 @@
   name: Sorcerer Hat
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_sorcerer_hat_0, 10, 6]
+  sprite: [s_item_armour_sorcerer_hat, 10, 6]
   stats:
     def: 8
     magic_dmg: 2
 - id: 420
   name: Sorcerer Robe
-  rarity: epic
+  rarity: heroic
   type: Body Armour
-  sprite: [s_item_armour_sorcerer_robe_0, 10, 9]
+  sprite: [s_item_armour_sorcerer_robe, 10, 9]
   stats:
     def: 12
     magic_dmg: 2
@@ -1649,7 +1677,7 @@
   name: Moon Jelly Cap
   rarity: divine
   type: Head Armour
-  sprite: [s_item_armour_moon_jelly_cap_0, 14, 10]
+  sprite: [s_item_armour_moon_jelly_cap, 14, 10]
   stats:
     def: 13
     prot: 2
@@ -1657,8 +1685,9 @@
 - id: 422
   name: Fungal Cap Cap
   rarity: heroic
-  type: Head Armour Material
-  sprite: [s_item_armour_mushroom_cap_cap_0, 12, 9]
+  type: Head Armour
+  material: true
+  sprite: [s_item_armour_mushroom_cap_cap, 12, 9]
   stats:
     def: 10
     prot: 1
@@ -1667,7 +1696,7 @@
   name: Sporescale Chestplate
   rarity: mythical
   type: Body Armour
-  sprite: [s_item_armour_sporescale_chestplate_0, 10, 9]
+  sprite: [s_item_armour_sporescale_chestplate, 10, 9]
   stats:
     def: 18
     prot: 1
@@ -1675,7 +1704,7 @@
   name: Sporescale Helm
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_sporescale_crown_0, 11, 9]
+  sprite: [s_item_armour_sporescale_crown, 11, 9]
   stats:
     def: 12
     prot: 1
@@ -1683,7 +1712,7 @@
   name: Temple Chestplate
   rarity: mythical
   type: Body Armour
-  sprite: [s_item_armour_temple_chestplate_0, 10, 9]
+  sprite: [s_item_armour_temple_chestplate, 10, 9]
   stats:
     def: 22
     atk_spd: 4
@@ -1691,7 +1720,7 @@
   name: Temple Helmet
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_temple_helmet_0, 10, 10]
+  sprite: [s_item_armour_temple_helmet, 10, 10]
   stats:
     def: 18
     atk_spd: 4
@@ -1699,7 +1728,7 @@
   name: Temple Hood
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_temple_hood_0, 11, 9]
+  sprite: [s_item_armour_temple_hood, 11, 9]
   stats:
     def: 16
     magic_dmg: 2
@@ -1708,7 +1737,7 @@
   name: Mermaid Tail
   rarity: mythical
   type: Body Armour
-  sprite: [s_item_armour_mermaid_tail_0, 14, 9]
+  sprite: [s_item_armour_mermaid_tail, 14, 9]
   stats:
     def: 18
     atk_spd: 4
@@ -1716,7 +1745,7 @@
   name: Shark Cap
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_shark_cap_0, 10, 13]
+  sprite: [s_item_armour_shark_cap, 10, 13]
   stats:
     def: 12
     atk_spd: 6
@@ -1724,7 +1753,7 @@
   name: Brimstone Chestplate
   rarity: divine
   type: Body Armour
-  sprite: [s_item_armour_brimstone_chestplate_0, 12, 9]
+  sprite: [s_item_armour_brimstone_chestplate, 12, 9]
   stats:
     def: 24
     all_dmg: 2
@@ -1732,69 +1761,69 @@
   name: Brimstone Greathelm
   rarity: divine
   type: Head Armour
-  sprite: [s_item_armour_brimstone_greathelm_0, 10, 12]
+  sprite: [s_item_armour_brimstone_greathelm, 10, 12]
   stats:
     def: 20
     all_dmg: 2
 - id: 500
   name: Shell Helmet
   type: Head Armour
-  sprite: [s_item_armour_shell_helmet_0, 8, 8]
+  sprite: [s_item_armour_shell_helmet, 8, 8]
   stats:
     def: 2
 - id: 501
   name: Shell Platemail
   type: Body Armour
-  sprite: [s_item_armour_shell_platemail_0, 10, 8]
+  sprite: [s_item_armour_shell_platemail, 10, 8]
   stats:
     def: 3
 - id: 502
   name: Iron Helmet
   rarity: uncommon
   type: Head Armour
-  sprite: [s_item_armour_iron_helmet_0, 8, 9]
+  sprite: [s_item_armour_iron_helmet, 8, 9]
   stats:
     def: 3
 - id: 503
   name: Iron Platebody
   rarity: uncommon
   type: Body Armour
-  sprite: [s_item_armour_iron_platebody_0, 10, 8]
+  sprite: [s_item_armour_iron_platebody, 10, 8]
   stats:
     def: 5
 - id: 504
   name: Gold Breastplate
   rarity: rare
   type: Body Armour
-  sprite: [s_item_armour_gold_breastplate_0, 10, 9]
+  sprite: [s_item_armour_gold_breastplate, 10, 9]
   stats:
     def: 8
 - id: 505
   name: Gold Helmet
   rarity: rare
   type: Head Armour
-  sprite: [s_item_armour_gold_helmet_0, 10, 10]
+  sprite: [s_item_armour_gold_helmet, 10, 10]
   stats:
     def: 5
 - id: 506
   name: Darksteel Helmet
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_darksteel_helmet_0, 8, 9]
+  sprite: [s_item_armour_darksteel_helmet, 8, 9]
   stats:
     def: 7
 - id: 507
   name: Darksteel Platebody
   rarity: epic
   type: Body Armour
-  sprite: [s_item_armour_darksteel_platebody_0, 10, 9]
+  sprite: [s_item_armour_darksteel_platebody, 10, 9]
   stats:
     def: 10
 - id: 508
   name: Obsidian Kabuto
   rarity: epic
   type: Head Armour
-  sprite: [s_item_armour_obsidian_kabuto_0, 10, 10]
+  sprite: [s_item_armour_obsidian_kabuto, 10, 10]
   stats:
     def: 6
     atk_spd: 3
@@ -1802,7 +1831,7 @@
   name: Obsidian Platemail
   rarity: epic
   type: Body Armour
-  sprite: [s_item_armour_obsidian_platemail_0, 10, 9]
+  sprite: [s_item_armour_obsidian_platemail, 10, 9]
   stats:
     def: 9
     atk_spd: 3
@@ -1810,35 +1839,35 @@
   name: Cobalt Breastplate
   rarity: legendary
   type: Body Armour
-  sprite: [s_item_armour_cobalt_breastplate_0, 10, 9]
+  sprite: [s_item_armour_cobalt_breastplate, 10, 9]
   stats:
     def: 14
 - id: 511
   name: Cobalt Helmet
   rarity: legendary
   type: Head Armour
-  sprite: [s_item_armour_cobalt_helmet_0, 8, 10]
+  sprite: [s_item_armour_cobalt_helmet, 8, 10]
   stats:
     def: 8
 - id: 512
   name: Mauvite Breastplate
   rarity: heroic
   type: Body Armour
-  sprite: [s_item_armour_mauvite_breastplate_0, 10, 9]
+  sprite: [s_item_armour_mauvite_breastplate, 10, 9]
   stats:
     def: 17
 - id: 513
   name: Mauvite Helmet
   rarity: heroic
   type: Head Armour
-  sprite: [s_item_armour_mauvite_helmet_0, 10, 9]
+  sprite: [s_item_armour_mauvite_helmet, 10, 9]
   stats:
     def: 10
 - id: 514
   name: Phloem Chainmail
   rarity: mythical
   type: Body Armour
-  sprite: [s_item_armour_phloem_chainmail_0, 10, 9]
+  sprite: [s_item_armour_phloem_chainmail, 10, 9]
   stats:
     def: 19
     magic_dmg: 3
@@ -1846,15 +1875,15 @@
   name: Phloem Headgear
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_phloem_headgear_0, 12, 10]
+  sprite: [s_item_armour_phloem_headgear, 12, 10]
   stats:
-    def: 31
+    def: 13
     range_dmg: 2
 - id: 516
   name: Phloem Hood
   rarity: mythical
   type: Head Armour
-  sprite: [s_item_armour_phloem_hood_0, 10, 11]
+  sprite: [s_item_armour_phloem_hood, 10, 11]
   stats:
     def: 12
     magic_dmg: 3
@@ -1862,7 +1891,7 @@
   name: Zephyr Breastplate
   rarity: divine
   type: Body Armour
-  sprite: [s_item_armour_zephyr_breastplate_0, 10, 9]
+  sprite: [s_item_armour_zephyr_breastplate, 10, 9]
   stats:
     def: 24
     range_dmg: 3
@@ -1870,7 +1899,7 @@
   name: Zephyr Helmet
   rarity: divine
   type: Head Armour
-  sprite: [s_item_armour_zephyr_helmet_0, 10, 10]
+  sprite: [s_item_armour_zephyr_helmet, 10, 10]
   stats:
     def: 14
     range_dmg: 3
@@ -1878,7 +1907,7 @@
   name: Hyperium Greathelm
   rarity: divine
   type: Head Armour
-  sprite: [s_item_armour_hyperium_greathelm_0, 10, 11]
+  sprite: [s_item_armour_hyperium_greathelm, 10, 11]
   stats:
     def: 16
     melee_dmg: 3
@@ -1886,7 +1915,7 @@
   name: Hyperium Mask
   rarity: divine
   type: Head Armour
-  sprite: [s_item_armour_hyperium_mask_0, 10, 12]
+  sprite: [s_item_armour_hyperium_mask, 10, 12]
   stats:
     def: 40
     atk_spd: -2
@@ -1894,79 +1923,79 @@
   name: Hyperium Platebody
   rarity: divine
   type: Body Armour
-  sprite: [s_item_armour_hyperium_platebody_0, 10, 9]
+  sprite: [s_item_armour_hyperium_platebody, 10, 9]
   stats:
     def: 24
     melee_dmg: 3
 - id: 600
   name: Shell Shard
   type: Material
-  sprite: [s_item_material_shell_shard_0, 10, 8]
+  sprite: [s_item_material_shell_shard, 10, 8]
   tags: Ore
 - id: 601
   name: Iron Ore
   rarity: uncommon
   type: Material
-  sprite: [s_item_material_iron_ore_0, 8, 9]
+  sprite: [s_item_material_iron_ore, 8, 9]
   tags: Ore
 - id: 602
   name: Gold Ore
   rarity: rare
   type: Material
-  sprite: [s_item_gold_bar_0, 9, 8]
+  sprite: [s_item_gold_bar, 9, 8]
   tags: Ore
 - id: 603
   name: Darksteel Ore
   rarity: epic
   type: Material
-  sprite: [s_item_darksteel_bar_0, 9, 9]
+  sprite: [s_item_darksteel_bar, 9, 9]
   tags: Ore
 - id: 604
   name: Obsidian Shard
   rarity: epic
   type: Material
-  sprite: [s_item_obsidian_0, 8, 11]
+  sprite: [s_item_obsidian, 8, 11]
   tags: Ore
 - id: 605
   name: Cobalt Ore
   rarity: legendary
   type: Material
-  sprite: [s_item_cobalt_bar_0, 8, 9]
+  sprite: [s_item_cobalt_bar, 8, 9]
   tags: Ore
 - id: 606
   name: Mauvite Ore
   rarity: heroic
   type: Material
-  sprite: [s_item_ore_mauvite_0, 9, 9]
+  sprite: [s_item_ore_mauvite, 9, 9]
   tags: Ore
 - id: 607
   name: Phloem Ore
   rarity: mythical
   type: Material
-  sprite: [s_item_ore_phloem_0, 8, 9]
+  sprite: [s_item_ore_phloem, 8, 9]
   tags: Ore
 - id: 608
   name: Zephyr Ore
   rarity: divine
   type: Material
-  sprite: [s_item_ore_zephyr_0, 8, 10]
+  sprite: [s_item_ore_zephyr, 8, 10]
   tags: Ore
 - id: 609
   name: Hyperium Ore
   rarity: divine
   type: Material
-  sprite: [s_item_ore_hyperium_0, 8, 10]
+  sprite: [s_item_ore_hyperium, 8, 10]
   tags: Ore
 - id: 610
   name: Herb
   type: Material
-  sprite: [s_item_herb_test_0, 13, 12]
+  sprite: [s_item_herb_test, 13, 12]
   unused: true
 - id: 800
   name: Bonecrusher Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d1_0, 11, 11]
+  sprite: [s_item_ring_d1, 11, 11]
   effect: Deal bonus damage to skeletons
   stats:
     def: 3
@@ -1975,7 +2004,7 @@
   name: Opulent Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d2_0, 12, 12]
+  sprite: [s_item_ring_d2, 12, 12]
   effect: Slain enemies drop extra gold
   stats:
     atk_spd: 3
@@ -1983,7 +2012,7 @@
   name: Frost Bastion Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d3_0, 11, 11]
+  sprite: [s_item_ring_d3, 11, 11]
   effect: Evade damage to gain an ice shield
   stats:
     def: 5
@@ -1991,13 +2020,13 @@
   name: Rosethorn Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d4_0, 11, 11]
+  sprite: [s_item_ring_d4, 11, 11]
   effect: +1 stamina, dashes deal damage
 - id: 804
   name: Deathcap Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d5_0, 12, 12]
+  sprite: [s_item_ring_d5, 12, 12]
   effect: Poison all enemies upon taking damage
   stats:
     def: 10
@@ -2005,238 +2034,238 @@
   name: Crimson Berserker Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d6_0, 11, 11]
+  sprite: [s_item_ring_d6, 11, 11]
   effect: Gain power by killing enemies without taking damage
 - id: 806
   name: Seamantle Ring
   rarity: divine
   type: Ring
-  sprite: [s_item_ring_d7_0, 12, 12]
+  sprite: [s_item_ring_d7, 12, 12]
   effect: Higher chance for badge effects to trigger
   stats:
     prot: 1
 - id: 807
   name: Onyx Ring
   type: Ring
-  sprite: [s_item_ring_tut_0, 9, 9]
+  sprite: [s_item_ring_tut, 9, 9]
   stats:
     def: 1
 - id: 810
   name: Onyx Ring +1
   type: Ring
-  sprite: [s_item_ring_onyx_1_0, 10, 10]
+  sprite: [s_item_ring_onyx_1, 10, 10]
   stats:
     def: 5
 - id: 811
   name: Onyx Ring +2
   rarity: uncommon
   type: Ring
-  sprite: [s_item_ring_onyx_2_0, 10, 10]
+  sprite: [s_item_ring_onyx_2, 10, 10]
   stats:
     def: 10
 - id: 812
   name: Onyx Ring +3
   rarity: epic
   type: Ring
-  sprite: [s_item_ring_onyx_3_0, 11, 11]
+  sprite: [s_item_ring_onyx_3, 11, 11]
   stats:
     def: 15
 - id: 813
   name: Onyx Ring +4
   rarity: heroic
   type: Ring
-  sprite: [s_item_ring_onyx_4_0, 11, 11]
+  sprite: [s_item_ring_onyx_4, 11, 11]
   stats:
     def: 20
 - id: 814
   name: Emerald Ring +1
   type: Ring
-  sprite: [s_item_ring_emerald_1_0, 10, 10]
+  sprite: [s_item_ring_emerald_1, 10, 10]
   stats:
     range_dmg: 1
 - id: 815
   name: Emerald Ring +2
   rarity: uncommon
   type: Ring
-  sprite: [s_item_ring_emerald_2_0, 10, 10]
+  sprite: [s_item_ring_emerald_2, 10, 10]
   stats:
     range_dmg: 2
 - id: 816
   name: Emerald Ring +3
   rarity: epic
   type: Ring
-  sprite: [s_item_ring_emerald_3_0, 11, 11]
+  sprite: [s_item_ring_emerald_3, 11, 11]
   stats:
     range_dmg: 3
 - id: 817
   name: Emerald Ring +4
   rarity: heroic
   type: Ring
-  sprite: [s_item_ring_emerald_4_0, 11, 11]
+  sprite: [s_item_ring_emerald_4, 11, 11]
   stats:
     range_dmg: 4
 - id: 818
   name: Ruby Ring +1
   type: Ring
-  sprite: [s_item_ring_ruby_1_0, 10, 10]
+  sprite: [s_item_ring_ruby_1, 10, 10]
   stats:
     melee_dmg: 1
 - id: 819
   name: Ruby Ring +2
   rarity: uncommon
   type: Ring
-  sprite: [s_item_ring_ruby_2_0, 10, 10]
+  sprite: [s_item_ring_ruby_2, 10, 10]
   stats:
     melee_dmg: 2
 - id: 820
   name: Ruby Ring +3
   rarity: epic
   type: Ring
-  sprite: [s_item_ring_ruby_3_0, 11, 11]
+  sprite: [s_item_ring_ruby_3, 11, 11]
   stats:
     melee_dmg: 3
 - id: 821
   name: Ruby Ring +4
   rarity: heroic
   type: Ring
-  sprite: [s_item_ring_ruby_4_0, 11, 11]
+  sprite: [s_item_ring_ruby_4, 11, 11]
   stats:
     melee_dmg: 4
 - id: 822
   name: Sapphire Ring +1
   type: Ring
-  sprite: [s_item_ring_sapphire_1_0, 10, 10]
+  sprite: [s_item_ring_sapphire_1, 10, 10]
   stats:
     magic_dmg: 1
 - id: 823
   name: Sapphire Ring +2
   rarity: uncommon
   type: Ring
-  sprite: [s_item_ring_sapphire_2_0, 10, 10]
+  sprite: [s_item_ring_sapphire_2, 10, 10]
   stats:
     magic_dmg: 2
 - id: 824
   name: Sapphire Ring +3
   rarity: epic
   type: Ring
-  sprite: [s_item_ring_sapphire_3_0, 11, 11]
+  sprite: [s_item_ring_sapphire_3, 11, 11]
   stats:
     magic_dmg: 3
 - id: 825
   name: Sapphire Ring +4
   rarity: heroic
   type: Ring
-  sprite: [s_item_ring_sapphire_4_0, 11, 11]
+  sprite: [s_item_ring_sapphire_4, 11, 11]
   stats:
     magic_dmg: 4
 - id: 826
   name: Amethyst Ring +1
   type: Ring
-  sprite: [s_item_ring_amethyst_1_0, 10, 10]
+  sprite: [s_item_ring_amethyst_1, 10, 10]
   stats:
     atk_spd: 2
 - id: 827
   name: Amethyst Ring +2
   rarity: uncommon
   type: Ring
-  sprite: [s_item_ring_amethyst_2_0, 10, 10]
+  sprite: [s_item_ring_amethyst_2, 10, 10]
   stats:
     atk_spd: 3
 - id: 828
   name: Amethyst Ring +3
   rarity: epic
   type: Ring
-  sprite: [s_item_ring_amethyst_3_0, 11, 11]
+  sprite: [s_item_ring_amethyst_3, 11, 11]
   stats:
     atk_spd: 4
 - id: 829
   name: Amethyst Ring +4
   rarity: heroic
   type: Ring
-  sprite: [s_item_ring_amethyst_4_0, 11, 11]
+  sprite: [s_item_ring_amethyst_4, 11, 11]
   stats:
     atk_spd: 6
 - id: 900
   name: Copper Treasure
   rarity: uncommon
   type: Treasure
-  sprite: [s_item_treasure_bronze_1_0, 17, 11]
+  sprite: [s_item_treasure_bronze_1, 17, 11]
   stats:
     cost: 100
 - id: 901
   name: Copper Treasure
   rarity: uncommon
   type: Treasure
-  sprite: [s_item_treasure_bronze_2_0, 11, 14]
+  sprite: [s_item_treasure_bronze_2, 11, 14]
   stats:
     cost: 100
 - id: 902
   name: Copper Treasure
   rarity: uncommon
   type: Treasure
-  sprite: [s_item_treasure_bronze_3_0, 12, 14]
+  sprite: [s_item_treasure_bronze_3, 12, 14]
   stats:
     cost: 100
 - id: 903
   name: Copper Treasure
   rarity: uncommon
   type: Treasure
-  sprite: [s_item_treasure_bronze_4_0, 12, 14]
+  sprite: [s_item_treasure_bronze_4, 12, 14]
   stats:
     cost: 100
 - id: 904
   name: Silver Treasure
   rarity: epic
   type: Treasure
-  sprite: [s_item_treasure_silver_1_0, 17, 11]
+  sprite: [s_item_treasure_silver_1, 17, 11]
   stats:
     cost: 200
 - id: 905
   name: Silver Treasure
   rarity: epic
   type: Treasure
-  sprite: [s_item_treasure_silver_2_0, 11, 14]
+  sprite: [s_item_treasure_silver_2, 11, 14]
   stats:
     cost: 200
 - id: 906
   name: Silver Treasure
   rarity: epic
   type: Treasure
-  sprite: [s_item_treasure_silver_3_0, 12, 14]
+  sprite: [s_item_treasure_silver_3, 12, 14]
   stats:
     cost: 200
 - id: 907
   name: Silver Treasure
   rarity: epic
   type: Treasure
-  sprite: [s_item_treasure_silver_4_0, 12, 14]
+  sprite: [s_item_treasure_silver_4, 12, 14]
   stats:
     cost: 200
 - id: 908
   name: Gold Treasure
   rarity: heroic
   type: Treasure
-  sprite: [s_item_treasure_gold_1_0, 17, 11]
+  sprite: [s_item_treasure_gold_1, 17, 11]
   stats:
     cost: 500
 - id: 909
   name: Gold Treasure
   rarity: heroic
   type: Treasure
-  sprite: [s_item_treasure_gold_2_0, 11, 14]
+  sprite: [s_item_treasure_gold_2, 11, 14]
   stats:
     cost: 500
 - id: 910
   name: Gold Treasure
   rarity: heroic
   type: Treasure
-  sprite: [s_item_treasure_gold_3_0, 12, 14]
+  sprite: [s_item_treasure_gold_3, 12, 14]
   stats:
     cost: 500
 - id: 911
   name: Gold Treasure
   rarity: heroic
   type: Treasure
-  sprite: [s_item_treasure_gold_4_0, 12, 14]
+  sprite: [s_item_treasure_gold_4, 12, 14]
   stats:
     cost: 500

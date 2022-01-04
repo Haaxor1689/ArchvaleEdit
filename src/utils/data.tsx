@@ -202,16 +202,18 @@ export const Dungeons = loadYamlData<DungeonMeta>(dungeons, d => ({
 export type Item = {
 	id: number;
 	name: string;
-	sprite: [string, number, number];
 	rarity?: keyof Palette['rarity'];
+	sprite: [string, number, number];
 	effect?: string;
 	stats?: Record<string, string | number>;
 	inflicts?: Record<string, string | number>;
-	unused?: boolean;
+	material?: true;
+	unique?: true;
+	unused?: true;
 } & (
 	| { type: 'Material' }
-	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon${'' | ' Material'}` }
-	| { type: `${'Head' | 'Body'} Armour${'' | ' Material'}` }
+	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon` }
+	| { type: `${'Head' | 'Body'} Armour` }
 	| { type: 'Ring' }
 	| { type: 'Treasure' }
 );
@@ -224,7 +226,7 @@ type StatMeta = {
 	getValue?: (v: number) => string;
 };
 
-const getPercent = (v: number) => `${v}%`;
+const getPercent = (v: number) => `${v * 100}%`;
 const getPlus = (v: number) => `${v < 0 ? '' : '+'}${v * 5}%`;
 const getAtkSpd = (v: number) => `${v < 0 ? '' : '+'}${v * 2}%`;
 
@@ -247,7 +249,7 @@ export const StatsMetadata: Record<string, StatMeta> = {
 	cost: { icon: costIcon },
 	ar_break: { icon: arBreakIcon, title: 'Armour Break', getValue: getPercent },
 	slow: { icon: slowIcon, getValue: getPercent },
-	expose: { icon: exposeIcon }
+	expose: { icon: exposeIcon, getValue: getPercent }
 };
 
 type BiomeMeta = {

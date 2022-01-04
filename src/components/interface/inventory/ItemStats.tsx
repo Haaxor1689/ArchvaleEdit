@@ -75,7 +75,9 @@ const ItemStats = ({
 	type,
 	effect,
 	stats,
-	inflicts
+	inflicts,
+	material,
+	unique
 }: typeof Items[number] & Partial<Pick<InventoryItem, 'quality'>>) => (
 	<>
 		<Typography
@@ -93,16 +95,10 @@ const ItemStats = ({
 			</Typography>
 		</Typography>
 
-		{type.match(' Material') ? (
-			<>
-				<Typography color="text.secondary">
-					{type.split(' ').slice(0, 2).join(' ')}
-				</Typography>
-				<Typography color="text.secondary">Material</Typography>
-			</>
-		) : (
-			<Typography color="text.secondary">{type}</Typography>
-		)}
+		<Typography color="text.secondary">{`${type}${
+			material ? ' Material' : ''
+		}`}</Typography>
+		{unique && <Typography color="badge">Unique</Typography>}
 
 		{effect && <Typography>{effect}</Typography>}
 

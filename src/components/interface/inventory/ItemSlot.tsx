@@ -147,7 +147,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 				{item &&
 					(itemMeta?.sprite ? (
 						<Sprite
-							img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}.png`}
+							img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}_0.png`}
 							width={itemMeta.sprite[1]}
 							height={itemMeta.sprite[2]}
 							flexShrink={0}
