@@ -95,9 +95,8 @@ const ItemStats = ({
 			</Typography>
 		</Typography>
 
-		<Typography color="text.secondary">{`${type}${
-			material ? ' Material' : ''
-		}`}</Typography>
+		<Typography color="text.secondary">{type}</Typography>
+		{material && <Typography color="text.secondary">Material</Typography>}
 		{unique && <Typography color="badge">Unique</Typography>}
 
 		{effect && <Typography>{effect}</Typography>}

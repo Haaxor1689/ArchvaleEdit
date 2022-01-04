@@ -28,17 +28,19 @@ const calcDamage = (item, attr = 'damage') =>
 	(item.weapon?.shots ?? 1) *
 	5;
 
-const getDamageTooltip = (item, attr = 'damage') =>
-	!item.weapon || !item.weapon.projectiles.filter(p => p[attr]).length
-		? undefined
-		: `${avg(item.weapon.projectiles.map(p => p[attr]).filter(p => p)) * 5}${
-				item.weapon.projectiles.filter(p => p[attr]).length > 1 &&
-				!item.weapon.firemode !== 'cycle'
-					? `x${item.weapon.projectiles.filter(p => p[attr]).length}`
-					: ''
-		  }${item.weapon.shots ? `x${item.weapon.shots}` : ''}${
-				item.weapon.burst ? `x${item.weapon.burst.shots}` : ''
-		  }`;
+const getDamageTooltip = (item, attr = 'damage') => {
+	if (!item.weapon || !item.weapon.projectiles.filter(p => p[attr]).length)
+		return undefined;
+	const mult =
+		(!item.weapon.firemode !== 'cycle'
+			? item.weapon.projectiles.filter(p => p[attr]).length
+			: 1) *
+		(item.weapon.shots ? item.weapon.shots : 1) *
+		(item.weapon.burst ? item.weapon.burst.shots : 1);
+	return `${avg(item.weapon.projectiles.map(p => p[attr]).filter(p => p)) * 5}${
+		mult !== 1 ? `x${mult}` : ''
+	}`;
+};
 
 const test = (name, item, lhs, rhs) => {
 	if (lhs !== rhs)
@@ -134,7 +136,20 @@ const newItems = data.map((item, i) => {
 	);
 	test('Material', item, type, myItem.type);
 	test('Rarity', item, rarities[item.rarity], myItem.rarity);
-	test('Damage', item, calcDamage(item), myItem.stats?.damage ?? 0);
+	// test('Damage', item, calcDamage(item), myItem.stats?.damage ?? 0);
+	// test('Fire', item, calcDamage(item, 'damage_fire'), myItem.stats?.burn ?? 0);
+	// test(
+	// 	'Poison',
+	// 	item,
+	// 	calcDamage(item, 'damage_poison'),
+	// 	myItem.stats?.poison ?? 0
+	// );
+	// test(
+	// 	'Bleed',
+	// 	item,
+	// 	calcDamage(item, 'damage_bleed'),
+	// 	myItem.stats?.bleed ?? 0
+	// );
 	test(
 		'Range',
 		item,
@@ -142,19 +157,6 @@ const newItems = data.map((item, i) => {
 			? 0
 			: Math.max(...(item.weapon?.projectiles?.map(p => p.range) ?? [0])),
 		myItem.stats?.range ?? 0
-	);
-	test('Fire', item, calcDamage(item, 'damage_fire'), myItem.stats?.burn ?? 0);
-	test(
-		'Poison',
-		item,
-		calcDamage(item, 'damage_poison'),
-		myItem.stats?.poison ?? 0
-	);
-	test(
-		'Bleed',
-		item,
-		calcDamage(item, 'damage_bleed'),
-		myItem.stats?.bleed ?? 0
 	);
 	test('Def', item, item.armour?.stats?.defense, myItem.stats?.def);
 	test('Prot', item, item.armour?.stats?.protection, myItem.stats?.prot);
@@ -186,38 +188,44 @@ const newItems = data.map((item, i) => {
 	test(
 		'Armour break',
 		item,
-		(item.weapon?.projectiles?.find(p => p.debuff?.type === 'armour_break')
-			?.debuff.chance ?? 0) * 100,
+		item.weapon?.projectiles?.find(p => p.debuff?.type === 'armour_break')
+			?.debuff.chance ?? 0,
 		myItem.inflicts?.ar_break ?? 0
 	);
 	test(
 		'Slow',
 		item,
-		(item.weapon?.projectiles?.find(p => p.debuff?.type === 'slow')?.debuff
-			.chance ?? 0) * 100,
+		item.weapon?.projectiles?.find(p => p.debuff?.type === 'slow')?.debuff
+			.chance ?? 0,
 		myItem.inflicts?.slow ?? 0
 	);
 	test(
 		'Fairy',
 		item,
-		(item.weapon?.projectiles?.find(p => p.debuff?.type === 'fairy')?.debuff
-			.chance ?? 0) * 100,
+		item.weapon?.projectiles?.find(p => p.debuff?.type === 'fairy')?.debuff
+			.chance ?? 0,
 		myItem.inflicts?.expose ?? 0
 	);
 
-	const { id, material, unused, effect } = myItem;
+	const effect = item.armour?.tooltip
+		? loc.match(`${item.armour?.tooltip},[^,]*?,"(.*?)",`)?.[1] ??
+		  loc.match(`${item.armour?.tooltip},[^,]*?,(.*?),`)?.[1]
+		: undefined;
+	test('Effect', item, effect, myItem.effect);
+
+	const { id, material, unused } = myItem;
 
 	const stats = {
 		damage: getDamageTooltip(item),
+		burn: getDamageTooltip(item, 'damage_fire'),
+		bleed: getDamageTooltip(item, 'damage_bleed'),
+		poison: getDamageTooltip(item, 'damage_poison'),
 		rate: item.weapon?.firerate,
 		range:
 			!item.weapon || item.weapon?.type === 'boomerang'
 				? undefined
 				: Math.max(...item.weapon?.projectiles?.map(p => p.range)),
 		ar_pen: item.weapon?.projectiles?.find(p => p.armour_pierce)?.armour_pierce,
-		burn: getDamageTooltip(item, 'damage_fire'),
-		bleed: getDamageTooltip(item, 'damage_bleed'),
-		poison: getDamageTooltip(item, 'damage_poison'),
 		def: item.armour?.stats?.defense,
 		prot: item.armour?.stats?.protection,
 		all_dmg: item.armour?.stats?.power,
