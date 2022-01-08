@@ -4,6 +4,7 @@ import { keyframes } from '@emotion/react';
 import { Items, StatsMetadata } from 'utils/data';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
+import { getItemFullType } from 'utils';
 
 const rainbowColor = keyframes`
   100%,0%{
@@ -72,12 +73,12 @@ const ItemStats = ({
 	quality = 0,
 	name,
 	rarity,
-	type,
 	effect,
 	stats,
 	inflicts,
 	material,
-	unique
+	unique,
+	...item
 }: typeof Items[number] & Partial<Pick<InventoryItem, 'quality'>>) => (
 	<>
 		<Typography
@@ -95,7 +96,7 @@ const ItemStats = ({
 			</Typography>
 		</Typography>
 
-		<Typography color="text.secondary">{type}</Typography>
+		<Typography color="text.secondary">{getItemFullType(item)}</Typography>
 		{material && <Typography color="text.secondary">Material</Typography>}
 		{unique && <Typography color="badge">Unique</Typography>}
 

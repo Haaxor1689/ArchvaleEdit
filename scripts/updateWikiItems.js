@@ -32,14 +32,17 @@ const newData = [
 		.map(meta => {
 			if (meta.unused) return undefined;
 			const wiki = Object.values(parsed).find(v => v.name === meta.name) ?? {};
+			const dmg = meta.stats?.damage?.split('x');
 			return {
-				acquisition: wiki?.acquisition ?? 'Unknown',
+				acquisition: wiki?.acquisition ?? 'Incomplete data',
 				armour_break: meta.inflicts?.ar_break
-					? `${meta.inflicts?.ar_break}%`
-					: wiki?.armour_break,
+					? `${meta.inflicts?.ar_break * 100}%`
+					: undefined,
 				armour_type:
-					meta.type.match(/ Armour/) || meta.type === 'Ring'
-						? meta?.type.split(' ').slice(0, 2).join(' ')
+					meta.type === 'Armour'
+						? meta.subtype === 'Ring'
+							? 'Ring'
+							: `${meta.subtype} Armour`
 						: undefined,
 				attack_speed_buff: meta.stats?.atk_spd
 					? `${meta.stats?.atk_spd * 2}%`
@@ -47,9 +50,12 @@ const newData = [
 				bleed: meta.stats?.bleed,
 				burn: meta.stats?.burn,
 				crafting: wiki.crafting,
-				damage: meta.stats?.damage,
+				damage: dmg?.[0] ? Number(dmg[0]) : undefined,
+				damage_mod: dmg?.[1] ? Number(dmg[1]) : undefined,
 				defense: meta.stats?.def,
-				expose: meta.inflicts?.expose,
+				expose: meta.inflicts?.expose
+					? `${meta.inflicts?.expose * 100}%`
+					: undefined,
 				item_type: meta.type.match(/ Weapon/)
 					? 'Weapon'
 					: meta.type.match(/ Armour/) || meta.type === 'Ring'
@@ -65,7 +71,7 @@ const newData = [
 				name: meta.name,
 				penetration: meta.stats?.ar_pen,
 				power: meta.stats?.all_dmg ? `${meta.stats?.all_dmg * 5}%` : undefined,
-				poison: wiki?.poison,
+				poison: meta.stats?.poison,
 				protection: meta.stats?.prot,
 				range: meta.stats?.range,
 				range_buff: meta.stats?.range_dmg
@@ -73,16 +79,13 @@ const newData = [
 					: undefined,
 				rate: meta.stats?.rate,
 				ring_type: wiki?.ring_type,
-				slow: meta.inflicts?.slow ? `${meta.inflicts?.slow}%` : undefined,
+				slow: meta.inflicts?.slow ? `${meta.inflicts?.slow * 100}%` : undefined,
 				special_effects: meta.effect ?? wiki.special_effects,
 				tier: rarities[meta.rarity] ?? 1,
 				value: meta.stats?.cost,
-				weapon_category: meta.type.match(/ Weapon/)
-					? wiki?.weapon_category ??
-					  wiki.weapon_type?.match(/\((.*)\)/)?.[1] ??
-					  'Not categorized'
-					: undefined,
-				weapon_type: meta.type.match(/^(.*) Weapon/)?.[1]
+				weapon_category:
+					wiki?.weapon_category === 'Heavy' ? 'Heavy' : meta.category,
+				weapon_type: meta.type === 'Weapon' ? meta.subtype : undefined
 			};
 		})
 		.filter(i => i),

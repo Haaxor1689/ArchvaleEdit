@@ -14,7 +14,7 @@ const rarities = {
 
 const capitalize = s =>
 	s
-		.split(' ')
+		?.split(' ')
 		.map(p => p[0].toUpperCase() + p.slice(1))
 		.join(' ');
 
@@ -120,21 +120,19 @@ const newItems = data.map((item, i) => {
 	}`;
 	// test('Name', item, name, myItem.name);
 	// test('Sprite', item, `${item.icon}_0`, myItem.sprite[0]);
+	test('Type', item, capitalize(item.type), myItem.type);
 
-	const type = capitalize(
-		item.type === 'armour'
-			? item.armour.type === 'ring'
-				? item.armour.type
-				: `${item.armour.type} ${item.type}`
-			: item.type === 'weapon'
-			? `${
-					item.weapon.damage_type === 'magic'
-						? 'magical'
-						: item.weapon.damage_type
-			  } ${item.type}`
-			: item.type
+	const subtype = capitalize(
+		item.weapon?.damage_type === 'magic'
+			? 'magical'
+			: item.armour?.type ?? item.weapon?.damage_type
 	);
-	test('Material', item, type, myItem.type);
+	test('Subtype', item, subtype, myItem.subtype);
+
+	const cat = capitalize(item.weapon?.true_type ?? item.weapon?.type);
+	const category =
+		subtype === 'Ranged' && (cat === 'Axe' || cat === 'Sword') ? 'Thrown' : cat;
+	test('Category', item, category, myItem.category);
 	test('Rarity', item, rarities[item.rarity], myItem.rarity);
 	// test('Damage', item, calcDamage(item), myItem.stats?.damage ?? 0);
 	// test('Fire', item, calcDamage(item, 'damage_fire'), myItem.stats?.burn ?? 0);
@@ -251,7 +249,9 @@ const newItems = data.map((item, i) => {
 		name,
 		rarity: rarities[item.rarity],
 		sprite: [item.icon, myItem.sprite[1], myItem.sprite[2]],
-		type,
+		type: capitalize(item.type),
+		subtype,
+		category,
 		effect,
 		stats: Object.values(stats).filter(v => v).length > 0 ? stats : undefined,
 		inflicts:

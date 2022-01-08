@@ -2,7 +2,7 @@ import { Box, IconButton, ThemeProvider, Tooltip } from '@mui/material';
 import { MouseEvent, useState } from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
-import { Item, Items } from 'utils/data';
+import { Items } from 'utils/data';
 import itemCheatPanel from 'assets/inventory/itemCheatPanel.png';
 import theme from 'utils/theme';
 import useThemeSpacing from 'utils/useThemeSpacing';
@@ -18,6 +18,7 @@ import ringIcon from 'assets/ringIcon.png';
 import treasureIcon from 'assets/treasureIcon.png';
 import { sortItems } from 'utils/inventoryUtils';
 import useShowUnused from 'utils/useShowUnused';
+import { getItemFullType } from 'utils';
 
 import ItemSlot from './ItemSlot';
 
@@ -28,7 +29,7 @@ type Props = {
 
 const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 	const spacing = useThemeSpacing();
-	const [filter, setFilter] = useState<Item['type']>();
+	const [filter, setFilter] = useState<string>();
 	const [showUnused] = useShowUnused();
 	return (
 		<ThemeProvider theme={theme(spacing - 2)}>
@@ -108,7 +109,7 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 					>
 						{Items.filter(v => v && (showUnused || !v.unused))
 							.sort(sortItems)
-							.filter(v => !filter || v.type.match(filter))
+							.filter(v => !filter || getItemFullType(v).match(filter))
 							.map(item => (
 								<ItemSlot
 									key={item.id}

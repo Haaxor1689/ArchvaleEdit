@@ -79,7 +79,7 @@ export const stackItem = (
 		: item;
 
 export const isUpgradeable = (item: Item, other?: Pick<Item, 'id'>) =>
-	!!item?.type.match('Weapon') && isSame(item, other);
+	item?.type === 'Weapon' && isSame(item, other);
 
 export const upgradeItem = (
 	item: InventoryItem,
@@ -98,3 +98,16 @@ export const secondsToPlaytime = (value: number) => {
 		hours || minutes ? `${minutes}m ` : ''
 	}${seconds.toFixed(1)}s`;
 };
+
+export const getItemFullType = ({
+	type,
+	subtype,
+	category
+}: Pick<Item, 'type' | 'subtype' | 'category'>) =>
+	[
+		subtype,
+		subtype === 'Ring' ? undefined : type,
+		category ? `(${category})` : undefined
+	]
+		.filter(v => v)
+		.join(' ');

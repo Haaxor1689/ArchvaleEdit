@@ -1,19 +1,20 @@
 import { Item, Items } from './data';
 import { InventoryItem } from './types';
 
-const types = [
-	'Material',
-	'Melee Weapon',
-	'Ranged Weapon',
-	'Magical Weapon',
-	'Head Armour',
-	'Body Armour',
-	'Ring',
-	'Treasure'
+const types = ['Weapon', 'Armour', 'Material', 'Treasure'] as const;
+
+const subtypes = [
+	undefined,
+	'Melee',
+	'Ranged',
+	'Magical',
+	'Head',
+	'Body',
+	'Ring'
 ] as const;
 
 const rarities = [
-	'common',
+	undefined,
 	'uncommon',
 	'rare',
 	'epic',
@@ -27,13 +28,18 @@ const rarities = [
 export const MaxStackSize = 250;
 
 export const sortItems = (lhs: Item, rhs: Item) => {
-	const lhsType = types.findIndex(t => lhs.type.match(`^${t}`));
-	const rhsType = types.findIndex(t => rhs.type.match(`^${t}`));
+	const lhsType = types.indexOf(lhs.type);
+	const rhsType = types.indexOf(rhs.type);
 	if (lhsType > rhsType) return 1;
 	if (lhsType < rhsType) return -1;
 
-	const lhsRarity = rarities.findIndex(t => t === (lhs.rarity ?? 'common'));
-	const rhsRarity = rarities.findIndex(t => t === (rhs.rarity ?? 'common'));
+	const lhsSubtype = subtypes.indexOf(lhs.subtype);
+	const rhsSubtype = subtypes.indexOf(rhs.subtype);
+	if (lhsSubtype > rhsSubtype) return 1;
+	if (lhsSubtype < rhsSubtype) return -1;
+
+	const lhsRarity = rarities.indexOf(lhs.rarity);
+	const rhsRarity = rarities.indexOf(rhs.rarity);
 	if (lhsRarity > rhsRarity) return 1;
 	if (lhsRarity < rhsRarity) return -1;
 

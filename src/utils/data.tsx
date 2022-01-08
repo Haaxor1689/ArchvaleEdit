@@ -204,6 +204,7 @@ export type Item = {
 	name: string;
 	rarity?: keyof Palette['rarity'];
 	sprite: [string, number, number];
+	category?: string;
 	effect?: string;
 	stats?: Record<string, string | number>;
 	inflicts?: Record<string, string | number>;
@@ -211,11 +212,10 @@ export type Item = {
 	unique?: true;
 	unused?: true;
 } & (
-	| { type: 'Material' }
-	| { type: `${'Melee' | 'Ranged' | 'Magical'} Weapon` }
-	| { type: `${'Head' | 'Body'} Armour` }
-	| { type: 'Ring' }
-	| { type: 'Treasure' }
+	| { type: 'Material' | 'Treasure'; subtype: undefined }
+	| { type: `Weapon`; subtype: 'Melee' | 'Ranged' | 'Magical' }
+	| { type: `Armour`; subtype: 'Head' | 'Body' | 'Ring' }
+	| { type: 'Treasure'; subtype: undefined }
 );
 
 export const Items = loadYamlData<Item>(items);
