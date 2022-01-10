@@ -84,6 +84,7 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 				}}
 			>
 				<Typography
+					component="div"
 					variant="caption"
 					color="text.secondary"
 					sx={{ flexGrow: 1 }}
@@ -156,11 +157,14 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 				</FormControl>
 
 				{meta?.attributes?.map(a => (
-					<Typography key={a.key} variant="caption" color="text.secondary">
+					<Typography
+						key={a.key}
+						component="div"
+						variant="caption"
+						color="text.secondary"
+					>
 						{a.name}
-						<Typography color="text.primary">
-							{a.getValue?.(o[a.key], onAttribChange) ?? a.key}
-						</Typography>
+						<Box>{a.getValue?.(o[a.key], onAttribChange) ?? a.key}</Box>
 					</Typography>
 				))}
 			</Box>

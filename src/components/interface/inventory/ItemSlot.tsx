@@ -103,7 +103,9 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					'width': t => t.spacing(18),
 					'borderRadius': 0,
 					'background': `url(${
-						!item && variant === 'item' ? emptySlot : getItemIcon(variant)
+						(!item || !item.count) && variant === 'item'
+							? emptySlot
+							: getItemIcon(variant)
 					})`,
 					'backgroundPosition': 'bottom',
 					'backgroundRepeat': 'no-repeat',
@@ -152,6 +154,11 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							height={itemMeta.sprite[2]}
 							flexShrink={0}
 							zIndex={1}
+							sx={
+								!item.count
+									? { filter: 'brightness(0) opacity(0.5)' }
+									: undefined
+							}
 						/>
 					) : (
 						<Sprite

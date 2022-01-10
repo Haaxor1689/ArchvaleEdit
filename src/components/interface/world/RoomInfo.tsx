@@ -11,20 +11,22 @@ import {
 import useShowUnused from 'utils/useShowUnused';
 import { filterRoomState, parseRoomDirection } from 'utils/roomUtils';
 
-import { useIsRoomRespawn, useMapContext } from './MapProvider';
+import { useMapContext } from './MapProvider';
 import RoomEdit from './RoomEdit';
 import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
 import RoomObjectsInfo from './RoomObjectsInfo';
 import WorldState from './roomEdit/WorldState';
 import DeleteRoomButton from './roomEdit/DeleteRoomButton';
+import DifficultySwitch from './roomEdit/DifficultySwitch';
+import RespawnSwitch from './roomEdit/RespawnSwitch';
+import ExplorationSwitch from './roomEdit/ExplorationSwitch';
 
 const RoomInfo = () => {
-	const { selected, rooms, setRespawn, getRoomStatus, toggleExplored, map } =
+	const { selected, rooms, getRoomStatus, toggleExplored, map } =
 		useMapContext();
 
 	const room = rooms?.find(r => r.room_id === selected);
-	const isRespawn = useIsRoomRespawn(room);
 
 	const [showUnused] = useShowUnused();
 	const filteredWorldState = WorldStateMeta.filter(
@@ -65,9 +67,11 @@ const RoomInfo = () => {
 										Biomes[room.biome_type]?.sprite ?? 'empty'
 								  }_0.png`
 						}
+						onClick={() => console.log(room)}
 						width={7}
 						height={7}
 						mr={2}
+						flexShrink={0}
 					/>
 					<Typography variant="h3" color="text.primary" flexGrow={1}>
 						#{room.room_id} {type}
@@ -104,19 +108,22 @@ const RoomInfo = () => {
 				</Typography>
 			</Box>
 
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+					gap: 2
+				}}
+			>
+				<ExplorationSwitch />
+				{room.difficulty >= 0 && <DifficultySwitch />}
+				<RespawnSwitch />
+			</Box>
+
 			{map === -1 && <RoomBiomeSelect index={room.room_id} />}
 			{map === -1 && <RoomTypeSelect index={room.room_id} />}
 
-			{isRespawn ? (
-				<Typography>Current spawn point</Typography>
-			) : (
-				<Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-					<Typography variant="caption" color="text.secondary">
-						Setting respawn to random rooms may cause you to spawn in walls.
-					</Typography>
-					<TextButton onClick={() => setRespawn(room)}>Set respawn</TextButton>
-				</Box>
-			)}
 			<Box>
 				{map === -1 && <RoomEdit x={room.x} y={room.y} />}
 				{map === -1 && <RoomObjectsInfo room_id={room.room_id} />}

@@ -44,7 +44,9 @@ const MapRoom = (room: Props) => {
 				? 'saturate(0)'
 				: 'saturate(1)'
 			: explore === 'Hidden'
-			? 'saturate(0)'
+			? 'saturate(0) opacity(0.75)'
+			: explore === 'Outline'
+			? 'saturate(0) brightness(0.75)'
 			: explore === 'Seen'
 			? 'saturate(0.5)'
 			: undefined;

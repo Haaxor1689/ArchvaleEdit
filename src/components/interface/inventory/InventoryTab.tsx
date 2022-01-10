@@ -228,10 +228,10 @@ const InventoryTab = ({ variant }: Props) => {
 					/>
 				</Sprite>
 				<Typography variant="caption" textAlign="center">
-					Pick new items from item database below, pick full stack (
-					{MaxStackSize}) or highest quality (+5) with shift. Use left and right
-					click together with shift to modify count/quality of items in the{' '}
-					{variant}.
+					Pick new items from item database on the left, pick full stack (
+					{MaxStackSize}) or highest quality (+5) using shift. Use left and
+					right click together with shift to modify count/quality of items in
+					the {variant}.
 				</Typography>
 			</Box>
 		</GrabbedItem>

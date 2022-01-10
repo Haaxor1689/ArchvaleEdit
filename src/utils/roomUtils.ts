@@ -1,4 +1,4 @@
-import { pad, parseHexValue } from 'utils';
+import { parseHexValue } from 'utils';
 
 import { StateMeta } from './data';
 import { Dungeon, Room } from './types';
@@ -22,37 +22,12 @@ export const parseDungeonExploration = (value: string) => {
 	}
 };
 
-// TODO: add cleared flag for overworld rooms toggle
-/**
- * - 0 - down
- * - 1 - right
- * - 2 - up
- * - 3 - left
- * - 4 - ???
- * - 5 - ???
- * - 6 - ???
- * - 7 - cleared
- * - 8 - ???
- * - 9 - ???
- * - 10 - ???
- * - 11 - visited
- * TODO: 0 - hidden, 1 - black tiles, 3 - unvisited
- * - 12 - ???
- * - 13 - colored + no icons UNUSED
- * - 14 - unvisited (grey)
- * - 15 - black tiles
- */
-export const parseRoomFlags = (flags: string) =>
-	pad(parseHexValue(flags).toString(2), 16);
-
 export const parseRoomExploration = (flags: string) => {
-	const val = parseRoomFlags(flags);
-
-	return val[7] === '1'
-		? 'Visited'
-		: val[14] === '1'
-		? 'Seen'
-		: ('Hidden' as const);
+	if (flags[2] === '1') return 'Cleared';
+	if (flags[3] === '1' && flags[4] === '3') return 'Visited';
+	if (flags[4] === '2' || flags[4] === '3') return 'Seen';
+	if (flags[4] === '1') return 'Outline';
+	return 'Hidden';
 };
 
 export const parseRoomDirection = (flags?: string) =>

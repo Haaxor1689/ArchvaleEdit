@@ -9,12 +9,12 @@ import {
 } from 'utils/roomUtils';
 import { Dungeon, Room, World } from 'utils/types';
 
-export type RoomStatus = 'Visited' | 'Seen' | 'Hidden' | 'Cleared';
+export type RoomStatus = 'Cleared' | 'Visited' | 'Seen' | 'Outline' | 'Hidden';
 
 type MapContext = {
 	rooms: Room[];
 	setRespawn: (r: Partial<Room>) => void;
-	toggleExplored?: (id: number) => void;
+	toggleExplored: (id: number) => void;
 	getRoomStatus: (id: number) => RoomStatus;
 	dungeonIndex?: number;
 	dungeon?: Dungeon;
@@ -78,7 +78,7 @@ export const useRespawn = (): World['player_respawn'] => {
 		input: { value: dungeonData }
 	} = useField<Dungeon[]>(`dungeon_data`, { subscription: { value: true } });
 
-	const dungeon = dungeonData.find(d => d.dungeon_id === activeDungeon);
+	const dungeon = dungeonData.find?.(d => d.dungeon_id === activeDungeon);
 	return dungeon
 		? [activeDungeon, dungeon.last_x, dungeon.last_y]
 		: overworldRespawn;
@@ -92,11 +92,15 @@ export const useMapMin = (rooms: Room[]) => ({
 const toggleWorldExploration = (val: RoomStatus) => {
 	switch (val) {
 		case 'Hidden':
-			return '00011'; // Seen
+			return '001'; // Outline
+		case 'Outline':
+			return '002'; //Seen
 		case 'Seen':
-			return '10011'; // Visited
+			return '013'; // Visited
+		case 'Visited':
+			return '113'; // Cleared
 		default:
-			return '00001'; // Hidden
+			return '000'; // Hidden
 	}
 };
 
@@ -134,10 +138,7 @@ const useWorldMap = (): MapContext => {
 			const exploration = parseRoomExploration(rooms[id].flags);
 			newRooms[id] = {
 				...rooms[id],
-				flags: `0${rooms[id].flags[1]}${parseInt(
-					`0000000${toggleWorldExploration(exploration)}`,
-					2
-				).toString(16)}`
+				flags: `0${rooms[id].flags[1]}${toggleWorldExploration(exploration)}`
 			};
 			onRoomsChange({ target: { value: newRooms } });
 		},
@@ -165,7 +166,7 @@ const useDungeonMap = (id: number): MapContext => {
 		input: { value, onChange }
 	} = useField<Dungeon[]>(`dungeon_data`, { subscription: { value: true } });
 
-	const index = value.findIndex(d => d.dungeon_id === id);
+	const index = value.findIndex?.(d => d.dungeon_id === id);
 	const dungeon = value[index];
 	const dungeonMeta = Dungeons[dungeon?.dungeon_id];
 

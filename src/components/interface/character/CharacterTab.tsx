@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import Scrollbars from 'react-custom-scrollbars';
 
 import Sprite from 'components/Sprite';
 import panel from 'assets/character/panel.png';
@@ -17,6 +18,7 @@ import Stats from './Stats';
 import Dashes from './Dashes';
 import Bombs from './Bombs';
 import Tools from './Tools';
+import Runes from './Runes';
 
 const CharacterTab = () => (
 	<Box
@@ -34,56 +36,66 @@ const CharacterTab = () => (
 			height={123}
 			sx={{
 				position: 'relative',
-				display: 'flex',
-				p: 6
+				py: 6,
+				px: 2
 			}}
 		>
 			<PlayerToggle />
-			<Box
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'flex-start',
-					flexGrow: 1,
-					gap: 1
+			<Scrollbars
+				style={{
+					width: '100%',
+					height: '100%'
 				}}
 			>
-				<Health />
-				<Dashes />
-				<HealingPotions />
-				<HealingLevel />
-				<Plums />
+				<Box display="flex" px={4}>
+					<Box
+						sx={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'flex-start',
+							flexGrow: 1,
+							gap: 1
+						}}
+					>
+						<Health />
+						<Dashes />
+						<HealingPotions />
+						<HealingLevel />
+						<Plums />
 
-				<IconInput
-					id="player_coins"
-					label="Coins"
-					icon={<Sprite img={cost} width={7} height={7} />}
-					type="number"
-					inputProps={{
-						max: Number.MAX_SAFE_INTEGER,
-						min: 0,
-						step: 1,
-						required: true
-					}}
-				/>
+						<IconInput
+							id="player_coins"
+							label="Coins"
+							icon={<Sprite img={cost} width={7} height={7} />}
+							type="number"
+							inputProps={{
+								max: Number.MAX_SAFE_INTEGER,
+								min: 0,
+								step: 1,
+								required: true
+							}}
+						/>
 
-				<IconInput
-					id="player_coins_banked"
-					label="Banked coins"
-					icon={<Sprite img={bankCoin} width={7} height={6.5} />}
-					type="number"
-					inputProps={{
-						max: Number.MAX_SAFE_INTEGER,
-						min: 0,
-						step: 1,
-						required: true
-					}}
-				/>
+						<IconInput
+							id="player_coins_banked"
+							label="Banked coins"
+							icon={<Sprite img={bankCoin} width={7} height={6.5} />}
+							type="number"
+							inputProps={{
+								max: Number.MAX_SAFE_INTEGER,
+								min: 0,
+								step: 1,
+								required: true
+							}}
+						/>
 
-				<BankLevel />
-				<Bombs />
-			</Box>
-			<Stats />
+						<BankLevel />
+						<Bombs />
+						<Runes />
+					</Box>
+					<Stats />
+				</Box>
+			</Scrollbars>
 			<Tools />
 			<SaveInfo />
 		</Sprite>

@@ -114,7 +114,7 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 								<ItemSlot
 									key={item.id}
 									hideTooltip={hideTooltip}
-									item={{ id: item.id, count: 0, quality: 0 }}
+									item={{ id: item.id, count: 1, quality: 0 }}
 									onClick={e => onClick(item, e)}
 								/>
 							))}

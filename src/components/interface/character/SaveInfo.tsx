@@ -3,6 +3,7 @@ import { useField } from 'react-final-form';
 
 import { MultiplayerToggle } from 'components/PlayerContext';
 import { secondsToPlaytime, StrokeTextShadow } from 'utils';
+import useShowUnused from 'utils/useShowUnused';
 
 const DifficultyLabels = ['Easy', 'Normal', 'Hard'];
 
@@ -14,6 +15,10 @@ const SaveInfo = () => {
 	const {
 		input: { value: playtime }
 	} = useField<number>('playtime');
+
+	const {
+		input: { value: time }
+	} = useField<number>('time');
 
 	const {
 		input: { value: version }
@@ -35,6 +40,8 @@ const SaveInfo = () => {
 		input: { value: fountainsCleansed }
 	} = useField<string>('npst.n90004');
 
+	const [showUnused] = useShowUnused();
+
 	return (
 		<Box
 			sx={{
@@ -52,20 +59,22 @@ const SaveInfo = () => {
 			<Typography variant="h3" sx={{ textShadow: StrokeTextShadow }}>
 				Difficulty:
 			</Typography>
-			{[0, 1, 2].map(d => (
-				<Button
-					key={d}
-					variant={d === value ? 'outlined' : 'text'}
-					size="small"
-					onClick={() => onChange({ target: { value: d } })}
-					sx={{
-						textShadow: StrokeTextShadow,
-						color: d === value ? 'primary.main' : 'text.primary'
-					}}
-				>
-					{DifficultyLabels[d]}
-				</Button>
-			))}
+			<Box sx={{ display: 'flex', gap: 2 }}>
+				{[0, 1, 2].map(d => (
+					<Button
+						key={d}
+						variant={d === value ? 'outlined' : 'text'}
+						size="small"
+						onClick={() => onChange({ target: { value: d } })}
+						sx={{
+							textShadow: StrokeTextShadow,
+							color: d === value ? 'primary.main' : 'text.primary'
+						}}
+					>
+						{DifficultyLabels[d]}
+					</Button>
+				))}
+			</Box>
 
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Multiplayer:
@@ -78,6 +87,17 @@ const SaveInfo = () => {
 			<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
 				{secondsToPlaytime(playtime)}
 			</Typography>
+
+			{showUnused && (
+				<>
+					<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
+						In-game time:
+					</Typography>
+					<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
+						{time}
+					</Typography>
+				</>
+			)}
 
 			<Typography variant="h3" mt={3} sx={{ textShadow: StrokeTextShadow }}>
 				Version:
