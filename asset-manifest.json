@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.1ceb1daa.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.1ceb1daa.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.9d482034.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.9d482034.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
-    "static/js/2.b07fd346.chunk.js": "/ArchvaleEdit/static/js/2.b07fd346.chunk.js",
-    "static/js/2.b07fd346.chunk.js.map": "/ArchvaleEdit/static/js/2.b07fd346.chunk.js.map",
+    "static/js/2.9a6a235a.chunk.js": "/ArchvaleEdit/static/js/2.9a6a235a.chunk.js",
+    "static/js/2.9a6a235a.chunk.js.map": "/ArchvaleEdit/static/js/2.9a6a235a.chunk.js.map",
     "index.html": "/ArchvaleEdit/index.html",
     "service-worker.js": "/ArchvaleEdit/service-worker.js",
     "service-worker.js.map": "/ArchvaleEdit/service-worker.js.map",
     "static/css/main.5304c1d2.chunk.css.map": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css.map",
-    "static/js/2.b07fd346.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.b07fd346.chunk.js.LICENSE.txt",
+    "static/js/2.9a6a235a.chunk.js.LICENSE.txt": "/ArchvaleEdit/static/js/2.9a6a235a.chunk.js.LICENSE.txt",
     "static/media/add.10b4251e.png": "/ArchvaleEdit/static/media/add.10b4251e.png",
     "static/media/allIcon.ca76aa2c.png": "/ArchvaleEdit/static/media/allIcon.ca76aa2c.png",
     "static/media/arrDownNo.fe6c7201.png": "/ArchvaleEdit/static/media/arrDownNo.fe6c7201.png",
@@ -28,6 +28,11 @@
     "static/media/biomes.4e40a240.yaml": "/ArchvaleEdit/static/media/biomes.4e40a240.yaml",
     "static/media/bodyIcon.9587a12c.png": "/ArchvaleEdit/static/media/bodyIcon.9587a12c.png",
     "static/media/bomb.9707da35.png": "/ArchvaleEdit/static/media/bomb.9707da35.png",
+    "static/media/collectionPanel.7e2dadad.png": "/ArchvaleEdit/static/media/collectionPanel.7e2dadad.png",
+    "static/media/collectionTab.9dd10e2e.png": "/ArchvaleEdit/static/media/collectionTab.9dd10e2e.png",
+    "static/media/difficultyEasy.9d641058.png": "/ArchvaleEdit/static/media/difficultyEasy.9d641058.png",
+    "static/media/difficultyHard.ce1aa536.png": "/ArchvaleEdit/static/media/difficultyHard.ce1aa536.png",
+    "static/media/difficultyNormal.1b67ae27.png": "/ArchvaleEdit/static/media/difficultyNormal.1b67ae27.png",
     "static/media/dir15.455f0cdc.png": "/ArchvaleEdit/static/media/dir15.455f0cdc.png",
     "static/media/dung0.b482795e.png": "/ArchvaleEdit/static/media/dung0.b482795e.png",
     "static/media/dung1.134021c6.png": "/ArchvaleEdit/static/media/dung1.134021c6.png",
@@ -49,6 +54,10 @@
     "static/media/dungeons.30969d56.yaml": "/ArchvaleEdit/static/media/dungeons.30969d56.yaml",
     "static/media/emptySlot.2e71b0d6.png": "/ArchvaleEdit/static/media/emptySlot.2e71b0d6.png",
     "static/media/equipPanel.1a1ddbf5.png": "/ArchvaleEdit/static/media/equipPanel.1a1ddbf5.png",
+    "static/media/explorationHidden.e4c92882.png": "/ArchvaleEdit/static/media/explorationHidden.e4c92882.png",
+    "static/media/explorationOutline.944231a9.png": "/ArchvaleEdit/static/media/explorationOutline.944231a9.png",
+    "static/media/explorationSeen.b9f1bf36.png": "/ArchvaleEdit/static/media/explorationSeen.b9f1bf36.png",
+    "static/media/explorationVisited.4e08b1fc.png": "/ArchvaleEdit/static/media/explorationVisited.4e08b1fc.png",
     "static/media/headIcon.d2a1911b.png": "/ArchvaleEdit/static/media/headIcon.d2a1911b.png",
     "static/media/hover.2531f834.png": "/ArchvaleEdit/static/media/hover.2531f834.png",
     "static/media/hoverChest.a20f10ad.png": "/ArchvaleEdit/static/media/hoverChest.a20f10ad.png",
@@ -95,8 +104,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5dbb1da3.js",
-    "static/js/2.b07fd346.chunk.js",
+    "static/js/2.9a6a235a.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.1ceb1daa.chunk.js"
+    "static/js/main.9d482034.chunk.js"
   ]
 }
