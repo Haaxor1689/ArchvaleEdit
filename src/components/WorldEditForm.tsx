@@ -8,9 +8,9 @@ import characterTab from 'assets/characterTab.png';
 import collectionTab from 'assets/collectionTab.png';
 import progressionTab from 'assets/progressionTab.png';
 import worldTab from 'assets/worldTab.png';
-import { downloadBlob, parseToHex } from 'utils';
+import { downloadBlob } from 'utils';
 import { World } from 'utils/types';
-import { ExperimentalVersionName } from 'utils/useIsExperiemntal';
+import { ExperimentalVersionName } from 'utils/useIsExperimental';
 
 import Form from './form/Form';
 import BadgeTab from './interface/badges/BadgeTab';
@@ -79,16 +79,7 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 	}, [name]);
 	return (
 		<Form
-			initialValues={{
-				...world,
-				// TODO: Remove after update
-				collection: [
-					1, 2, 3, 7, 5, 6, 10, 8, 12, 13, 16, 17, 15, 18, 21, 22, 600, 601,
-					602, 603, 604, 605, 606, 607, 608, 609, 901, 904, 910, 26
-				]
-					.map(i => `${parseToHex(i, 4)}000`)
-					.join('')
-			}}
+			initialValues={world}
 			onSubmit={async values => {
 				const json = JSON.stringify(values);
 				const base = `data:application/octet-stream;base64,${btoa(btoa(json))}`;
@@ -116,7 +107,7 @@ const WorldEditForm = ({ save: [name, world], reset }: Props) => {
 						.filter(
 							t =>
 								t.name !== 'collection' ||
-								world.version === ExperimentalVersionName
+								world.version.match(ExperimentalVersionName)
 						)
 						.map(t => (
 							<Tab

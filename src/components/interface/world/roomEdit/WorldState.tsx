@@ -4,7 +4,7 @@ import { omit } from 'lodash-es';
 
 import Sprite from 'components/Sprite';
 import { StateMeta } from 'utils/data';
-import { StrokeTextShadow } from 'utils';
+import { pulseAnimation, StrokeTextShadow } from 'utils';
 import Collapsible from 'components/Collapsible';
 
 type Props = {
@@ -59,12 +59,15 @@ const WorldState = ({
 							});
 						}}
 						sx={{
-							position: 'relative',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: 0,
-							height: t => t.spacing(20)
+							'position': 'relative',
+							'display': 'flex',
+							'alignItems': 'center',
+							'justifyContent': 'center',
+							'borderRadius': 0,
+							'height': t => t.spacing(20),
+							':focus-visible,:hover': {
+								animation: pulseAnimation
+							}
 						}}
 					>
 						<Sprite

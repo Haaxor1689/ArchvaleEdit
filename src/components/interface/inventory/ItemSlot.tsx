@@ -4,16 +4,27 @@ import { memo, MouseEventHandler } from 'react';
 import emptySlot from 'assets/inventory/emptySlot.png';
 import itemSlot from 'assets/inventory/itemSlot.png';
 import hoverSlot from 'assets/inventory/hoverSlot.png';
+import emptyTrash from 'assets/inventory/emptyTrash.png';
 import itemTrash from 'assets/inventory/itemTrash.png';
 import hoverTrash from 'assets/inventory/hoverTrash.png';
+import emptyHead from 'assets/inventory/emptyHead.png';
 import itemHead from 'assets/inventory/itemHead.png';
 import hoverHead from 'assets/inventory/hoverHead.png';
+import emptyChest from 'assets/inventory/emptyChest.png';
 import itemChest from 'assets/inventory/itemChest.png';
 import hoverChest from 'assets/inventory/hoverChest.png';
+import emptyRing from 'assets/inventory/emptyRing.png';
 import itemRing from 'assets/inventory/itemRing.png';
 import hoverRing from 'assets/inventory/hoverRing.png';
+import itemOccupied from 'assets/inventory/itemOccupied.png';
+import hoverOccupied from 'assets/inventory/hoverOccupied.png';
 import questionMark from 'assets/questionMark.png';
-import { isStackable, isUpgradeable, StrokeTextShadow } from 'utils';
+import {
+	isStackable,
+	isUpgradeable,
+	pulseAnimation,
+	StrokeTextShadow
+} from 'utils';
 import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
@@ -26,35 +37,52 @@ import ItemStats from './ItemStats';
 
 type SlotVariant = 'item' | 'trash' | 'head' | 'chest' | 'ring' | 'empty';
 
-const getItemIcon = (variant: SlotVariant) => {
+const getEmptyIcon = (variant: SlotVariant) => {
+	switch (variant) {
+		case 'item':
+			return emptySlot;
+		case 'trash':
+			return emptyTrash;
+		case 'head':
+			return emptyHead;
+		case 'chest':
+			return emptyChest;
+		case 'ring':
+			return emptyRing;
+		case 'empty':
+			return undefined;
+	}
+};
+
+const getItemIcon = (variant: SlotVariant, isOccupied: boolean) => {
 	switch (variant) {
 		case 'item':
 			return itemSlot;
 		case 'trash':
 			return itemTrash;
 		case 'head':
-			return itemHead;
+			return isOccupied ? itemOccupied : itemHead;
 		case 'chest':
-			return itemChest;
+			return isOccupied ? itemOccupied : itemChest;
 		case 'ring':
-			return itemRing;
+			return isOccupied ? itemOccupied : itemRing;
 		case 'empty':
 			return undefined;
 	}
 };
 
-const getHoverIcon = (variant: SlotVariant) => {
+const getHoverIcon = (variant: SlotVariant, isOccupied: boolean) => {
 	switch (variant) {
 		case 'item':
 			return hoverSlot;
 		case 'trash':
 			return hoverTrash;
 		case 'head':
-			return hoverHead;
+			return isOccupied ? hoverOccupied : hoverHead;
 		case 'chest':
-			return hoverChest;
+			return isOccupied ? hoverOccupied : hoverChest;
 		case 'ring':
-			return hoverRing;
+			return isOccupied ? hoverOccupied : hoverRing;
 		case 'empty':
 			return undefined;
 	}
@@ -70,6 +98,7 @@ type Props = {
 const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 	const itemMeta = Items[item?.id ?? -1];
 	const spacing = useThemeSpacing();
+	const isOccupied = !!item?.count;
 	return (
 		<ItemTooltip
 			title={
@@ -93,6 +122,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 		>
 			<IconButton
 				onClick={onClick}
+				disableRipple
 				onContextMenu={e => {
 					e.preventDefault();
 					onClick?.(e);
@@ -103,16 +133,20 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					'width': t => t.spacing(18),
 					'borderRadius': 0,
 					'background': `url(${
-						(!item || !item.count) && variant === 'item'
-							? emptySlot
-							: getItemIcon(variant)
+						isOccupied
+							? getItemIcon(variant, isOccupied)
+							: getEmptyIcon(variant)
 					})`,
 					'backgroundPosition': 'bottom',
 					'backgroundRepeat': 'no-repeat',
 					'backgroundSize': 'contain',
 					'cursor': !onClick ? 'initial' : undefined,
-					':hover': {
-						backgroundImage: `url(${getHoverIcon(variant)})`
+					'opacity': !isOccupied ? '0.5' : undefined,
+					':focus-visible,:hover': {
+						backgroundImage: `url(${getHoverIcon(variant, isOccupied)})`,
+						backgroundColor: 'transparent',
+						opacity: 1,
+						animation: pulseAnimation
 					}
 				}}
 			>
@@ -131,7 +165,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					</Typography>
 				)}
 
-				{item && itemMeta && isUpgradeable(itemMeta) && item.quality > 0 && (
+				{item && itemMeta && isUpgradeable(itemMeta) && !!item.quality && (
 					<Typography
 						variant="body2"
 						sx={{

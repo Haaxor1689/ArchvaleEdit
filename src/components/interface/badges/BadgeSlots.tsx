@@ -21,7 +21,7 @@ const fade = keyframes`
   }
 
   25%, 75% {
-    opacity: 0.25;
+    opacity: 0.5;
   }
 `;
 
@@ -73,7 +73,7 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 					img={slotFilled}
 					width={9}
 					height={9}
-					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
+					sx={{ animation: `${fade} 1.5s ease infinite` }}
 				/>
 			))}
 			{[...Array(positiveHover).keys()].map(k => (
@@ -82,7 +82,7 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 					img={overflow ? slotUnavailable : slotAvailable}
 					width={9}
 					height={9}
-					sx={{ animation: `${fade} 2s ease 0s infinite normal forwards` }}
+					sx={{ animation: `${fade} 1.5s ease infinite` }}
 				/>
 			))}
 			{[

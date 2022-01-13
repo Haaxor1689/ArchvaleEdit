@@ -59,7 +59,7 @@ const InventoryTab = ({ variant }: Props) => {
 						? 'FFFF000'
 						: parseToHex(item.id, 4) +
 						  parseToHex(item.count, 2) +
-						  parseToHex(item.quality, 1)) +
+						  parseToHex(item.quality ?? 0, 1)) +
 					inventory.substring((index + 1) * 7)
 			}
 		});
@@ -162,7 +162,7 @@ const InventoryTab = ({ variant }: Props) => {
 													? 'FFFF000'
 													: parseToHex(item.id, 4) +
 													  parseToHex(item.count, 2) +
-													  parseToHex(item.quality, 1)
+													  parseToHex(item.quality ?? 0, 1)
 											)
 											.join('')
 									}

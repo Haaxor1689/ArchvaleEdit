@@ -1,9 +1,13 @@
-import { Box, Button, IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 import { noop } from 'lodash-es';
 import { createContext, FC, useContext, useState } from 'react';
 import { useField } from 'react-final-form';
 
 import { StrokeTextShadow } from 'utils';
+import playerIcon from 'assets/world/icons/player.png';
+import multiplayerIcon from 'assets/world/icons/multiplayer.png';
+
+import Sprite from './Sprite';
 
 type P = 'P1' | 'P2';
 
@@ -30,32 +34,40 @@ export const MultiplayerToggle = () => {
 	const setP = useContext(PlayerContext)[1];
 
 	return (
-		<Box sx={{ display: 'flex', gap: 2 }}>
-			<Button
-				variant={!mp ? 'outlined' : 'text'}
-				size="small"
-				onClick={() => {
-					onMpChange({ target: { value: 0 } });
-					setP('P1');
-				}}
-				sx={{
-					textShadow: StrokeTextShadow,
-					color: !mp ? 'primary.main' : 'text.primary'
-				}}
-			>
-				Off
-			</Button>
-			<Button
-				variant={mp ? 'outlined' : 'text'}
-				size="small"
-				onClick={() => onMpChange({ target: { value: 1 } })}
-				sx={{
-					textShadow: StrokeTextShadow,
-					color: mp ? 'primary.main' : 'text.primary'
-				}}
-			>
-				On
-			</Button>
+		<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+			<Tooltip title="Single-player">
+				<div>
+					<Sprite
+						component={IconButton}
+						img={playerIcon}
+						width={10}
+						height={10}
+						onClick={() => {
+							onMpChange({ target: { value: 0 } });
+							setP('P1');
+						}}
+						sx={{
+							borderRadius: 0,
+							filter: !mp ? undefined : 'saturate(0)'
+						}}
+					/>
+				</div>
+			</Tooltip>
+			<Tooltip title="Multi-player">
+				<div>
+					<Sprite
+						component={IconButton}
+						img={multiplayerIcon}
+						width={14}
+						height={14}
+						onClick={() => onMpChange({ target: { value: 1 } })}
+						sx={{
+							borderRadius: 0,
+							filter: mp ? undefined : 'saturate(0)'
+						}}
+					/>
+				</div>
+			</Tooltip>
 		</Box>
 	);
 };

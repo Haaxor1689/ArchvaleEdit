@@ -40,6 +40,7 @@ export type World = {
 	mp: number;
 	version: string;
 	playtime: number;
+	death_counter: number;
 
 	// Map
 	active_dungeon: number;
@@ -66,6 +67,7 @@ export type World = {
 	// Items
 	inventory: string;
 	storage: string;
+	inventory_materials: string;
 
 	// Badges
 	badges: string;
@@ -83,5 +85,6 @@ export type World = {
 export type InventoryItem = {
 	id: number;
 	count: number;
-	quality: number;
+	quality?: number;
+	discovered?: number;
 };

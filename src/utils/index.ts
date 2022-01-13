@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import * as Yup from 'yup';
 
 import { Item, Items } from './data';
@@ -64,7 +65,8 @@ const isSame = (item: Item, other?: Pick<Item, 'id'>) =>
 	!other || item.id === other.id;
 
 export const isStackable = (item: Item, other?: Pick<Item, 'id'>) =>
-	item?.type === 'Material' && isSame(item, other);
+	(item?.type === 'Material' || item?.type === 'Treasure') &&
+	isSame(item, other);
 
 export const stackItem = (
 	item: InventoryItem,
@@ -87,7 +89,10 @@ export const upgradeItem = (
 	other?: Pick<Item, 'id'>
 ) =>
 	isUpgradeable(Items[item.id], other)
-		? { ...item, quality: Math.max(0, Math.min(5, item.quality + delta)) }
+		? {
+				...item,
+				quality: Math.max(0, Math.min(5, (item.quality ?? 0) + delta))
+		  }
 		: item;
 
 export const secondsToPlaytime = (value: number) => {
@@ -111,3 +116,14 @@ export const getItemFullType = ({
 	]
 		.filter(v => v)
 		.join(' ');
+
+const PulseAnimation = keyframes`
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+export const pulseAnimation = `${PulseAnimation} .15s ease-in-out`;

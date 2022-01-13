@@ -1,13 +1,12 @@
 import { useField } from 'react-final-form';
 
-// TODO: Add correct version name
-export const ExperimentalVersionName = 'EXP';
+export const ExperimentalVersionName = '.pr.';
 
 const useIsExperimental = () => {
 	const {
 		input: { value }
 	} = useField<string>('version', { subscription: {} });
-	return value === ExperimentalVersionName;
+	return value.match(ExperimentalVersionName);
 };
 
 export default useIsExperimental;

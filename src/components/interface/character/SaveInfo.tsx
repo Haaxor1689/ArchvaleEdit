@@ -1,11 +1,42 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import { MultiplayerToggle } from 'components/PlayerContext';
 import { secondsToPlaytime, StrokeTextShadow } from 'utils';
 import useShowUnused from 'utils/useShowUnused';
+import { ExperimentalVersionName } from 'utils/useIsExperimental';
+import difficultyEasy from 'assets/world/icons/difficultyEasy.png';
+import difficultyNormal from 'assets/world/icons/difficultyNormal.png';
+import difficultyHard from 'assets/world/icons/difficultyHard.png';
+import Sprite from 'components/Sprite';
+
+const calculateInGameTime = (time: number) => {
+	const mod = time % 11;
+	const t = (mod * 2 + 10) % 24;
+	const m = Math.floor((t % 1) * 60);
+	return `${t < 1 ? 24 : Math.floor(t)}:${m} (${
+		mod > 5 && mod < 10 ? 'Night' : 'Day'
+	})`;
+};
 
 const DifficultyLabels = ['Easy', 'Normal', 'Hard'];
+const DifficultySprites = [
+	{
+		img: difficultyEasy,
+		width: 10,
+		height: 8
+	},
+	{
+		img: difficultyNormal,
+		width: 12,
+		height: 9
+	},
+	{
+		img: difficultyHard,
+		width: 12,
+		height: 11
+	}
+];
 
 const SaveInfo = () => {
 	const {
@@ -23,6 +54,10 @@ const SaveInfo = () => {
 	const {
 		input: { value: version }
 	} = useField<string>('version');
+
+	const {
+		input: { value: deaths }
+	} = useField<number>('death_counter');
 
 	const {
 		input: { value: itemsCrafted }
@@ -59,20 +94,21 @@ const SaveInfo = () => {
 			<Typography variant="h3" sx={{ textShadow: StrokeTextShadow }}>
 				Difficulty:
 			</Typography>
-			<Box sx={{ display: 'flex', gap: 2 }}>
+			<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 				{[0, 1, 2].map(d => (
-					<Button
-						key={d}
-						variant={d === value ? 'outlined' : 'text'}
-						size="small"
-						onClick={() => onChange({ target: { value: d } })}
-						sx={{
-							textShadow: StrokeTextShadow,
-							color: d === value ? 'primary.main' : 'text.primary'
-						}}
-					>
-						{DifficultyLabels[d]}
-					</Button>
+					<Tooltip key={d} title={DifficultyLabels[d]}>
+						<div>
+							<Sprite
+								component={IconButton}
+								{...DifficultySprites[d]}
+								onClick={() => onChange({ target: { value: d } })}
+								sx={{
+									borderRadius: 0,
+									filter: d === value ? undefined : 'saturate(0)'
+								}}
+							/>
+						</div>
+					</Tooltip>
 				))}
 			</Box>
 
@@ -94,7 +130,7 @@ const SaveInfo = () => {
 						In-game time:
 					</Typography>
 					<Typography variant="body2" sx={{ textShadow: StrokeTextShadow }}>
-						{time}
+						{calculateInGameTime(time)}
 					</Typography>
 				</>
 			)}
@@ -119,6 +155,14 @@ const SaveInfo = () => {
 					textShadow: StrokeTextShadow
 				}}
 			>
+				{version.match(ExperimentalVersionName) && (
+					<>
+						<Typography variant="body2" justifySelf="flex-end">
+							Deaths:
+						</Typography>
+						<Typography variant="body2">{deaths || 0}</Typography>
+					</>
+				)}
 				<Typography variant="body2" justifySelf="flex-end">
 					Items crafted:
 				</Typography>

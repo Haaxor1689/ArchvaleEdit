@@ -6,22 +6,23 @@ import collectionPanel from 'assets/inventory/collectionPanel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
+import useShowUnused from 'utils/useShowUnused';
 
 import ItemSlot from './ItemSlot';
 
 const CollectionTab = () => {
 	const {
 		input: { value: inventory, onChange: onInventoryChange }
-	} = useField<string>('collection', { subscription: { value: true } });
+	} = useField<string>('inventory_materials', {
+		subscription: { value: true }
+	});
 
-	// TODO: Adjust based on layout of data
-	const inventoryItems = parseHexArray<InventoryItem>(inventory, 7, v => ({
+	const inventoryItems = parseHexArray<InventoryItem>(inventory, 10, v => ({
 		id: parseHexValue(v.slice(0, 4)),
-		count: parseHexValue(v.slice(4, 6)),
-		quality: parseHexValue(v[6])
+		count: parseHexValue(v.slice(4, 8)),
+		discovered: parseHexValue(v.slice(8))
 	}));
 
-	// TODO: Adjust based on layout of data
 	const onItemClick =
 		(item: InventoryItem, index: number): MouseEventHandler<Element> =>
 		e => {
@@ -30,14 +31,16 @@ const CollectionTab = () => {
 			onInventoryChange({
 				target: {
 					value:
-						inventory.substring(0, index * 7) +
+						inventory.substring(0, index * 10) +
 						(parseToHex(item.id, 4) +
-							parseToHex(count, 2) +
-							parseToHex(item.quality, 1)) +
-						inventory.substring((index + 1) * 7)
+							parseToHex(count, 4) +
+							parseToHex(item.discovered ?? 0, 2)) +
+						inventory.substring((index + 1) * 10)
 				}
 			});
 		};
+
+	const [showUnused] = useShowUnused();
 
 	return (
 		<Box
@@ -93,7 +96,7 @@ const CollectionTab = () => {
 							gap: 1
 						}}
 					>
-						{inventoryItems.slice(26).map((item, index) => (
+						{inventoryItems.slice(26, 30).map((item, index) => (
 							<ItemSlot
 								key={index + 26}
 								item={item}
@@ -101,6 +104,24 @@ const CollectionTab = () => {
 							/>
 						))}
 					</Box>
+					{showUnused && (
+						<Box
+							sx={{
+								display: 'grid',
+								gridTemplateColumns: '1fr',
+								gap: 1,
+								opacity: 0.2
+							}}
+						>
+							{inventoryItems.slice(30).map((item, index) => (
+								<ItemSlot
+									key={index + 30}
+									item={item}
+									onClick={onItemClick(item, index + 30)}
+								/>
+							))}
+						</Box>
+					)}
 				</Box>
 			</Sprite>
 			<Typography variant="caption" textAlign="center">

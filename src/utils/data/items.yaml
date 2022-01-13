@@ -155,14 +155,14 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '30', rate: 3.6, range: 130 }
+  stats: { damage: '30', rate: 3.6, range: 160 }
 - id: 102
   name: Amethyst Staff
   sprite: [s_weapon_staff_saphire, 10, 11]
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: '25', rate: 4, range: 120 }
+  stats: { damage: '30', rate: 4, range: 120 }
 - id: 103
   name: Wooden Spear
   sprite: [s_item_weapon_wooden_spear, 5, 16]
@@ -191,7 +191,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '40', rate: 1, range: 100 }
+  stats: { damage: '50', rate: 3, range: 60 }
   material: true
 - id: 107
   name: Crabberang
@@ -208,7 +208,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '50', rate: 1, range: 100 }
+  stats: { damage: '65', rate: 3, range: 60 }
   inflicts: { slow: 0.5 }
 - id: 109
   name: Bandit Crossbow
@@ -217,7 +217,7 @@
   type: Weapon
   subtype: Ranged
   category: Crossbow
-  stats: { damage: 25x3, rate: 1.5, range: 130 }
+  stats: { damage: 35x3, rate: 1.5, range: 130 }
 - id: 110
   name: Ruby Staff
   rarity: uncommon
@@ -225,7 +225,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: '35', rate: 4, range: 120 }
+  stats: { damage: '40', rate: 4, range: 120 }
 - id: 111
   name: Spiked Club
   rarity: uncommon
@@ -233,7 +233,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: '110', bleed: '25', rate: 1.6, range: 0 }
+  stats: { damage: '135', bleed: '30', rate: 1.6, range: 0 }
 - id: 112
   name: Swift Sword
   rarity: uncommon
@@ -241,7 +241,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 20x2, rate: 3.7, range: 50 }
+  stats: { damage: 30x2, rate: 3.7, range: 50 }
   material: true
 - id: 113
   name: Bag of Knives
@@ -250,7 +250,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: 20x3, rate: 2, range: 100 }
+  stats: { damage: 25x3, rate: 2, range: 100 }
   material: true
   unique: true
 - id: 114
@@ -270,7 +270,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: '30', poison: '15', rate: 4.2, range: 120 }
+  stats: { damage: '35', poison: '20', rate: 4.2, range: 120 }
   inflicts: { slow: 0.1 }
 - id: 116
   name: Clawblade
@@ -297,7 +297,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: 25x3, poison: 10x3, rate: 2, range: 100 }
+  stats: { damage: 30x3, poison: 10x3, rate: 2, range: 100 }
   material: true
   unique: true
 - id: 119
@@ -307,7 +307,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 20x2, rate: 3.4, range: 130 }
+  stats: { damage: 20x2, rate: 3.4, range: 220 }
   material: true
 - id: 120
   name: Bubble Scepter
@@ -325,7 +325,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 35x4, rate: 1.5, range: 40, ar_pen: 2 }
+  stats: { damage: 35x4, rate: 1.5, range: 60, ar_pen: 2 }
   inflicts: { ar_break: 1 }
   material: true
 - id: 122
@@ -344,7 +344,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '35', rate: 6, range: 130 }
+  stats: { damage: '35', rate: 6, range: 180 }
   material: true
 - id: 124
   name: Cactus Flail
@@ -353,7 +353,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '55', bleed: '20', rate: 1, range: 100 }
+  stats: { damage: '70', bleed: '25', rate: 3, range: 60 }
 - id: 126
   name: Jackal Spear
   rarity: rare
@@ -381,7 +381,7 @@
   type: Weapon
   subtype: Ranged
   category: Cannon
-  stats: { damage: 15x6, poison: 10x6, rate: 2.1, range: 160 }
+  stats: { damage: 25x6, poison: 15x6, rate: 2, range: 160 }
 - id: 130
   name: Toxic Twoshot
   rarity: rare
@@ -389,7 +389,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 20x2, poison: 10x2, rate: 3.4, range: 130 }
+  stats: { damage: 20x2, poison: 10x2, rate: 3.4, range: 180 }
 - id: 131
   name: Slime Bubbler
   rarity: rare
@@ -423,7 +423,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '45', rate: 6.6, range: 130 }
+  stats: { damage: '45', rate: 6.6, range: 180 }
   inflicts: { slow: 0.1 }
 - id: 135
   name: Widow Spear
@@ -441,7 +441,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: '35', burn: '15', poison: '15', rate: 4.4, range: 300 }
+  stats: { damage: '40', burn: '15', poison: '15', rate: 4.4, range: 300 }
   unique: true
 - id: 137
   name: Druid Bow
@@ -450,7 +450,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 60x2, rate: 2, range: 160 }
+  stats: { damage: 60x2, rate: 2, range: 220 }
 - id: 138
   name: Spider Octoshot
   rarity: epic
@@ -475,7 +475,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 30x2, rate: 3.6, range: 120 }
+  stats: { damage: 30x2, rate: 3.6, range: 180 }
 - id: 141
   name: Old Scythe
   rarity: rare
@@ -483,7 +483,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: '200', rate: 1.5, range: 60 }
+  stats: { damage: '190', rate: 1.5, range: 60 }
   material: true
   unique: true
 - id: 142
@@ -510,7 +510,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 25x3, rate: 3.2, range: 160 }
+  stats: { damage: 25x3, rate: 3.2, range: 180 }
   material: true
 - id: 145
   name: Frost Ray
@@ -519,7 +519,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: '75', rate: 3, range: 100 }
+  stats: { damage: '85', rate: 3, range: 140 }
 - id: 146
   name: Glacial Spear
   rarity: legendary
@@ -536,7 +536,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 25x3, rate: 3, range: 200 }
+  stats: { damage: 30x3, rate: 3, range: 200 }
   unique: true
 - id: 148
   name: Frozen Shortsword
@@ -545,7 +545,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 55x2, rate: 2.7, range: 60 }
+  stats: { damage: 75x2, rate: 2.7, range: 60 }
 - id: 149
   name: Tome of Balance
   rarity: legendary
@@ -571,7 +571,7 @@
   type: Weapon
   subtype: Ranged
   category: Cannon
-  stats: { damage: 15x6, rate: 3.6, range: 200 }
+  stats: { damage: 25x6, rate: 3.6, range: 200 }
 - id: 152
   name: Scarlet Gembow
   rarity: epic
@@ -579,7 +579,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '110', rate: 3.6, range: 130 }
+  stats: { damage: '110', rate: 3.6, range: 180 }
 - id: 153
   name: Soulthief Spear
   rarity: mythical
@@ -587,7 +587,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 65x4, rate: 2.5, range: 80, ar_pen: 2 }
+  stats: { damage: 80x4, rate: 2.5, range: 80, ar_pen: 2 }
 - id: 154
   name: Scarlet Crystal
   rarity: heroic
@@ -595,7 +595,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: '65', rate: 5, range: 160, ar_pen: 1 }
+  stats: { damage: '75', rate: 5, range: 120, ar_pen: 1 }
   material: true
 - id: 155
   name: Crystalline Halberd
@@ -604,7 +604,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 80x3, rate: 2, range: 80 }
+  stats: { damage: 80x3, rate: 2, range: 100 }
   inflicts: { ar_break: 1 }
 - id: 156
   name: Darkwizard Staff
@@ -613,7 +613,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 115x2, rate: 3, range: 140, ar_pen: 2 }
+  stats: { damage: 150x2, rate: 3, range: 140, ar_pen: 2 }
 - id: 158
   name: Gemstone Blade
   rarity: heroic
@@ -621,7 +621,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 85x2, rate: 3, range: 80 }
+  stats: { damage: 100x2, rate: 3, range: 80 }
 - id: 159
   name: Third Eye Tome
   rarity: heroic
@@ -637,7 +637,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: '120', rate: 2.7, range: 300 }
+  stats: { damage: '135', rate: 2.7, range: 300 }
   unique: true
 - id: 161
   name: Slime Cannon
@@ -646,7 +646,7 @@
   type: Weapon
   subtype: Ranged
   category: Cannon
-  stats: { damage: 35x6, rate: 2.1, range: 160 }
+  stats: { damage: 60x6, rate: 2, range: 160 }
   material: true
   unique: true
 - id: 162
@@ -656,7 +656,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: '85', rate: 5, range: 160, ar_pen: 2 }
+  stats: { damage: '85', rate: 5, range: 120, ar_pen: 2 }
   material: true
 - id: 163
   name: Magma Cannon
@@ -665,7 +665,7 @@
   type: Weapon
   subtype: Ranged
   category: Cannon
-  stats: { damage: 55x6, burn: 30x6, rate: 2.5, range: 200 }
+  stats: { damage: 75x6, burn: 40x6, rate: 2, range: 200 }
   unique: true
 - id: 164
   name: Fungal Bow
@@ -674,7 +674,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '130', rate: 3.6, range: 130 }
+  stats: { damage: '130', rate: 3.6, range: 180 }
 - id: 165
   name: Spore Flail
   rarity: heroic
@@ -682,7 +682,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '140', rate: 1, range: 100 }
+  stats: { damage: '175', rate: 3, range: 60 }
   inflicts: { slow: 0.5 }
 - id: 166
   name: Colossus Sword
@@ -691,7 +691,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 250x2, rate: 1.2, range: 60 }
+  stats: { damage: 260x2, rate: 1.4, range: 60 }
 - id: 169
   name: Living Bow
   rarity: masterwork
@@ -699,7 +699,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 80x3, rate: 3.4, range: 130 }
+  stats: { damage: 80x3, rate: 3.4, range: 200 }
 - id: 171
   name: Grove Hatchet
   rarity: divine
@@ -707,7 +707,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '160', rate: 4, range: 150, ar_pen: 2 }
+  stats: { damage: '180', rate: 4, range: 140, ar_pen: 2 }
 - id: 172
   name: Bloomerang
   rarity: mythical
@@ -715,7 +715,7 @@
   type: Weapon
   subtype: Ranged
   category: Boomerang
-  stats: { damage: '190', rate: 2.5 }
+  stats: { damage: '170', rate: 2.5 }
   material: true
 - id: 173
   name: Terracotta Bow
@@ -732,7 +732,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 40x6, rate: 2, range: 130 }
+  stats: { damage: 45x6, rate: 2, range: 180 }
   material: true
 - id: 175
   name: Bulbhead Flail
@@ -741,7 +741,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '225', rate: 1, range: 100 }
+  stats: { damage: '250', rate: 3, range: 60 }
 - id: 177
   name: Terracotta Claymore
   rarity: divine
@@ -768,7 +768,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '170', poison: '55', rate: 2.5, range: 200 }
+  stats: { damage: '180', poison: '55', rate: 2.5, range: 200 }
   unique: true
 - id: 180
   name: Doomerang
@@ -794,7 +794,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '250', rate: 1, range: 100 }
+  stats: { damage: '275', rate: 3, range: 60 }
   material: true
   unique: true
 - id: 183
@@ -804,7 +804,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: '230', rate: 3, range: 100 }
+  stats: { damage: '225', rate: 3, range: 140 }
   material: true
   unique: true
 - id: 184
@@ -814,7 +814,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 50x4, rate: 3, range: 80, ar_pen: 2 }
+  stats: { damage: 60x4, rate: 3, range: 80, ar_pen: 2 }
   inflicts: { ar_break: 1 }
   material: true
 - id: 185
@@ -835,7 +835,7 @@
   type: Weapon
   subtype: Melee
   category: Flail
-  stats: { damage: '260', burn: '130', rate: 1, range: 100 }
+  stats: { damage: '325', burn: '165', rate: 3, range: 60 }
   unique: true
 - id: 189
   name: Lifeblood Ray
@@ -844,7 +844,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: 200x2, rate: 3, range: 160 }
+  stats: { damage: 155x2, rate: 3, range: 140 }
   unique: true
 - id: 190
   name: Hellfire Crossbow
@@ -853,7 +853,7 @@
   type: Weapon
   subtype: Ranged
   category: Crossbow
-  stats: { damage: 125x5, burn: 65x5, rate: 0.8, range: 200 }
+  stats: { damage: '135', burn: '70', rate: 6, range: 200 }
 - id: 191
   name: Flaming Pitchfork
   rarity: divine
@@ -861,7 +861,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 95x4, burn: 30x4, rate: 1.5, range: 80, ar_pen: 2 }
+  stats: { damage: 125x4, burn: 40x4, rate: 1.5, range: 100, ar_pen: 2 }
   inflicts: { ar_break: 1 }
 - id: 192
   name: Staff of the Rift
@@ -870,7 +870,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 85x3, burn: 30x3, rate: 2.3, range: 200 }
+  stats: { damage: 80x3, burn: 25x3, rate: 2.3, range: 120 }
   unique: true
 - id: 193
   name: Avarn's Sword
@@ -879,7 +879,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 125x4, rate: 2.7, range: 60 }
+  stats: { damage: 135x4, rate: 3, range: 60 }
 - id: 194
   name: Demonic Blade
   rarity: divine
@@ -887,7 +887,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 210x2, rate: 3.3, range: 0 }
+  stats: { damage: 225x2, rate: 3.3, range: 0 }
   unique: true
 - id: 195
   name: Rift Codex
@@ -906,7 +906,7 @@
   type: Weapon
   subtype: Magical
   category: Tome
-  stats: { damage: '130', burn: '30', rate: 6.5, range: 200 }
+  stats: { damage: '105', burn: '25', rate: 6.5, range: 200 }
   unique: true
 - id: 197
   name: Crab Hammers
@@ -921,7 +921,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '35', rate: 3, range: 150 }
+  stats: { damage: '35', rate: 3, range: 120 }
 - id: 301
   name: Shell Blade
   sprite: [s_item_weapon_shell_blade, 5, 10]
@@ -943,7 +943,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '40', rate: 3.6, range: 130 }
+  stats: { damage: '40', rate: 3.6, range: 180 }
 - id: 306
   name: Iron Shortblade
   rarity: uncommon
@@ -959,7 +959,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 25x2, rate: 2.7, range: 60 }
+  stats: { damage: 35x2, rate: 2.7, range: 60 }
 - id: 309
   name: Iron Throwing Axe
   rarity: uncommon
@@ -967,7 +967,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '40', rate: 3, range: 150 }
+  stats: { damage: '45', rate: 3, range: 120 }
 - id: 310
   name: Golden Bow
   rarity: rare
@@ -975,7 +975,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: '50', rate: 3.7, range: 150 }
+  stats: { damage: '50', rate: 3.7, range: 180 }
 - id: 311
   name: Golden Dagger
   rarity: rare
@@ -991,7 +991,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 25x4, rate: 2, range: 80, ar_pen: 2 }
+  stats: { damage: 20x4, rate: 2, range: 80, ar_pen: 2 }
   inflicts: { ar_break: 1 }
 - id: 313
   name: Obsidian Spear
@@ -1009,7 +1009,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 30x2, rate: 2.7, range: 60 }
+  stats: { damage: 40x2, rate: 2.7, range: 60 }
 - id: 315
   name: Darksteel Boomerang
   rarity: epic
@@ -1017,7 +1017,7 @@
   type: Weapon
   subtype: Ranged
   category: Boomerang
-  stats: { damage: '130', rate: 1.5 }
+  stats: { damage: '115', rate: 1.5 }
 - id: 316
   name: Obsidian Thrownaxe
   rarity: epic
@@ -1025,7 +1025,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '50', rate: 4.1, range: 150 }
+  stats: { damage: '55', rate: 4.1, range: 140 }
 - id: 318
   name: Cobalt Crossbow
   rarity: legendary
@@ -1041,7 +1041,7 @@
   type: Weapon
   subtype: Melee
   category: Dagger
-  stats: { damage: '90', bleed: '30', rate: 3.4, range: 0, ar_pen: 1 }
+  stats: { damage: '95', bleed: '30', rate: 3.4, range: 0, ar_pen: 1 }
 - id: 320
   name: Cobalt Halberd
   rarity: legendary
@@ -1049,7 +1049,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 45x4, rate: 2, range: 0, ar_pen: 2 }
+  stats: { damage: 45x4, rate: 2, range: 80, ar_pen: 2 }
   inflicts: { ar_break: 1 }
 - id: 321
   name: Cobalt Rod
@@ -1058,7 +1058,7 @@
   type: Weapon
   subtype: Magical
   category: Rod
-  stats: { damage: '90', rate: 2.3, range: 300 }
+  stats: { damage: '115', rate: 2.3, range: 300 }
 - id: 322
   name: Cobalt Sword
   rarity: legendary
@@ -1066,7 +1066,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 40x3, rate: 2.7, range: 60 }
+  stats: { damage: 50x3, rate: 2.7, range: 60 }
 - id: 333
   name: Mauvite Axe
   rarity: heroic
@@ -1074,7 +1074,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '90', rate: 3.9, range: 150, ar_pen: 2 }
+  stats: { damage: '105', rate: 3.9, range: 120, ar_pen: 2 }
 - id: 334
   name: Mauvite Bow
   rarity: heroic
@@ -1082,7 +1082,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 50x2, rate: 3.6, range: 130 }
+  stats: { damage: 50x2, rate: 3.6, range: 180 }
 - id: 335
   name: Mauvite Spear
   rarity: heroic
@@ -1099,7 +1099,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 65x3, rate: 2, range: 160 }
+  stats: { damage: 75x3, rate: 2, range: 160 }
 - id: 337
   name: Mauvite Sword
   rarity: heroic
@@ -1107,7 +1107,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 90x2, rate: 2.7, range: 60 }
+  stats: { damage: 105x2, rate: 2.7, range: 60 }
 - id: 338
   name: Phloem Battlestaff
   rarity: mythical
@@ -1123,7 +1123,7 @@
   type: Weapon
   subtype: Melee
   category: Dagger
-  stats: { damage: 80x2, bleed: 25x2, rate: 3.4, range: 60 }
+  stats: { damage: 90x2, bleed: 30x2, rate: 3.4, range: 60 }
 - id: 340
   name: Phloem Scepter
   rarity: mythical
@@ -1131,7 +1131,7 @@
   type: Weapon
   subtype: Magical
   category: Scepter
-  stats: { damage: 80x4, rate: 3, range: 100 }
+  stats: { damage: 90x4, rate: 3, range: 120 }
 - id: 341
   name: Phloem Spear
   rarity: mythical
@@ -1139,7 +1139,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 70x4, rate: 2, range: 80, ar_pen: 2 }
+  stats: { damage: 80x4, rate: 2, range: 80, ar_pen: 2 }
   inflicts: { ar_break: 1 }
 - id: 342
   name: Phloem Sword
@@ -1148,7 +1148,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 55x4, rate: 2.7, range: 60 }
+  stats: { damage: 75x4, rate: 2.7, range: 60 }
 - id: 343
   name: Phloem Multishot
   rarity: mythical
@@ -1164,7 +1164,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 60x3, rate: 3.6, range: 200 }
+  stats: { damage: 60x3, rate: 3.6, range: 240 }
 - id: 345
   name: Zephyr Crossbow
   rarity: divine
@@ -1172,7 +1172,7 @@
   type: Weapon
   subtype: Ranged
   category: Crossbow
-  stats: { damage: 75x6, rate: 1.5, range: 130 }
+  stats: { damage: 75x6, rate: 1.5, range: 150 }
 - id: 346
   name: Zephyr Hatchet
   rarity: divine
@@ -1180,7 +1180,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '110', rate: 5, range: 150 }
+  stats: { damage: '130', rate: 5, range: 130 }
 - id: 347
   name: Zephyr Shiv
   rarity: divine
@@ -1188,7 +1188,7 @@
   type: Weapon
   subtype: Melee
   category: Dagger
-  stats: { damage: 90x4, bleed: 30x4, rate: 3.4, range: 0 }
+  stats: { damage: 85x4, bleed: 30x4, rate: 3.4, range: 0 }
 - id: 348
   name: Zephyr Scimitar
   rarity: divine
@@ -1196,7 +1196,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 80x3, rate: 3, range: 60 }
+  stats: { damage: 105x3, rate: 3, range: 60 }
 - id: 349
   name: Zephyr Wand
   rarity: divine
@@ -1204,7 +1204,7 @@
   type: Weapon
   subtype: Magical
   category: Rod
-  stats: { damage: '200', rate: 2.3, range: 300 }
+  stats: { damage: '165', rate: 3.5, range: 300 }
 - id: 350
   name: Hyperium Ballista
   rarity: divine
@@ -1220,7 +1220,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 200x2, rate: 2.2, range: 60 }
+  stats: { damage: 250x2, rate: 2.2, range: 80 }
 - id: 352
   name: Hyperium Lance
   rarity: divine
@@ -1228,7 +1228,7 @@
   type: Weapon
   subtype: Melee
   category: Spear
-  stats: { damage: 65x6, rate: 2, range: 80, ar_pen: 2 }
+  stats: { damage: 75x6, rate: 2, range: 80, ar_pen: 2 }
   inflicts: { ar_break: 1 }
 - id: 353
   name: Hyperium Rod
@@ -1237,7 +1237,7 @@
   type: Weapon
   subtype: Magical
   category: Rod
-  stats: { damage: '215', rate: 2.3, range: 300 }
+  stats: { damage: '275', rate: 2.3, range: 300 }
 - id: 354
   name: Hyperium Shortsword
   rarity: divine
@@ -1245,7 +1245,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 160x2, rate: 2.7, range: 60 }
+  stats: { damage: 205x2, rate: 2.7, range: 60 }
 - id: 355
   name: Hyperium Thrownaxe
   rarity: divine
@@ -1253,7 +1253,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '190', rate: 3.5, range: 150 }
+  stats: { damage: '220', rate: 3.5, range: 120 }
 - id: 356
   name: Obsidian Boomerang
   rarity: epic
@@ -1261,7 +1261,7 @@
   type: Weapon
   subtype: Ranged
   category: Boomerang
-  stats: { damage: '70', rate: 3 }
+  stats: { damage: '65', rate: 3 }
 - id: 357
   name: Obsidian Sword
   rarity: epic
@@ -1269,7 +1269,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 25x2, rate: 5, range: 60 }
+  stats: { damage: 30x2, rate: 5, range: 60 }
 - id: 358
   name: Darksteel Sword
   rarity: epic
@@ -1277,7 +1277,7 @@
   type: Weapon
   subtype: Melee
   category: Sword
-  stats: { damage: 50x2, rate: 2.7, range: 60 }
+  stats: { damage: 55x2, rate: 2.7, range: 60 }
 - id: 360
   name: Darksteel Bow
   rarity: epic
@@ -1285,7 +1285,7 @@
   type: Weapon
   subtype: Ranged
   category: Bow
-  stats: { damage: 35x2, rate: 3, range: 130 }
+  stats: { damage: 35x2, rate: 3, range: 200 }
 - id: 361
   name: Darksteel Dagger
   rarity: epic
@@ -1293,7 +1293,7 @@
   type: Weapon
   subtype: Melee
   category: Dagger
-  stats: { damage: '70', bleed: '25', rate: 3.7, range: 0, ar_pen: 1 }
+  stats: { damage: '75', bleed: '25', rate: 3.7, range: 0, ar_pen: 1 }
 - id: 362
   name: Darksteel Staff
   rarity: epic
@@ -1301,7 +1301,7 @@
   type: Weapon
   subtype: Magical
   category: Staff
-  stats: { damage: 25x2, rate: 4, range: 120 }
+  stats: { damage: 30x2, rate: 4, range: 120 }
 - id: 363
   name: Darksteel Hatchet
   rarity: epic
@@ -1309,7 +1309,7 @@
   type: Weapon
   subtype: Ranged
   category: Thrown
-  stats: { damage: '60', rate: 3.2, range: 150 }
+  stats: { damage: '70', rate: 3.2, range: 120 }
 - id: 364
   name: Golden Scepter
   rarity: rare
@@ -1326,27 +1326,27 @@
   type: Weapon
   subtype: Magical
   category: Rod
-  stats: { damage: '70', rate: 2.3, range: 300 }
+  stats: { damage: '85', rate: 2.3, range: 300 }
 - id: 400
   name: Bowman's Hat
   rarity: uncommon
   sprite: [s_item_armour_ranger_hat, 10, 7]
   type: Armour
   subtype: Head
-  stats: { def: 1, range_dmg: 2 }
+  stats: { def: 1, range_dmg: 1 }
 - id: 402
   name: Shellsloth Helmet
   rarity: epic
   sprite: [s_item_armour_turtle_shellmet, 10, 9]
   type: Armour
   subtype: Head
-  stats: { def: 10, atk_spd: -3 }
+  stats: { def: 12, atk_spd: -3 }
 - id: 403
   name: Apprentice Hood
   sprite: [s_item_armour_apprentice_hood, 9, 9]
   type: Armour
   subtype: Head
-  stats: { def: 1, magic_dmg: 2 }
+  stats: { def: 1, magic_dmg: 1 }
 - id: 404
   name: Apprentice Robes
   sprite: [s_item_armour_apprentice_robes, 10, 9]
@@ -1373,35 +1373,35 @@
   sprite: [s_item_armour_hogtail_hat, 11, 8]
   type: Armour
   subtype: Head
-  stats: { def: 2, atk_spd: 4 }
+  stats: { def: 2, atk_spd: 2 }
 - id: 408
   name: Crab Helmet
   rarity: rare
   sprite: [s_item_armour_crab_helmet, 8, 12]
   type: Armour
   subtype: Head
-  stats: { def: 4, melee_dmg: 2 }
+  stats: { def: 4, melee_dmg: 1.2 }
 - id: 409
   name: Crab Scalemail
   rarity: rare
   sprite: [s_item_armour_crab_scalemail, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 6, melee_dmg: 2 }
+  stats: { def: 6, melee_dmg: 1.2 }
 - id: 410
   name: Archaeologist's Hat
   rarity: rare
   sprite: [s_item_armour_archaeologist_hat, 10, 6]
   type: Armour
   subtype: Head
-  stats: { def: 4, range_dmg: 2 }
+  stats: { def: 4, range_dmg: 1.2 }
 - id: 411
   name: Archaeologist's Jacket
   rarity: rare
   sprite: [s_item_armour_archaeologist_jacket, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 6, range_dmg: 2 }
+  stats: { def: 6, range_dmg: 1.2 }
 - id: 412
   name: Bullhide Tunic
   rarity: epic
@@ -1416,14 +1416,14 @@
   sprite: [s_item_armour_cursed_mask, 10, 13]
   type: Armour
   subtype: Head
-  stats: { def: -4, all_dmg: 4 }
+  stats: { def: -4, all_dmg: 3 }
 - id: 414
   name: Wispsilk Hood
   rarity: epic
   sprite: [s_item_armour_wispsilk_hood, 10, 12]
   type: Armour
   subtype: Head
-  stats: { def: 4, prot: 1, magic_dmg: 2 }
+  stats: { def: 4, prot: 1, magic_dmg: 1.4 }
 - id: 415
   name: Wispwood Chestpiece
   rarity: epic
@@ -1437,7 +1437,7 @@
   sprite: [s_item_armour_wispwood_helmet, 10, 11]
   type: Armour
   subtype: Head
-  stats: { def: 5, prot: 1, range_dmg: 2 }
+  stats: { def: 5, prot: 1, range_dmg: 1.4 }
 - id: 417
   name: Frozen Crown
   rarity: legendary
@@ -1451,28 +1451,28 @@
   sprite: [s_item_armour_sorcerer_hat, 10, 6]
   type: Armour
   subtype: Head
-  stats: { def: 8, magic_dmg: 2 }
+  stats: { def: 8, magic_dmg: 1.4 }
 - id: 420
   name: Sorcerer Robe
   rarity: heroic
   sprite: [s_item_armour_sorcerer_robe, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 12, magic_dmg: 2 }
+  stats: { def: 12, magic_dmg: 1.4 }
 - id: 421
   name: Moon Jelly Cap
   rarity: divine
   sprite: [s_item_armour_moon_jelly_cap, 14, 10]
   type: Armour
   subtype: Head
-  stats: { def: 13, prot: 2, magic_dmg: 2 }
+  stats: { def: 13, prot: 2, magic_dmg: 1.6 }
 - id: 422
   name: Fungal Cap Cap
   rarity: heroic
   sprite: [s_item_armour_mushroom_cap_cap, 12, 9]
   type: Armour
   subtype: Head
-  stats: { def: 10, prot: 1, all_dmg: 2 }
+  stats: { def: 10, prot: 1, all_dmg: 1.4 }
   material: true
 - id: 423
   name: Sporescale Chestplate
@@ -1480,63 +1480,63 @@
   sprite: [s_item_armour_sporescale_chestplate, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 18, prot: 1 }
+  stats: { def: 18, prot: 1, melee_dmg: 1.4 }
 - id: 424
   name: Sporescale Helm
   rarity: mythical
   sprite: [s_item_armour_sporescale_crown, 11, 9]
   type: Armour
   subtype: Head
-  stats: { def: 12, prot: 1 }
+  stats: { def: 12, prot: 1, melee_dmg: 1.4 }
 - id: 425
   name: Temple Chestplate
   rarity: mythical
   sprite: [s_item_armour_temple_chestplate, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 22, atk_spd: 4 }
+  stats: { def: 22, atk_spd: 3 }
 - id: 426
   name: Temple Helmet
   rarity: mythical
   sprite: [s_item_armour_temple_helmet, 10, 10]
   type: Armour
   subtype: Head
-  stats: { def: 18, atk_spd: 4 }
+  stats: { def: 18, atk_spd: 3 }
 - id: 427
   name: Temple Hood
   rarity: mythical
   sprite: [s_item_armour_temple_hood, 11, 9]
   type: Armour
   subtype: Head
-  stats: { def: 16, magic_dmg: 2, atk_spd: 2 }
+  stats: { def: 16, magic_dmg: 1, atk_spd: 2 }
 - id: 429
   name: Mermaid Tail
   rarity: mythical
   sprite: [s_item_armour_mermaid_tail, 14, 9]
   type: Armour
   subtype: Body
-  stats: { def: 18, atk_spd: 4 }
+  stats: { def: 18, atk_spd: 3.5 }
 - id: 430
   name: Shark Cap
   rarity: mythical
   sprite: [s_item_armour_shark_cap, 10, 13]
   type: Armour
   subtype: Head
-  stats: { def: 12, atk_spd: 6 }
+  stats: { def: 12, atk_spd: 3.5 }
 - id: 431
   name: Brimstone Chestplate
   rarity: divine
   sprite: [s_item_armour_brimstone_chestplate, 12, 9]
   type: Armour
   subtype: Body
-  stats: { def: 24, all_dmg: 2 }
+  stats: { def: 24, all_dmg: 1.6 }
 - id: 432
   name: Brimstone Greathelm
   rarity: divine
   sprite: [s_item_armour_brimstone_greathelm, 10, 12]
   type: Armour
   subtype: Head
-  stats: { def: 20, all_dmg: 2 }
+  stats: { def: 20, all_dmg: 1.6 }
 - id: 500
   name: Shell Helmet
   sprite: [s_item_armour_shell_helmet, 8, 8]
@@ -1597,14 +1597,14 @@
   sprite: [s_item_armour_obsidian_kabuto, 10, 10]
   type: Armour
   subtype: Head
-  stats: { def: 6, atk_spd: 3 }
+  stats: { def: 6, atk_spd: 2 }
 - id: 509
   name: Obsidian Platemail
   rarity: epic
   sprite: [s_item_armour_obsidian_platemail, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 9, atk_spd: 3 }
+  stats: { def: 9, atk_spd: 2 }
 - id: 510
   name: Cobalt Breastplate
   rarity: legendary
@@ -1639,56 +1639,56 @@
   sprite: [s_item_armour_phloem_chainmail, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 19, magic_dmg: 3 }
+  stats: { def: 19, magic_dmg: 2 }
 - id: 515
   name: Phloem Headgear
   rarity: mythical
   sprite: [s_item_armour_phloem_headgear, 12, 10]
   type: Armour
   subtype: Head
-  stats: { def: 13, range_dmg: 2 }
+  stats: { def: 13, range_dmg: 1.6 }
 - id: 516
   name: Phloem Hood
   rarity: mythical
   sprite: [s_item_armour_phloem_hood, 10, 11]
   type: Armour
   subtype: Head
-  stats: { def: 12, magic_dmg: 3 }
+  stats: { def: 12, magic_dmg: 2 }
 - id: 517
   name: Zephyr Breastplate
   rarity: divine
   sprite: [s_item_armour_zephyr_breastplate, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 24, range_dmg: 3 }
+  stats: { def: 24, range_dmg: 2 }
 - id: 519
   name: Zephyr Helmet
   rarity: divine
   sprite: [s_item_armour_zephyr_helmet, 10, 10]
   type: Armour
   subtype: Head
-  stats: { def: 14, range_dmg: 3 }
+  stats: { def: 14, range_dmg: 2 }
 - id: 520
   name: Hyperium Greathelm
   rarity: divine
   sprite: [s_item_armour_hyperium_greathelm, 10, 11]
   type: Armour
   subtype: Head
-  stats: { def: 16, melee_dmg: 3 }
+  stats: { def: 16, melee_dmg: 2 }
 - id: 521
   name: Hyperium Mask
   rarity: divine
   sprite: [s_item_armour_hyperium_mask, 10, 12]
   type: Armour
   subtype: Head
-  stats: { def: 40, atk_spd: -2 }
+  stats: { def: 36, atk_spd: -2 }
 - id: 522
   name: Hyperium Platebody
   rarity: divine
   sprite: [s_item_armour_hyperium_platebody, 10, 9]
   type: Armour
   subtype: Body
-  stats: { def: 24, melee_dmg: 3 }
+  stats: { def: 24, melee_dmg: 2 }
 - id: 600
   name: Shell Shard
   sprite: [s_item_material_shell_shard, 10, 8]
@@ -1750,7 +1750,7 @@
   type: Armour
   subtype: Ring
   effect: Deal bonus damage to skeletons
-  stats: { def: 3, atk_spd: 2 }
+  stats: { def: 3, atk_spd: 1.5 }
   unique: true
 - id: 801
   name: Opulent Ring
@@ -1759,7 +1759,7 @@
   type: Armour
   subtype: Ring
   effect: Slain enemies drop extra gold
-  stats: { atk_spd: 3 }
+  stats: { atk_spd: 2.5 }
   unique: true
 - id: 802
   name: Frost Bastion Ring
@@ -1815,140 +1815,140 @@
   sprite: [s_item_ring_onyx_1, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { def: 5 }
+  stats: { def: 4 }
 - id: 811
   name: Onyx Ring +2
   rarity: uncommon
   sprite: [s_item_ring_onyx_2, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { def: 10 }
+  stats: { def: 8 }
 - id: 812
   name: Onyx Ring +3
   rarity: epic
   sprite: [s_item_ring_onyx_3, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { def: 15 }
+  stats: { def: 12 }
 - id: 813
   name: Onyx Ring +4
   rarity: heroic
   sprite: [s_item_ring_onyx_4, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { def: 20 }
+  stats: { def: 16 }
 - id: 814
   name: Emerald Ring +1
   sprite: [s_item_ring_emerald_1, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { range_dmg: 1 }
+  stats: { range_dmg: 0.6 }
 - id: 815
   name: Emerald Ring +2
   rarity: uncommon
   sprite: [s_item_ring_emerald_2, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { range_dmg: 2 }
+  stats: { range_dmg: 1.2 }
 - id: 816
   name: Emerald Ring +3
   rarity: epic
   sprite: [s_item_ring_emerald_3, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { range_dmg: 3 }
+  stats: { range_dmg: 1.8 }
 - id: 817
   name: Emerald Ring +4
   rarity: heroic
   sprite: [s_item_ring_emerald_4, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { range_dmg: 4 }
+  stats: { range_dmg: 2.4 }
 - id: 818
   name: Ruby Ring +1
   sprite: [s_item_ring_ruby_1, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { melee_dmg: 1 }
+  stats: { melee_dmg: 0.6 }
 - id: 819
   name: Ruby Ring +2
   rarity: uncommon
   sprite: [s_item_ring_ruby_2, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { melee_dmg: 2 }
+  stats: { melee_dmg: 1.2 }
 - id: 820
   name: Ruby Ring +3
   rarity: epic
   sprite: [s_item_ring_ruby_3, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { melee_dmg: 3 }
+  stats: { melee_dmg: 1.8 }
 - id: 821
   name: Ruby Ring +4
   rarity: heroic
   sprite: [s_item_ring_ruby_4, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { melee_dmg: 4 }
+  stats: { melee_dmg: 2.4 }
 - id: 822
   name: Sapphire Ring +1
   sprite: [s_item_ring_sapphire_1, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { magic_dmg: 1 }
+  stats: { magic_dmg: 0.6 }
 - id: 823
   name: Sapphire Ring +2
   rarity: uncommon
   sprite: [s_item_ring_sapphire_2, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { magic_dmg: 2 }
+  stats: { magic_dmg: 1.2 }
 - id: 824
   name: Sapphire Ring +3
   rarity: epic
   sprite: [s_item_ring_sapphire_3, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { magic_dmg: 3 }
+  stats: { magic_dmg: 1.8 }
 - id: 825
   name: Sapphire Ring +4
   rarity: heroic
   sprite: [s_item_ring_sapphire_4, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { magic_dmg: 4 }
+  stats: { magic_dmg: 2.4 }
 - id: 826
   name: Amethyst Ring +1
   sprite: [s_item_ring_amethyst_1, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { atk_spd: 2 }
+  stats: { atk_spd: 1 }
 - id: 827
   name: Amethyst Ring +2
   rarity: uncommon
   sprite: [s_item_ring_amethyst_2, 10, 10]
   type: Armour
   subtype: Ring
-  stats: { atk_spd: 3 }
+  stats: { atk_spd: 2 }
 - id: 828
   name: Amethyst Ring +3
   rarity: epic
   sprite: [s_item_ring_amethyst_3, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { atk_spd: 4 }
+  stats: { atk_spd: 3 }
 - id: 829
   name: Amethyst Ring +4
   rarity: heroic
   sprite: [s_item_ring_amethyst_4, 11, 11]
   type: Armour
   subtype: Ring
-  stats: { atk_spd: 6 }
+  stats: { atk_spd: 4 }
 - id: 900
   name: Copper Treasure
   rarity: uncommon
-  sprite: [s_item_treasure_bronze_1, 17, 11]
+  sprite: [s_item_treasure_bronze_2, 17, 11]
   type: Treasure
   stats: { cost: 100 }
 - id: 901
@@ -1996,7 +1996,7 @@
 - id: 908
   name: Gold Treasure
   rarity: heroic
-  sprite: [s_item_treasure_gold_1, 17, 11]
+  sprite: [s_item_treasure_gold_3, 17, 11]
   type: Treasure
   stats: { cost: 500 }
 - id: 909

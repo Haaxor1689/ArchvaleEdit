@@ -57,7 +57,7 @@ const Equipment = ({ onSlotClick }: Props) => {
 						? 'FFFF000'
 						: parseToHex(item.id, 4) +
 						  parseToHex(item.count, 2) +
-						  parseToHex(item.quality, 1)) +
+						  parseToHex(item.quality ?? 0, 1)) +
 					equipment.substring((index + 1) * 7)
 			}
 		});
