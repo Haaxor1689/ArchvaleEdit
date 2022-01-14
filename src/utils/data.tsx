@@ -266,7 +266,7 @@ type RoomType = {
 	name: string;
 };
 
-// TODO: camp_easy, arena, border_glade_old
+// TODO: Show custom room requirements
 export const RoomTypes: Record<number, RoomType> = {
 	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
 	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
@@ -278,52 +278,53 @@ export const RoomTypes: Record<number, RoomType> = {
 	4: { sprite: [treasureIcon, 10, 10], name: 'Treasure' }, // treasure
 	// 5: ???
 	// 6: instant crash
-	// 7: cradlewood ladder that crashes game
+	7: { sprite: [questIcon, 8, 8], name: 'UNUSED Ladder' }, // portal1 (crashes)
 	8: { sprite: [townIcon, 8, 8], name: 'UNUSED Home' }, // home
 	9: { sprite: [archIcon, 8, 8], name: 'UNUSED Arch' }, // arch
 	10: { sprite: [fountainIcon, 10, 8], name: 'Fountain' }, // save
-	// 11: broken teleport
+	// 11: { sprite: [questIcon, 8, 8], name: 'UNUSED Teleport' }, // teleport (crashes)
 	12: { sprite: [bombIcon, 10, 10], name: 'Bomb Power' }, // bombup
-	// 13: probably town room, crashes
-	// 14: town save, crashes
+	// 13: { sprite: [questIcon, 8, 8], name: 'UNUSED Town teleport' }, // town_teleport (crashes)
+	// 14: { sprite: [questIcon, 8, 8], name: 'UNUSED Town Fountain' }, // town_save (crashes)
 	15: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Forge' }, // town_forge
-	// 16: town shop, crashes
+	// 16: { sprite: [questIcon, 8, 8], name: 'UNUSED Town Shop' }, // town_shop (crashes)
 	// 17: town bank, crashes
 	18: { sprite: [questIcon, 8, 8], name: 'UNUSED Magic shop' }, // shop
 	19: { sprite: [questIcon, 8, 8], name: 'UNUSED Sam' }, // sam
 	20: { sprite: [plumIcon, 10, 10], name: 'Mega Plum' }, // plum
 	21: { sprite: [townIcon, 8, 8], name: 'Town' }, // town
 	22: { sprite: [townIcon, 8, 8], name: 'Town (Fairreach)' }, // town_primary
-	// 23: { sprite: [questIcon, 8, 8], name: '23 ???' }, // murkmire
-	// 24: { sprite: [questIcon, 8, 8], name: '24 ???' }, // murkmire
 	25: { sprite: [mapIcon, 8, 8], name: 'UNUSED Map' }, // map
 	26: { sprite: [shrineIcon, 8, 10], name: 'Shrine A' }, // lib_a
 	27: { sprite: [shrineIcon, 8, 10], name: 'Shrine B' }, // lib_b
-	// 28: { sprite: [questIcon, 8, 8], name: '28 ???' }, // murkmire
 	29: { sprite: [townIcon, 8, 8], name: 'Town (The Pit)' }, // arena
-	// 30: { sprite: [questIcon, 8, 8], name: '30 ???' }, // murkmire
-	// 31: { sprite: [questIcon, 8, 8], name: '31 ???' },
-	41: { sprite: [arenaIcon, 10, 8], name: 'Camp' }, // camp_medium
+	31: { sprite: [questIcon, 8, 8], name: 'UNUSED Tower' }, // tower (crashes)
+	// 34: { sprite: [questIcon, 8, 8], name: 'UNUSED Heart' }, // heart (crashes)
+	// 35: { sprite: [questIcon, 8, 8], name: 'UNUSED Ore' }, // ore (crashes)
+	// 37: { sprite: [questIcon, 8, 8], name: 'UNUSED Heal Power' }, // healup (crashes)
+	38: { sprite: [questIcon, 8, 8], name: 'UNUSED Witch' }, // witch (crashes)
+	40: { sprite: [questIcon, 8, 8], name: 'UNUSED Camp easy' }, // camp_easy (requires arena trigger object)
+	41: { sprite: [arenaIcon, 10, 8], name: 'Camp' }, // camp_medium (requires arena trigger object)
 	// 42: { sprite: [questIcon, 8, 8], name: '42 ???' },
+	46: { sprite: [questIcon, 8, 8], name: 'UNUSED Boss' }, // boss (crashes)
 	47: { sprite: [dungeonIcon, 8, 7], name: 'Dungeon' }, // dungeon
-	// 50: { sprite: [questIcon, 8, 8], name: '50 ???' }, // murkmire
-	// 51: { sprite: [questIcon, 8, 8], name: '51 ???' }, // murkmire
-	// 52: { sprite: [questIcon, 8, 8], name: '52 ???' }, // murkmire
+	// 48: { sprite: [questIcon, 8, 8], name: 'UNUSED Camp' }, // camp (crashes)
+	51: { sprite: [questIcon, 8, 8], name: 'UNUSED Dungeon entrance' }, // dungeon_entrance (crashes)
+	52: { sprite: [questIcon, 8, 8], name: 'UNUSED Main' }, // main (crashes)
 	// 53: instant crash
-	// 54: { sprite: [questIcon, 8, 8], name: '54 ???' }, // murkmire
-	// 55: { sprite: [questIcon, 8, 8], name: '55 ???' }, // murkmire
-	// 56: { sprite: [questIcon, 8, 8], name: '56 ???' }, // murkmire
+	54: { sprite: [questIcon, 8, 8], name: 'UNUSED Food court' }, // foodcourt (crashes)
+	55: { sprite: [questIcon, 8, 8], name: 'UNUSED Boss entrance' }, // bossentrance (crashes)
+	56: { sprite: [questIcon, 8, 8], name: 'UNUSED Boss room' }, // bossroom (crashes)
 	57: { sprite: [treasureIcon, 10, 10], name: 'UNUSED Treasure' }, // treasure
 	58: { sprite: [anvilIcon, 9, 6], name: 'UNUSED Spell Pillar' }, // spell
 	59: { sprite: [arrUp, 8, 9], name: 'Amberpath border' }, // border_glade
+	// 60: { sprite: [questIcon, 8, 8], name: 'UNUSED Forest border' }, // border_forest (crashes)
 	61: { sprite: [arrRight, 9, 8], name: 'Crabclaw Chasm border' }, // border_cave
 	62: { sprite: [arrRight, 9, 8], name: 'Dustcrag border' }, // border_desert
 	63: { sprite: [arrUp, 8, 9], name: 'Murkmire border' }, // border_swamp
 	64: { sprite: [arrUp, 8, 9], name: 'UNUSED Ruins border' }, // border_temple
 	65: { sprite: [arrUp, 8, 9], name: 'Pine Peak border' }, // border_snow
 	66: { sprite: [arrRight, 9, 8], name: 'Twisted Caverns border' }, // border_cavern
-	// 67: { sprite: [questIcon, 8, 8], name: '67 ???' }, // murkmire
-	// 68: { sprite: [questIcon, 8, 8], name: '68 ???' }, // murkmire
 	69: { sprite: [arrDown, 8, 9], name: 'Tutorial exit' }, // tutorial_exit
 	70: { sprite: [questIcon, 8, 8], name: 'NPC' } // specialnpc
 };
