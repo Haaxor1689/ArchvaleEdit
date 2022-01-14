@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ArchvaleEdit/static/css/main.5304c1d2.chunk.css",
-    "main.js": "/ArchvaleEdit/static/js/main.8d20d069.chunk.js",
-    "main.js.map": "/ArchvaleEdit/static/js/main.8d20d069.chunk.js.map",
+    "main.js": "/ArchvaleEdit/static/js/main.03f47f0d.chunk.js",
+    "main.js.map": "/ArchvaleEdit/static/js/main.03f47f0d.chunk.js.map",
     "runtime-main.js": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js",
     "runtime-main.js.map": "/ArchvaleEdit/static/js/runtime-main.5dbb1da3.js.map",
     "static/js/2.81e4efaa.chunk.js": "/ArchvaleEdit/static/js/2.81e4efaa.chunk.js",
@@ -25,7 +25,7 @@
     "static/media/background.9a6f1d9f.png": "/ArchvaleEdit/static/media/background.9a6f1d9f.png",
     "static/media/badges.fac8f5ff.yaml": "/ArchvaleEdit/static/media/badges.fac8f5ff.yaml",
     "static/media/badgesTab.06150098.png": "/ArchvaleEdit/static/media/badgesTab.06150098.png",
-    "static/media/biomes.4e40a240.yaml": "/ArchvaleEdit/static/media/biomes.4e40a240.yaml",
+    "static/media/biomes.b9fdcf65.yaml": "/ArchvaleEdit/static/media/biomes.b9fdcf65.yaml",
     "static/media/bodyIcon.9587a12c.png": "/ArchvaleEdit/static/media/bodyIcon.9587a12c.png",
     "static/media/bomb.9707da35.png": "/ArchvaleEdit/static/media/bomb.9707da35.png",
     "static/media/collectionPanel.7e2dadad.png": "/ArchvaleEdit/static/media/collectionPanel.7e2dadad.png",
@@ -97,6 +97,6 @@
     "static/js/runtime-main.5dbb1da3.js",
     "static/js/2.81e4efaa.chunk.js",
     "static/css/main.5304c1d2.chunk.css",
-    "static/js/main.8d20d069.chunk.js"
+    "static/js/main.03f47f0d.chunk.js"
   ]
 }

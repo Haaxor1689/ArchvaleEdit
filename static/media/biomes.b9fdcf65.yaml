@@ -1,14 +1,38 @@
 - id: 1
   sprite: forest
   name: Cradlewood
-  types: [1, 9, 10, 15, 18, 20, 25, 26, 27, 47, 59, 61, 69]
-# - id: 2
-#   sprite: forest
-#   name: UNUSED Cradlewood
+  types:
+    [
+      1,
+      7,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16,
+      18,
+      20,
+      25,
+      26,
+      27,
+      29,
+      31,
+      34,
+      35,
+      37,
+      46,
+      48,
+      47,
+      59,
+      61,
+      69
+    ]
 - id: 3
   sprite: forest
   name: Cradlewood (Tutorial)
-  types: [1, 9, 10, 15, 18, 20, 25, 26, 27, 47, 59, 61, 69]
+  types: [2]
 - id: 4
   sprite: mushroom
   name: Cradlewood (Spawn)
@@ -16,7 +40,29 @@
 - id: 5
   sprite: desert
   name: Dustcrag
-  types: [1, 4, 9, 10, 12, 19, 20, 25, 26, 27, 58, 59, 61, 64]
+  types:
+    [
+      1,
+      4,
+      9,
+      10,
+      11,
+      12,
+      19,
+      20,
+      25,
+      26,
+      27,
+      34,
+      37,
+      48,
+      58,
+      59,
+      61,
+      64,
+      51,
+      52
+    ]
 - id: 6
   sprite: desert
   name: Dustcrag (Temple)
@@ -28,11 +74,37 @@
 - id: 8
   sprite: crab
   name: Crabclaw Chasm
-  types: [1, 4, 10, 12, 20, 26, 27, 58, 59, 61, 62, 63, 66, 70]
+  types:
+    [
+      1,
+      4,
+      7,
+      10,
+      12,
+      20,
+      26,
+      27,
+      34,
+      37,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      66,
+      70,
+      51,
+      52,
+      54,
+      55,
+      56
+    ]
 - id: 10
   sprite: swamp
   name: Murkmire
-  types: [1, 4, 9, 10, 12, 15, 19, 20, 26, 27, 58, 61, 65]
+  types:
+    [1, 4, 9, 10, 11, 12, 13, 14, 15, 16, 19, 20, 26, 27, 34, 38, 58, 61, 65]
 - id: 12
   sprite: town
   name: Bogtown
@@ -40,7 +112,7 @@
 - id: 13
   sprite: snow
   name: Pine Peak
-  types: [4, 10, 12, 19, 20, 26, 27, 47, 58, 63]
+  types: [4, 10, 11, 12, 14, 19, 20, 26, 27, 37, 47, 58, 63]
 - id: 15
   sprite: mushroom
   name: UNUSED Fungus Grotto
@@ -49,16 +121,14 @@
   sprite: town
   name: Morelton
   types: [21]
-# - id: 20
-#   sprite: forest
-#   name: UNUSED Cradlewood
+- id: 18
+  sprite: cavern
+  name: Bandit
+  types: [51, 52, 54, 55, 56]
 - id: 23
   sprite: glade
   name: Amberpath
-  types: [1, 4, 8, 10, 20, 26, 27, 47, 59, 61]
-# - id: 24
-#   sprite: glade
-#   name: UNUSED Amberpath
+  types: [1, 4, 8, 10, 20, 26, 27, 29, 40, 41, 47, 59, 61]
 - id: 25
   sprite: cavern
   name: Twisted Caverns
@@ -94,7 +164,7 @@
 - id: 47
   sprite: ocean
   name: Brinkreef
-  types: [4, 10, 12, 19, 20, 26, 47, 58, 62]
+  types: [4, 10, 12, 19, 20, 26, 40, 47, 58, 62]
 - id: 48
   sprite: town
   name: Pearlloch
@@ -107,3 +177,7 @@
   sprite: town
   name: The Pit
   types: [29]
+- id: 51
+  sprite: cavern
+  name: Shrine
+  types: []
