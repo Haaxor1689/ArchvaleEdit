@@ -189,7 +189,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							flexShrink={0}
 							zIndex={1}
 							sx={
-								!item.count
+								item.discovered === 0
 									? { filter: 'brightness(0) opacity(0.5)' }
 									: undefined
 							}

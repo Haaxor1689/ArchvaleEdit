@@ -27,14 +27,14 @@ const CollectionTab = () => {
 		(item: InventoryItem, index: number): MouseEventHandler<Element> =>
 		e => {
 			const delta = (e.button === 2 ? -1 : 1) * (e.shiftKey ? 5 : 1);
-			const count = Math.min(Math.max(item.count + delta, 0), 255);
+			const count = Math.min(Math.max(item.count + delta, 0), 65535);
 			onInventoryChange({
 				target: {
 					value:
 						inventory.substring(0, index * 10) +
 						(parseToHex(item.id, 4) +
 							parseToHex(count, 4) +
-							parseToHex(item.discovered ?? 0, 2)) +
+							parseToHex(count ? 1 : 0, 2)) +
 						inventory.substring((index + 1) * 10)
 				}
 			});
