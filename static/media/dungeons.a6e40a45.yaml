@@ -1,752 +1,882 @@
-# Direction flags
-# 8 - bottom
-# 4 - left
-# 2 - top
-# 1 - right
 - id: 0
   name: Lichen Keep
   rooms:
     - room_id: 0
       x: 0
-      y: 0
-      type: -3
+      'y': 0
+      type: -1
       flags: '08000'
     - room_id: 1
       x: 0
-      y: 1
+      'y': 1
       type: -2
-      flags: '0A000'
+      flags: 0A000
     - room_id: 2
       x: 1
-      y: 4
+      'y': 4
       type: 20
       flags: '01000'
+      loot:
+        - [0, 26]
     - room_id: 3
       x: 2
-      y: 2
+      'y': 2
       flags: '09000'
     - room_id: 4
       x: 2
-      y: 3
+      'y': 3
       flags: '03000'
-      boss_key: 2
+      keys:
+        - [1, boss]
+      type: -6
     - room_id: 5
       x: 2
-      y: 4
+      'y': 4
       flags: '05000'
     - room_id: 6
       x: 3
-      y: 2
-      flags: '0C000'
-      silver_key: 4
+      'y': 2
+      flags: 0C000
+      keys:
+        - [3, silver]
+      loot:
+        - [4, 900]
+      type:
+        - -7
+        - -5
     - room_id: 7
       x: 3
-      y: 3
-      flags: '0F000'
-      silver_key: 3
+      'y': 3
+      flags: 0F000
+      keys:
+        - [2, silver]
       locks:
-        - [button, 8]
+        - [1, plate]
+      type: -7
     - room_id: 8
       x: 3
-      y: 4
+      'y': 4
       flags: '07000'
       locks:
-        - [silver, 8]
+        - [3, silver]
     - room_id: 9
       x: 4
-      y: 2
-      type: -4
+      'y': 2
       flags: '08000'
+      loot:
+        - [3, 800]
+        - [5, 900]
+      type:
+        - -4
+        - -5
     - room_id: 10
       x: 4
-      y: 3
+      'y': 3
       flags: '07000'
       locks:
-        - [boss, 2]
-        - [silver, 4]
+        - [2, boss]
+        - [4, silver]
     - room_id: 11
       x: 4
-      y: 4
+      'y': 4
       flags: '05000'
     - room_id: 12
       x: 4
-      y: 5
+      'y': 5
       flags: '01000'
-      boss_key: 1
+      keys:
+        - [0, boss]
+      type: -6
     - room_id: 13
       x: 5
-      y: 3
+      'y': 3
       flags: '05000'
     - room_id: 14
       x: 5
-      y: 4
-      flags: '0C000'
+      'y': 4
+      flags: 0C000
     - room_id: 15
       x: 5
-      y: 5
-      flags: '0F000'
+      'y': 5
+      flags: 0F000
       locks:
-        - [boss, 4]
+        - [0, boss]
     - room_id: 16
       x: 5
-      y: 6
+      'y': 6
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 17
       x: 6
-      y: 1
+      'y': 1
       type: 1
-      flags: '0A000'
+      flags: 0A000
     - room_id: 18
       x: 6
-      y: 2
+      'y': 2
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 19
       x: 6
-      y: 3
+      'y': 3
       flags: '06000'
+      loot:
+        - [1, -1]
+      type: -3
     - room_id: 20
       x: 6
-      y: 5
+      'y': 5
       flags: '04000'
+      loot:
+        - [2, 900]
+      type: -5
 - id: 1
   name: Tomb of Kings
   rooms:
     - room_id: 0
       x: 0
-      y: 0
-      type: -3
+      'y': 0
+      type: -1
       flags: '08000'
     - room_id: 1
       x: 0
-      y: 3
+      'y': 3
       flags: '01000'
+      keys:
+        - [1, silver]
+      type: -7
     - room_id: 2
       x: 1
-      y: 3
-      flags: '0D000'
+      'y': 3
+      flags: 0D000
     - room_id: 3
       x: 1
-      y: 4
-      flags: '0B000'
+      'y': 4
+      flags: 0B000
+      loot:
+        - [0, 904]
+      type: -5
     - room_id: 4
       x: 1
-      y: 5
+      'y': 5
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 5
       x: 2
-      y: 3
-      flags: '0D000'
+      'y': 3
+      flags: 0D000
+      locks:
+        - [2, silver]
     - room_id: 6
       x: 2
-      y: 4
+      'y': 4
       flags: '07000'
     - room_id: 7
       x: 3
-      y: 3
-      flags: '0D000'
+      'y': 3
+      flags: 0D000
+      keys:
+        - [2, silver]
+      loot:
+        - [5, 904]
+      locks:
+        - [11, plate]
+      type:
+        - -7
+        - -5
     - room_id: 8
       x: 3
-      y: 4
-      flags: '0F000'
+      'y': 4
+      flags: 0F000
+      locks:
+        - [3, silver]
     - room_id: 9
       x: 3
-      y: 5
+      'y': 5
+      flags: 0A000
+      locks:
+        - [4, silver]
+      loot:
+        - [1, 801]
       type: -4
-      flags: '0A000'
     - room_id: 10
       x: 3
-      y: 6
+      'y': 6
       type: 20
       flags: '02000'
+      loot:
+        - [4, 26]
     - room_id: 11
       x: 4
-      y: 0
+      'y': 0
       type: 1
       flags: '08000'
     - room_id: 12
       x: 4
-      y: 1
+      'y': 1
       type: 10
       flags: '03000'
     - room_id: 13
       x: 4
-      y: 2
+      'y': 2
       flags: '09000'
+      locks:
+        - [1, plate]
     - room_id: 14
       x: 4
-      y: 3
+      'y': 3
       flags: '07000'
     - room_id: 15
       x: 4
-      y: 4
+      'y': 4
       flags: '05000'
+      keys:
+        - [0, silver]
+      type: -7
     - room_id: 16
       x: 5
-      y: 1
-      flags: '0C000'
+      'y': 1
+      flags: 0C000
+      loot:
+        - [2, 900]
+      type: -5
     - room_id: 17
       x: 5
-      y: 2
-      flags: '0F000'
+      'y': 2
+      flags: 0F000
     - room_id: 18
       x: 5
-      y: 3
-      flags: '0F000'
+      'y': 3
+      flags: 0F000
+      locks:
+        - [0, plate]
     - room_id: 19
       x: 5
-      y: 4
+      'y': 4
       type: 10
       flags: '07000'
     - room_id: 20
       x: 6
-      y: 1
+      'y': 1
       flags: '09000'
+      locks:
+        - [2, plate]
+        - [10, silver]
+      loot:
+        - [3, -1]
+      type: -3
     - room_id: 21
       x: 6
-      y: 2
+      'y': 2
       flags: '07000'
     - room_id: 22
       x: 6
-      y: 3
+      'y': 3
       flags: '05000'
+      keys:
+        - [3, silver]
+      type: -7
     - room_id: 23
       x: 6
-      y: 4
-      flags: '0C000'
+      'y': 4
+      flags: 0C000
     - room_id: 24
       x: 6
-      y: 5
+      'y': 5
       flags: '03000'
     - room_id: 25
       x: 7
-      y: 1
-      flags: '0C000'
+      'y': 1
+      flags: 0C000
     - room_id: 26
       x: 7
-      y: 2
+      'y': 2
       flags: '06000'
     - room_id: 27
       x: 7
-      y: 3
-      flags: '0C000'
+      'y': 3
+      flags: 0C000
     - room_id: 28
       x: 7
-      y: 4
-      flags: '0A000'
+      'y': 4
+      flags: 0A000
     - room_id: 29
       x: 7
-      y: 5
+      'y': 5
       flags: '06000'
 - id: 2
   name: Crystal Atheneum
   rooms:
     - room_id: 0
       x: 0
-      y: 0
-      type: -3
+      'y': 0
+      type: -1
       flags: '08000'
     - room_id: 1
       x: 1
-      y: 1
+      'y': 1
       flags: '01000'
     - room_id: 2
       x: 4
-      y: 6
+      'y': 6
       type: 20
       flags: '01000'
+      loot:
+        - [1, 26]
     - room_id: 3
       x: 5
-      y: 5
+      'y': 5
       flags: '09000'
     - room_id: 4
       x: 5
-      y: 6
+      'y': 6
       flags: '07000'
     - room_id: 5
       x: 6
-      y: 5
+      'y': 5
       flags: '05000'
+      loot:
+        - [0, 904]
+      type: -5
     - room_id: 6
       x: 6
-      y: 6
-      flags: '0C000'
+      'y': 6
+      flags: 0C000
     - room_id: 7
       x: 6
-      y: 7
-      flags: '0A000'
+      'y': 7
+      flags: 0A000
     - room_id: 8
       x: 6
-      y: 8
+      'y': 8
       type: 10
-      flags: '0B000'
+      flags: 0B000
     - room_id: 9
       x: 7
-      y: 5
+      'y': 5
       flags: '05000'
     - room_id: 10
       x: 7
-      y: 7
+      'y': 7
       flags: '09000'
     - room_id: 11
       x: 7
-      y: 8
+      'y': 8
       flags: '07000'
+      locks:
+        - [0, plate]
     - room_id: 12
       x: 8
-      y: 5
+      'y': 5
       flags: '05000'
     - room_id: 13
       x: 8
-      y: 7
+      'y': 7
       flags: '05000'
     - room_id: 14
       x: 8
-      y: 8
+      'y': 8
       flags: '05000'
     - room_id: 15
       x: 9
-      y: 5
+      'y': 5
       type: 10
-      flags: '0C000'
+      flags: 0C000
     - room_id: 16
       x: 9
-      y: 6
-      flags: '0A000'
+      'y': 6
+      flags: 0A000
     - room_id: 17
       x: 9
-      y: 7
+      'y': 7
       flags: '06000'
     - room_id: 18
       x: 9
-      y: 8
+      'y': 8
       flags: '05000'
     - room_id: 19
       x: 10
-      y: 6
+      'y': 6
       type: 10
       flags: '09000'
     - room_id: 20
       x: 10
-      y: 7
-      flags: '0A000'
+      'y': 7
+      flags: 0A000
     - room_id: 21
       x: 10
-      y: 8
+      'y': 8
       flags: '06000'
     - room_id: 22
       x: 11
-      y: 3
+      'y': 3
       flags: '01000'
+      loot:
+        - [3, -1]
+      type: -3
     - room_id: 23
       x: 11
-      y: 6
-      flags: '0C000'
+      'y': 6
+      flags: 0C000
     - room_id: 24
       x: 11
-      y: 7
+      'y': 7
       flags: '03000'
     - room_id: 25
       x: 12
-      y: 0
+      'y': 0
       type: 1
-      flags: '0A000'
+      flags: 0A000
     - room_id: 26
       x: 12
-      y: 1
+      'y': 1
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 27
       x: 12
-      y: 2
-      flags: '0A000'
+      'y': 2
+      flags: 0A000
     - room_id: 28
       x: 12
-      y: 3
+      'y': 3
       flags: '0E000'
     - room_id: 29
       x: 12
-      y: 4
-      flags: '0A000'
+      'y': 4
+      flags: 0A000
     - room_id: 30
       x: 12
-      y: 5
-      flags: '0A000'
+      'y': 5
+      flags: 0A000
     - room_id: 31
       x: 12
-      y: 6
-      type: 10
-      flags: '0A000'
+      'y': 6
+      type:
+        - 10
+        - -4
+      flags: 0A000
+      loot:
+        - [2, 802]
     - room_id: 32
       x: 12
-      y: 7
+      'y': 7
       flags: '06000'
 - id: 3
   name: Temple of Groveheart
   rooms:
     - room_id: 0
       x: 1
-      y: 6
+      'y': 6
       flags: '09000'
     - room_id: 1
       x: 1
-      y: 7
+      'y': 7
       flags: '03000'
     - room_id: 2
       x: 2
-      y: 4
+      'y': 4
       flags: '09000'
     - room_id: 3
       x: 2
-      y: 5
+      'y': 5
       flags: '03000'
     - room_id: 4
       x: 2
-      y: 6
-      flags: '0C000'
+      'y': 6
+      flags: 0C000
+      keys:
+        - [0, boss]
+      type: -6
     - room_id: 5
       x: 2
-      y: 7
+      'y': 7
       flags: '07000'
+      locks:
+        - [3, plate]
     - room_id: 6
       x: 2
-      y: 8
+      'y': 8
       flags: '01000'
+      loot:
+        - [0, -1]
+      type: -3
     - room_id: 7
       x: 3
-      y: 1
-      type: -3
+      'y': 1
+      type: -1
       flags: '08000'
     - room_id: 8
       x: 3
-      y: 2
+      'y': 2
       type: 1
-      flags: '0A000'
+      flags: 0A000
     - room_id: 9
       x: 3
-      y: 3
+      'y': 3
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 10
       x: 3
-      y: 4
+      'y': 4
       flags: '06000'
+      loot:
+        - [1, 908]
+      type: -5
     - room_id: 11
       x: 3
-      y: 5
-      flags: '0C000'
+      'y': 5
+      flags: 0C000
     - room_id: 12
       x: 3
-      y: 6
-      flags: '0A000'
+      'y': 6
+      flags: 0A000
     - room_id: 13
       x: 3
-      y: 7
-      flags: '0F000'
+      'y': 7
+      flags: 0F000
     - room_id: 14
       x: 3
-      y: 8
+      'y': 8
       type: 10
-      flags: '0F000'
+      flags: 0F000
+      locks:
+        - [0, plate]
     - room_id: 15
       x: 4
-      y: 5
+      'y': 5
       flags: '09000'
+      loot:
+        - [2, 904]
+      type: -5
     - room_id: 16
       x: 4
-      y: 6
-      flags: '0A000'
+      'y': 6
+      flags: 0A000
     - room_id: 17
       x: 4
-      y: 7
+      'y': 7
       type: 20
       flags: '07000'
+      locks:
+        - [2, plate]
+        - [1, boss]
+      loot:
+        - [3, 26]
     - room_id: 18
       x: 4
-      y: 8
+      'y': 8
       flags: '05000'
     - room_id: 19
       x: 5
-      y: 5
-      flags: '0C000'
+      'y': 5
+      flags: 0C000
     - room_id: 20
       x: 5
-      y: 6
-      flags: '0A000'
+      'y': 6
+      flags: 0A000
     - room_id: 21
       x: 5
-      y: 7
+      'y': 7
       type: 10
-      flags: '0F000'
+      flags: 0F000
     - room_id: 22
       x: 5
-      y: 8
+      'y': 8
       flags: '06000'
     - room_id: 23
       x: 6
-      y: 6
+      'y': 6
       flags: '09000'
     - room_id: 24
       x: 6
-      y: 7
+      'y': 7
       flags: '07000'
     - room_id: 25
       x: 7
-      y: 6
-      flags: '0C000'
+      'y': 6
+      flags: 0C000
     - room_id: 26
       x: 7
-      y: 7
+      'y': 7
       type: -4
       flags: '06000'
+      loot:
+        - [4, 803]
 - id: 4
   name: Agarica Palace
   rooms:
     - room_id: 0
       x: 1
-      y: 0
-      type: -3
+      'y': 0
+      type: -1
       flags: '08000'
     - room_id: 1
       x: 1
-      y: 1
+      'y': 1
       type: 1
-      flags: '0A000'
+      flags: 0A000
     - room_id: 2
       x: 1
-      y: 2
+      'y': 2
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 3
       x: 1
-      y: 3
-      flags: '0A000'
+      'y': 3
+      flags: 0A000
+      loot:
+        - [1, 804]
+      type: -4
     - room_id: 4
       x: 1
-      y: 4
-      type: -4
-      flags: '0A000'
+      'y': 4
+      flags: 0A000
     - room_id: 5
       x: 1
-      y: 5
+      'y': 5
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 6
       x: 1
-      y: 6
+      'y': 6
       type: 20
-      flags: '0A000'
+      flags: 0A000
+      loot:
+        - [0, 26]
     - room_id: 7
       x: 1
-      y: 7
-      flags: '0A000'
+      'y': 7
+      flags: 0A000
+      loot:
+        - [2, 908]
+        - [3, 904]
+      type: -5
     - room_id: 8
       x: 1
-      y: 8
-      flags: '0A000'
+      'y': 8
+      flags: 0A000
     - room_id: 9
       x: 1
-      y: 9
+      'y': 9
       type: 10
-      flags: '0A000'
+      flags: 0A000
 - id: 5
   name: The Executioner's Lair
   rooms:
     - room_id: 0
       x: 0
-      y: 0
-      type: -3
+      'y': 0
+      type: -1
       flags: '08000'
     - room_id: 1
       x: 1
-      y: 1
+      'y': 1
       type: 1
-      flags: '0A000'
+      flags: 0A000
     - room_id: 2
       x: 1
-      y: 2
-      type: 10
-      flags: '0A000'
+      'y': 2
+      type:
+        - 10
+        - -4
+      flags: 0A000
+      loot:
+        - [1, 805]
+      locks:
+        - [0, plate]
 - id: 6
   name: Drowned Mausoleum
   rooms:
     - room_id: 0
       x: 3
-      y: 5
+      'y': 5
       flags: '09000'
     - room_id: 1
       x: 3
-      y: 6
+      'y': 6
       flags: '03000'
     - room_id: 2
       x: 3
-      y: 7
+      'y': 7
       flags: '09000'
     - room_id: 3
       x: 3
-      y: 8
-      flags: '0A000'
+      'y': 8
+      flags: 0A000
     - room_id: 4
       x: 3
-      y: 9
-      flags: '0A000'
+      'y': 9
+      flags: 0A000
     - room_id: 5
       x: 3
-      y: 10
+      'y': 10
       flags: '03000'
     - room_id: 6
       x: 4
-      y: 2
-      type: -3
+      'y': 2
+      type: -1
       flags: '08000'
     - room_id: 7
       x: 4
-      y: 3
-      type: 1
-      flags: '0A000'
+      'y': 3
+      type:
+        - 1
+        - -4
+      flags: 0A000
+      loot:
+        - [1, 806]
     - room_id: 8
       x: 4
-      y: 4
+      'y': 4
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 9
       x: 4
-      y: 5
+      'y': 5
       flags: '06000'
+      loot:
+        - [3, 908]
+      type: -5
     - room_id: 10
       x: 4
-      y: 6
+      'y': 6
       flags: '05000'
     - room_id: 11
       x: 4
-      y: 7
+      'y': 7
       type: 10
       flags: '05000'
     - room_id: 12
       x: 4
-      y: 8
+      'y': 8
       flags: '09000'
     - room_id: 13
       x: 4
-      y: 9
-      flags: '0B000'
+      'y': 9
+      flags: 0B000
     - room_id: 14
       x: 4
-      y: 10
+      'y': 10
       flags: '0E000'
+      locks:
+        - [0, boss]
     - room_id: 15
       x: 4
-      y: 11
+      'y': 11
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 16
       x: 5
-      y: 6
+      'y': 6
       flags: '05000'
     - room_id: 17
       x: 5
-      y: 7
+      'y': 7
       flags: '05000'
     - room_id: 18
       x: 5
-      y: 8
-      flags: '0C000'
+      'y': 8
+      flags: 0C000
     - room_id: 19
       x: 5
-      y: 9
+      'y': 9
       flags: '06000'
+      keys:
+        - [0, boss]
+      type: -6
     - room_id: 20
       x: 6
-      y: 6
+      'y': 6
       flags: '05000'
+      loot:
+        - [2, 908]
+      type: -5
     - room_id: 21
       x: 6
-      y: 7
+      'y': 7
       flags: '05000'
     - room_id: 22
       x: 7
-      y: 6
+      'y': 6
       type: 10
-      flags: '0C000'
+      flags: 0C000
     - room_id: 23
       x: 7
-      y: 7
+      'y': 7
       flags: '06000'
 - id: 7
   name: Construction Chamber
   rooms:
     - room_id: 0
       x: 1
-      y: 1
+      'y': 1
       type: 1
       flags: '08000'
     - room_id: 1
       x: 1
-      y: 2
+      'y': 2
       type: 10
-      flags: '0A000'
+      flags: 0A000
     - room_id: 2
       x: 4
-      y: 0
+      'y': 0
       type: 1
-      flags: '0F000'
+      flags: 0F000
     - room_id: 3
       x: 4
-      y: 1
+      'y': 1
       type: 1
-      flags: '0F000'
+      flags: 0F000
 - id: 8
   name: Challenge room 1
   rooms:
     - room_id: 0
       x: 1
-      y: 1
+      'y': 1
       flags: '00000'
 - id: 9
   name: Challenge room 2
   rooms:
     - room_id: 0
       x: 1
-      y: 1
+      'y': 1
       flags: '00000'
 - id: 29
   name: Tutorial
   rooms:
     - room_id: 0
       x: 1
-      y: 1
+      'y': 1
       flags: '08000'
     - room_id: 1
       x: 1
-      y: 2
-      flags: '0B000'
+      'y': 2
+      flags: 0B000
     - room_id: 2
       x: 1
-      y: 3
+      'y': 3
       flags: '02000'
     - room_id: 3
       x: 2
-      y: 2
+      'y': 2
       flags: '05000'
     - room_id: 4
       x: 3
-      y: 0
+      'y': 0
       flags: '09000'
     - room_id: 5
       x: 3
-      y: 1
-      flags: '0A000'
+      'y': 1
+      flags: 0A000
     - room_id: 6
       x: 3
-      y: 2
+      'y': 2
       flags: '06000'
     - room_id: 7
       x: 4
-      y: 0
+      'y': 0
       flags: '05000'
     - room_id: 8
       x: 5
-      y: 0
-      flags: '0C000'
+      'y': 0
+      flags: 0C000
