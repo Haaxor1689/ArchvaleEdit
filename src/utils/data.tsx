@@ -28,6 +28,9 @@ import arenaIcon from 'assets/world/icons/arena.png';
 import archIcon from 'assets/world/icons/arch.png';
 import mapIcon from 'assets/world/icons/map.png';
 import dungeonChestIcon from 'assets/world/icons/dungeonChest.png';
+import dungeonTreasureIcon from 'assets/world/icons/dungeonTreasure.png';
+import silverKeyIcon from 'assets/world/icons/silverKey.png';
+import bossKeyIcon from 'assets/world/icons/bossKey.png';
 import bombIcon from 'assets/world/icons/bomb.png';
 import fountainIcon from 'assets/world/icons/fountain.png';
 import questIcon from 'assets/world/icons/quest.png';
@@ -36,6 +39,7 @@ import arrRight from 'assets/world/icons/arrRight.png';
 import arrUp from 'assets/world/icons/arrUp.png';
 import arrDown from 'assets/world/icons/arrDown.png';
 import minibossIcon from 'assets/world/icons/miniboss.png';
+import damageBlessingIcon from 'assets/world/damageBlessing.png';
 import plumIcon from 'assets/world/icons/plum.png';
 import shrineIcon from 'assets/world/icons/shrine.png';
 import townIcon from 'assets/world/icons/town.png';
@@ -182,10 +186,11 @@ type Badge = {
 
 export const Badges = loadYamlData<Badge>(badges);
 
-type DungeonRoom = {
-	boss_key?: number;
-	silver_key?: number;
-	locks?: [type: 'boss' | 'silver' | 'button', direction: number][];
+export type DungeonRoom = {
+	type: number | number[];
+	keys?: [id: number, type: 'boss' | 'silver'][];
+	locks?: [id: number, type: 'boss' | 'silver' | 'plate'][];
+	loot?: [id: number, item: number][];
 } & Room;
 
 type DungeonMeta = {
@@ -268,9 +273,13 @@ type RoomType = {
 
 // TODO: Show custom room requirements
 export const RoomTypes: Record<number, RoomType> = {
-	[-4]: { sprite: [dungeonChestIcon, 10, 10], name: 'Dungeon Treasure' },
-	[-3]: { sprite: [archstoneIcon, 12, 11], name: '1st Archstone' },
+	[-7]: { sprite: [silverKeyIcon, 8, 5], name: 'Silver Key' },
+	[-6]: { sprite: [bossKeyIcon, 8, 5], name: 'Boss Key' },
+	[-5]: { sprite: [dungeonTreasureIcon, 8, 8], name: 'Dungeon Treasure' },
+	[-4]: { sprite: [dungeonChestIcon, 8, 8], name: 'Dungeon Ring' },
+	[-3]: { sprite: [damageBlessingIcon, 10, 10], name: 'Damage Blessing' },
 	[-2]: { sprite: [bombIcon, 10, 10], name: 'Bomb unlock' },
+	[-1]: { sprite: [archstoneIcon, 12, 11], name: 'Archstone' },
 	0: { name: 'Combat' },
 	1: { sprite: [minibossIcon, 10, 8], name: 'Boss' }, // boss
 	2: { sprite: [fountainIcon, 10, 8], name: 'Starting Fountain' }, // spawn
@@ -1120,7 +1129,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '1st Archstone',
 		shortName: 'Lichen Keep',
 		flags: ['n40001', 'n10005'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [1],
 		maps: [-1, 0],
 		sprite: [archstoneIcon, 12, 11],
@@ -1130,7 +1139,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '2nd Archstone',
 		shortName: 'Tomb of Kings',
 		flags: ['n40002'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [5],
 		maps: [-1, 1],
 		sprite: [archstoneIcon, 12, 11],
@@ -1140,7 +1149,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '3rd Archstone',
 		shortName: 'Crystal Atheneum',
 		flags: ['n40003'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [13],
 		maps: [-1, 2],
 		sprite: [archstoneIcon, 12, 11],
@@ -1150,7 +1159,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '4th Archstone',
 		shortName: 'Agarica Palace',
 		flags: ['n40005'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [16],
 		maps: [-1, 4],
 		sprite: [archstoneIcon, 12, 11],
@@ -1160,7 +1169,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '5th Archstone',
 		shortName: 'Temple of Groveheart',
 		flags: ['n40004'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [29],
 		maps: [-1, 3],
 		sprite: [archstoneIcon, 12, 11],
@@ -1170,7 +1179,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '6th Archstone',
 		shortName: 'Drowned Mausoleum',
 		flags: ['n40007'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [47],
 		maps: [-1, 6],
 		sprite: [archstoneIcon, 12, 11],
@@ -1180,7 +1189,7 @@ export const WorldStateMeta: StateMeta[] = [
 		name: '7th Archstone',
 		shortName: "The Executioner's Lair",
 		flags: ['n40006'],
-		types: [-3, 47],
+		types: [-1, 47],
 		biomes: [49],
 		maps: [-1, 5],
 		sprite: [archstoneIcon, 12, 11],

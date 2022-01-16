@@ -20,8 +20,8 @@ import { parseRoomDirection } from 'utils/roomUtils';
 import theme from 'utils/theme';
 import useThemeSpacing from 'utils/useThemeSpacing';
 
-import MapRoom from './MapRoom';
-import { useAddRoom, useMapContext } from './MapProvider';
+import MapRoom from '../MapRoom';
+import { useAddRoom, useMapContext } from '../MapProvider';
 
 type NeighborType = 'Up' | 'Down' | 'Left' | 'Right';
 

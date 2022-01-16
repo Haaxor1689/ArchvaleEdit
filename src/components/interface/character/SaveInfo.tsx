@@ -2,7 +2,7 @@ import { Box, IconButton, Tooltip, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import { MultiplayerToggle } from 'components/PlayerContext';
-import { secondsToPlaytime, StrokeTextShadow } from 'utils';
+import { pad, secondsToPlaytime, StrokeTextShadow } from 'utils';
 import useShowUnused from 'utils/useShowUnused';
 import { ExperimentalVersionName } from 'utils/useIsExperimental';
 import difficultyEasy from 'assets/world/icons/difficultyEasy.png';
@@ -13,8 +13,9 @@ import Sprite from 'components/Sprite';
 const calculateInGameTime = (time: number) => {
 	const mod = time % 11;
 	const t = (mod * 2 + 10) % 24;
+	const h = t < 1 ? 24 : Math.floor(t);
 	const m = Math.floor((t % 1) * 60);
-	return `${t < 1 ? 24 : Math.floor(t)}:${m} (${
+	return `${pad(`${h}`, 2)}:${pad(`${m}`, 2)} (${
 		mod > 5 && mod < 10 ? 'Night' : 'Day'
 	})`;
 };

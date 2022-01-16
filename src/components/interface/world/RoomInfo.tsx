@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
 import Sprite from 'components/Sprite';
-import TextButton from 'components/TextButton';
 import {
 	Biomes,
 	DungeonDirections,
@@ -12,19 +11,20 @@ import useShowUnused from 'utils/useShowUnused';
 import { filterRoomState, parseRoomDirection } from 'utils/roomUtils';
 
 import { useMapContext } from './MapProvider';
-import RoomEdit from './RoomEdit';
+import RoomEdit from './roomEdit/RoomEdit';
 import RoomBiomeSelect from './roomEdit/RoomBiomeSelect';
 import RoomTypeSelect from './roomEdit/RoomTypeSelect';
-import RoomObjectsInfo from './RoomObjectsInfo';
+import RoomObjectsInfo from './roomEdit/RoomObjectsInfo';
 import WorldState from './roomEdit/WorldState';
 import DeleteRoomButton from './roomEdit/DeleteRoomButton';
 import DifficultySwitch from './roomEdit/DifficultySwitch';
 import RespawnSwitch from './roomEdit/RespawnSwitch';
 import ExplorationSwitch from './roomEdit/ExplorationSwitch';
+import DungeonRoomLoot from './roomEdit/DungeonRoomLoot';
+import DungeonRoomLocks from './roomEdit/DungeonRoomLocks';
 
 const RoomInfo = () => {
-	const { selected, rooms, getRoomStatus, toggleExplored, map } =
-		useMapContext();
+	const { selected, rooms, map } = useMapContext();
 
 	const room = rooms?.find(r => r.room_id === selected);
 
@@ -45,7 +45,6 @@ const RoomInfo = () => {
 	}
 
 	const type = RoomTypes[room.type]?.name ?? `Unknown #${room.type}`;
-	const status = getRoomStatus(room.room_id);
 
 	const stateMeta = filteredWorldState.filter(
 		filterRoomState(room.type ?? 0, room.biome_type, map)
@@ -72,41 +71,15 @@ const RoomInfo = () => {
 						height={7}
 						mr={2}
 						flexShrink={0}
+						title={`[${room.x},${room.y}]`}
 					/>
 					<Typography variant="h3" color="text.primary" flexGrow={1}>
 						#{room.room_id} {type}
 					</Typography>
 
-					<DeleteRoomButton id={room.room_id} />
+					{map === -1 && <DeleteRoomButton id={room.room_id} />}
 				</Box>
 			</Typography>
-
-			<Box
-				sx={{
-					display: 'grid',
-					gridTemplateColumns: '1fr 1fr',
-					columnGap: 4,
-					rowGap: 1
-				}}
-			>
-				<Typography variant="caption" color="text.secondary">
-					Coordinates
-					<Typography color="text.primary">
-						[{room.x},{room.y}]
-					</Typography>
-				</Typography>
-
-				<Typography variant="caption" color="text.secondary">
-					Exploration
-					<TextButton
-						disabled={!toggleExplored}
-						onClick={() => toggleExplored?.(room.room_id)}
-						sx={{ display: 'block' }}
-					>
-						{status}
-					</TextButton>
-				</Typography>
-			</Box>
 
 			<Box
 				sx={{
@@ -128,6 +101,8 @@ const RoomInfo = () => {
 				{map === -1 && <RoomEdit x={room.x} y={room.y} />}
 				{map === -1 && <RoomObjectsInfo room_id={room.room_id} />}
 				<WorldState stateMetaItems={stateMeta} />
+				{map !== -1 && <DungeonRoomLoot {...room} />}
+				{map !== -1 && <DungeonRoomLocks {...room} />}
 			</Box>
 		</Box>
 	);

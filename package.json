@@ -33,7 +33,8 @@
 		"workbox-routing": "^5.1.3",
 		"workbox-strategies": "^5.1.3",
 		"workbox-streams": "^5.1.3",
-		"yup": "^0.32.11"
+		"yup": "^0.32.11",
+		"zod": "^3.11.6"
 	},
 	"devDependencies": {
 		"@types/js-yaml": "^4.0.4",

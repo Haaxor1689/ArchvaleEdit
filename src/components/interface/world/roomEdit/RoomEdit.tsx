@@ -3,7 +3,8 @@ import { Box } from '@mui/material';
 import Collapsible from 'components/Collapsible';
 import { Room } from 'utils/types';
 
-import { useMapContext } from './MapProvider';
+import { useMapContext } from '../MapProvider';
+
 import RoomControl from './RoomControl';
 
 const RoomEdit = ({ x, y }: Pick<Room, 'x' | 'y'>) => {

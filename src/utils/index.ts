@@ -127,3 +127,9 @@ const PulseAnimation = keyframes`
 `;
 
 export const pulseAnimation = `${PulseAnimation} .15s ease-in-out`;
+
+export const hasBit = (n: number, bit: number) => (n & (1 << bit)) !== 0;
+export const toggleBit = (n: number, bit: number) => {
+	const mask = 1 << bit;
+	return n ^ mask;
+};

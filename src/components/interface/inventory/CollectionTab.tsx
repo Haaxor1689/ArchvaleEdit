@@ -20,7 +20,7 @@ const CollectionTab = () => {
 	const inventoryItems = parseHexArray<InventoryItem>(inventory, 10, v => ({
 		id: parseHexValue(v.slice(0, 4)),
 		count: parseHexValue(v.slice(4, 8)),
-		discovered: parseHexValue(v.slice(8))
+		discovered: !!parseHexValue(v.slice(8))
 	}));
 
 	const onItemClick =

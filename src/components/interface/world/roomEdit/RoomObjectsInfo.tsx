@@ -6,7 +6,7 @@ import { ParsedObject } from 'utils/data';
 import { Room } from 'utils/types';
 import TextButton from 'components/TextButton';
 
-import ObjectInfo from './ObjectInfo';
+import ObjectInfo from '../ObjectInfo';
 
 const RoomObjectsInfo = ({ room_id }: Pick<Room, 'room_id'>) => {
 	const {

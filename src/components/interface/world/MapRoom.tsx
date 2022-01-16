@@ -33,7 +33,12 @@ const MapRoom = (room: Props) => {
 	const { map, selected, setSelected, minX, minY, getRoomStatus } =
 		useMapContext();
 
-	const type = room?.type !== undefined ? RoomTypes[room.type] : RoomTypes[0];
+	const type =
+		room?.type !== undefined
+			? Array.isArray(room.type)
+				? room.type.map(t => RoomTypes[t])
+				: RoomTypes[room.type]
+			: RoomTypes[0];
 	const biome = room?.biome_type ? Biomes[room.biome_type] : undefined;
 
 	const explore =
@@ -126,24 +131,62 @@ const MapRoom = (room: Props) => {
 					sx={{ zIndex: 2 }}
 				/>
 			)) ||
-				(!isDoubleSub && (
-					<Sprite
-						{...(!type
-							? { img: questIcon, width: 8, height: 8 }
-							: type?.sprite
-							? {
-									img: type.sprite[0],
-									width: type.sprite[1],
-									height: type.sprite[2]
-							  }
-							: {})}
-						sx={{
-							opacity: obtained ? 0.25 : undefined,
-							zIndex: 2,
-							filter
-						}}
-					/>
-				))}
+				(!isDoubleSub &&
+					(Array.isArray(type) ? (
+						<>
+							<Sprite
+								{...(type?.[0].sprite
+									? {
+											img: type[0].sprite[0],
+											width: type[0].sprite[1],
+											height: type[0].sprite[2]
+									  }
+									: {})}
+								sx={{
+									position: 'absolute',
+									opacity: obtained ? 0.25 : undefined,
+									zIndex: 2,
+									filter,
+									top: t => t.spacing(1),
+									left: t => t.spacing(1)
+								}}
+							/>
+							<Sprite
+								{...(type?.[1].sprite
+									? {
+											img: type[1].sprite[0],
+											width: type[1].sprite[1],
+											height: type[1].sprite[2]
+									  }
+									: {})}
+								sx={{
+									position: 'absolute',
+									opacity: obtained ? 0.25 : undefined,
+									zIndex: 2,
+									filter,
+									bottom: t => t.spacing(1),
+									right: t => t.spacing(1)
+								}}
+							/>
+						</>
+					) : (
+						<Sprite
+							{...(!type
+								? { img: questIcon, width: 8, height: 8 }
+								: type?.sprite
+								? {
+										img: type.sprite[0],
+										width: type.sprite[1],
+										height: type.sprite[2]
+								  }
+								: {})}
+							sx={{
+								opacity: obtained ? 0.25 : undefined,
+								zIndex: 2,
+								filter
+							}}
+						/>
+					)))}
 			{room.variant === 'map' && (
 				<Sprite
 					img={selectedIcon}

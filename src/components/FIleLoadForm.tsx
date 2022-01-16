@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
 import Form from 'components/form/Form';
-import { World } from 'utils/types';
+import { World, WorldSchema } from 'utils/types';
 import { makeBase64File } from 'utils';
 
 import FileInput from './form/FileInput';
@@ -19,9 +19,10 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			try {
 				setWorldData([
 					file.name,
-					JSON.parse(atob(atob(await makeBase64File(file)))) as World
+					WorldSchema.parse(JSON.parse(atob(atob(await makeBase64File(file)))))
 				]);
 			} catch (e) {
+				console.error(e);
 				return { file: 'Failed to parse file' };
 			}
 		}}
