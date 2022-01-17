@@ -1,10 +1,7 @@
 import { Box, Button, FormHelperText, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useField } from 'react-final-form';
-import * as Yup from 'yup';
 import { useDropzone } from 'react-dropzone';
-
-import { makeValidate } from 'utils';
 
 type Props = {
 	id: string;
@@ -12,7 +9,6 @@ type Props = {
 	helperText?: string;
 	disabled?: boolean;
 	required?: boolean;
-	validate?: Yup.BaseSchema;
 	acceptFileTypes?: string[];
 };
 
@@ -21,7 +17,6 @@ const FileInput: FC<Props> = ({
 	label,
 	helperText,
 	required,
-	validate = required ? Yup.mixed().required() : Yup.mixed().nullable(),
 	disabled,
 	acceptFileTypes
 }) => {
@@ -29,7 +24,6 @@ const FileInput: FC<Props> = ({
 		input: { value, onChange },
 		meta
 	} = useField<File | null>(id, {
-		validate: makeValidate(validate),
 		subscription: { value: true, error: true, touched: true },
 		type: 'file',
 		parse: v => v

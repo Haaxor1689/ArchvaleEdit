@@ -1,5 +1,4 @@
 import { keyframes } from '@emotion/react';
-import * as Yup from 'yup';
 
 import { Item, Items } from './data';
 import { MaxStackSize } from './inventoryUtils';
@@ -26,14 +25,6 @@ export const downloadBlob = (blob: Blob, title: string) => {
 
 export const validateStringAsNull = (value: unknown, originalValue: unknown) =>
 	String(originalValue).trim() === '' ? null : value;
-
-export const makeValidate =
-	(schema: Yup.BaseSchema, required?: boolean) => (value: unknown) =>
-		(required ? schema.required() : schema.nullable())
-			.validate(value)
-			.then(() => undefined)
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			.catch((err: any) => err.errors);
 
 export const pad = (val: string, digits: number) =>
 	([...Array(digits).keys()].map(() => '0').join('') + val).slice(-digits);
