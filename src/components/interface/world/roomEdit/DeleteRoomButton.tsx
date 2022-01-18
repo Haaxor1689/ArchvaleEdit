@@ -15,11 +15,7 @@ const DeleteRoomButton = ({ id }: Props) => {
 	} = useField<Room[]>('world.rooms', { subscription: { value: true } });
 
 	return (
-		<Sprite
-			component={IconButton}
-			img={trash}
-			width={7}
-			height={7}
+		<IconButton
 			onClick={() =>
 				onChange({
 					target: {
@@ -29,8 +25,9 @@ const DeleteRoomButton = ({ id }: Props) => {
 					}
 				})
 			}
-			sx={{ borderRadius: 0 }}
-		/>
+		>
+			<Sprite img={trash} size={0.3} />
+		</IconButton>
 	);
 };
 

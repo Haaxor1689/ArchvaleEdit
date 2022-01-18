@@ -33,14 +33,7 @@ const MapSelect = () => {
 				{[-1, ...Dungeons.filter(d => d).map(d => d.id)].map(o => (
 					<MenuItem key={o} value={o}>
 						<ListItemText>{Dungeons[o]?.name ?? 'Overworld'}</ListItemText>
-						{respawn === o && (
-							<Sprite
-								img={playerIcon}
-								width={5}
-								height={5}
-								title="Spawn point"
-							/>
-						)}
+						{respawn === o && <Sprite img={playerIcon} width={8} />}
 					</MenuItem>
 				))}
 			</Select>

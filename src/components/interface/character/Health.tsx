@@ -43,15 +43,13 @@ const Health = () => {
 				}
 			}}
 		>
-			<Box
-				component={IconButton}
+			<IconButton
 				onClick={onClick}
 				onContextMenu={onClick}
 				sx={{
 					position: 'relative',
 					display: 'grid',
 					gridTemplateColumns: t => Array(8).fill(t.spacing(7)).join(' '),
-					borderRadius: 0,
 					p: 1,
 					pr: 2
 				}}
@@ -60,8 +58,7 @@ const Health = () => {
 					<Box key={i} mr={-1} position="relative">
 						<Sprite
 							img={heart}
-							width={7.5}
-							height={7}
+							size={0.5}
 							sx={
 								i > hearts - 1
 									? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -70,16 +67,14 @@ const Health = () => {
 						/>
 						{hasHalfHeart && i === hearts && (
 							<Sprite
-								position="absolute"
-								top={0}
 								img={halfHeart}
-								width={5}
-								height={7}
+								size={0.5}
+								sx={{ position: 'absolute', left: 0 }}
 							/>
 						)}
 					</Box>
 				))}
-			</Box>
+			</IconButton>
 			<Typography sx={{ textShadow: StrokeTextShadow }}>
 				{value}
 				<OverflowAsterisk overflow={value > 240} />

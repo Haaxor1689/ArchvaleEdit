@@ -1,4 +1,4 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 
 import Sprite from 'components/Sprite';
 import explorationHidden from 'assets/world/icons/explorationHidden.png';
@@ -9,31 +9,11 @@ import explorationVisited from 'assets/world/icons/explorationVisited.png';
 import { useMapContext } from '../MapProvider';
 
 const ExplorationSprites = {
-	Hidden: {
-		img: explorationHidden,
-		width: 10,
-		height: 10
-	},
-	Outline: {
-		img: explorationOutline,
-		width: 10,
-		height: 10
-	},
-	Seen: {
-		img: explorationSeen,
-		width: 10,
-		height: 10
-	},
-	Visited: {
-		img: explorationVisited,
-		width: 10,
-		height: 10
-	},
-	Cleared: {
-		img: explorationVisited,
-		width: 10,
-		height: 10
-	}
+	Hidden: explorationHidden,
+	Outline: explorationOutline,
+	Seen: explorationSeen,
+	Visited: explorationVisited,
+	Cleared: explorationVisited
 };
 
 const ExplorationSwitch = () => {
@@ -44,14 +24,9 @@ const ExplorationSwitch = () => {
 
 	return (
 		<Tooltip title={`Exploration: ${status}`}>
-			<Box>
-				<Sprite
-					component={IconButton}
-					{...ExplorationSprites[status]}
-					onClick={() => toggleExplored?.(room.room_id)}
-					sx={{ borderRadius: 0 }}
-				/>
-			</Box>
+			<IconButton onClick={() => toggleExplored?.(room.room_id)}>
+				<Sprite img={ExplorationSprites[status]} />
+			</IconButton>
 		</Tooltip>
 	);
 };

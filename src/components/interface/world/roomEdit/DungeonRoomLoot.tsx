@@ -14,11 +14,11 @@ import { useMapContext } from '../MapProvider';
 
 const ToggleButton = ({
 	onClick,
-	sprite,
+	img,
 	hidden
 }: {
 	onClick: () => void;
-	sprite: { img: string; width: number; height: number };
+	img: string;
 	hidden: boolean;
 }) => (
 	<IconButton
@@ -28,18 +28,13 @@ const ToggleButton = ({
 			'position': 'relative',
 			'height': t => t.spacing(19),
 			'width': t => t.spacing(18),
-			'borderRadius': 0,
+			'filter': hidden ? 'brightness(0) opacity(0.5)' : undefined,
 			':focus-visible,:hover': {
 				animation: pulseAnimation
 			}
 		}}
 	>
-		<Sprite
-			{...sprite}
-			flexShrink={0}
-			zIndex={1}
-			sx={hidden ? { filter: 'brightness(0) opacity(0.5)' } : undefined}
-		/>
+		<Sprite img={img} />
 	</IconButton>
 );
 
@@ -71,7 +66,7 @@ const DungeonRoomLoot = ({ keys, loot }: DungeonRoom) => {
 								}
 							})
 						}
-						sprite={{ img: damageBlessing, width: 10, height: 10 }}
+						img={damageBlessing}
 						hidden={!hasBit(lootData, id)}
 					/>
 				) : (
@@ -103,11 +98,7 @@ const DungeonRoomLoot = ({ keys, loot }: DungeonRoom) => {
 							}
 						})
 					}
-					sprite={
-						type === 'boss'
-							? { img: keyBoss, width: 5 * 2, height: 7.5 * 2 }
-							: { img: keySilver, width: 4 * 2, height: 6.5 * 2 }
-					}
+					img={type === 'boss' ? keyBoss : keySilver}
 					hidden={!hasBit(keyData, id)}
 				/>
 			))}

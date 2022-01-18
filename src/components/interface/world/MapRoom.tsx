@@ -5,14 +5,11 @@ import questIcon from 'assets/world/icons/quest.png';
 import selectedIcon from 'assets/world/icons/selected.png';
 import playerIcon from 'assets/world/icons/player.png';
 import Sprite from 'components/Sprite';
-import {
-	Biomes,
-	DungeonDirections,
-	RoomDirections,
-	RoomTypes
-} from 'utils/data';
+import { Biomes } from 'utils/data';
 import { Room } from 'utils/types';
 import { parseRoomDirection } from 'utils/roomUtils';
+import RoomTypes from 'utils/data/roomTypes';
+import { getAsset } from 'utils';
 
 import { useIsRoomRespawn, useMapContext, useObtained } from './MapProvider';
 
@@ -24,7 +21,7 @@ type Props = Partial<Room> &
 		| {
 				variant: 'edit';
 				isMiddle: boolean;
-				icon?: [string, number, number];
+				icon?: string;
 				onClick?: () => void;
 		  }
 	);
@@ -73,6 +70,9 @@ const MapRoom = (room: Props) => {
 
 	return (
 		<IconButton
+			disableRipple
+			disableTouchRipple
+			disableFocusRipple
 			onClick={
 				room.variant === 'map'
 					? () =>
@@ -81,9 +81,7 @@ const MapRoom = (room: Props) => {
 							)
 					: room.onClick
 			}
-			sx={{
-				p: 0,
-				borderRadius: 0,
+			style={{
 				gridArea:
 					room.variant === 'map'
 						? `${finalY} / ${finalX}${
@@ -91,30 +89,34 @@ const MapRoom = (room: Props) => {
 						  }`
 						: undefined
 			}}
+			sx={
+				room.variant === 'map'
+					? {
+							':focus img:nth-last-of-type(1),:hover img:nth-last-of-type(1)': {
+								opacity: 1,
+								filter: 'invert(0)'
+							}
+					  }
+					: undefined
+			}
 		>
 			<Sprite
 				img={
 					isDungeon
-						? DungeonDirections[direction]
+						? getAsset('directions', `s_map_dung_${direction}`)
 						: !isDoubleSub
-						? `${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
-								biome?.sprite ?? 'empty'
-						  }_0.png`
+						? getAsset('biomes', `s_map_texture_${biome?.sprite ?? 'empty'}`)
 						: undefined
 				}
 				sx={{
 					position: 'absolute',
-					width: '100%',
-					height: '100%',
 					zIndex: 1,
 					filter
 				}}
 			/>
 			{!isDungeon && (
 				<Sprite
-					img={RoomDirections[direction]}
-					width={14}
-					height={14}
+					img={getAsset('directions', `s_map_dir_${direction}`)}
 					sx={{
 						position: 'absolute',
 						top: 0,
@@ -124,24 +126,13 @@ const MapRoom = (room: Props) => {
 				/>
 			)}
 			{(room.variant === 'edit' && room.icon && (
-				<Sprite
-					img={room.icon[0]}
-					width={room.icon[1]}
-					height={room.icon[2]}
-					sx={{ zIndex: 2 }}
-				/>
+				<Sprite img={room.icon} sx={{ zIndex: 2 }} />
 			)) ||
 				(!isDoubleSub &&
 					(Array.isArray(type) ? (
 						<>
 							<Sprite
-								{...(type?.[0].sprite
-									? {
-											img: type[0].sprite[0],
-											width: type[0].sprite[1],
-											height: type[0].sprite[2]
-									  }
-									: {})}
+								img={type?.[0].sprite}
 								sx={{
 									position: 'absolute',
 									opacity: obtained ? 0.25 : undefined,
@@ -152,13 +143,7 @@ const MapRoom = (room: Props) => {
 								}}
 							/>
 							<Sprite
-								{...(type?.[1].sprite
-									? {
-											img: type[1].sprite[0],
-											width: type[1].sprite[1],
-											height: type[1].sprite[2]
-									  }
-									: {})}
+								img={type?.[1].sprite}
 								sx={{
 									position: 'absolute',
 									opacity: obtained ? 0.25 : undefined,
@@ -171,15 +156,7 @@ const MapRoom = (room: Props) => {
 						</>
 					) : (
 						<Sprite
-							{...(!type
-								? { img: questIcon, width: 8, height: 8 }
-								: type?.sprite
-								? {
-										img: type.sprite[0],
-										width: type.sprite[1],
-										height: type.sprite[2]
-								  }
-								: {})}
+							img={!type ? questIcon : type?.sprite}
 							sx={{
 								opacity: obtained ? 0.25 : undefined,
 								zIndex: 2,
@@ -187,32 +164,27 @@ const MapRoom = (room: Props) => {
 							}}
 						/>
 					)))}
-			{room.variant === 'map' && (
-				<Sprite
-					img={selectedIcon}
-					width={18}
-					height={18}
-					sx={{
-						'position': 'absolute',
-						'top': t => t.spacing(-2),
-						'left': t => t.spacing(-2),
-						'opacity': selected === room.room_id ? 1 : 0,
-						'zIndex': 2,
-						'filter': 'invert(1)',
-						':hover': { opacity: 1, filter: 'invert(0)' }
-					}}
-				/>
-			)}
 			{isRespawn && room.variant === 'map' && !isDoubleSub && (
 				<Sprite
 					img={playerIcon}
-					width={10}
-					height={10}
 					sx={{
 						position: 'absolute',
 						top: t => t.spacing(-3),
 						left: t => t.spacing(-3),
 						zIndex: 3
+					}}
+				/>
+			)}
+			{room.variant === 'map' && (
+				<Sprite
+					img={selectedIcon}
+					sx={{
+						position: 'absolute',
+						top: t => t.spacing(-2),
+						left: t => t.spacing(-2),
+						opacity: selected === room.room_id ? 1 : 0,
+						zIndex: 2,
+						filter: 'invert(1)'
 					}}
 				/>
 			)}

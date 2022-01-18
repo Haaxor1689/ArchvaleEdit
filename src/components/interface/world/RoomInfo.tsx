@@ -1,14 +1,12 @@
 import { Box, Typography } from '@mui/material';
 
 import Sprite from 'components/Sprite';
-import {
-	Biomes,
-	DungeonDirections,
-	RoomTypes,
-	WorldStateMeta
-} from 'utils/data';
+import { Biomes } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
 import { filterRoomState, parseRoomDirection } from 'utils/roomUtils';
+import WorldStateMeta from 'utils/data/worldStateMeta';
+import RoomTypes from 'utils/data/roomTypes';
+import { getAsset } from 'utils';
 
 import { useMapContext } from './MapProvider';
 import RoomEdit from './roomEdit/RoomEdit';
@@ -61,17 +59,20 @@ const RoomInfo = () => {
 					<Sprite
 						img={
 							map !== -1
-								? DungeonDirections[parseRoomDirection(room.flags)]
-								: `${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
-										Biomes[room.biome_type]?.sprite ?? 'empty'
-								  }_0.png`
+								? getAsset(
+										'directions',
+										`s_map_dung_${parseRoomDirection(room.flags)}`
+								  )
+								: getAsset(
+										'biomes',
+										`s_map_texture_${
+											Biomes[room.biome_type]?.sprite ?? 'empty'
+										}`
+								  )
 						}
+						size={0.5}
 						onClick={() => console.log(room)}
-						width={7}
-						height={7}
-						mr={2}
-						flexShrink={0}
-						title={`[${room.x},${room.y}]`}
+						sx={{ mr: 2, cursor: 'help' }}
 					/>
 					<Typography variant="h3" color="text.primary" flexGrow={1}>
 						#{room.room_id} {type}

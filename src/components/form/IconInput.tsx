@@ -14,7 +14,15 @@ type Props = {
 
 const IconInput = ({ icon, hint, ...props }: Props) => (
 	<Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-		{icon}
+		<Box
+			sx={{
+				display: 'flex',
+				justifyContent: 'center',
+				minWidth: t => t.spacing(8)
+			}}
+		>
+			{icon}
+		</Box>
 		<TextInput
 			variant="standard"
 			{...props}
@@ -29,7 +37,7 @@ const IconInput = ({ icon, hint, ...props }: Props) => (
 					gap: 2
 				}}
 			>
-				<Sprite img={questionMark} width={4} height={5} flexShrink={0} />
+				<Sprite img={questionMark} size={0.5} />
 				<Typography variant="caption" sx={{ textShadow: StrokeTextShadow }}>
 					{hint}
 				</Typography>

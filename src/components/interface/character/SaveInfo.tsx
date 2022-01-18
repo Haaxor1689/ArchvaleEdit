@@ -21,23 +21,7 @@ const calculateInGameTime = (time: number) => {
 };
 
 const DifficultyLabels = ['Easy', 'Normal', 'Hard'];
-const DifficultySprites = [
-	{
-		img: difficultyEasy,
-		width: 10,
-		height: 8
-	},
-	{
-		img: difficultyNormal,
-		width: 12,
-		height: 9
-	},
-	{
-		img: difficultyHard,
-		width: 12,
-		height: 11
-	}
-];
+const DifficultySprites = [difficultyEasy, difficultyNormal, difficultyHard];
 
 const SaveInfo = () => {
 	const {
@@ -98,17 +82,12 @@ const SaveInfo = () => {
 			<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 				{[0, 1, 2].map(d => (
 					<Tooltip key={d} title={DifficultyLabels[d]}>
-						<div>
-							<Sprite
-								component={IconButton}
-								{...DifficultySprites[d]}
-								onClick={() => onChange({ target: { value: d } })}
-								sx={{
-									borderRadius: 0,
-									filter: d === value ? undefined : 'saturate(0)'
-								}}
-							/>
-						</div>
+						<IconButton
+							onClick={() => onChange({ target: { value: d } })}
+							sx={{ filter: d === value ? undefined : 'saturate(0)' }}
+						>
+							<Sprite img={DifficultySprites[d]} />
+						</IconButton>
 					</Tooltip>
 				))}
 			</Box>

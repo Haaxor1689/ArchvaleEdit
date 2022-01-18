@@ -2,9 +2,9 @@ import { useField } from 'react-final-form';
 
 import Collapsible from 'components/Collapsible';
 import { parseHexValue } from 'utils';
-import { ParsedObject } from 'utils/data';
 import { Room } from 'utils/types';
 import TextButton from 'components/TextButton';
+import { ParsedObject } from 'utils/data/roomObjects';
 
 import ObjectInfo from '../ObjectInfo';
 

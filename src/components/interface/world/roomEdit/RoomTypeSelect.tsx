@@ -2,8 +2,9 @@ import { Box, MenuItem, Select, Typography } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
-import { Biomes, RoomTypes } from 'utils/data';
+import { Biomes } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
+import RoomTypes from 'utils/data/roomTypes';
 
 type Props = {
 	index: number;
@@ -58,10 +59,9 @@ const RoomTypeSelect = ({ index }: Props) => {
 						>
 							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 								<Sprite
-									img={RoomTypes[type as never].sprite?.[0]}
+									img={RoomTypes[type as never].sprite}
 									width={6}
-									height={6}
-									mr={2}
+									sx={{ mr: 2 }}
 								/>
 								{RoomTypes[type as never].name}
 							</Box>

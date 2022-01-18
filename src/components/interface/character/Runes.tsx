@@ -8,7 +8,7 @@ const Runes = () =>
 		<IconInput
 			id="player_runes"
 			label="Runes"
-			icon={<Sprite img={token} width={7} height={7} />}
+			icon={<Sprite img={token} size={0.5} />}
 			type="number"
 			inputProps={{
 				min: 0,

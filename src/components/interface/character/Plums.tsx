@@ -20,7 +20,7 @@ const Plums = () => {
 		<IconInput
 			id="plums_banked"
 			label="Plums banked"
-			icon={<Sprite img={plum} width={7} height={6.5} />}
+			icon={<Sprite img={plum} size={0.5} />}
 			type="number"
 			hint={
 				maxLvl

@@ -16,7 +16,7 @@ const BankLevel = () => {
 		<IconInput
 			id="bank_level"
 			label="Bank level"
-			icon={<Sprite img={bankLevel} width={7} height={6} />}
+			icon={<Sprite img={bankLevel} size={0.5} />}
 			type="number"
 			hint={`Bank can store ${BankCapacity[value]} coins.`}
 			InputProps={{

@@ -2,9 +2,9 @@ import { Box, Typography } from '@mui/material';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import panel from 'assets/world/panel.png';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 import useShowUnused from 'utils/useShowUnused';
-import { WorldStateMeta } from 'utils/data';
+import WorldStateMeta from 'utils/data/worldStateMeta';
 
 import WorldState from '../world/roomEdit/WorldState';
 
@@ -25,7 +25,7 @@ const ProgressionTab = () => {
 				gap: 2
 			}}
 		>
-			<Sprite
+			<SpriteBox
 				img={panel}
 				width={225}
 				height={150}
@@ -47,7 +47,7 @@ const ProgressionTab = () => {
 						<FlagSelect />
 					</Box>
 				</Scrollbars>
-			</Sprite>
+			</SpriteBox>
 			<Typography variant="caption" textAlign="center">
 				Player icon marks your current spawn point. Hold shift for horizontal
 				scrolling.

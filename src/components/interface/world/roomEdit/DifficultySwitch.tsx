@@ -1,4 +1,4 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import { useField } from 'react-final-form';
 
 import Sprite from 'components/Sprite';
@@ -8,25 +8,7 @@ import difficultyHard from 'assets/world/icons/difficultyHard.png';
 
 import { useMapContext } from '../MapProvider';
 
-const DifficultySprites = [
-	{
-		img: difficultyEasy,
-		width: 10,
-		height: 8
-	},
-	{
-		img: difficultyNormal,
-		width: 12,
-		height: 9
-	},
-	{
-		img: difficultyHard,
-		width: 12,
-		height: 11
-	}
-];
-
-const MaxHeight = Math.max(...DifficultySprites.map(s => s.height));
+const DifficultySprites = [difficultyEasy, difficultyNormal, difficultyHard];
 
 const toggleDifficulty = (diff: number) => {
 	switch (diff) {
@@ -50,17 +32,11 @@ const DifficultySwitch = () => {
 
 	return (
 		<Tooltip title={`Difficulty: ${['Easy', 'Normal', 'Hard'][value]}`}>
-			<Box>
-				<Sprite
-					component={IconButton}
-					{...DifficultySprites[value]}
-					height={MaxHeight}
-					onClick={() =>
-						onChange({ target: { value: toggleDifficulty(value) } })
-					}
-					sx={{ borderRadius: 0 }}
-				/>
-			</Box>
+			<IconButton
+				onClick={() => onChange({ target: { value: toggleDifficulty(value) } })}
+			>
+				<Sprite img={DifficultySprites[value]} />
+			</IconButton>
 		</Tooltip>
 	);
 };

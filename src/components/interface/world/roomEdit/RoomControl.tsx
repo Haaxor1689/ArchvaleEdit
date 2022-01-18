@@ -29,7 +29,6 @@ type NeighborMeta = {
 	arr: string;
 	sYes: string;
 	sNo: string;
-	dim: [number, number];
 	flag: number;
 	x: number;
 	y: number;
@@ -39,7 +38,6 @@ const NeighborsMeta: Record<NeighborType, NeighborMeta> = {
 		arr: arrUp,
 		sYes: arrUpYes,
 		sNo: arrUpNo,
-		dim: [8, 9],
 		flag: 2,
 		x: 0,
 		y: -1
@@ -48,7 +46,6 @@ const NeighborsMeta: Record<NeighborType, NeighborMeta> = {
 		arr: arrDown,
 		sYes: arrDownYes,
 		sNo: arrDownNo,
-		dim: [8, 9],
 		flag: 8,
 		x: 0,
 		y: 1
@@ -57,7 +54,6 @@ const NeighborsMeta: Record<NeighborType, NeighborMeta> = {
 		arr: arrLeft,
 		sYes: arrLeftYes,
 		sNo: arrLeftNo,
-		dim: [8, 9],
 		flag: 4,
 		x: -1,
 		y: 0
@@ -66,7 +62,6 @@ const NeighborsMeta: Record<NeighborType, NeighborMeta> = {
 		arr: arrRight,
 		sYes: arrRightYes,
 		sNo: arrRightNo,
-		dim: [8, 9],
 		flag: 1,
 		x: 1,
 		y: 0
@@ -104,28 +99,25 @@ const RoomControl = ({ variant, neighbors }: Props) => {
 	const getRoomNeighborIcon = (
 		[x, y]: [number, number],
 		occupied: boolean
-	): [string, number, number] | undefined => {
+	): string | undefined => {
 		const meta = getNeighbor([x, y]);
 		if (!meta) return undefined;
 		switch (variant) {
 			case 'Move': {
 				if (occupied) return undefined;
-				return [meta.arr, ...meta.dim];
+				return meta.arr;
 			}
 			case 'Exits': {
 				const direction = parseRoomDirection(room.flags);
-				return [
-					hasFlag(direction, meta.flag) ? meta.sYes : meta.sNo,
-					...meta.dim
-				];
+				return hasFlag(direction, meta.flag) ? meta.sYes : meta.sNo;
 			}
 			case 'Create': {
 				if (occupied) return undefined;
-				return [addIcon, 8, 8];
+				return addIcon;
 			}
 			case 'Select': {
 				if (!occupied) return undefined;
-				return [select, 10, 10];
+				return select;
 			}
 		}
 		return undefined;

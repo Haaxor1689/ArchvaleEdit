@@ -13,13 +13,8 @@ const MapInfo = () => {
 
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mt: -2 }}>
-			<Keys id="keys" label="Boss keys" sprite={[keyBoss, 5, 7.5]} max={6} />
-			<Keys
-				id="keys_silver"
-				label="Silver keys"
-				sprite={[keySilver, 4, 6.5]}
-				max={7}
-			/>
+			<Keys id="keys" label="Boss keys" sprite={keyBoss} max={6} />
+			<Keys id="keys_silver" label="Silver keys" sprite={keySilver} max={7} />
 		</Box>
 	);
 };

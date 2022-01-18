@@ -4,9 +4,9 @@ import { useField } from 'react-final-form';
 import { MouseEventHandler } from 'react';
 
 import Sprite from 'components/Sprite';
-import { StatsMetadata } from 'utils/data';
 import { StrokeTextShadow } from 'utils';
 import { usePlayerStats } from 'components/PlayerContext';
+import StatsMetadata from 'utils/data/statsMeta';
 
 const Indexes = [
 	undefined,
@@ -57,8 +57,8 @@ const Stats = () => {
 						sx={{
 							display: 'flex',
 							alignItems: 'center',
-							borderRadius: 0,
-							gap: 1
+							gap: 1,
+							p: 1.5
 						}}
 					>
 						<Typography
@@ -73,7 +73,7 @@ const Stats = () => {
 						>
 							{meta.getValue?.(Number(value)) ?? value}
 						</Typography>
-						<Sprite img={meta.icon} width={4.5} height={4.5} />
+						<Sprite img={meta.icon} size={0.5} />
 					</IconButton>
 				);
 			})}

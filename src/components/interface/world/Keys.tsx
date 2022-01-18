@@ -11,7 +11,7 @@ import { useMapContext } from './MapProvider';
 type Props = {
 	id: string;
 	label: string;
-	sprite: [string, number, number];
+	sprite: string;
 	max: number;
 };
 
@@ -46,14 +46,12 @@ const Keys = ({ id, label, sprite, max }: Props) => {
 				}
 			}}
 		>
-			<Box
-				component={IconButton}
+			<IconButton
 				onClick={onClick}
 				onContextMenu={onClick}
 				sx={{
 					display: 'flex',
 					justifyContent: 'flex-start',
-					borderRadius: 0,
 					gap: 0.5,
 					p: 1
 				}}
@@ -61,9 +59,8 @@ const Keys = ({ id, label, sprite, max }: Props) => {
 				{[...Array(Math.max(max)).keys()].map(i => (
 					<Sprite
 						key={i}
-						img={sprite[0]}
-						width={sprite[1]}
-						height={sprite[2]}
+						img={sprite}
+						size={0.5}
 						sx={
 							i + 1 > value
 								? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -71,7 +68,7 @@ const Keys = ({ id, label, sprite, max }: Props) => {
 						}
 					/>
 				))}
-			</Box>
+			</IconButton>
 
 			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}

@@ -22,6 +22,7 @@ import questionMark from 'assets/questionMark.png';
 import {
 	isStackable,
 	isUpgradeable,
+	getAsset,
 	pulseAnimation,
 	StrokeTextShadow
 } from 'utils';
@@ -150,6 +151,20 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					}
 				}}
 			>
+				{item &&
+					(itemMeta?.sprite ? (
+						<Sprite
+							img={getAsset('inventory', itemMeta.sprite)}
+							sx={
+								item.discovered === false
+									? { filter: 'brightness(0) opacity(0.5)' }
+									: undefined
+							}
+						/>
+					) : (
+						<Sprite img={questionMark} />
+					))}
+
 				{item && itemMeta && isStackable(itemMeta) && item.count > 0 && (
 					<Typography
 						variant="body2"
@@ -157,8 +172,7 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							position: 'absolute',
 							bottom: t => t.spacing(3.666),
 							right: t => t.spacing(2.666),
-							textShadow: StrokeTextShadow,
-							zIndex: 2
+							textShadow: StrokeTextShadow
 						}}
 					>
 						{item.count}
@@ -172,37 +186,12 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 							position: 'absolute',
 							top: t => t.spacing(3.666),
 							right: t => t.spacing(2.666),
-							textShadow: StrokeTextShadow,
-							zIndex: 2
+							textShadow: StrokeTextShadow
 						}}
 					>
 						+{item.quality}
 					</Typography>
 				)}
-
-				{item &&
-					(itemMeta?.sprite ? (
-						<Sprite
-							img={`${process.env.PUBLIC_URL}/assets/inventory/${itemMeta.sprite[0]}_0.png`}
-							width={itemMeta.sprite[1]}
-							height={itemMeta.sprite[2]}
-							flexShrink={0}
-							zIndex={1}
-							sx={
-								item.discovered === false
-									? { filter: 'brightness(0) opacity(0.5)' }
-									: undefined
-							}
-						/>
-					) : (
-						<Sprite
-							img={questionMark}
-							width={8}
-							height={10}
-							flexShrink={0}
-							zIndex={1}
-						/>
-					))}
 			</IconButton>
 		</ItemTooltip>
 	);

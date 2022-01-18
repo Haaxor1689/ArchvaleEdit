@@ -36,14 +36,12 @@ const HealingPotions = () => {
 				}
 			}}
 		>
-			<Box
-				component={IconButton}
+			<IconButton
 				onClick={onClick}
 				onContextMenu={onClick}
 				sx={{
 					display: 'flex',
 					justifyContent: 'flex-start',
-					borderRadius: 0,
 					gap: 0.5,
 					p: 1
 				}}
@@ -52,8 +50,7 @@ const HealingPotions = () => {
 					<Sprite
 						key={i}
 						img={portion}
-						height={6.5}
-						width={5}
+						size={0.5}
 						sx={
 							i + 1 > value
 								? { opacity: 0.1, filter: 'saturate(0.1)' }
@@ -61,7 +58,7 @@ const HealingPotions = () => {
 						}
 					/>
 				))}
-			</Box>
+			</IconButton>
 
 			<Typography ml={2.5} sx={{ textShadow: StrokeTextShadow }}>
 				{value}

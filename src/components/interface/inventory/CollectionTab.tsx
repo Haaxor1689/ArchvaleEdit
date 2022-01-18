@@ -5,7 +5,7 @@ import { MouseEventHandler } from 'react';
 import collectionPanel from 'assets/inventory/collectionPanel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import { InventoryItem } from 'utils/types';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 import useShowUnused from 'utils/useShowUnused';
 
 import ItemSlot from './ItemSlot';
@@ -52,7 +52,7 @@ const CollectionTab = () => {
 				gap: 2
 			}}
 		>
-			<Sprite
+			<SpriteBox
 				img={collectionPanel}
 				width={161}
 				height={104}
@@ -123,7 +123,7 @@ const CollectionTab = () => {
 						</Box>
 					)}
 				</Box>
-			</Sprite>
+			</SpriteBox>
 			<Typography variant="caption" textAlign="center">
 				Use left and right click together with shift to modify count of
 				materials in the collection.

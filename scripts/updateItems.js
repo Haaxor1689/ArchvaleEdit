@@ -119,7 +119,7 @@ const newItems = data.map((item, i) => {
 		item.armour?.level ? ` +${item.armour?.level}` : ''
 	}`;
 	// test('Name', item, name, myItem.name);
-	// test('Sprite', item, `${item.icon}_0`, myItem.sprite[0]);
+	// test('Sprite', item, `${item.icon}_0`, myItem.sprite);
 	test('Type', item, capitalize(item.type), myItem.type);
 
 	const subtype = capitalize(
@@ -248,7 +248,7 @@ const newItems = data.map((item, i) => {
 		id,
 		name,
 		rarity: rarities[item.rarity],
-		sprite: [item.icon, myItem.sprite[1], myItem.sprite[2]],
+		sprite: item.icon,
 		type: capitalize(item.type),
 		subtype,
 		category,
@@ -263,6 +263,6 @@ const newItems = data.map((item, i) => {
 });
 
 fs.writeFileSync(
-	'scripts/itemsNew.yaml',
-	yaml.dump(newItems, { flowLevel: 2 })
+	'src/utils/data/items.yaml',
+	yaml.dump(newItems, { flowLevel: 3 })
 );

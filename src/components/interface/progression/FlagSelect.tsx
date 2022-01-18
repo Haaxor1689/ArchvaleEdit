@@ -10,7 +10,7 @@ import { useField } from 'react-final-form';
 import { useState } from 'react';
 
 import TextInput from 'components/form/TextInput';
-import { WorldStateMeta } from 'utils/data';
+import WorldStateMeta from 'utils/data/worldStateMeta';
 
 const FlagSelect = () => {
 	const {

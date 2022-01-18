@@ -39,14 +39,12 @@ const Dashes = () => {
 				}
 			}}
 		>
-			<Box
-				component={IconButton}
+			<IconButton
 				onClick={onClick}
 				onContextMenu={onClick}
 				sx={{
 					display: 'flex',
 					justifyContent: 'flex-start',
-					borderRadius: 0,
 					gap: 0.5,
 					p: 1,
 					pr: 2
@@ -56,8 +54,7 @@ const Dashes = () => {
 					<Sprite
 						key={i}
 						img={dash}
-						width={5.5}
-						height={5.5}
+						size={0.5}
 						mr={-1}
 						sx={{
 							position: 'relative',
@@ -67,7 +64,7 @@ const Dashes = () => {
 						}}
 					/>
 				))}
-			</Box>
+			</IconButton>
 			<Typography ml={1.5} sx={{ textShadow: StrokeTextShadow }}>
 				{dashes}
 				<OverflowAsterisk overflow={dashes > DashesMax} />

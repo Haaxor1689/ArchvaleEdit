@@ -177,6 +177,6 @@ const newDungeons = dungeons.map(d => ({
 }));
 
 fs.writeFileSync(
-	'scripts/dungeonsNew.yaml',
+	'src/utils/data/dungeons.yaml',
 	yaml.dump(newDungeons, { flowLevel: 5 })
 );

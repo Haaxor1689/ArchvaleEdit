@@ -1,7 +1,8 @@
 import { createContext, FC, useContext, useState } from 'react';
 import { useField } from 'react-final-form';
 
-import { Dungeons, WorldStateMeta } from 'utils/data';
+import { Dungeons } from 'utils/data';
+import WorldStateMeta from 'utils/data/worldStateMeta';
 import {
 	filterRoomState,
 	parseDungeonExploration,

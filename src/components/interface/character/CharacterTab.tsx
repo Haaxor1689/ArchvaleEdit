@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import Scrollbars from 'react-custom-scrollbars';
 
-import Sprite from 'components/Sprite';
+import Sprite, { SpriteBox } from 'components/Sprite';
 import panel from 'assets/character/panel.png';
 import cost from 'assets/stats/cost.png';
 import bankCoin from 'assets/character/bankCoin.png';
@@ -30,7 +30,7 @@ const CharacterTab = () => (
 			gap: 2
 		}}
 	>
-		<Sprite
+		<SpriteBox
 			img={panel}
 			width={161}
 			height={123}
@@ -66,7 +66,7 @@ const CharacterTab = () => (
 						<IconInput
 							id="player_coins"
 							label="Coins"
-							icon={<Sprite img={cost} width={7} height={7} />}
+							icon={<Sprite img={cost} size={0.5} />}
 							type="number"
 							inputProps={{
 								max: Number.MAX_SAFE_INTEGER,
@@ -79,7 +79,7 @@ const CharacterTab = () => (
 						<IconInput
 							id="player_coins_banked"
 							label="Banked coins"
-							icon={<Sprite img={bankCoin} width={7} height={6.5} />}
+							icon={<Sprite img={bankCoin} size={0.5} />}
 							type="number"
 							inputProps={{
 								max: Number.MAX_SAFE_INTEGER,
@@ -98,7 +98,7 @@ const CharacterTab = () => (
 			</Scrollbars>
 			<Tools />
 			<SaveInfo />
-		</Sprite>
+		</SpriteBox>
 		<Typography variant="caption" textAlign="center">
 			You can use right click to lower clickable values like health, potions
 			etc. Hold shift to increase the amount.

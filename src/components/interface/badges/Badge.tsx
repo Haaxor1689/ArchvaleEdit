@@ -8,7 +8,7 @@ import tile from 'assets/badges/tile.png';
 import slot from 'assets/badges/slot.png';
 import Sprite from 'components/Sprite';
 import { getPlayerColor, usePlayer } from 'components/PlayerContext';
-import { pulseAnimation } from 'utils';
+import { getAsset, pulseAnimation } from 'utils';
 
 import ItemTooltip from '../ItemTooltip';
 
@@ -61,9 +61,9 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					<Typography color="highlight">
 						{meta?.description ?? '???'}
 					</Typography>
-					<Box sx={{ display: 'flex', gap: 1 }}>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						{[...Array(meta?.slots ?? 0).keys()].map(i => (
-							<Sprite key={i} img={slot} width={9} height={9} />
+							<Sprite key={i} img={slot} />
 						))}
 					</Box>
 				</>
@@ -85,7 +85,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					'backgroundSize': 'contain',
 					':focus-visible,:hover': {
 						'backgroundImage': `url(${hover})`,
-						'& > div > div > div': {
+						'& > div > div > img': {
 							filter: t =>
 								`${isUnlocked(unlocked, true)}${isActive(
 									active,
@@ -94,7 +94,7 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 							animation: pulseAnimation
 						}
 					},
-					'& > div > div > div': {
+					'& > div > div > img': {
 						filter: t =>
 							`${isUnlocked(unlocked, active)}${isActive(
 								active,
@@ -104,8 +104,6 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				}}
 			>
 				<Box
-					width="100%"
-					height="100%"
 					sx={
 						active
 							? {
@@ -115,8 +113,6 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 					}
 				>
 					<Box
-						width="100%"
-						height="100%"
 						sx={
 							active
 								? {
@@ -126,12 +122,13 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 						}
 					>
 						<Sprite
-							img={`${process.env.PUBLIC_URL}/assets/badges/s_badge_${meta?.name
-								.toLowerCase()
-								.replaceAll(' ', '_')
-								.replaceAll("'", '')}_0.png`}
-							width="100%"
-							height="100%"
+							img={getAsset(
+								'badges',
+								`s_badge_${meta?.name
+									.toLowerCase()
+									.replaceAll(' ', '_')
+									.replaceAll("'", '')}`
+							)}
 						/>
 					</Box>
 				</Box>

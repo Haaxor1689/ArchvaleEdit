@@ -1,6 +1,6 @@
 import { parseHexValue } from 'utils';
 
-import { StateMeta } from './data';
+import { StateMeta } from './data/worldStateMeta';
 import { Dungeon, Room } from './types';
 
 export const filterRoomState =

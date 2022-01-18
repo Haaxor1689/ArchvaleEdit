@@ -9,7 +9,7 @@ import slotEmpty from 'assets/badges/slotEmpty.png';
 import slotOverflow from 'assets/badges/slotOverflow.png';
 import slotLocked from 'assets/badges/slotLocked.png';
 import slotsPanel from 'assets/badges/slotsPanel.png';
-import Sprite from 'components/Sprite';
+import Sprite, { SpriteBox } from 'components/Sprite';
 import { StrokeTextShadow } from 'utils';
 import OverflowAsterisk from 'components/OverflowAsterisk';
 
@@ -48,16 +48,14 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 	);
 
 	return (
-		<Sprite
+		<SpriteBox
 			component={IconButton}
+			img={slotsPanel}
 			onClick={onClick}
 			onContextMenu={onClick}
-			img={slotsPanel}
 			sx={{
-				position: 'relative',
 				display: 'flex',
 				alignItems: 'center',
-				borderRadius: 0,
 				gap: 1,
 				p: 3,
 				pb: 7,
@@ -65,14 +63,12 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 			}}
 		>
 			{[...Array(Math.min(9, filled)).keys()].map(k => (
-				<Sprite key={k} img={slotFilled} width={9} height={9} />
+				<Sprite key={k} img={slotFilled} />
 			))}
 			{[...Array(negativeHover).keys()].map(k => (
 				<Sprite
 					key={k}
 					img={slotFilled}
-					width={9}
-					height={9}
 					sx={{ animation: `${fade} 1.5s ease infinite` }}
 				/>
 			))}
@@ -80,21 +76,19 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 				<Sprite
 					key={k}
 					img={overflow ? slotUnavailable : slotAvailable}
-					width={9}
-					height={9}
 					sx={{ animation: `${fade} 1.5s ease infinite` }}
 				/>
 			))}
 			{[
 				...Array(Math.min(Math.max(0, 9 - used - positiveHover), empty)).keys()
 			].map(k => (
-				<Sprite key={k} img={slotEmpty} width={9} height={9} />
+				<Sprite key={k} img={slotEmpty} />
 			))}
 			{[...Array(overflow).keys()].map(k => (
-				<Sprite key={k} img={slotOverflow} width={9} height={9} />
+				<Sprite key={k} img={slotOverflow} />
 			))}
 			{[...Array(locked).keys()].map(k => (
-				<Sprite key={k} img={slotLocked} width={9} height={9} />
+				<Sprite key={k} img={slotLocked} />
 			))}
 			<Typography
 				variant="h5"
@@ -107,7 +101,7 @@ const BadgeSlots = ({ unlocked, used, hover, onClick }: Props) => {
 				{used}/{unlocked}
 				<OverflowAsterisk overflow={unlocked > 9} />
 			</Typography>
-		</Sprite>
+		</SpriteBox>
 	);
 };
 

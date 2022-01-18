@@ -16,7 +16,7 @@ import {
 } from 'utils';
 import { InventoryItem } from 'utils/types';
 import { Items } from 'utils/data';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 import { MaxStackSize } from 'utils/inventoryUtils';
 
 import ItemCheatMenu from './ItemCheatMenu';
@@ -76,7 +76,7 @@ const InventoryTab = ({ variant }: Props) => {
 					gap: 2
 				}}
 			>
-				<Sprite
+				<SpriteBox
 					img={variant === 'storage' ? storagePanel : inventoryPanel}
 					width={161}
 					height={variant === 'inventory' ? 116 : 111}
@@ -226,7 +226,7 @@ const InventoryTab = ({ variant }: Props) => {
 							);
 						}}
 					/>
-				</Sprite>
+				</SpriteBox>
 				<Typography variant="caption" textAlign="center">
 					Pick new items from item database on the left, pick full stack (
 					{MaxStackSize}) or highest quality (+5) using shift. Use left and

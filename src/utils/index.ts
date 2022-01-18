@@ -124,3 +124,8 @@ export const toggleBit = (n: number, bit: number) => {
 	const mask = 1 << bit;
 	return n ^ mask;
 };
+
+export const getAsset = (...route: string[]) =>
+	`${process.env.PUBLIC_URL}/assets/${route
+		.slice(0, -1)
+		.join('/')}/${route.slice(-1)}_0.png`;

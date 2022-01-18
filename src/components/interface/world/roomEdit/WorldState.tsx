@@ -3,9 +3,9 @@ import { useField } from 'react-final-form';
 import { omit } from 'lodash-es';
 
 import Sprite from 'components/Sprite';
-import { StateMeta } from 'utils/data';
 import { pulseAnimation, StrokeTextShadow } from 'utils';
 import Collapsible from 'components/Collapsible';
+import { StateMeta } from 'utils/data/worldStateMeta';
 
 type Props = {
 	stateMetaItems: StateMeta[];
@@ -72,11 +72,9 @@ const WorldState = ({
 					>
 						<Sprite
 							title={s.name}
-							img={s.sprite[0]}
-							width={s.sprite[1] / 2}
-							height={s.sprite[2] / 2}
+							img={s.sprite}
+							size={0.5}
 							sx={{
-								flexShrink: 0,
 								filter: !obtained ? 'saturate(0)' : undefined,
 								opacity: !obtained ? 0.5 : undefined
 							}}
@@ -84,8 +82,7 @@ const WorldState = ({
 						{s.secondarySprite && (
 							<Sprite
 								img={s.secondarySprite[0]}
-								width={s.secondarySprite[1] / 2}
-								height={s.secondarySprite[2] / 2}
+								width={5}
 								sx={{
 									position: 'absolute',
 									top: t => t.spacing(1),

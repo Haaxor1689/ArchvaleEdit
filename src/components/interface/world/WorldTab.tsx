@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import panel from 'assets/world/panel.png';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 
 import MapProvider from './MapProvider';
 import MapPreview from './MapPreview';
@@ -20,7 +20,7 @@ const WorldTab = () => (
 			gap: 2
 		}}
 	>
-		<Sprite
+		<SpriteBox
 			img={panel}
 			width={225}
 			height={150}
@@ -45,7 +45,7 @@ const WorldTab = () => (
 					</Box>
 				</Scrollbars>
 			</MapProvider>
-		</Sprite>
+		</SpriteBox>
 		<Typography variant="caption" textAlign="center">
 			Player icon marks your current spawn point. Hold shift for horizontal
 			scrolling.

@@ -5,7 +5,7 @@ import { useField } from 'react-final-form';
 import { Badges } from 'utils/data';
 import panel from 'assets/badges/panel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 import { PlayerToggle, usePlayerBadges } from 'components/PlayerContext';
 
 import BadgeSlots from './BadgeSlots';
@@ -88,7 +88,7 @@ const BadgeTab = () => {
 				alignItems: 'center'
 			}}
 		>
-			<Sprite
+			<SpriteBox
 				img={panel}
 				sx={{
 					position: 'relative',
@@ -113,7 +113,7 @@ const BadgeTab = () => {
 						setHover={setBadgeHover}
 					/>
 				))}
-			</Sprite>
+			</SpriteBox>
 			<BadgeSlots
 				unlocked={Number(slots)}
 				used={badgesCost}

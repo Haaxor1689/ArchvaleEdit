@@ -27,7 +27,7 @@ const HealingLevel = () => {
 		<IconInput
 			id="healing_level"
 			label="Potion level"
-			icon={<Sprite img={potionLevel} width={7} height={6} />}
+			icon={<Sprite img={potionLevel} size={0.5} />}
 			type="number"
 			hint={`Potions will heal you for ${HealingAmount[value]} health.`}
 			InputProps={{

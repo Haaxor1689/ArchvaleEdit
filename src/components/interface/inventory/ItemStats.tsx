@@ -1,10 +1,11 @@
 import { Box, capitalize, Typography } from '@mui/material';
 import { keyframes } from '@emotion/react';
 
-import { Items, StatsMetadata } from 'utils/data';
+import { Items } from 'utils/data';
 import { InventoryItem } from 'utils/types';
 import Sprite from 'components/Sprite';
 import { getItemFullType } from 'utils';
+import StatsMetadata from 'utils/data/statsMeta';
 
 const rainbowColor = keyframes`
   100%,0%{
@@ -59,7 +60,15 @@ const Stat = ({ attr, value }: { attr: string; value: string | number }) => {
 				gap: 1
 			}}
 		>
-			<Sprite img={meta.icon} width={4.5} height={4.5} />
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'center',
+					minWidth: t => t.spacing(5)
+				}}
+			>
+				<Sprite img={meta.icon} size={0.5} />
+			</Box>
 			<Typography flexGrow={1}>{meta.title ?? capitalize(attr)}</Typography>
 			<Typography color="success.main">
 				{meta.getValue?.(Number(value)) ?? value}

@@ -4,6 +4,7 @@ import { useField } from 'react-final-form';
 import Sprite from 'components/Sprite';
 import { Biomes } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
+import { getAsset } from 'utils';
 
 type Props = {
 	index: number;
@@ -44,12 +45,12 @@ const RoomBiomeSelect = ({ index }: Props) => {
 						<MenuItem key={type} value={type}>
 							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 								<Sprite
-									img={`${process.env.PUBLIC_URL}/assets/biomes/s_map_texture_${
-										Biomes[type as never]?.sprite ?? 'empty'
-									}_0.png`}
+									img={getAsset(
+										'biomes',
+										`s_map_texture_${Biomes[type as never]?.sprite ?? 'empty'}`
+									)}
 									width={6}
-									height={6}
-									mr={2}
+									sx={{ mr: 2 }}
 								/>
 								{Biomes[type as never].name}
 							</Box>

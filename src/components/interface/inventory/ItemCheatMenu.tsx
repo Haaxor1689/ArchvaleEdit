@@ -84,15 +84,14 @@ const ItemCheatMenu = ({ hideTooltip, onClick }: Props) => {
 							<IconButton
 								onClick={() => setFilter(f)}
 								sx={{
-									'backgroundColor': f === filter ? 'primary.main' : undefined,
-									'borderRadius': 0,
 									'p': 1,
+									'backgroundColor': f === filter ? 'primary.main' : undefined,
 									':hover': {
 										backgroundColor: f === filter ? 'primary.main' : undefined
 									}
 								}}
 							>
-								<Sprite img={img} width={9} height={9} />
+								<Sprite img={img} />
 							</IconButton>
 						</Tooltip>
 					))}

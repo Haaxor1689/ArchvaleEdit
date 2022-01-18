@@ -12,9 +12,9 @@ import { useField } from 'react-final-form';
 
 import trash from 'assets/trash.png';
 import Sprite from 'components/Sprite';
-import { ParsedObject, RoomObjects } from 'utils/data';
 import { parseToHex } from 'utils';
 import questionMark from 'assets/questionMark.png';
+import RoomObjects, { ParsedObject } from 'utils/data/roomObjects';
 
 type Props = {
 	id: string;
@@ -47,9 +47,10 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 			<Box sx={{ display: 'flex', gap: 3, mb: -2 }}>
 				<Sprite
 					img={meta?.getIcon?.(o) ?? meta?.icon ?? questionMark}
-					onClick={() => console.log(o)}
 					width={8}
 					height={8}
+					onClick={() => console.log(o)}
+					sx={{ cursor: 'help' }}
 				/>
 				<Typography
 					variant="caption"
@@ -62,18 +63,15 @@ const ObjectInfo = ({ id, o, i, onDelete }: Props) => {
 					</Typography>
 				</Typography>
 
-				<Sprite
-					component={IconButton}
-					img={trash}
-					width={7}
-					height={7}
+				<IconButton
 					onClick={() => onDelete(i)}
 					sx={{
-						borderRadius: 0,
 						justifySelf: 'flex-end',
 						alignSelf: 'center'
 					}}
-				/>
+				>
+					<Sprite img={trash} size={0.3} />
+				</IconButton>
 			</Box>
 			<Box
 				sx={{

@@ -114,6 +114,14 @@ const theme = (spacing: number) =>
 						marginTop: `${spacing * 3}px !important`
 					}
 				}
+			},
+			MuiIconButton: {
+				styleOverrides: {
+					root: {
+						borderRadius: 0,
+						padding: 0
+					}
+				}
 			}
 		}
 	});

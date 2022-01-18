@@ -1,7 +1,7 @@
 import { IconButton } from '@mui/material';
 
 import tab from 'assets/tab.png';
-import Sprite from 'components/Sprite';
+import Sprite, { SpriteBox } from 'components/Sprite';
 
 type Props = {
 	name: string;
@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Tab = ({ name, icon, active, onClick }: Props) => (
-	<Sprite
+	<SpriteBox
 		component={IconButton}
 		key={name}
 		img={tab}
@@ -22,6 +22,7 @@ const Tab = ({ name, icon, active, onClick }: Props) => (
 			'px': 5,
 			'pt': 4,
 			'pb': 0,
+			'width': t => t.spacing(23),
 			'mx': -0.5,
 			'borderRadius': 0,
 			'transition': 'transform 0.2s',
@@ -34,8 +35,8 @@ const Tab = ({ name, icon, active, onClick }: Props) => (
 			'&:last-of-type': { mr: 0 }
 		}}
 	>
-		<Sprite img={icon} width={13} height={13} />
-	</Sprite>
+		<Sprite img={icon} height={13} width={13} />
+	</SpriteBox>
 );
 
 export default Tab;

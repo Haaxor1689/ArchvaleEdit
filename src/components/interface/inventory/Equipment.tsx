@@ -3,7 +3,7 @@ import { useField } from 'react-final-form';
 import equipPanel from 'assets/inventory/equipPanel.png';
 import { parseHexArray, parseHexValue, parseToHex } from 'utils';
 import { InventoryItem } from 'utils/types';
-import Sprite from 'components/Sprite';
+import { SpriteBox } from 'components/Sprite';
 import { PlayerToggle, usePlayer } from 'components/PlayerContext';
 
 import ItemSlot from './ItemSlot';
@@ -64,7 +64,7 @@ const Equipment = ({ onSlotClick }: Props) => {
 	};
 
 	return (
-		<Sprite
+		<SpriteBox
 			img={equipPanel}
 			sx={{
 				position: 'absolute',
@@ -89,7 +89,7 @@ const Equipment = ({ onSlotClick }: Props) => {
 					onClick={() => setEquipment(i, onSlotClick(i, equipmentItems[i]))}
 				/>
 			))}
-		</Sprite>
+		</SpriteBox>
 	);
 };
 

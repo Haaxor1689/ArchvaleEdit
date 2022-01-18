@@ -12,30 +12,18 @@ import { hasBit, pulseAnimation, toggleBit } from 'utils';
 import { useMapContext } from '../MapProvider';
 
 const Sprites = {
-	plate: {
-		img: plate,
-		width: 12,
-		height: 14
-	},
-	silver: {
-		img: lockSilver,
-		width: 11,
-		height: 19
-	},
-	boss: {
-		img: lockBoss,
-		width: 11,
-		height: 22
-	}
+	plate,
+	silver: lockSilver,
+	boss: lockBoss
 };
 
 const ToggleButton = ({
 	onClick,
-	sprite,
+	img,
 	hidden
 }: {
 	onClick: () => void;
-	sprite: { img: string; width: number; height: number };
+	img: string;
 	hidden: boolean;
 }) => (
 	<IconButton
@@ -45,18 +33,13 @@ const ToggleButton = ({
 			'position': 'relative',
 			'height': t => t.spacing(19),
 			'width': t => t.spacing(18),
-			'borderRadius': 0,
+			'filter': hidden ? 'brightness(0) opacity(0.5)' : undefined,
 			':focus-visible,:hover': {
 				animation: pulseAnimation
 			}
 		}}
 	>
-		<Sprite
-			{...sprite}
-			flexShrink={0}
-			zIndex={1}
-			sx={hidden ? { filter: 'brightness(0) opacity(0.5)' } : undefined}
-		/>
+		<Sprite img={img} />
 	</IconButton>
 );
 
@@ -81,7 +64,7 @@ const DungeonRoomLocks = ({ locks }: DungeonRoom) => {
 							}
 						})
 					}
-					sprite={Sprites[type]}
+					img={Sprites[type]}
 					hidden={!hasBit(value, id)}
 				/>
 			))}

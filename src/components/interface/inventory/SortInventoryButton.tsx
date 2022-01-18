@@ -14,9 +14,9 @@ const SortInventoryButton = ({ items, onSort }: Props) => (
 	<Tooltip title="Sort" followCursor>
 		<IconButton
 			onClick={() => onSort(items.sort(sortInventoryItems))}
-			sx={{ borderRadius: 0, p: 1 }}
+			sx={{ p: 1 }}
 		>
-			<Sprite img={sortIcon} width={15} height={15} />
+			<Sprite img={sortIcon} />
 		</IconButton>
 	</Tooltip>
 );

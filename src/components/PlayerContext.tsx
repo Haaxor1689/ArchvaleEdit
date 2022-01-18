@@ -36,37 +36,23 @@ export const MultiplayerToggle = () => {
 	return (
 		<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 			<Tooltip title="Single-player">
-				<div>
-					<Sprite
-						component={IconButton}
-						img={playerIcon}
-						width={10}
-						height={10}
-						onClick={() => {
-							onMpChange({ target: { value: 0 } });
-							setP('P1');
-						}}
-						sx={{
-							borderRadius: 0,
-							filter: !mp ? undefined : 'saturate(0)'
-						}}
-					/>
-				</div>
+				<IconButton
+					onClick={() => {
+						onMpChange({ target: { value: 0 } });
+						setP('P1');
+					}}
+					sx={{ filter: !mp ? undefined : 'saturate(0)' }}
+				>
+					<Sprite img={playerIcon} />
+				</IconButton>
 			</Tooltip>
 			<Tooltip title="Multi-player">
-				<div>
-					<Sprite
-						component={IconButton}
-						img={multiplayerIcon}
-						width={14}
-						height={14}
-						onClick={() => onMpChange({ target: { value: 1 } })}
-						sx={{
-							borderRadius: 0,
-							filter: mp ? undefined : 'saturate(0)'
-						}}
-					/>
-				</div>
+				<IconButton
+					onClick={() => onMpChange({ target: { value: 1 } })}
+					sx={{ filter: mp ? undefined : 'saturate(0)' }}
+				>
+					<Sprite img={multiplayerIcon} />
+				</IconButton>
 			</Tooltip>
 		</Box>
 	);
@@ -88,7 +74,6 @@ export const PlayerToggle = () => {
 				right: 0,
 				transform: 'translateY(-50%)',
 				color: getPlayerColor(p),
-				borderRadius: 0,
 				textShadow: StrokeTextShadow
 			}}
 		>

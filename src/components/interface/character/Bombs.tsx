@@ -26,17 +26,13 @@ const Bombs = () => {
 			id="player_bomb_level"
 			label="Bomb level"
 			icon={
-				<Sprite
-					component={IconButton}
-					img={bombLevel}
-					width={7}
-					height={7}
+				<IconButton
 					onClick={toggleBombs}
 					title={!hasBombs ? 'Enable' : 'Disable'}
-					sx={{
-						filter: !hasBombs ? 'saturate(0)' : undefined
-					}}
-				/>
+					sx={{ filter: !hasBombs ? 'saturate(0)' : undefined }}
+				>
+					<Sprite img={bombLevel} size={0.5} />
+				</IconButton>
 			}
 			type="number"
 			disabled={!hasBombs}
