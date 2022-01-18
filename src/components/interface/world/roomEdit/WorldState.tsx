@@ -81,7 +81,7 @@ const WorldState = ({
 						/>
 						{s.secondarySprite && (
 							<Sprite
-								img={s.secondarySprite[0]}
+								img={s.secondarySprite}
 								width={5}
 								sx={{
 									position: 'absolute',

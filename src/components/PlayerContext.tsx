@@ -74,7 +74,8 @@ export const PlayerToggle = () => {
 				right: 0,
 				transform: 'translateY(-50%)',
 				color: getPlayerColor(p),
-				textShadow: StrokeTextShadow
+				textShadow: StrokeTextShadow,
+				p: 1
 			}}
 		>
 			<Typography variant="h3">{p}</Typography>

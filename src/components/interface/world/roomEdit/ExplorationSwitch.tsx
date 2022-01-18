@@ -5,6 +5,7 @@ import explorationHidden from 'assets/world/icons/explorationHidden.png';
 import explorationOutline from 'assets/world/icons/explorationOutline.png';
 import explorationSeen from 'assets/world/icons/explorationSeen.png';
 import explorationVisited from 'assets/world/icons/explorationVisited.png';
+import explorationCleared from 'assets/world/icons/explorationCleared.png';
 
 import { useMapContext } from '../MapProvider';
 
@@ -13,7 +14,7 @@ const ExplorationSprites = {
 	Outline: explorationOutline,
 	Seen: explorationSeen,
 	Visited: explorationVisited,
-	Cleared: explorationVisited
+	Cleared: explorationCleared
 };
 
 const ExplorationSwitch = () => {

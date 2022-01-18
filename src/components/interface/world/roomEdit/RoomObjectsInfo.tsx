@@ -45,7 +45,6 @@ const RoomObjectsInfo = ({ room_id }: Pick<Room, 'room_id'>) => {
 	return (
 		<Collapsible
 			title="Objects"
-			initialExpanded
 			sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}
 		>
 			{objects.map((o, i) => (

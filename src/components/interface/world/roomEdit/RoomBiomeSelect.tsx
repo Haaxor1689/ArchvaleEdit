@@ -32,7 +32,19 @@ const RoomBiomeSelect = ({ index }: Props) => {
 				size="small"
 				value={value}
 				onChange={onChange}
-				renderValue={s => Biomes[s]?.name ?? `Unknown #${s}`}
+				renderValue={s => (
+					<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+						<Sprite
+							img={getAsset(
+								'biomes',
+								`s_map_texture_${Biomes[s]?.sprite ?? 'empty'}`
+							)}
+							width={6}
+							sx={{ mr: 2 }}
+						/>
+						{Biomes[s].name ?? `Unknown #${s}`}
+					</Box>
+				)}
 				sx={{ mt: '0 !important' }}
 				fullWidth
 			>

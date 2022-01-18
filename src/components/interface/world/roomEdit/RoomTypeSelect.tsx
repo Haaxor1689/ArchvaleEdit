@@ -5,6 +5,7 @@ import Sprite from 'components/Sprite';
 import { Biomes } from 'utils/data';
 import useShowUnused from 'utils/useShowUnused';
 import RoomTypes from 'utils/data/roomTypes';
+import clear from 'assets/world/icons/clear.png';
 
 type Props = {
 	index: number;
@@ -38,7 +39,16 @@ const RoomTypeSelect = ({ index }: Props) => {
 				size="small"
 				value={value}
 				onChange={onChange}
-				renderValue={s => RoomTypes[s]?.name ?? `Unknown #${s}`}
+				renderValue={s => (
+					<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+						<Sprite
+							img={RoomTypes[s].sprite ?? clear}
+							width={6}
+							sx={{ mr: 2 }}
+						/>
+						{RoomTypes[s].name ?? `Unknown #${s}`}
+					</Box>
+				)}
 				sx={{ mt: '0 !important' }}
 				fullWidth
 			>
@@ -59,7 +69,7 @@ const RoomTypeSelect = ({ index }: Props) => {
 						>
 							<Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
 								<Sprite
-									img={RoomTypes[type as never].sprite}
+									img={RoomTypes[type as never].sprite ?? clear}
 									width={6}
 									sx={{ mr: 2 }}
 								/>

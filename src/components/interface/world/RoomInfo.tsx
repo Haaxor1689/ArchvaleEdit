@@ -20,6 +20,7 @@ import RespawnSwitch from './roomEdit/RespawnSwitch';
 import ExplorationSwitch from './roomEdit/ExplorationSwitch';
 import DungeonRoomLoot from './roomEdit/DungeonRoomLoot';
 import DungeonRoomLocks from './roomEdit/DungeonRoomLocks';
+import ObjectiveCompleteSwitch from './roomEdit/ObjectiveCompleteSwitch';
 
 const RoomInfo = () => {
 	const { selected, rooms, map } = useMapContext();
@@ -91,7 +92,8 @@ const RoomInfo = () => {
 				}}
 			>
 				<ExplorationSwitch />
-				{room.difficulty >= 0 && <DifficultySwitch />}
+				{map === -1 && <DifficultySwitch />}
+				{map === -1 && <ObjectiveCompleteSwitch />}
 				<RespawnSwitch />
 			</Box>
 

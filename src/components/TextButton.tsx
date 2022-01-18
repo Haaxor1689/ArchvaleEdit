@@ -8,6 +8,7 @@ const TextButton: FC<IconButtonProps> = ({ children, sx, ...props }) => (
 			background: t => `${t.palette.primary.main}66`,
 			alignSelf: 'flex-start',
 			color: 'text.primary',
+			p: 1,
 			...sx
 		}}
 	>
