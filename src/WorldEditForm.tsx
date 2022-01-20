@@ -11,17 +11,16 @@ import worldTab from 'assets/worldTab.png';
 import { downloadBlob } from 'utils';
 import { World } from 'utils/types';
 import { ExperimentalVersionName } from 'utils/useIsExperimental';
-
-import Form from './form/Form';
-import BadgeTab from './interface/badges/BadgeTab';
-import InventoryTab from './interface/inventory/InventoryTab';
-import CollectionTab from './interface/inventory/CollectionTab';
-import CharacterTab from './interface/character/CharacterTab';
-import ProgressionTab from './interface/progression/ProgressionTab';
-import Tab from './interface/Tab';
-import WorldTab from './interface/world/WorldTab';
-import Header from './Header';
-import { PlayerProvider } from './PlayerContext';
+import Form from 'components/form/Form';
+import BadgeTab from 'components/interface/badges/BadgeTab';
+import InventoryTab from 'components/interface/inventory/InventoryTab';
+import CollectionTab from 'components/interface/inventory/CollectionTab';
+import CharacterTab from 'components/interface/character/CharacterTab';
+import ProgressionTab from 'components/interface/progression/ProgressionTab';
+import Tab from 'components/interface/Tab';
+import WorldTab from 'components/interface/world/WorldTab';
+import Header from 'components/Header';
+import { PlayerProvider } from 'components/PlayerContext';
 
 const tabs = [
 	{

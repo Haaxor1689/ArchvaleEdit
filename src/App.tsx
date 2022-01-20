@@ -8,12 +8,12 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import FileLoadForm from 'components/FIleLoadForm';
-import WorldEditForm from 'components/WorldEditForm';
 import { World } from 'utils/types';
 import useThemeSpacing from 'utils/useThemeSpacing';
 import * as serviceWorker from 'serviceWorkerRegistration';
 
+import FileLoadForm from './FileLoadForm';
+import WorldEditForm from './WorldEditForm';
 import theme from './utils/theme';
 
 const App = () => {
