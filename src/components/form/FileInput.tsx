@@ -24,7 +24,12 @@ const FileInput: FC<Props> = ({
 		input: { value, onChange },
 		meta
 	} = useField<File | null>(id, {
-		subscription: { value: true, error: true, touched: true },
+		subscription: {
+			value: true,
+			error: true,
+			submitError: true,
+			touched: true
+		},
 		type: 'file',
 		parse: v => v
 	});
@@ -71,12 +76,14 @@ const FileInput: FC<Props> = ({
 						: 'No file selected'}
 				</Typography>
 			</Box>
-			{((meta.error && meta.touched) || helperText) && (
+			{(((meta.error || meta.submitError) && meta.touched) || helperText) && (
 				<FormHelperText
-					error={meta.error && meta.touched}
+					error={(meta.error || meta.submitError) && meta.touched}
 					sx={{ mt: 1, textAlign: 'center' }}
 				>
-					{meta.error && meta.touched ? meta.error : helperText}
+					{(meta.error || meta.submitError) && meta.touched
+						? meta.submitError || meta.error
+						: helperText}
 				</FormHelperText>
 			)}
 		</Box>
