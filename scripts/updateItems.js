@@ -32,7 +32,7 @@ const getDamageTooltip = (item, attr = 'damage') => {
 	if (!item.weapon || !item.weapon.projectiles.filter(p => p[attr]).length)
 		return undefined;
 	const mult =
-		(!item.weapon.firemode !== 'cycle'
+		(item.weapon.firemode !== 'cycle'
 			? item.weapon.projectiles.filter(p => p[attr]).length
 			: 1) *
 		(item.weapon.shots ? item.weapon.shots : 1) *
