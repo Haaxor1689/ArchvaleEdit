@@ -728,7 +728,7 @@
   subtype: Magical
   category: Tome
   stats:
-    damage: 40x2
+    damage: '40'
     rate: 5.5
     range: 200
   unique: true
@@ -812,7 +812,7 @@
   subtype: Magical
   category: Staff
   stats:
-    damage: 150x2
+    damage: '150'
     rate: 3
     range: 140
     ar_pen: 2
@@ -1544,7 +1544,7 @@
   subtype: Magical
   category: Scepter
   stats:
-    damage: 90x4
+    damage: 90x2
     rate: 3
     range: 120
 - id: 341
