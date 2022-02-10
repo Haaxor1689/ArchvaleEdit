@@ -841,6 +841,139 @@
       x: 1
       'y': 1
       flags: '00000'
+- id: 10
+  name: Challenge room 3
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 11
+  name: Challenge room 4
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 12
+  name: Challenge room 5
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 13
+  name: Challenge room 6
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 14
+  name: Challenge room 7
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 15
+  name: Challenge room 8
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 16
+  name: Challenge room 9
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 17
+  name: Challenge room 10
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 18
+  name: Challenge room 11
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 19
+  name: Challenge room 12
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 20
+  name: Challenge room 13
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 21
+  name: Challenge room 14
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 22
+  name: Challenge room 15
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 23
+  name: Challenge room 16
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 24
+  name: Challenge room 17
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 25
+  name: Challenge room 18
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 26
+  name: Challenge room 19
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 27
+  name: Challenge room 20
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
+- id: 28
+  name: Challenge room 21
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
 - id: 29
   name: Tutorial
   rooms:
@@ -880,3 +1013,37 @@
       x: 5
       'y': 0
       flags: 0C000
+- id: 30
+  name: Ending
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 3
+      flags: '0F000'
+    - room_id: 1
+      x: 1
+      'y': 4
+      flags: '0F000'
+    - room_id: 2
+      x: 1
+      'y': 5
+      flags: '00000'
+    - room_id: 3
+      x: 1
+      'y': 6
+      flags: '0F000'
+    - room_id: 4
+      x: 1
+      'y': 7
+      flags: '0A000'
+    - room_id: 5
+      x: 1
+      'y': 8
+      flags: '0F000'
+- id: 31
+  name: Dps room
+  rooms:
+    - room_id: 0
+      x: 1
+      'y': 1
+      flags: '00000'
