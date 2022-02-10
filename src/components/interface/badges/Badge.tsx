@@ -80,7 +80,6 @@ const Badge = ({ unlocked, active, index, onClick, setHover }: Props) => {
 				sx={{
 					'height': t => t.spacing(19),
 					'width': t => t.spacing(18),
-					'borderRadius': 0,
 					'background': `url(${tile})`,
 					'backgroundSize': 'contain',
 					':focus-visible,:hover': {

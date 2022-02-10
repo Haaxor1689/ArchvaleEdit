@@ -63,7 +63,6 @@ const WorldState = ({
 							'display': 'flex',
 							'alignItems': 'center',
 							'justifyContent': 'center',
-							'borderRadius': 0,
 							'height': t => t.spacing(20),
 							':focus-visible,:hover': {
 								animation: pulseAnimation

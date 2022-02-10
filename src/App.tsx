@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { World } from 'utils/types';
 import useThemeSpacing from 'utils/useThemeSpacing';
 import * as serviceWorker from 'serviceWorkerRegistration';
+import NewGameForm from 'NewGameForm';
 
 import FileLoadForm from './FileLoadForm';
 import WorldEditForm from './WorldEditForm';
@@ -51,6 +52,8 @@ const App = () => {
 			>
 				{!save ? (
 					<FileLoadForm setWorldData={setSave} />
+				) : !save[0] ? (
+					<NewGameForm setWorldData={setSave} />
 				) : (
 					<WorldEditForm save={save} reset={() => setSave(undefined)} />
 				)}

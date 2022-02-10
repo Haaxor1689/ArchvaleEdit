@@ -132,7 +132,6 @@ const ItemSlot = ({ item, onClick, variant = 'item', hideTooltip }: Props) => {
 					'position': 'relative',
 					'height': t => t.spacing(19),
 					'width': t => t.spacing(18),
-					'borderRadius': 0,
 					'background': `url(${
 						isOccupied
 							? getItemIcon(variant, isOccupied)

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
 import FileInput from 'components/form/FileInput';
 import Sprite from 'components/Sprite';
@@ -95,7 +95,13 @@ const FileLoadForm = ({ setWorldData }: Props) => (
 			</Typography>
 			.
 		</Typography>
-		<FileInput id="file" label="Select" acceptFileTypes={['.avsv']} />
+		<Button
+			variant="contained"
+			onClick={() => setWorldData(['', undefined as never])}
+		>
+			New game
+		</Button>
+		<FileInput id="file" label="Load game" acceptFileTypes={['.avsv']} />
 		<AutoSubmit />
 	</Form>
 );
