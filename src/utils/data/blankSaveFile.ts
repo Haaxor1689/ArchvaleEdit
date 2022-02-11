@@ -1,11 +1,9 @@
 import { Dungeons } from 'utils/data';
 import { World } from 'utils/types';
 
-import GeneratedMaps from './generatedMaps';
+import { MapTemplate } from './generatedMaps';
 
-const BlankSaveFile = (
-	map = Math.floor(Math.random() * GeneratedMaps.length)
-): World => ({
+const BlankSaveFile = (map: MapTemplate): World => ({
 	difficulty: 1,
 	mp: 0,
 	version: '1.2.pr.0.3',
@@ -14,8 +12,8 @@ const BlankSaveFile = (
 	active_dungeon: 29,
 	dungeon_data: Dungeons.map(d => ({
 		dungeon_id: d.id,
-		last_x: -1,
-		last_y: -1,
+		last_x: d.id === 29 ? 1 : -1,
+		last_y: d.id === 29 ? 3 : -1,
 		exploration_data: d.rooms.map(() => '0').join(''),
 		keys: 0,
 		keys_silver: 0,
@@ -27,8 +25,8 @@ const BlankSaveFile = (
 		hearts: 0,
 		map: 0
 	})),
-	world: { rooms: GeneratedMaps[map] },
-	player_respawn: [0, 44, 67],
+	world: { rooms: map.rooms },
+	player_respawn: [0, map.spawn_x, map.spawn_y],
 	npst: {},
 	player_coins: 0,
 	player_coins_banked: 0,

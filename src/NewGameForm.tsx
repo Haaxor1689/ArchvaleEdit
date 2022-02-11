@@ -1,24 +1,43 @@
 import { Box, Button, IconButton, Typography } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Sprite from 'components/Sprite';
 import { getAsset, StrokeTextShadow } from 'utils';
 import BlankSaveFile from 'utils/data/blankSaveFile';
 import { World } from 'utils/types';
+import GeneratedMaps from 'utils/data/generatedMaps';
 
 type Props = {
 	setWorldData: (save?: [string, World]) => void;
 };
 
 const NewGameForm = ({ setWorldData }: Props) => {
-	const [slot, setSlot] = useState<number>(-1);
-	const [mp, setMp] = useState<number>(-1);
-	const [difficulty, setDifficulty] = useState<number>(-1);
+	const [slot, setSlot] = useState('');
+	const [mp, setMp] = useState(-1);
+	const [difficulty, setDifficulty] = useState(-1);
+
+	const [shiftDown, setShiftDown] = useState(false);
+
 	const createNewGame = (map: number) =>
 		setWorldData([
 			`world${slot}.avsv`,
-			{ ...BlankSaveFile(map), mp, difficulty }
+			{ ...BlankSaveFile(GeneratedMaps[map]), mp, difficulty }
 		]);
+
+	useEffect(() => {
+		const onKeyDown = (e: KeyboardEvent) =>
+			e.key === 'Shift' && setShiftDown(true);
+		const onKeyUp = (e: KeyboardEvent) =>
+			e.key === 'Shift' && setShiftDown(false);
+
+		document.addEventListener('keydown', onKeyDown);
+		document.addEventListener('keyup', onKeyUp);
+		return () => {
+			document.removeEventListener('keydown', onKeyDown);
+			document.removeEventListener('keyup', onKeyUp);
+		};
+	}, []);
+
 	return (
 		<Box
 			sx={{
@@ -35,9 +54,10 @@ const NewGameForm = ({ setWorldData }: Props) => {
 				component="h2"
 				variant="h3"
 				color="#da6580"
+				textAlign="center"
 				sx={{ mb: 2, textShadow: StrokeTextShadow }}
 			>
-				{slot === -1
+				{!slot
 					? 'Select save slot'
 					: mp === -1
 					? 'Select a mode'
@@ -45,11 +65,15 @@ const NewGameForm = ({ setWorldData }: Props) => {
 					? 'Select a difficulty'
 					: 'Select world template'}
 			</Typography>
-			{slot === -1 ? (
+			{!slot ? (
 				<Box sx={{ display: 'flex', gap: 2 }}>
 					{[...Array(5).keys()].map(i => (
-						<Button key={i} onClick={() => setSlot(i + 1)} variant="outlined">
-							{i + 1}
+						<Button
+							key={i}
+							onClick={() => setSlot(`${i + 1}${shiftDown ? '_testing' : ''}`)}
+							variant="outlined"
+						>
+							{`${i + 1}${shiftDown ? '_testing' : ''}`}
 						</Button>
 					))}
 				</Box>
@@ -77,22 +101,36 @@ const NewGameForm = ({ setWorldData }: Props) => {
 			) : (
 				<Box
 					sx={{
-						display: 'flex',
+						display: 'grid',
 						justifyContent: 'center',
-						flexWrap: 'wrap',
+						gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
 						gap: 4
 					}}
 				>
-					{[...Array(5).keys()].map(i => (
+					{GeneratedMaps.map((m, i) => (
 						<IconButton
 							key={i}
 							onClick={() => createNewGame(i)}
-							sx={{ overflow: 'hidden' }}
+							sx={{
+								'position': 'relative',
+								'overflow': 'hidden',
+								'minHeight': t => t.spacing(50),
+								'p': 3,
+								':hover > span': { opacity: 0 }
+							}}
 						>
-							<Sprite
-								img={getAsset('mapgen', `s_mapgen_test_${i}`)}
-								sx={{ mx: -16, my: -22 }}
-							/>
+							{m.sprite && <Sprite img={getAsset('mapgen', m.sprite)} />}
+							<Typography
+								variant="h3"
+								component="span"
+								sx={{
+									position: 'absolute',
+									transition: 'opacity .3s ease-in-out',
+									textShadow: StrokeTextShadow
+								}}
+							>
+								{m.name}
+							</Typography>
 						</IconButton>
 					))}
 				</Box>
