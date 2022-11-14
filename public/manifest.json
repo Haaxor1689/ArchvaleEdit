@@ -18,8 +18,6 @@
 			"sizes": "512x512"
 		}
 	],
-	"start_url": "/ArchvaleEdit/",
-	"scope": "/ArchvaleEdit/",
 	"display": "fullscreen",
 	"background_color": "#262b44",
 	"theme_color": "#262b44"

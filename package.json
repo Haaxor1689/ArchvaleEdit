@@ -1,7 +1,7 @@
 {
 	"name": "archvale-edit",
 	"version": "0.1.0",
-	"homepage": "https://haaxor1689.github.io/ArchvaleEdit",
+	"homepage": "https://archvale-edit.haaxor1689.dev",
 	"private": true,
 	"dependencies": {
 		"@emotion/react": "^11.4.1",
